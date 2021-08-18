@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "scanline_effect.h"
@@ -17,6 +18,10 @@
 #include "text_window.h"
 #include "text_window_graphics.h"
 #include "constants/songs.h"
+
+#include "load_save.h"
+#include "new_game.h"
+#include "m4a.h"
 
 enum MainMenuType
 {
@@ -155,6 +160,15 @@ static void VBlankCB_MainMenu(void)
 
 void CB2_InitMainMenu(void)
 {
+	SeedRngAndSetTrainerId();
+    SetSaveBlocksPointers();
+    ResetMenuAndMonGlobals();
+    Save_ResetSaveCounters();
+    Save_LoadGameData(SAVE_NORMAL);
+    if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_INVALID)
+        Sav2_ClearSetDefault();
+    SetPokemonCryStereo(gSaveBlock2Ptr->optionsSound);
+    InitHeap(gHeap, HEAP_SIZE);
     MainMenuGpuInit(1);
 }
 
@@ -526,7 +540,7 @@ static void Task_ReturnToTileScreen(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
-        SetMainCallback2(CB2_InitTitleScreen);
+        SetMainCallback2(CB2_InitMainMenu);
         DestroyTask(taskId);
     }
 }

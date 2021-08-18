@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "task.h"
@@ -19,6 +20,8 @@
 #include "strings.h"
 #include "constants/songs.h"
 #include "constants/union_room.h"
+
+#include "main_menu.h"
 
 EWRAM_DATA u8 sDownArrowCounterAndYCoordIdx[8] = {};
 EWRAM_DATA bool8 gGiftIsFromEReader = FALSE;
@@ -458,7 +461,7 @@ void MainCB_FreeAllBuffersAndReturnToInitTitleScreen(void)
     Free(GetBgTilemapBuffer(1));
     Free(GetBgTilemapBuffer(2));
     Free(GetBgTilemapBuffer(3));
-    SetMainCallback2(CB2_InitTitleScreen);
+    SetMainCallback2(CB2_InitMainMenu);
 }
 
 void PrintMysteryGiftOrEReaderTopMenu(bool8 mg_or_ereader, bool32 usePickOkCancel)
