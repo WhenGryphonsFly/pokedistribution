@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "constants/global.h"
 #include "constants/flags.h"
 #include "constants/event_objects.h"
@@ -1357,5 +1358,4 @@ Text_TestMsg:: @ 81ACD45
 	.include "data/scripts/trainer_tower.inc"
 	.include "data/scripts/test.inc"
 	.include "data/text/save.inc"
-	.include "data/text/new_game_intro.inc"
 	.include "data/text/pokedude.inc"
