@@ -481,7 +481,7 @@ static void Task_ExecuteMainMenuSelection(u8 taskId)
         switch (menuAction)
         {
         default:
-        case MAIN_MENU_NEWGAME:
+        /*case MAIN_MENU_NEWGAME:
             gUnknown_2031DE0 = 0;
             FreeAllWindowBuffers();
             DestroyTask(taskId);
@@ -493,7 +493,9 @@ static void Task_ExecuteMainMenuSelection(u8 taskId)
             gUnknown_2031DE0 = 0;
             FreeAllWindowBuffers();
             TrySetUpQuestLogScenes_ElseContinueFromSave(taskId);
-            break;
+            break;*/
+		case MAIN_MENU_NEWGAME:
+		case MAIN_MENU_CONTINUE:
         case MAIN_MENU_MYSTERYGIFT:
             SetMainCallback2(c2_mystery_gift);
             HelpSystem_Disable();
