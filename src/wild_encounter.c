@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "random.h"
 #include "wild_encounter.h"
@@ -65,7 +66,7 @@ void DisableWildEncounters(bool8 state)
 
 static u8 ChooseWildMonIndex_Land(void)
 {
-    u8 rand = Random() % ENCOUNTER_CHANCE_LAND_MONS_TOTAL;
+    /*u8 rand = Random() % ENCOUNTER_CHANCE_LAND_MONS_TOTAL;
 
     if (rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_0)
         return 0;
@@ -90,12 +91,13 @@ static u8 ChooseWildMonIndex_Land(void)
     else if (rand >= ENCOUNTER_CHANCE_LAND_MONS_SLOT_9 && rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_10)
         return 10;
     else
-        return 11;
+        return 11;*/
+	return 0;
 }
 
 static u8 ChooseWildMonIndex_WaterRock(void)
 {
-    u8 rand = Random() % ENCOUNTER_CHANCE_WATER_MONS_TOTAL;
+    /*u8 rand = Random() % ENCOUNTER_CHANCE_WATER_MONS_TOTAL;
 
     if (rand < ENCOUNTER_CHANCE_WATER_MONS_SLOT_0)
         return 0;
@@ -106,7 +108,9 @@ static u8 ChooseWildMonIndex_WaterRock(void)
     else if (rand >= ENCOUNTER_CHANCE_WATER_MONS_SLOT_2 && rand < ENCOUNTER_CHANCE_WATER_MONS_SLOT_3)
         return 3;
     else
-        return 4;
+        return 4;*/
+
+	return 0;
 }
 
 enum
@@ -118,7 +122,7 @@ enum
 
 static u8 ChooseWildMonIndex_Fishing(u8 rod)
 {
-    u8 wildMonIndex = 0;
+    /*u8 wildMonIndex = 0;
     u8 rand = Random() % max(max(ENCOUNTER_CHANCE_FISHING_MONS_OLD_ROD_TOTAL, ENCOUNTER_CHANCE_FISHING_MONS_GOOD_ROD_TOTAL),
                              ENCOUNTER_CHANCE_FISHING_MONS_SUPER_ROD_TOTAL);
 
@@ -151,7 +155,8 @@ static u8 ChooseWildMonIndex_Fishing(u8 rod)
             wildMonIndex = 9;
         break;
     }
-    return wildMonIndex;
+    return wildMonIndex;*/
+	return 0;
 }
 
 static u8 ChooseWildMonLevel(const struct WildPokemon * info)
@@ -177,7 +182,7 @@ static u8 ChooseWildMonLevel(const struct WildPokemon * info)
 
 static u16 GetCurrentMapWildMonHeaderId(void)
 {
-    u16 i;
+    /*u16 i;
 
     for (i = 0; ; i++)
     {
@@ -202,14 +207,14 @@ static u16 GetCurrentMapWildMonHeaderId(void)
                 break;
             return i;
         }
-    }
+    }*/
 
     return -1;
 }
 
 static bool8 UnlockedTanobyOrAreNotInTanoby(void)
 {
-    if (FlagGet(FLAG_SYS_UNLOCKED_TANOBY_RUINS))
+    /*if (FlagGet(FLAG_SYS_UNLOCKED_TANOBY_RUINS))
         return TRUE;
     if (gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(SEVEN_ISLAND_TANOBY_RUINS_DILFORD_CHAMBER))
         return TRUE;
@@ -221,13 +226,13 @@ static bool8 UnlockedTanobyOrAreNotInTanoby(void)
     ||  gSaveBlock1Ptr->location.mapNum == MAP_NUM(SEVEN_ISLAND_TANOBY_RUINS_RIXY_CHAMBER)
     ||  gSaveBlock1Ptr->location.mapNum == MAP_NUM(SEVEN_ISLAND_TANOBY_RUINS_VIAPOIS_CHAMBER)
     ))
-        return TRUE;
+        return TRUE;*/
     return FALSE;
 }
 
 static void GenerateWildMon(u16 species, u8 level, u8 slot)
 {
-    u32 personality;
+    /*u32 personality;
     s8 chamber;
     ZeroEnemyPartyMons();
     if (species != SPECIES_UNOWN)
@@ -239,7 +244,7 @@ static void GenerateWildMon(u16 species, u8 level, u8 slot)
         chamber = gSaveBlock1Ptr->location.mapNum - MAP_NUM(SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER);
         personality = GenerateUnownPersonalityByLetter(sUnownLetterSlots[chamber][slot]);
         CreateMon(&gEnemyParty[0], species, level, 32, TRUE, personality, FALSE, 0);
-    }
+    }*/
 }
 
 static u32 GenerateUnownPersonalityByLetter(u8 letter)
