@@ -1,4 +1,5 @@
-#include "global.h"
+//[[!!!]]
+/*#include "global.h"
 #include "gflib.h"
 #include "credits.h"
 #include "task.h"
@@ -1433,4 +1434,4 @@ static void LoadPlayerOrRivalSprite(u8 whichScene)
         gSprites[data->groundSpriteId].oam.paletteNum = 0xE;
         gSprites[data->groundSpriteId].subpriority = 1;
     }
-}
+}*/

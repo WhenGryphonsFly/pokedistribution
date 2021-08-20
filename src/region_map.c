@@ -1,4 +1,5 @@
-#include "global.h"
+//[[!!!]]
+/*#include "global.h"
 #include "gflib.h"
 #include "scanline_effect.h"
 #include "task.h"
@@ -4474,4 +4475,4 @@ static void SetFlyWarpDestination(u16 mapsec)
         SetWarpDestinationToMapWarp(sMapFlyDestinations[idx][0], sMapFlyDestinations[idx][1], -1);
     }
     ReturnToFieldFromFlyMapSelect();
-}
+}*/

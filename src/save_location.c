@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "save_location.h"
 #include "constants/maps.h"
@@ -15,7 +16,7 @@ static bool32 IsCurMapInLocationList(const u16 *list)
     return FALSE;
 }
 
-static const u16 sSaveLocationPokeCenterList[] = 
+/*static const u16 sSaveLocationPokeCenterList[] = 
 {
     MAP_VIRIDIAN_CITY_POKEMON_CENTER_1F, MAP_VIRIDIAN_CITY_POKEMON_CENTER_2F,
     MAP_PEWTER_CITY_POKEMON_CENTER_1F, MAP_PEWTER_CITY_POKEMON_CENTER_2F,
@@ -41,11 +42,11 @@ static const u16 sSaveLocationPokeCenterList[] =
     MAP_BATTLE_COLOSSEUM_4P, 
     MAP_UNION_ROOM,
     0xFFFF,
-};
+};*/
 
 bool32 IsCurMapPokeCenter(void)
 {
-    return IsCurMapInLocationList(sSaveLocationPokeCenterList);
+    return FALSE;
 }
 
 static const u16 sSaveLocationReloadLocList[] = { 0xFFFF };

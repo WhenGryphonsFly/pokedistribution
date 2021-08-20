@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "event_data.h"
@@ -1707,7 +1708,7 @@ static const bool8 sHelpSystemContextTopicFlags[HELPCONTEXT_COUNT + 1][TOPIC_COU
     [HELPCONTEXT_COUNT]                 = {}
 };
 
-static const u16 sMartMaps[] = {
+/*static const u16 sMartMaps[] = {
     MAP_VIRIDIAN_CITY_MART,
     MAP_PEWTER_CITY_MART,
     MAP_CERULEAN_CITY_MART,
@@ -1759,7 +1760,7 @@ static const u8 sDungeonMaps[][3] = {
     { MAP_GROUP(FOUR_ISLAND_ICEFALL_CAVE_ENTRANCE), MAP_NUM(FOUR_ISLAND_ICEFALL_CAVE_ENTRANCE), 4 },
     { MAP_GROUP(SIX_ISLAND_ALTERING_CAVE), MAP_NUM(SIX_ISLAND_ALTERING_CAVE), 1 },
     { MAP_GROUP(SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER), MAP_NUM(SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER), 7 }
-};
+};*/
 
 void SetHelpContextDontCheckBattle(u8 contextId)
 {

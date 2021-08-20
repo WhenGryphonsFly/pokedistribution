@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "quest_log.h"
@@ -831,7 +832,7 @@ static const u8 sElevatorWindowAnimDuration[] = {
     27
 };
 
-void GetElevatorFloor(void)
+/*void GetElevatorFloor(void)
 {
     u16 floor = 4;
     if (gSaveBlock1Ptr->dynamicWarp.mapGroup == MAP_GROUP(ROCKET_HIDEOUT_B1F))
@@ -924,9 +925,9 @@ void GetElevatorFloor(void)
         }
     }
     VarSet(VAR_ELEVATOR_FLOOR, floor);
-}
+}*/
 
-u16 InitElevatorFloorSelectMenuPos(void)
+/*u16 InitElevatorFloorSelectMenuPos(void)
 {
     sElevatorScroll = 0;
     sElevatorCursorPos = 0;
@@ -1042,7 +1043,7 @@ u16 InitElevatorFloorSelectMenuPos(void)
         }
     }
     return sElevatorCursorPos;
-}
+}*/
 
 void AnimateElevator(void)
 {
@@ -1768,7 +1769,7 @@ bool8 DoesPlayerPartyContainSpecies(void)
     return FALSE;
 }
 
-static const u8 sMartMaps[][3] = {
+/*static const u8 sMartMaps[][3] = {
     {MAP(VIRIDIAN_CITY_MART),   1},
     {MAP(PEWTER_CITY_MART),     3},
     {MAP(CERULEAN_CITY_MART),   1},
@@ -1781,7 +1782,7 @@ static const u8 sMartMaps[][3] = {
     {MAP(FOUR_ISLAND_MART),     1},
     {MAP(SEVEN_ISLAND_MART),    1},
     {MAP(SIX_ISLAND_MART),      1}
-};
+};*/
 
 u8 GetMartClerkObjectId(void)
 {
@@ -1799,7 +1800,7 @@ void SetUsedPkmnCenterQuestLogEvent(void)
     SetQuestLogEvent(QL_EVENT_USED_PKMN_CENTER, NULL);
 }
 
-static const struct {
+/*static const struct {
     u16 inside_grp;
     u16 inside_num;
     u16 outside_grp;
@@ -1856,7 +1857,7 @@ static const struct {
     [QL_LOCATION_VICTORY_ROAD_2]     = {MAP(VICTORY_ROAD_2F),                       MAP(ROUTE23)},
     [QL_LOCATION_PKMN_LEAGUE]        = {MAP(INDIGO_PLATEAU_POKEMON_CENTER_1F),      MAP(INDIGO_PLATEAU_EXTERIOR)},
     [QL_LOCATION_CERULEAN_CAVE]      = {MAP(CERULEAN_CAVE_1F),                      MAP(CERULEAN_CITY)}
-};
+};*/
 
 void QuestLog_CheckDepartingIndoorsMap(void)
 {
@@ -1880,7 +1881,7 @@ struct QuestLogDepartedData {
     u8 entrance_id;
 };
 
-void QuestLog_TryRecordDepartedLocation(void)
+/*void QuestLog_TryRecordDepartedLocation(void)
 {
     s16 x, y;
     struct QuestLogDepartedData event_buffer;
@@ -1942,7 +1943,7 @@ void QuestLog_TryRecordDepartedLocation(void)
             }
         }
     }
-}
+}*/
 
 u16 BattleCardAction(void)
 {
@@ -2009,7 +2010,7 @@ bool8 IsDestinationBoxFull(void)
     return FALSE;
 }
 
-const u16 sPokeCenter1FMaps[] = {
+/*const u16 sPokeCenter1FMaps[] = {
     MAP_VIRIDIAN_CITY_POKEMON_CENTER_1F,
     MAP_PEWTER_CITY_POKEMON_CENTER_1F,
     MAP_CERULEAN_CITY_POKEMON_CENTER_1F,
@@ -2031,9 +2032,9 @@ const u16 sPokeCenter1FMaps[] = {
     MAP_SIX_ISLAND_POKEMON_CENTER_1F,
     MAP_UNION_ROOM,
     MAP_UNDEFINED
-};
+};*/
 
-bool8 UsedPokemonCenterWarp(void)
+/*bool8 UsedPokemonCenterWarp(void)
 {
     s32 i;
     u16 mapno = (gLastUsedWarp.mapGroup << 8) + gLastUsedWarp.mapNum;
@@ -2043,7 +2044,7 @@ bool8 UsedPokemonCenterWarp(void)
             return TRUE;
     }
     return FALSE;
-}
+}*/
 
 bool8 BufferTMHMMoveName(void)
 {
@@ -2122,7 +2123,7 @@ static const u8 sChampionRoomLightingTimers[] = {
      8
 };
 
-void DoPokemonLeagueLightingEffect(void)
+/*void DoPokemonLeagueLightingEffect(void)
 {
     u8 taskId = CreateTask(Task_RunPokemonLeagueLightingEffect, 8);
     s16 *data = gTasks[taskId].data;
@@ -2147,9 +2148,9 @@ void DoPokemonLeagueLightingEffect(void)
         data[1] = 0;
         Fieldmap_ApplyGlobalTintToPaletteSlot(7, 1);
     }
-}
+}*/
 
-static void Task_RunPokemonLeagueLightingEffect(u8 taskId)
+/*static void Task_RunPokemonLeagueLightingEffect(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
     if (!gPaletteFade.active
@@ -2174,9 +2175,9 @@ static void Task_RunPokemonLeagueLightingEffect(u8 taskId)
         }
         Fieldmap_ApplyGlobalTintToPaletteSlot(7, 1);
     }
-}
+}*/
 
-static void Task_CancelPokemonLeagueLightingEffect(u8 taskId)
+/*static void Task_CancelPokemonLeagueLightingEffect(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
     if (FlagGet(FLAG_TEMP_4) != FALSE)
@@ -2196,7 +2197,7 @@ static void Task_CancelPokemonLeagueLightingEffect(u8 taskId)
         }
         DestroyTask(taskId);
     }
-}
+}*/
 
 void StopPokemonLeagueLightingEffectTask(void)
 {
@@ -2289,7 +2290,7 @@ bool8 HasLearnedAllMovesFromCapeBrinkTutor(void)
         return FALSE;
 }
 
-bool8 CutMoveRuinValleyCheck(void)
+/*bool8 CutMoveRuinValleyCheck(void)
 {
     if (FlagGet(FLAG_USED_CUT_ON_RUIN_VALLEY_BRAILLE) != TRUE
      && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SIX_ISLAND_RUIN_VALLEY)
@@ -2301,7 +2302,7 @@ bool8 CutMoveRuinValleyCheck(void)
         return TRUE;
     else
         return FALSE;
-}
+}*/
 
 void CutMoveOpenDottedHoleDoor(void)
 {
@@ -2431,7 +2432,7 @@ static void Task_WaitDeoxysFieldEffect(u8 taskId)
     }
 }
 
-void IncrementBirthIslandRockStepCount(void)
+/*void IncrementBirthIslandRockStepCount(void)
 {
     u16 count = VarGet(VAR_DEOXYS_INTERACTION_STEP_COUNTER);
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(BIRTH_ISLAND_EXTERIOR) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(BIRTH_ISLAND_EXTERIOR))
@@ -2442,7 +2443,7 @@ void IncrementBirthIslandRockStepCount(void)
         else
             VarSet(VAR_DEOXYS_INTERACTION_STEP_COUNTER, count);
     }
-}
+}*/
 
 void SetDeoxysTrianglePalette(void)
 {
@@ -2463,13 +2464,13 @@ bool8 IsBadEggInParty(void)
     return FALSE;
 }
 
-bool8 IsPlayerNotInTrainerTowerLobby(void)
+/*bool8 IsPlayerNotInTrainerTowerLobby(void)
 {
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(TRAINER_TOWER_LOBBY) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRAINER_TOWER_LOBBY))
         return FALSE;
     else
         return TRUE;
-}
+}*/
 
 void BrailleCursorToggle(void)
 {

@@ -1,4 +1,5 @@
-static const struct HealLocation sSpawnPoints[] =
+//[[!!!]]
+/*static const struct HealLocation sSpawnPoints[] =
 {
     [SPAWN_PALLET_TOWN - 1] = {MAP_GROUP(PALLET_TOWN), MAP_NUM(PALLET_TOWN), 6, 8},
     [SPAWN_VIRIDIAN_CITY - 1] = {MAP_GROUP(VIRIDIAN_CITY), MAP_NUM(VIRIDIAN_CITY), 26, 27},
@@ -20,9 +21,9 @@ static const struct HealLocation sSpawnPoints[] =
     [SPAWN_FIVE_ISLAND - 1] = {MAP_GROUP(FIVE_ISLAND), MAP_NUM(FIVE_ISLAND), 18, 7},
     [SPAWN_SEVEN_ISLAND - 1] = {MAP_GROUP(SEVEN_ISLAND), MAP_NUM(SEVEN_ISLAND), 12, 4},
     [SPAWN_SIX_ISLAND - 1] = {MAP_GROUP(SIX_ISLAND), MAP_NUM(SIX_ISLAND), 11, 12},
-};
+};*/
 
-static const u16 sWhiteoutRespawnHealCenterMapIdxs[][2] =
+/*static const u16 sWhiteoutRespawnHealCenterMapIdxs[][2] =
 {
     [SPAWN_PALLET_TOWN - 1] = {MAP_GROUP(PALLET_TOWN_PLAYERS_HOUSE_1F), MAP_NUM(PALLET_TOWN_PLAYERS_HOUSE_1F)},
     [SPAWN_VIRIDIAN_CITY - 1] = {MAP_GROUP(VIRIDIAN_CITY_POKEMON_CENTER_1F), MAP_NUM(VIRIDIAN_CITY_POKEMON_CENTER_1F)},
@@ -44,9 +45,9 @@ static const u16 sWhiteoutRespawnHealCenterMapIdxs[][2] =
     [SPAWN_FIVE_ISLAND - 1] = {MAP_GROUP(FIVE_ISLAND_POKEMON_CENTER_1F), MAP_NUM(FIVE_ISLAND_POKEMON_CENTER_1F)},
     [SPAWN_SEVEN_ISLAND - 1] = {MAP_GROUP(SEVEN_ISLAND_POKEMON_CENTER_1F), MAP_NUM(SEVEN_ISLAND_POKEMON_CENTER_1F)},
     [SPAWN_SIX_ISLAND - 1] = {MAP_GROUP(SIX_ISLAND_POKEMON_CENTER_1F), MAP_NUM(SIX_ISLAND_POKEMON_CENTER_1F)},
-};
+};*/
 
-static const u8 sWhiteoutRespawnHealerNpcIds[] =
+/*static const u8 sWhiteoutRespawnHealerNpcIds[] =
 {
     [SPAWN_PALLET_TOWN - 1] = 1,
     [SPAWN_VIRIDIAN_CITY - 1] = 1,
@@ -68,4 +69,4 @@ static const u8 sWhiteoutRespawnHealerNpcIds[] =
     [SPAWN_FIVE_ISLAND - 1] = 1,
     [SPAWN_SEVEN_ISLAND - 1] = 1,
     [SPAWN_SIX_ISLAND - 1] = 1,
-};
+};*/

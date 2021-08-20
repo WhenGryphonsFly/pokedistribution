@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "battle.h"
@@ -711,7 +712,7 @@ static void sub_80A1D68(u8 taskId)
 
 void FieldUseFunc_VsSeeker(u8 taskId)
 {
-    if ((gMapHeader.mapType != MAP_TYPE_ROUTE
+    /*if ((gMapHeader.mapType != MAP_TYPE_ROUTE
       && gMapHeader.mapType != MAP_TYPE_TOWN
       && gMapHeader.mapType != MAP_TYPE_CITY)
      || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(VIRIDIAN_FOREST)
@@ -726,7 +727,7 @@ void FieldUseFunc_VsSeeker(u8 taskId)
     {
         sItemUseOnFieldCB = Task_VsSeeker_0;
         sub_80A103C(taskId);
-    }
+    }*/
 }
 
 void Task_ItemUse_CloseMessageBoxAndReturnToField_VsSeeker(u8 taskId)

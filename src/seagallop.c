@@ -1,4 +1,5 @@
-#include "global.h"
+//[[!!!]]
+/*#include "global.h"
 #include "gflib.h"
 #include "scanline_effect.h"
 #include "trainer_pokemon_sprites.h"
@@ -505,4 +506,4 @@ bool8 IsPlayerLeftOfVermilionSailor(void)
         return TRUE;
 
     return FALSE;
-}
+}*/

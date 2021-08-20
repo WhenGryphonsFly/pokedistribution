@@ -1,4 +1,5 @@
-#include "global.h"
+//[[!!!]]
+/*#include "global.h"
 #include "gflib.h"
 #include "constants/songs.h"
 #include "task.h"
@@ -68,14 +69,14 @@ struct VsSeekerTrainerInfo
 
 struct VsSeekerStruct
 {
-    /*0x000*/ struct VsSeekerTrainerInfo trainerInfo[OBJECT_EVENTS_COUNT];
-    /*0x100*/ u8 filler_100[0x300];
-    /*0x400*/ u16 trainerIdxArray[OBJECT_EVENTS_COUNT];
-    /*0x420*/ u8 runningBehaviourEtcArray[OBJECT_EVENTS_COUNT];
-    /*0x430*/ u8 numRematchableTrainers;
-    /*0x431*/ u8 trainerHasNotYetBeenFought:1;
-    /*0x431*/ u8 trainerDoesNotWantRematch:1;
-    /*0x431*/ u8 trainerWantsRematch:1;
+    struct VsSeekerTrainerInfo trainerInfo[OBJECT_EVENTS_COUNT];
+    u8 filler_100[0x300];
+    u16 trainerIdxArray[OBJECT_EVENTS_COUNT];
+    u8 runningBehaviourEtcArray[OBJECT_EVENTS_COUNT];
+    u8 numRematchableTrainers;
+    u8 trainerHasNotYetBeenFought:1;
+    u8 trainerDoesNotWantRematch:1;
+    u8 trainerWantsRematch:1;
     u8 responseCode:5;
 };
 
@@ -112,7 +113,7 @@ static bool8 ObjectEventIdIsSane(u8 objectEventId);
 static u8 GetRandomFaceDirectionMovementType();
 
 // rodata
-static const VsSeekerData sVsSeekerData[] = {
+/*static const VsSeekerData sVsSeekerData[] = {
    { {TRAINER_YOUNGSTER_BEN, TRAINER_YOUNGSTER_BEN_2, 0xFFFF, TRAINER_YOUNGSTER_BEN_3, TRAINER_YOUNGSTER_BEN_4},
       MAP_GROUP(ROUTE3), MAP_NUM(ROUTE3) },
    { {TRAINER_YOUNGSTER_CALVIN, TRAINER_YOUNGSTER_CALVIN},
@@ -1156,17 +1157,6 @@ static u8 GetRunningBehaviorFromGraphicsId(u8 graphicsId)
 }
 
 static u16 GetTrainerFlagFromScript(const u8 *script)
-/*
- * The trainer flag is a little-endian short located +2 from
- * the script pointer, assuming the trainerbattle command is
- * first in the script.  Because scripts are unaligned, and
- * because the ARM processor requires shorts to be 16-bit
- * aligned, this function needs to perform explicit bitwise
- * operations to get the correct flag.
- *
- * 5c XX YY ZZ ...
- *       -- --
- */
 {
     u16 trainerFlag;
 
@@ -1313,4 +1303,4 @@ static void StartAllRespondantIdleMovements(void)
             }
         }
     }
-}
+}*/

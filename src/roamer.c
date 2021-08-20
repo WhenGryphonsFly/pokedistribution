@@ -1,4 +1,5 @@
-#include "global.h"
+//[[!!!]]
+/*#include "global.h"
 #include "random.h"
 #include "overworld.h"
 #include "field_specials.h"
@@ -16,7 +17,7 @@ enum
     MAP_NUM = 1, // map number
 };
 
-const u8 sRoamerLocations[][7] = {
+/*const u8 sRoamerLocations[][7] = {
     {MAP_NUM(ROUTE1), MAP_NUM(ROUTE2), MAP_NUM(ROUTE21_NORTH), MAP_NUM(ROUTE22), 0xff, 0xff, 0xff},
     {MAP_NUM(ROUTE2), MAP_NUM(ROUTE1), MAP_NUM(ROUTE3), MAP_NUM(ROUTE22), 0xff, 0xff, 0xff},
     {MAP_NUM(ROUTE3), MAP_NUM(ROUTE2), MAP_NUM(ROUTE4), 0xff, 0xff, 0xff, 0xff},
@@ -235,4 +236,4 @@ u16 GetRoamerLocationMapSectionId(void)
     if (!saveRoamer.active)
         return MAPSEC_NONE;
     return Overworld_GetMapHeaderByGroupAndId(sRoamerLocation[MAP_GRP], sRoamerLocation[MAP_NUM])->regionMapSectionId;
-}
+}*/

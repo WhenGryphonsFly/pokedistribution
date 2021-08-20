@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "heal_location.h"
 #include "event_data.h"
@@ -58,7 +59,7 @@ const struct HealLocation * GetHealLocation(u32 idx)
     return &sSpawnPoints[idx - 1];
 }
 
-void SetWhiteoutRespawnWarpAndHealerNpc(struct WarpData * warp)
+/*void SetWhiteoutRespawnWarpAndHealerNpc(struct WarpData * warp)
 {
     u32 healLocationIdx;
 
@@ -108,7 +109,7 @@ void SetWhiteoutRespawnWarpAndHealerNpc(struct WarpData * warp)
         }
         SetWhiteoutRespawnHealerNpcAsLastTalked(healLocationIdx);
     }
-}
+}*/
 
 static void SetWhiteoutRespawnHealerNpcAsLastTalked(u32 healLocationIdx)
 {

@@ -9,5 +9,9 @@
 #include "data/decoration/header.h"
 
 // specials
+void DoPokemonLeagueLightingEffect(void){}
 void DoWateringBerryTreeAnim(void){}
+void GetElevatorFloor(void){}
+void InitElevatorFloorSelectMenuPos(void){}
+void IsPlayerNotInTrainerTowerLobby(void){}
 void LookThroughPorthole(void){}

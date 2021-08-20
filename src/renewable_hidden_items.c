@@ -1,4 +1,5 @@
-#include "global.h"
+//[[!!!]]
+/*#include "global.h"
 #include "event_data.h"
 #include "random.h"
 #include "constants/maps.h"
@@ -15,7 +16,7 @@ struct RenewableHiddenItemData
 
 static void SampleRenewableItemFlags(void);
 
-static const struct RenewableHiddenItemData sRenewableHiddenItems[] = {
+/*static const struct RenewableHiddenItemData sRenewableHiddenItems[] = {
     {
         .mapGroup = MAP_GROUP(ROUTE20),
         .mapNum = MAP_NUM(ROUTE20),
@@ -599,4 +600,4 @@ static void SampleRenewableItemFlags(void)
                 FlagClear(FLAG_HIDDEN_ITEMS_START + flags[j]);
         }
     }
-}
+}*/
