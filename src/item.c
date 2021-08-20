@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "berry.h"
@@ -567,7 +568,7 @@ u16 BagGetQuantityByItemId(u16 itemId)
 
 void TrySetObtainedItemQuestLogEvent(u16 itemId)
 {
-    struct QuestLogStruct_809A824
+    /*struct QuestLogStruct_809A824
     {
         u16 itemId;
         u8 mapSectionId;
@@ -606,7 +607,7 @@ void TrySetObtainedItemQuestLogEvent(u16 itemId)
             SetQuestLogEvent(QL_EVENT_OBTAINED_ITEM, (void *)ptr);
             free(ptr);
         }
-    }
+    }*/
 }
 
 u16 SanitizeItemId(u16 itemId)

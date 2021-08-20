@@ -1786,12 +1786,12 @@ bool8 DoesPlayerPartyContainSpecies(void)
 
 u8 GetMartClerkObjectId(void)
 {
-    u8 i;
+    /*u8 i;
     for (i = 0; i < NELEMS(sMartMaps); i++)
     {
         if (gSaveBlock1Ptr->location.mapGroup == sMartMaps[i][0] && gSaveBlock1Ptr->location.mapNum == sMartMaps[i][1])
             return sMartMaps[i][2];
-    }
+    }*/
     return 1;
 }
 
@@ -1861,7 +1861,7 @@ void SetUsedPkmnCenterQuestLogEvent(void)
 
 void QuestLog_CheckDepartingIndoorsMap(void)
 {
-    u8 i;
+    /*u8 i;
     for (i = 0; i < NELEMS(sInsideOutsidePairs); i++)
     {
         if (gSaveBlock1Ptr->location.mapGroup == sInsideOutsidePairs[i].inside_grp && gSaveBlock1Ptr->location.mapNum == sInsideOutsidePairs[i].inside_num)
@@ -1873,7 +1873,7 @@ void QuestLog_CheckDepartingIndoorsMap(void)
             }
             break;
         }
-    }
+    }*/
 }
 
 struct QuestLogDepartedData {
@@ -2201,10 +2201,10 @@ static const u8 sChampionRoomLightingTimers[] = {
 
 void StopPokemonLeagueLightingEffectTask(void)
 {
-    if (FuncIsActiveTask(Task_RunPokemonLeagueLightingEffect) == TRUE)
+    /*if (FuncIsActiveTask(Task_RunPokemonLeagueLightingEffect) == TRUE)
     {
         DestroyTask(FindTaskIdByFunc(Task_RunPokemonLeagueLightingEffect));
-    }
+    }*/
 }
 
 static const u8 sCapeBrinkCompatibleSpecies[] = {

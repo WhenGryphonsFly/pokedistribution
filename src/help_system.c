@@ -1805,12 +1805,12 @@ void RestoreHelpContext(void)
 
 static bool32 IsInMartMap(void)
 {
-    return IsCurrentMapInArray(sMartMaps);
+    return FALSE;
 }
 
 static bool32 IsInGymMap(void)
 {
-    return IsCurrentMapInArray(sGymMaps);
+    return FALSE;
 }
 
 static bool32 IsCurrentMapInArray(const u16 * mapIdxs)
@@ -1829,7 +1829,7 @@ static bool32 IsCurrentMapInArray(const u16 * mapIdxs)
 
 static bool8 IsInDungeonMap(void)
 {
-    u8 i, j;
+    /*u8 i, j;
 
     for (i = 0; i < NELEMS(sDungeonMaps); i++)
     {
@@ -1838,16 +1838,16 @@ static bool8 IsInDungeonMap(void)
             if (
                    sDungeonMaps[i][0] == gSaveBlock1Ptr->location.mapGroup
                 && sDungeonMaps[i][1] + j == gSaveBlock1Ptr->location.mapNum
-                && (i != 15 /* TANOBY */ || FlagGet(FLAG_SYS_UNLOCKED_TANOBY_RUINS) == TRUE)
+                && (i != 15  || FlagGet(FLAG_SYS_UNLOCKED_TANOBY_RUINS) == TRUE)
             )
                 return TRUE;
         }
-    }
+    }*/
 
     return FALSE;
 }
 
-#define IN_PLAYERS_HOUSE \
+/*#define IN_PLAYERS_HOUSE \
     ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PALLET_TOWN_PLAYERS_HOUSE_1F) \
   && gSaveBlock1Ptr->location.mapNum == MAP_NUM(PALLET_TOWN_PLAYERS_HOUSE_1F))     \
  || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PALLET_TOWN_PLAYERS_HOUSE_2F)  \
@@ -1857,9 +1857,9 @@ static bool8 IsInDungeonMap(void)
     (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PALLET_TOWN_PROFESSOR_OAKS_LAB) \
   && gSaveBlock1Ptr->location.mapNum == MAP_NUM(PALLET_TOWN_PROFESSOR_OAKS_LAB))    \
 
-void SetHelpContextForMap(void)
+*/void SetHelpContextForMap(void)
 {
-    HelpSystem_EnableToggleWithRButton();
+    /*HelpSystem_EnableToggleWithRButton();
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
         SetHelpContext(HELPCONTEXT_SURFING);
     else if (IsInDungeonMap())
@@ -1880,7 +1880,7 @@ void SetHelpContextForMap(void)
             SetHelpContext(HELPCONTEXT_INDOORS);
     }
     else
-        SetHelpContext(HELPCONTEXT_OVERWORLD);
+        SetHelpContext(HELPCONTEXT_OVERWORLD);*/
 }
 
 bool8 HelpSystem_UpdateHasntSeenIntro(void)

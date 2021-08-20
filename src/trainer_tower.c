@@ -1,4 +1,5 @@
-#include "global.h"
+//[[!!!]]
+/*#include "global.h"
 #include "gflib.h"
 #include "util.h"
 #include "event_data.h"
@@ -24,20 +25,20 @@
 
 struct TrainerTowerState
 {
-    /* 0x0000 */ u8 floorIdx;
-    /* 0x0004 */ struct EReaderTrainerTowerSet data;
+    u8 floorIdx;
+    struct EReaderTrainerTowerSet data;
 };
 
 struct TrainerTowerOpponent
 {
-    /* 0x00 */ u8 name[11];
-    /* 0x0C */ u16 speechWin[6];
-    /* 0x18 */ u16 speechLose[6];
-    /* 0x24 */ u16 speechWin2[6];
-    /* 0x30 */ u16 speechLose2[6];
-    /* 0x3C */ u8 battleType;
-    /* 0x3D */ u8 facilityClass;
-    /* 0x3E */ u8 textColor;
+    u8 name[11];
+    u16 speechWin[6];
+    u16 speechLose[6];
+    u16 speechWin2[6];
+    u16 speechLose2[6];
+    u8 battleType;
+    u8 facilityClass;
+    u8 textColor;
 };
 
 struct SinglesTrainerInfo
@@ -1092,4 +1093,4 @@ void ResetTrainerTowerResults(void)
     {
         SetTrainerTowerRecordTime(&gSaveBlock1Ptr->trainerTower[i].bestTime, TRAINER_TOWER_MAX_TIME);
     }
-}
+}*/

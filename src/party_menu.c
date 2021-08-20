@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "battle.h"
@@ -4098,7 +4099,7 @@ static bool8 SetUpFieldMove_Surf(void)
 
 static void DisplayCantUseSurfMessage(void)
 {
-    s16 x, y;
+    /*s16 x, y;
     
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
     {
@@ -4115,7 +4116,7 @@ static void DisplayCantUseSurfMessage(void)
             DisplayPartyMenuStdMessage(PARTY_MSG_ENJOY_CYCLING);
         else
             DisplayPartyMenuStdMessage(PARTY_MSG_CANT_SURF_HERE);
-    }
+    }*/
 }
 
 static bool8 SetUpFieldMove_Fly(void)

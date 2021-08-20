@@ -894,10 +894,6 @@ static u8 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *pla
 
 bool8 sub_8055B38(u16 metatileBehavior)
 {
-    if (MetatileBehavior_IsSurfable(metatileBehavior) != TRUE)
-        return FALSE;
-    if ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SEAFOAM_ISLANDS_B3F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(SEAFOAM_ISLANDS_B3F)) || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SEAFOAM_ISLANDS_B4F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(SEAFOAM_ISLANDS_B4F)))
-        return TRUE;
     return FALSE;
 }
 
@@ -1007,7 +1003,7 @@ void Overworld_ResetMapMusic(void)
 
 void Overworld_PlaySpecialMapMusic(void)
 {
-    u16 music;
+    /*u16 music;
     s16 x, y;
 
     if (gDisableMapMusicChangeOnMapLoad == 1)
@@ -1037,7 +1033,7 @@ void Overworld_PlaySpecialMapMusic(void)
         music = MUS_SURF;
 
     if (music != GetCurrentMapMusic())
-        PlayNewMapMusic(music);
+        PlayNewMapMusic(music);*/
 }
 
 void Overworld_SetSavedMusic(u16 songNum)

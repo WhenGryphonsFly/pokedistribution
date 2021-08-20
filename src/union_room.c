@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "battle.h"
@@ -1909,7 +1910,7 @@ static void CreateTrainerCardInBuffer(void *dest, bool32 setWonderCard)
 
 static void Task_StartActivity(u8 taskId)
 {
-    ResetReceivedWonderCardFlag();
+    /*ResetReceivedWonderCardFlag();
     switch (sPlayerCurrActivity)
     {
     case ACTIVITY_BATTLE:
@@ -2003,7 +2004,7 @@ static void Task_StartActivity(u8 taskId)
 
     DestroyTask(taskId);
     gSpecialVar_Result = 1;
-    ScriptContext2_Disable();
+    ScriptContext2_Disable();*/
 }
 
 static void Task_RunScriptAndFadeToActivity(u8 taskId)
@@ -4540,9 +4541,10 @@ static bool32 PollPartnerYesNoResponse(struct UnkStruct_URoom * uroom)
 
 bool32 InUnionRoom(void)
 {
-    return    gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(UNION_ROOM)
+    /*return    gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(UNION_ROOM)
            && gSaveBlock1Ptr->location.mapNum == MAP_NUM(UNION_ROOM)
-           ? TRUE : FALSE;
+           ? TRUE : FALSE;*/
+	return FALSE;
 }
 
 static bool32 HasAtLeastTwoMonsOfLevel30OrLower(void)

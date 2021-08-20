@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "task.h"
@@ -443,13 +444,13 @@ void TrySetUpQuestLogScenes_ElseContinueFromSave(u8 taskId)
 
 static void Task_BeginQuestLogPlayback(u8 taskId)
 {
-    gSaveBlock1Ptr->location.mapGroup = MAP_GROUP(ROUTE1);
+    /*gSaveBlock1Ptr->location.mapGroup = MAP_GROUP(ROUTE1);
     gSaveBlock1Ptr->location.mapNum =  MAP_NUM(ROUTE1);
     gSaveBlock1Ptr->location.warpId = -1;
     sCurrentSceneNum = 0;
     gDisableMapMusicChangeOnMapLoad = 1;
     DisableWildEncounters(TRUE);
-    QLPlayback_InitOverworldState();
+    QLPlayback_InitOverworldState();*/
 }
 
 void sub_8110FCC(void)

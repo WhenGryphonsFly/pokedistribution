@@ -29,34 +29,37 @@ static void SetWhiteoutRespawnHealerNpcAsLastTalked(u32 healLocationIdx);
 
 static u32 GetHealLocationIndexFromMapGroupAndNum(u16 mapGroup, u16 mapNum)
 {
-    u32 i;
+    /*u32 i;
 
     for (i = 0; i < NELEMS(sSpawnPoints); i++) {
         if (sSpawnPoints[i].group == mapGroup && sSpawnPoints[i].map == mapNum)
         {
             return i + 1;
         }
-    }
+    }*/
 
     return 0;
 }
 
 static const struct HealLocation * GetHealLocationPointerFromMapGroupAndNum(u16 mapGroup, u16 mapNum)
 {
-    u32 i = GetHealLocationIndexFromMapGroupAndNum(mapGroup, mapNum);
+    /*u32 i = GetHealLocationIndexFromMapGroupAndNum(mapGroup, mapNum);
     if (i == 0)
         return NULL;
 
-    return &sSpawnPoints[i - 1];
+    return &sSpawnPoints[i - 1];*/
+	
+	return NULL;
 }
 
 const struct HealLocation * GetHealLocation(u32 idx)
 {
-    if (idx == 0)
+    /*if (idx == 0)
         return NULL;
     if (idx > NELEMS(sSpawnPoints))
         return NULL;
-    return &sSpawnPoints[idx - 1];
+    return &sSpawnPoints[idx - 1];*/
+	return NULL;
 }
 
 /*void SetWhiteoutRespawnWarpAndHealerNpc(struct WarpData * warp)
@@ -113,5 +116,5 @@ const struct HealLocation * GetHealLocation(u32 idx)
 
 static void SetWhiteoutRespawnHealerNpcAsLastTalked(u32 healLocationIdx)
 {
-    gSpecialVar_LastTalked = sWhiteoutRespawnHealerNpcIds[healLocationIdx - 1];
+    //gSpecialVar_LastTalked = sWhiteoutRespawnHealerNpcIds[healLocationIdx - 1];
 }
