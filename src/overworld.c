@@ -344,8 +344,8 @@ static void Overworld_ResetStateOnContinue(void)
     FlagClear(FLAG_SYS_SAFARI_MODE);
     VarSet(VAR_MAP_SCENE_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE, 0);
     ChooseAmbientCrySpecies();
-    UpdateLocationHistoryForRoamer();
-    RoamerMoveToOtherLocationSet();
+    /*UpdateLocationHistoryForRoamer();*/
+    /*RoamerMoveToOtherLocationSet();*/
 }
 
 // Routines related to game stats
@@ -623,7 +623,7 @@ void SetWarpDestinationToLastHealLocation(void)
 
 static void Overworld_SetWhiteoutRespawnPoint(void)
 {
-    SetWhiteoutRespawnWarpAndHealerNpc(&sWarpDestination);
+    /*SetWhiteoutRespawnWarpAndHealerNpc(&sWarpDestination);*/
 }
 
 void SetLastHealLocationWarp(u8 healLocationId)
@@ -759,21 +759,21 @@ void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum)
     ClearTempFieldEventData();
     ResetCyclingRoadChallengeData();
     RestartWildEncounterImmunitySteps();
-    MapResetTrainerRematches(mapGroup, mapNum);
+    /*MapResetTrainerRematches(mapGroup, mapNum);*/
     SetSav1WeatherFromCurrMapHeader();
     ChooseAmbientCrySpecies();
     SetDefaultFlashLevel();
     Overworld_ClearSavedMusic();
     RunOnTransitionMapScript();
-    TryRegenerateRenewableHiddenItems();
+    /*TryRegenerateRenewableHiddenItems();*/
     InitMap();
     copy_map_tileset2_to_vram_2(gMapHeader.mapLayout);
     apply_map_tileset2_palette(gMapHeader.mapLayout);
     for (paletteIndex = 7; paletteIndex < 13; paletteIndex++)
         ApplyWeatherGammaShiftToPal(paletteIndex);
     InitSecondaryTilesetAnimation();
-    UpdateLocationHistoryForRoamer();
-    RoamerMove();
+    /*UpdateLocationHistoryForRoamer();*/
+    /*RoamerMove();*/
     sub_8110920();
     DoCurrentWeather();
     ResetFieldTasksArgs();
@@ -794,7 +794,7 @@ static void mli0_load_map(bool32 a1)
     ClearTempFieldEventData();
     ResetCyclingRoadChallengeData();
     RestartWildEncounterImmunitySteps();
-    MapResetTrainerRematches(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
+    /*MapResetTrainerRematches(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);*/
     SetSav1WeatherFromCurrMapHeader();
     ChooseAmbientCrySpecies();
     if (isOutdoors)
@@ -802,9 +802,9 @@ static void mli0_load_map(bool32 a1)
     SetDefaultFlashLevel();
     Overworld_ClearSavedMusic();
     RunOnTransitionMapScript();
-    TryRegenerateRenewableHiddenItems();
-    UpdateLocationHistoryForRoamer();
-    RoamerMoveToOtherLocationSet();
+    /*TryRegenerateRenewableHiddenItems();*/
+    /*UpdateLocationHistoryForRoamer();*/
+    /*RoamerMoveToOtherLocationSet();*/
     sub_8110920();
     InitMap();
 }
@@ -1709,8 +1709,8 @@ void CB2_ContinueSavedGame(void)
 
 static void FieldClearVBlankHBlankCallbacks(void)
 {
-    if (UsedPokemonCenterWarp() == TRUE)
-        CloseLink();
+    /*if (UsedPokemonCenterWarp() == TRUE)
+        CloseLink();*/
 
     if (gWirelessCommType != 0)
     {
@@ -1863,7 +1863,7 @@ static bool32 load_map_stuff(u8 *state, bool32 a1)
         if (gQuestLogState != QL_STATE_PLAYBACK)
         {
             QuestLog_CheckDepartingIndoorsMap();
-            QuestLog_TryRecordDepartedLocation();
+            /*QuestLog_TryRecordDepartedLocation();*/
         }
         SetHelpContextForMap();
         (*state)++;
@@ -2958,7 +2958,7 @@ static u16 KeyInterCB_WaitForPlayersToExit(u32 keyOrPlayerId)
         CheckRfuKeepAliveTimer();
     if (AreAllPlayersInTradingState(PLAYER_TRADING_STATE_EXITING_ROOM) == TRUE)
     {
-        ScriptContext1_SetupScript(CableClub_EventScript_DoLinkRoomExit);
+        /*ScriptContext1_SetupScript(CableClub_EventScript_DoLinkRoomExit);*/
         SetKeyInterceptCallback(KeyInterCB_SendNothing);
     }
     return LINK_KEY_CODE_EMPTY;
@@ -3089,14 +3089,14 @@ static const u8 *TryInteractWithPlayer(struct TradeRoomPlayer *player)
 
     if (linkPlayerId != 4)
     {
-        if (!player->isLocalPlayer)
+        /*if (!player->isLocalPlayer)
             return CableClub_EventScript_TooBusyToNotice;
         else if (sPlayerTradingStates[linkPlayerId] != PLAYER_TRADING_STATE_IDLE)
             return CableClub_EventScript_TooBusyToNotice;
         else if (!GetSeeingLinkPlayerCardMsg(linkPlayerId))
             return CableClub_EventScript_ReadTrainerCard;
         else
-            return CableClub_EventScript_ReadTrainerCardColored;
+            return CableClub_EventScript_ReadTrainerCardColored;*/
     }
 
     return GetInteractedLinkPlayerScript(&otherPlayerPos, player->field_C, player->facing);
@@ -3106,7 +3106,7 @@ static const u8 *TryInteractWithPlayer(struct TradeRoomPlayer *player)
 // these event scripts runs.
 static u16 GetDirectionForEventScript(const u8 *script)
 {
-    if (script == BattleColosseum_4P_EventScript_PlayerSpot0)
+    /*if (script == BattleColosseum_4P_EventScript_PlayerSpot0)
         return FACING_FORCED_RIGHT;
     else if (script == BattleColosseum_4P_EventScript_PlayerSpot1)
         return FACING_FORCED_LEFT;
@@ -3130,7 +3130,7 @@ static u16 GetDirectionForEventScript(const u8 *script)
         return FACING_FORCED_RIGHT;
     else if (script == TradeCenter_EventScript_Chair1)
         return FACING_FORCED_LEFT;
-    else
+    else*/
         return FACING_NONE;
 }
 
@@ -3156,7 +3156,7 @@ static void sub_80581DC(const u8 *script)
 static void CreateConfirmLeaveTradeRoomPrompt(void)
 {
     PlaySE(SE_WIN_OPEN);
-    ScriptContext1_SetupScript(TradeCenter_ConfirmLeaveRoom);
+    /*ScriptContext1_SetupScript(TradeCenter_ConfirmLeaveRoom);*/
     ScriptContext2_Enable();
 }
 
@@ -3169,7 +3169,7 @@ static void InitMenuBasedScript(const u8 *script)
 
 static void RunTerminateLinkScript(void)
 {
-    ScriptContext1_SetupScript(TradeCenter_TerminateLink);
+    /*ScriptContext1_SetupScript(TradeCenter_TerminateLink);*/
     ScriptContext2_Enable();
 }
 

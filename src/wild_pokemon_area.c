@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "field_specials.h"
 #include "event_data.h"
@@ -161,7 +162,7 @@ static const struct RoamerPair sRoamerPairs[] = {
 
 s32 BuildPokedexAreaSubspriteBuffer(u16 species, struct Subsprite * subsprites)
 {
-    s32 areaCount;
+    /*s32 areaCount;
     s32 j;
     s32 mapSecId;
     u16 dexAreaSubspriteIdx;
@@ -215,9 +216,9 @@ s32 BuildPokedexAreaSubspriteBuffer(u16 species, struct Subsprite * subsprites)
                 }
             }
         }
-    }
+    }*/
 
-    return areaCount;
+    return 0;
 }
 
 static s32 GetRoamerIndex(u16 species)
@@ -234,7 +235,7 @@ static s32 GetRoamerIndex(u16 species)
 
 static s32 CountRoamerNests(u16 species, struct Subsprite * subsprites)
 {
-    u16 roamerLocation;
+    /*u16 roamerLocation;
     s32 roamerIdx;
     u16 dexAreaSubspriteIdx;
     s32 dexAreaEntryLUTidx;
@@ -253,7 +254,7 @@ static s32 CountRoamerNests(u16 species, struct Subsprite * subsprites)
             SetAreaSubsprite(0, dexAreaSubspriteIdx, subsprites);
             return 1;
         }
-    }
+    }*/
     return 0;
 }
 

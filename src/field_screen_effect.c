@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "field_screen_effect.h"
@@ -385,7 +386,7 @@ static bool8 PrintWhiteOutRecoveryMessage(u8 taskId, const u8 *text, u8 x, u8 y)
 
 static void Task_RushInjuredPokemonToCenter(u8 taskId)
 {
-    u8 windowId;
+    /*u8 windowId;
     const struct HealLocation *loc;
 
     switch (gTasks[taskId].data[0])
@@ -445,7 +446,7 @@ static void Task_RushInjuredPokemonToCenter(u8 taskId)
             ScriptContext1_SetupScript(EventScript_AfterWhiteOutMomHeal);
         }
         break;
-    }
+    }*/
 }
 
 void FieldCB_RushInjuredPokemonToCenter(void)

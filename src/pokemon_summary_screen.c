@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "pokemon.h"
@@ -2609,7 +2610,7 @@ static void PokeSum_PrintTrainerMemo(void)
 
 static void PokeSum_PrintTrainerMemo_Mon_HeldByOT(void)
 {
-    u8 nature;
+    /*u8 nature;
     u8 level;
     u8 metLocation;
     u8 levelStr[5];
@@ -2678,12 +2679,12 @@ static void PokeSum_PrintTrainerMemo_Mon_HeldByOT(void)
         }
     }
 
-    AddTextPrinterParameterized4(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO], 2, 0, 3, 0, 0, sLevelNickTextColors[0], TEXT_SPEED_FF, natureMetOrHatchedAtLevelStr);
+    AddTextPrinterParameterized4(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO], 2, 0, 3, 0, 0, sLevelNickTextColors[0], TEXT_SPEED_FF, natureMetOrHatchedAtLevelStr);*/
 }
 
 static void PokeSum_PrintTrainerMemo_Mon_NotHeldByOT(void)
 {
-    u8 nature;
+    /*u8 nature;
     u8 level;
     u8 metLocation;
     u8 levelStr[5];
@@ -2775,7 +2776,7 @@ static void PokeSum_PrintTrainerMemo_Mon_NotHeldByOT(void)
         }
     }
 
-    AddTextPrinterParameterized4(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO], 2, 0, 3, 0, 0, sLevelNickTextColors[0], TEXT_SPEED_FF, natureMetOrHatchedAtLevelStr);
+    AddTextPrinterParameterized4(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO], 2, 0, 3, 0, 0, sLevelNickTextColors[0], TEXT_SPEED_FF, natureMetOrHatchedAtLevelStr);*/
 }
 
 static void PokeSum_PrintTrainerMemo_Mon(void)

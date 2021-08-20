@@ -932,7 +932,7 @@ static void CB2_EndTrainerBattle(void)
 
 static void CB2_EndRematchBattle(void)
 {
-    if (gTrainerBattleOpponent_A == TRAINER_SECRET_BASE)
+    /*if (gTrainerBattleOpponent_A == TRAINER_SECRET_BASE)
     {
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
     }
@@ -946,7 +946,7 @@ static void CB2_EndRematchBattle(void)
         SetBattledTrainerFlag();
         ClearRematchStateOfLastTalked();
         ResetDeferredLinkEvent();
-    }
+    }*/
 }
 
 void StartRematchBattle(void)

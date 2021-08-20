@@ -1065,7 +1065,7 @@ EventScript_ResetAllMapFlags:: @ 81A6481
 	.include "data/scripts/hall_of_fame.inc"
 	//.include "data/scripts/pkmn_center_nurse.inc"
 	.include "data/scripts/obtain_item.inc"
-	.include "data/scripts/pc.inc"
+	//.include "data/scripts/pc.inc"
 
 Common_ShowEasyChatScreen:: @ 81A6AC0
 	fadescreen FADE_TO_BLACK
@@ -1171,7 +1171,7 @@ EventScript_ReleaseEnd:: @ 81A7AE0
 	release
 	end
 
-	.include "data/scripts/pokemon_mansion.inc"
+	/*.include "data/scripts/pokemon_mansion.inc"*/
 
 @ Unused
 EventScript_DelayedLookAround:: @ 81A80FE
@@ -1231,7 +1231,7 @@ EventScript_VsSeekerChargingDone:: @ 81A8CED
 	releaseall
 	end
 
-Common_EventScript_UnionRoomAttendant:: @ 81A8CF6
+/*Common_EventScript_UnionRoomAttendant:: @ 81A8CF6
 	call CableClub_EventScript_UnionRoomAttendant
 	end
 
@@ -1241,7 +1241,7 @@ Common_EventScript_WirelessClubAttendant:: @ 81A8CFC
 
 Common_EventScript_DirectCornerAttendant:: @ 81A8D02
 	call CableClub_EventScript_DirectCornerAttendant
-	end
+	end*/
 
 /*VermilionCity_PokemonCenter_1F_EventScript_VSSeekerWoman:: @ 81A8D08
 	lock
@@ -1262,7 +1262,7 @@ VermilionCity_PokemonCenter_1F_EventScript_ExplainVSSeeker:: @ 81A8D3F
 	end*/
 
 	.include "data/scripts/itemfinder.inc"
-	.include "data/scripts/white_out.inc"
+	/*.include "data/scripts/white_out.inc"*/
 
 Std_PutItemAway:: @ 81A8E58
 	bufferitemnameplural 1, VAR_0x8000, VAR_0x8001
@@ -1300,8 +1300,8 @@ EventScript_BufferPutAwayPocketBerryPouch:: @ 81A8EC0
 	getstdstring 2, STDSTRING_BERRY_POUCH
 	return
 
-	.include "data/scripts/seagallop.inc"
-	.include "data/scripts/static_pokemon.inc"
+	/*.include "data/scripts/seagallop.inc"*/
+	/*.include "data/scripts/static_pokemon.inc"*/
 
 EventScript_TryDarkenRuins:: @ 81A925E
 	goto_if_set FLAG_SYS_UNLOCKED_TANOBY_RUINS, EventScript_Return

@@ -516,8 +516,8 @@ static const u8 *GetInteractedBackgroundEventScript(struct MapPosition *position
 static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 metatileBehavior, u8 direction)
 {
     gSpecialVar_Facing = direction;
-    if (MetatileBehavior_IsPC(metatileBehavior) == TRUE)
-        return EventScript_PC;
+    /*if (MetatileBehavior_IsPC(metatileBehavior) == TRUE)
+        return EventScript_PC;*/
     if (MetatileBehavior_IsRegionMap(metatileBehavior) == TRUE)
         return EventScript_WallTownMap;
     if (MetatileBehavior_IsBookshelf(metatileBehavior) == TRUE)
@@ -663,12 +663,12 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
             ScriptContext1_SetupScript(EventScript_VsSeekerChargingDone);
             return TRUE;
         }
-        else*/ if (UpdatePoisonStepCounter() == TRUE)
+        else if (UpdatePoisonStepCounter() == TRUE)
         {
             ScriptContext1_SetupScript(EventScript_FieldPoison);
             return TRUE;
         }
-        else if (ShouldEggHatch())
+        else*/ if (ShouldEggHatch())
         {
             IncrementGameStat(GAME_STAT_HATCHED_EGGS);
             //ScriptContext1_SetupScript(EventScript_EggHatch);
