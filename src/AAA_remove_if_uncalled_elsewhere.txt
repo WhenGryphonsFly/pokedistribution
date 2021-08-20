@@ -1,0 +1,19 @@
+
+
+=======================================
+
+
+
+=======================================
+
+
+
+=======================================
+
+    ? ClearBag();
+    ? ClearEnigmaBerries();
+    ? ResetMiniGamesResults();
+    ? InitMEventData();
+    ? sub_806E190();
+? SetBoxWallpaper
+? ClearPCItemSlots

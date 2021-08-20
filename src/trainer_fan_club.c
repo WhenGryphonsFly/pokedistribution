@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "battle.h"
@@ -40,12 +41,6 @@ static void BufferFanClubTrainerName(struct LinkBattleRecords *, u8, u8);
 static void UpdateTrainerFansAfterLinkBattle(struct TrainerFanClub *);
 static bool8 DidPlayerGetFirstFans(struct TrainerFanClub * );
 static void SetPlayerGotFirstFans(struct TrainerFanClub *);
-
-void ResetTrainerFanClub(void)
-{
-    VarSet(VAR_FANCLUB_FAN_COUNTER, 0);
-    VarSet(VAR_FANCLUB_LOSE_FAN_TIMER, 0);
-}
 
 void Script_TryLoseFansFromPlayTimeAfterLinkBattle(void)
 {

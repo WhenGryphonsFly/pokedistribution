@@ -26,7 +26,6 @@
 
 #define PC_ITEM_ID  0
 #define PC_QUANTITY 1
-#define NEW_GAME_PC_ITEMS(i, type) (((u16 *)gNewGamePCItems + type)[i * 2])
 
 #define tCount          data[2]
 #define tPageItems      data[4]
@@ -139,15 +138,6 @@ static const struct WindowTemplate sWindowTemplate_ItemStorageSubmenu = {
     .paletteNum = 15,
     .baseBlock = 0x008
 };
-
-void NewGameInitPCItems(void)
-{
-    u8 i;
-
-    for (i = 0, ClearPCItemSlots(); NEW_GAME_PC_ITEMS(i, PC_ITEM_ID) && NEW_GAME_PC_ITEMS(i, PC_QUANTITY) &&
-                                    AddPCItem(NEW_GAME_PC_ITEMS(i, PC_ITEM_ID), NEW_GAME_PC_ITEMS(i, PC_QUANTITY)) == TRUE; i++)
-        ;
-}
 
 void BedroomPC(void)
 {

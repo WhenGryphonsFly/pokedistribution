@@ -5,14 +5,6 @@
 #include "constants/items.h"
 #include "pokemon_icon.h"
 
-void ClearMailData(void)
-{
-    u8 i;
-
-    for (i = 0; i < MAIL_COUNT; i++)
-        ClearMailStruct(&gSaveBlock1Ptr->mail[i]);
-}
-
 void ClearMailStruct(struct MailStruct *mail)
 {
     s32 i;

@@ -247,11 +247,6 @@ void SeedRngAndSetTrainerId(void)
     gTrainerId = val;
 }
 
-u16 GetGeneratedTrainerIdLower(void)
-{
-    return gTrainerId;
-}
-
 void EnableVCountIntrAtLine150(void)
 {
     u16 gpuReg = (GetGpuReg(REG_OFFSET_DISPSTAT) & 0xFF) | (150 << 8);

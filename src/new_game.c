@@ -37,25 +37,11 @@ static void ResetMiniGamesResults(void);
 // EWRAM vars
 EWRAM_DATA bool8 gDifferentSaveFile = FALSE;
 
-void SetTrainerId(u32 trainerId, u8 *dst)
-{
-    dst[0] = trainerId;
-    dst[1] = trainerId >> 8;
-    dst[2] = trainerId >> 16;
-    dst[3] = trainerId >> 24;
-}
-
 void CopyTrainerId(u8 *dst, u8 *src)
 {
     s32 i;
     for (i = 0; i < 4; i++)
         dst[i] = src[i];
-}
-
-static void InitPlayerTrainerId(void)
-{
-    u32 trainerId = (Random() << 0x10) | GetGeneratedTrainerIdLower();
-    SetTrainerId(trainerId, gSaveBlock2Ptr->playerTrainerId);
 }
 
 static void SetDefaultOptions(void)
@@ -69,19 +55,9 @@ static void SetDefaultOptions(void)
     gSaveBlock2Ptr->optionsButtonMode = OPTIONS_BUTTON_MODE_HELP;
 }
 
-static void ClearPokedexFlags(void)
-{
-    memset(&gSaveBlock2Ptr->pokedex.owned, 0, sizeof(gSaveBlock2Ptr->pokedex.owned));
-    memset(&gSaveBlock2Ptr->pokedex.seen, 0, sizeof(gSaveBlock2Ptr->pokedex.seen));
-}
-
 static void ClearBattleTower(void)
 {
     CpuFill32(0, &gSaveBlock2Ptr->battleTower, sizeof(gSaveBlock2Ptr->battleTower));
-}
-
-static void WarpToPlayersRoom(void)
-{
 }
 
 void Sav2_ClearSetDefault(void)
@@ -101,50 +77,6 @@ void ResetMenuAndMonGlobals(void)
     ResetQuestLog();
     SeedWildEncounterRng(Random());
     ResetSpecialVars();
-}
-
-void NewGameInitData(void)
-{
-    u8 rivalName[PLAYER_NAME_LENGTH + 1];
-
-    StringCopy(rivalName, gSaveBlock1Ptr->rivalName);
-    gDifferentSaveFile = TRUE;
-    gSaveBlock2Ptr->encryptionKey = 0;
-    ZeroPlayerPartyMons();
-    ZeroEnemyPartyMons();
-    ClearBattleTower();
-    ClearSav1();
-    ClearMailData();
-    gSaveBlock2Ptr->specialSaveWarpFlags = 0;
-    gSaveBlock2Ptr->gcnLinkFlags = 0;
-    gSaveBlock2Ptr->field_AC = 1;
-    gSaveBlock2Ptr->field_AD = 0;
-    InitPlayerTrainerId();
-    PlayTimeCounter_Reset();
-    ClearPokedexFlags();
-    InitEventData();
-    ResetFameChecker();
-    SetMoney(&gSaveBlock1Ptr->money, 3000);
-    ResetGameStats();
-    ClearPlayerLinkBattleRecords();
-    InitHeracrossSizeRecord();
-    InitMagikarpSizeRecord();
-    sub_806E190();
-    gPlayerPartyCount = 0;
-    ZeroPlayerPartyMons();
-    ResetPokemonStorageSystem();
-    gSaveBlock1Ptr->registeredItem = 0;
-    ClearBag();
-    NewGameInitPCItems();
-    ClearEnigmaBerries();
-    InitEasyChatPhrases();
-    ResetTrainerFanClub();
-    UnionRoomChat_InitializeRegisteredTexts();
-    ResetMiniGamesResults();
-    InitMEventData();
-    WarpToPlayersRoom();
-    ScriptContext2_RunNewScript(EventScript_ResetAllMapFlags);
-    StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
 }
 
 static void ResetMiniGamesResults(void)

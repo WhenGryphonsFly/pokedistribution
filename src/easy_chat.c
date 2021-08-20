@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "data.h"
@@ -435,41 +436,6 @@ static u16 GetRandomECPokemon(void)
     }
 
     return EC_WORD_UNDEFINED;
-}
-
-void InitEasyChatPhrases(void)
-{
-    u16 i, j;
-
-    for (i = 0; i < 4; i++)
-        gSaveBlock1Ptr->easyChatProfile[i] = sDefaultProfileWords[i];
-
-    for (i = 0; i < 6; i++)
-        gSaveBlock1Ptr->easyChatBattleStart[i] = sDefaultBattleStartWords[i];
-
-    for (i = 0; i < 6; i++)
-    {
-        gSaveBlock1Ptr->easyChatBattleWon[i] = EC_WORD_UNDEFINED;
-        gSaveBlock1Ptr->easyChatBattleLost[i] = EC_WORD_UNDEFINED;
-    }
-
-    for (i = 0; i < MAIL_COUNT; i++)
-    {
-        for (j = 0; j < MAIL_WORDS_COUNT; j++)
-            gSaveBlock1Ptr->mail[i].words[j] = EC_WORD_UNDEFINED;
-    }
-
-#ifndef UBFIX
-    // BUG: This is supposed to clear 64 bits, but this loop is clearing 64 bytes.
-    // However, this bug has no resulting effect on gameplay because only the
-    // Mauville old man data is corrupted, which is initialized directly after
-    // this function is called when starting a new game.
-    for (i = 0; i < 64; i++)
-        gSaveBlock1Ptr->additionalPhrases[i] = 0;
-#else
-    for (i = 0; i < NELEMS(gSaveBlock1Ptr->additionalPhrases); i++)
-        gSaveBlock1Ptr->additionalPhrases[i] = 0;
-#endif
 }
 
 void EC_ResetMEventProfileMaybe(void)

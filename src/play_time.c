@@ -9,15 +9,6 @@ enum
     MAXED_OUT,
 };
 
-void PlayTimeCounter_Reset(void)
-{
-    sPlayTimeCounterState = STOPPED;
-    gSaveBlock2Ptr->playTimeHours = 0;
-    gSaveBlock2Ptr->playTimeMinutes = 0;
-    gSaveBlock2Ptr->playTimeSeconds = 0;
-    gSaveBlock2Ptr->playTimeVBlanks = 0;
-}
-
 void PlayTimeCounter_Start(void)
 {
     sPlayTimeCounterState = RUNNING;

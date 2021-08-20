@@ -392,27 +392,6 @@ void Cb2_ExitPSS(void)
     SetMainCallback2(CB2_ReturnToField);
 }
 
-void ResetPokemonStorageSystem(void)
-{
-    u16 boxId, boxPosition;
-
-    SetCurrentBox(0);
-    for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
-    {
-        for (boxPosition = 0; boxPosition < IN_BOX_COUNT; boxPosition++)
-            ZeroBoxMonAt(boxId, boxPosition);
-    }
-    for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
-    {
-        u8 *dest = StringCopy(GetBoxNamePtr(boxId), gText_Box);
-        ConvertIntToDecimalStringN(dest, boxId + 1, STR_CONV_MODE_LEFT_ALIGN, 2);
-    }
-    for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
-    {
-        SetBoxWallpaper(boxId, boxId % 4);
-    }
-}
-
 void LoadBoxSelectionPopupSpriteGfx(struct UnkPSSStruct_2002370 *a0, u16 tileTag, u16 palTag, u8 a3, bool32 loadPal)
 {
     struct SpritePalette palette = {

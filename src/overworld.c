@@ -346,16 +346,6 @@ static void Overworld_ResetStateOnContinue(void)
     ChooseAmbientCrySpecies();
 }
 
-void ResetGameStats(void)
-{
-    int i;
-
-    for (i = 0; i < NUM_GAME_STATS; i++)
-    {
-        gSaveBlock1Ptr->gameStats[i] = 0;
-    }
-}
-
 void IncrementGameStat(u8 statId)
 {
     u32 statVal;
@@ -1457,24 +1447,6 @@ static bool8 map_post_load_hook_exec(void)
     }
 
     return TRUE;
-}
-
-void CB2_NewGame(void)
-{
-    FieldClearVBlankHBlankCallbacks();
-    StopMapMusic();
-    ResetSafariZoneFlag_();
-    NewGameInitData();
-    ResetInitialPlayerAvatarState();
-    PlayTimeCounter_Start();
-    ScriptContext1_Init();
-    ScriptContext2_Disable();
-    gFieldCallback = FieldCB_WarpExitFadeFromBlack;
-    gFieldCallback2 = NULL;
-    do_load_map_stuff_loop(&gMain.state);
-    SetFieldVBlankCallback();
-    SetMainCallback1(CB1_Overworld);
-    SetMainCallback2(CB2_Overworld);
 }
 
 void CB2_WhiteOut(void)

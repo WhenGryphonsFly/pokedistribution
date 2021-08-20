@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "dynamic_placeholder_text_util.h"
@@ -1306,20 +1307,6 @@ int UnionRoomChat_GetWhetherShouldShowCaseToggleIcon(void)
 u8 *UnionRoomChat_GetNameOfPlayerWhoDisbandedChat(void)
 {
     return sWork->hostName;
-}
-
-void UnionRoomChat_InitializeRegisteredTexts(void)
-{
-    StringCopy(gSaveBlock1Ptr->registeredTexts[0], gText_Hello);
-    StringCopy(gSaveBlock1Ptr->registeredTexts[1], gText_Pokemon2);
-    StringCopy(gSaveBlock1Ptr->registeredTexts[2], gText_Trade);
-    StringCopy(gSaveBlock1Ptr->registeredTexts[3], gText_Battle);
-    StringCopy(gSaveBlock1Ptr->registeredTexts[4], gText_Lets);
-    StringCopy(gSaveBlock1Ptr->registeredTexts[5], gText_Ok);
-    StringCopy(gSaveBlock1Ptr->registeredTexts[6], gText_Sorry);
-    StringCopy(gSaveBlock1Ptr->registeredTexts[7], gText_YaySmileEmoji);
-    StringCopy(gSaveBlock1Ptr->registeredTexts[8], gText_ThankYou);
-    StringCopy(gSaveBlock1Ptr->registeredTexts[9], gText_ByeBye);
 }
 
 #define tState               data[0]

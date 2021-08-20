@@ -59,11 +59,6 @@ void ClearSav2(void)
     CpuFill16(0, &gSaveBlock2, sizeof(struct SaveBlock2) + sizeof(gSaveBlock2_DMA));
 }
 
-void ClearSav1(void)
-{
-    CpuFill16(0, &gSaveBlock1, sizeof(struct SaveBlock1) + sizeof(gSaveBlock1_DMA));
-}
-
 void SetSaveBlocksPointers(void)
 {
     u32 offset;

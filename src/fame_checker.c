@@ -1137,18 +1137,6 @@ static bool8 CreateAllFlavorTextIcons(u8 who)
     return result;
 }
 
-void ResetFameChecker(void)
-{
-    u8 i;
-    for (i = 0; i < NUM_FAMECHECKER_PERSONS; i++)
-    {
-        gSaveBlock1Ptr->fameChecker[i].pickState = FCPICKSTATE_NO_DRAW;
-        gSaveBlock1Ptr->fameChecker[i].flavorTextFlags = 0;
-        gSaveBlock1Ptr->fameChecker[i].unk_0_E = 0;
-    }
-    gSaveBlock1Ptr->fameChecker[FAMECHECKER_OAK].pickState = FCPICKSTATE_COLORED;
-}
-
 void FullyUnlockFameChecker(void)
 {
     u8 i, j;
