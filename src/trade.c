@@ -28,40 +28,40 @@
 
 struct TradeMenuResources
 {
-    /*0x0000*/ u8 bg2hofs;
-    /*0x0001*/ u8 bg3hofs;
-    /*0x0002*/ u8 filler_2[0x28 - 2];
-    /*0x0028*/ u8 partyIcons[2][PARTY_SIZE];
-    /*0x0034*/ u8 tradeMenuCursorSpriteIdx;
-    /*0x0035*/ u8 tradeMenuCursorPosition;
-    /*0x0036*/ u8 partyCounts[2];
-    /*0x0038*/ bool8 tradeMenuOptionsActive[13];
-    /*0x0045*/ bool8 battleableFlags[2][PARTY_SIZE];
-    /*0x0051*/ bool8 eggFlags[2][PARTY_SIZE];
-    /*0x005D*/ u8 hpBarLevels[2][PARTY_SIZE];
-    /*0x0069*/ u8 state;
-    /*0x006A*/ u8 filler_6A[0x6F - 0x6A];
-    /*0x006F*/ u8 tradeMenuCBnum;
-    /*0x0070*/ u8 unk_70;
-    /*0x0072*/ u16 cursorStartTile;
-    /*0x0074*/ u8 menuRedrawState[2];
-    /*0x0076*/ u8 menuRedrawCursorPos[2];
-    /*0x0078*/ u8 unk_78;
-    /*0x0079*/ u8 unk_79;
-    /*0x007A*/ u8 unk_7A;
-    /*0x007B*/ u8 unk_7B;
-    /*0x007C*/ u8 filler_7C[0x7E - 0x7C];
-    /*0x007E*/ u8 otherPlayerCursorPosition;
-    /*0x0080*/ u16 linkData[20];
-    /*0x00A8*/ u8 loadUISpritesState;
-    /*0x00A9*/ u8 giftRibbons[NUM_TRADED_GIFT_RIBBONS];
-    /*0x00B4*/ u8 filler_B4[0x8D0-0xB4];
-    /*0x08D0*/ struct {
+    u8 bg2hofs;
+    u8 bg3hofs;
+    u8 filler_2[0x28 - 2];
+    u8 partyIcons[2][PARTY_SIZE];
+    u8 tradeMenuCursorSpriteIdx;
+    u8 tradeMenuCursorPosition;
+    u8 partyCounts[2];
+    bool8 tradeMenuOptionsActive[13];
+    bool8 battleableFlags[2][PARTY_SIZE];
+    bool8 eggFlags[2][PARTY_SIZE];
+    u8 hpBarLevels[2][PARTY_SIZE];
+    u8 state;
+    u8 filler_6A[0x6F - 0x6A];
+    u8 tradeMenuCBnum;
+    u8 unk_70;
+    u16 cursorStartTile;
+    u8 menuRedrawState[2];
+    u8 menuRedrawCursorPos[2];
+    u8 unk_78;
+    u8 unk_79;
+    u8 unk_7A;
+    u8 unk_7B;
+    u8 filler_7C[0x7E - 0x7C];
+    u8 otherPlayerCursorPosition;
+    u16 linkData[20];
+    u8 loadUISpritesState;
+    u8 giftRibbons[NUM_TRADED_GIFT_RIBBONS];
+    u8 filler_B4[0x8D0-0xB4];
+    struct {
         bool8 active;
         u16 delay;
         u8 kind;
     } cron[4];
-    /*0x08F0*/ u16 tilemapBuffer[BG_SCREEN_SIZE / 2];
+    u16 tilemapBuffer[BG_SCREEN_SIZE / 2];
 };
 
 enum TradeStatusMsg

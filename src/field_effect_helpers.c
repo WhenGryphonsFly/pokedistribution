@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "event_object_movement.h"
@@ -139,11 +140,6 @@ static void UpdateObjectReflectionSprite(struct Sprite * reflectionSprite)
         reflectionSprite->x2 = mainSprite->x2;
         reflectionSprite->y2 = -mainSprite->y2;
         reflectionSprite->coordOffsetEnabled = mainSprite->coordOffsetEnabled;
-
-/*
-        if (objectEvent->hideReflection == TRUE)
-            reflectionSprite->invisible = TRUE;
-*/
 
         // Check if the reflection is not still.
         if (reflectionSprite->data[7] == FALSE)
@@ -1205,19 +1201,6 @@ void UpdateBubblesFieldEffect(struct Sprite * sprite)
 
 u32 FldEff_BerryTreeGrowthSparkle(void)
 {
-    /*u8 spriteId;
-    struct Sprite * sprite;
-
-    sub_8063BC4((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 4);
-    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_SPARKLE], gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2]);
-    if (spriteId != MAX_SPRITES)
-    {
-        sprite = &gSprites[spriteId];
-        sprite->coordOffsetEnabled = TRUE;
-        sprite->oam.priority = gFieldEffectArguments[3];
-        sprite->oam.paletteNum = 5;
-        sprite->data[0] = FLDEFF_BERRY_TREE_GROWTH_SPARKLE;
-    }*/
     return 0;
 }
 

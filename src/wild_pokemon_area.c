@@ -162,62 +162,6 @@ static const struct RoamerPair sRoamerPairs[] = {
 
 s32 BuildPokedexAreaSubspriteBuffer(u16 species, struct Subsprite * subsprites)
 {
-    /*s32 areaCount;
-    s32 j;
-    s32 mapSecId;
-    u16 dexAreaSubspriteIdx;
-    s32 dexAreaEntryLUTidx;
-    s32 seviiAreas;
-    s32 alteringCaveCount;
-    s32 alteringCaveNum;
-    s32 i;
-
-    if (GetRoamerIndex(species) >= SPECIES_NONE)
-    {
-        return CountRoamerNests(species, subsprites);
-    }
-
-    seviiAreas = GetUnlockedSeviiAreas();
-    alteringCaveCount = 0;
-    alteringCaveNum = VarGet(VAR_ALTERING_CAVE_WILD_SET);
-    if (alteringCaveNum > 8)
-        alteringCaveNum = 0;
-    for (i = 0, areaCount = 0; gWildMonHeaders[i].mapGroup != 0xFF; i++)
-    {
-        mapSecId = GetMapSecIdFromWildMonHeader(&gWildMonHeaders[i]);
-        if (mapSecId == MAPSEC_ALTERING_CAVE)
-        {
-            alteringCaveCount++;
-            if (alteringCaveNum != alteringCaveCount - 1)
-                continue;
-        }
-        if (PokemonInAnyEncounterTableInMap(&gWildMonHeaders[i], species))
-        {
-            dexAreaEntryLUTidx = 0;
-            while (TryGetMapSecPokedexAreaEntry(mapSecId, sDexAreas_Kanto, 55, &dexAreaEntryLUTidx, &dexAreaSubspriteIdx))
-            {
-                if (dexAreaSubspriteIdx != 0)
-                {
-                    SetAreaSubsprite(areaCount++, dexAreaSubspriteIdx, subsprites);
-                }
-            }
-            for (j = 0; j < NELEMS(sSeviiDexAreas); j++)
-            {
-                if ((seviiAreas >> j) & 1)
-                {
-                    dexAreaEntryLUTidx = 0;
-                    while (TryGetMapSecPokedexAreaEntry(mapSecId, sSeviiDexAreas[j].lut, sSeviiDexAreas[j].count, &dexAreaEntryLUTidx, &dexAreaSubspriteIdx))
-                    {
-                        if (dexAreaSubspriteIdx != 0)
-                        {
-                            SetAreaSubsprite(areaCount++, dexAreaSubspriteIdx, subsprites);
-                        }
-                    }
-                }
-            }
-        }
-    }*/
-
     return 0;
 }
 
@@ -235,26 +179,6 @@ static s32 GetRoamerIndex(u16 species)
 
 static s32 CountRoamerNests(u16 species, struct Subsprite * subsprites)
 {
-    /*u16 roamerLocation;
-    s32 roamerIdx;
-    u16 dexAreaSubspriteIdx;
-    s32 dexAreaEntryLUTidx;
-
-    roamerIdx = GetRoamerIndex(species);
-    if (roamerIdx < 0)
-        return 0;
-    if (sRoamerPairs[roamerIdx].starter != GetStarterSpecies())
-        return 0;
-    roamerLocation = GetRoamerLocationMapSectionId();
-    dexAreaEntryLUTidx = 0;
-    if (TryGetMapSecPokedexAreaEntry(roamerLocation, sDexAreas_Kanto, 55, &dexAreaEntryLUTidx, &dexAreaSubspriteIdx))
-    {
-        if (dexAreaSubspriteIdx != 0)
-        {
-            SetAreaSubsprite(0, dexAreaSubspriteIdx, subsprites);
-            return 1;
-        }
-    }*/
     return 0;
 }
 

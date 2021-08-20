@@ -109,17 +109,10 @@ static void mapheader_copy_mapdata_of_adjacent_maps(struct MapHeader *mapHeader)
 
     gMapConnectionFlags = sDummyConnectionFlags;
 
-    /*
-     * This null pointer check is new to FireRed.  It was kept in
-     * Emerald, with the above struct assignment moved to after
-     * this check.
-     */
     if (mapHeader->connections)
     {
         count = mapHeader->connections->count;
         connection = mapHeader->connections->connections;
-        // Emerald puts this line here instead:
-        // gMapConnectionFlags = sDummyConnectionFlags;
         for (i = 0; i < count; i++, connection++)
         {
             struct MapHeader const *cMap = mapconnection_get_mapheader(connection);
@@ -208,8 +201,8 @@ static void fillSouthConnection(struct MapHeader const *mapHeader, struct MapHea
         sub_8058B54(
             x, y,
             connectedMapHeader,
-            x2, /*y2*/ 0,
-            width, /*height*/ 7);
+            x2, 0,
+            width, 7);
     }
 }
 
@@ -254,10 +247,10 @@ static void fillNorthConnection(struct MapHeader const *mapHeader, struct MapHea
         }
 
         sub_8058B54(
-            x, /*y*/ 0,
+            x, 0,
             connectedMapHeader,
             x2, y2,
-            width, /*height*/ 7);
+            width, 7);
 
     }
 }
@@ -301,10 +294,10 @@ static void fillWestConnection(struct MapHeader const *mapHeader, struct MapHead
         }
 
         sub_8058B54(
-            /*x*/ 0, y,
+            0, y,
             connectedMapHeader,
             x2, y2,
-            /*width*/ 7, height);
+            7, height);
     }
 }
 
@@ -348,8 +341,8 @@ static void fillEastConnection(struct MapHeader const *mapHeader, struct MapHead
         sub_8058B54(
             x, y,
             connectedMapHeader,
-            /*x2*/ 0, y2,
-            /*width*/ 8, height);
+            0, y2,
+            8, height);
     }
 }
 

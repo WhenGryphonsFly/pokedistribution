@@ -1126,8 +1126,6 @@ static void OpponentHandleDrawTrainerPic(void)
         trainerPicId = GetSecretBaseTrainerPicIndex();
     else if (gBattleTypeFlags & BATTLE_TYPE_BATTLE_TOWER)
         trainerPicId = GetBattleTowerTrainerFrontSpriteId();
-    /*else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_TOWER)
-        trainerPicId = GetTrainerTowerTrainerFrontSpriteId();*/
     else if (gBattleTypeFlags & BATTLE_TYPE_EREADER_TRAINER)
         trainerPicId = GetEreaderTrainerFrontSpriteId();
     else
@@ -1156,8 +1154,6 @@ static void OpponentHandleTrainerSlide(void)
         trainerPicId = GetSecretBaseTrainerPicIndex();
     else if (gBattleTypeFlags & BATTLE_TYPE_BATTLE_TOWER)
         trainerPicId = GetBattleTowerTrainerFrontSpriteId();
-    /*else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_TOWER)
-        trainerPicId = GetTrainerTowerTrainerFrontSpriteId();*/
     else if (gBattleTypeFlags & BATTLE_TYPE_EREADER_TRAINER)
         trainerPicId = GetEreaderTrainerFrontSpriteId();
     else

@@ -611,14 +611,6 @@ void DoTeleportWarp(void)
     gFieldCallback = FieldCB_TeleportWarpIn;
 }
 
-/*void sub_807E5C4(void)
-{
-    ScriptContext2_Enable();
-    WarpFadeOutScreen();
-    CreateTask(Task_Teleport2Warp, 10);
-    gFieldCallback = nullsub_60;
-}*/
-
 static void Task_CableClubWarp(u8 taskId)
 {
     struct Task * task = &gTasks[taskId];

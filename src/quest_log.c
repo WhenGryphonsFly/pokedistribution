@@ -444,13 +444,6 @@ void TrySetUpQuestLogScenes_ElseContinueFromSave(u8 taskId)
 
 static void Task_BeginQuestLogPlayback(u8 taskId)
 {
-    /*gSaveBlock1Ptr->location.mapGroup = MAP_GROUP(ROUTE1);
-    gSaveBlock1Ptr->location.mapNum =  MAP_NUM(ROUTE1);
-    gSaveBlock1Ptr->location.warpId = -1;
-    sCurrentSceneNum = 0;
-    gDisableMapMusicChangeOnMapLoad = 1;
-    DisableWildEncounters(TRUE);
-    QLPlayback_InitOverworldState();*/
 }
 
 void sub_8110FCC(void)
@@ -1103,22 +1096,6 @@ static void Task_FinalScene_WaitFade(u8 taskId)
 
 static void Task_QuestLogScene_SavedGame(u8 taskId)
 {
-    /*struct Task *task = &gTasks[taskId];
-
-    if (!gPaletteFade.active)
-    {
-        if (sQuestLogCurrentScene.sceneEndMode != 1)
-        {
-            GetMapNameGeneric(gStringVar1, gMapHeader.regionMapSectionId);
-            StringExpandPlaceholders(gStringVar4, gText_QuestLog_SavedGameAtLocation);
-            DrawQuestLogSceneDescription();
-        }
-        task->data[0] = 0;
-        task->data[1] = 0;
-        task->func = Task_WaitAtEndOfQuestLog;
-        FreezeObjectEvents();
-        ScriptContext2_Enable();
-    }*/
 }
 
 #define tTimer data[0]

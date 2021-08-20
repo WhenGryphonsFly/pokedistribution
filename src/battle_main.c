@@ -716,21 +716,21 @@ static void CB2_InitBattleInternal(void)
         if (species == SPECIES_NONE)                                \
             continue;                                               \
                                                                     \
-        /* Is healthy mon? */                                       \
+                                             \
         if (species != SPECIES_EGG && hp != 0 && status == 0)       \
             (flags) |= 1 << (i) * 2;                                \
                                                                     \
-        if (species == SPECIES_NONE) /* Redundant */                \
+        if (species == SPECIES_NONE)                 \
             continue;                                               \
                                                                     \
-        /* Is Egg or statused? */                                   \
+                                          \
         if (hp != 0 && (species == SPECIES_EGG || status != 0))     \
             (flags) |= 2 << (i) * 2;                                \
                                                                     \
-        if (species == SPECIES_NONE) /* Redundant */                \
+        if (species == SPECIES_NONE)                 \
             continue;                                               \
                                                                     \
-        /* Is fainted? */                                           \
+                                                  \
         if (species != SPECIES_EGG && hp == 0)                      \
             (flags) |= 3 << (i) * 2;                                \
     }
@@ -3745,8 +3745,6 @@ static void HandleEndTurn_FinishBattle(void)
             }
         }
         TrySetQuestLogBattleEvent();
-        /*if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
-            ClearRematchStateByTrainerId();*/
         BeginFastPaletteFade(3);
         FadeOutMapMusic(5);
         gBattleMainFunc = FreeResetData_ReturnToOvOrDoEvolutions;
@@ -3823,16 +3821,6 @@ static void ReturnFromBattleToOverworld(void)
         gSpecialVar_Result = gBattleOutcome;
         gMain.inBattle = FALSE;
         gMain.callback1 = gPreBattleCallback1;
-        /*if (gBattleTypeFlags & BATTLE_TYPE_ROAMER)
-        {
-            UpdateRoamerHPStatus(&gEnemyParty[0]);
-#ifdef BUGFIX
-            if ((gBattleOutcome == B_OUTCOME_WON) || gBattleOutcome == B_OUTCOME_CAUGHT)
-#else
-            if ((gBattleOutcome & B_OUTCOME_WON) || gBattleOutcome == B_OUTCOME_CAUGHT) // Bug: When Roar is used by roamer, gBattleOutcome is B_OUTCOME_PLAYER_TELEPORTED (5).
-#endif                                                                                  // & with B_OUTCOME_WON (1) will return TRUE and deactivates the roamer.
-                SetRoamerInactive();
-        }*/
         m4aSongNumStop(SE_LOW_HEALTH);
         SetMainCallback2(gMain.savedCallback);
     }

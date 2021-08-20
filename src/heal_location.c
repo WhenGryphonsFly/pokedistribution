@@ -29,92 +29,20 @@ static void SetWhiteoutRespawnHealerNpcAsLastTalked(u32 healLocationIdx);
 
 static u32 GetHealLocationIndexFromMapGroupAndNum(u16 mapGroup, u16 mapNum)
 {
-    /*u32 i;
-
-    for (i = 0; i < NELEMS(sSpawnPoints); i++) {
-        if (sSpawnPoints[i].group == mapGroup && sSpawnPoints[i].map == mapNum)
-        {
-            return i + 1;
-        }
-    }*/
-
     return 0;
 }
 
 static const struct HealLocation * GetHealLocationPointerFromMapGroupAndNum(u16 mapGroup, u16 mapNum)
 {
-    /*u32 i = GetHealLocationIndexFromMapGroupAndNum(mapGroup, mapNum);
-    if (i == 0)
-        return NULL;
-
-    return &sSpawnPoints[i - 1];*/
 	
 	return NULL;
 }
 
 const struct HealLocation * GetHealLocation(u32 idx)
 {
-    /*if (idx == 0)
-        return NULL;
-    if (idx > NELEMS(sSpawnPoints))
-        return NULL;
-    return &sSpawnPoints[idx - 1];*/
 	return NULL;
 }
 
-/*void SetWhiteoutRespawnWarpAndHealerNpc(struct WarpData * warp)
-{
-    u32 healLocationIdx;
-
-    if (VarGet(VAR_MAP_SCENE_TRAINER_TOWER) == 1)
-    {
-        if (!gSaveBlock1Ptr->trainerTower[gSaveBlock1Ptr->towerChallengeId].spokeToOwner)
-            VarSet(VAR_MAP_SCENE_TRAINER_TOWER, 0);
-        gSpecialVar_LastTalked = 1;
-        warp->x = 4;
-        warp->y = 11;
-        warp->mapGroup = MAP_GROUP(TRAINER_TOWER_LOBBY);
-        warp->mapNum = MAP_NUM(TRAINER_TOWER_LOBBY);
-        warp->warpId = 0xFF;
-    }
-    else
-    {
-        healLocationIdx = GetHealLocationIndexFromMapGroupAndNum(gSaveBlock1Ptr->lastHealLocation.mapGroup, gSaveBlock1Ptr->lastHealLocation.mapNum);
-        warp->mapGroup = sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0];
-        warp->mapNum = sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1];
-        warp->warpId = 0xFF;
-
-        if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(PALLET_TOWN_PLAYERS_HOUSE_1F) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(PALLET_TOWN_PLAYERS_HOUSE_1F))
-        {
-            warp->x = 8;
-            warp->y = 5;
-        }
-        else if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(INDIGO_PLATEAU_POKEMON_CENTER_1F) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(INDIGO_PLATEAU_POKEMON_CENTER_1F))
-        {
-            warp->x = 13;
-            warp->y = 12;
-        }
-        else if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(ONE_ISLAND_POKEMON_CENTER_1F) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(ONE_ISLAND_POKEMON_CENTER_1F))
-        {
-            warp->x = 5;
-            warp->y = 4;
-        }
-        else if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(TRAINER_TOWER_LOBBY) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(TRAINER_TOWER_LOBBY))
-        {
-            warp->x = 4;
-            warp->y = 11;
-            VarSet(VAR_MAP_SCENE_TRAINER_TOWER, 0);
-        }
-        else
-        {
-            warp->x = 7;
-            warp->y = 4;
-        }
-        SetWhiteoutRespawnHealerNpcAsLastTalked(healLocationIdx);
-    }
-}*/
-
 static void SetWhiteoutRespawnHealerNpcAsLastTalked(u32 healLocationIdx)
 {
-    //gSpecialVar_LastTalked = sWhiteoutRespawnHealerNpcIds[healLocationIdx - 1];
 }

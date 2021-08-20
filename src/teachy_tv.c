@@ -1217,67 +1217,6 @@ static void TeachyTvRestorePlayerPartyCallback(void)
 
 static void TeachyTvLoadBg3Map(u16 *buffer)
 {
-    /*u16 * bgTilesBuffer;
-    u8 * mapTilesRowBuffer;
-    u16 i, j, k;
-    u16 currentBlockIdx;
-    void * tilesetsBuffer;
-    void * palIndicesBuffer;
-    u16 numMapTilesRows = 0;
-    const struct MapLayout *layout = &Route1_Layout;
-    u16 * blockIndicesBuffer = AllocZeroed(0x800);
-    tilesetsBuffer = AllocZeroed(0x8000);
-    palIndicesBuffer = Alloc(16);
-    memset(palIndicesBuffer, 0xFF, 16);
-
-    TeachyTvLoadMapTilesetToBuffer(layout->primaryTileset, tilesetsBuffer, 0x280);
-    TeachyTvLoadMapTilesetToBuffer(layout->secondaryTileset, tilesetsBuffer + 0x5000, 0x180);
-
-    for (i = 0; i < 9; i++)
-    {
-        for (j = 0; j < 16; j++)
-        {
-            currentBlockIdx = layout->map[8 + (i + 6) * layout->width + j] & 0x3FF;
-            for (k = 0; k < (i << 4) + j; k++)
-            {
-                if (blockIndicesBuffer[k] == 0)
-                    break;
-                if (blockIndicesBuffer[k] == currentBlockIdx)
-                    break;
-            }
-            if (blockIndicesBuffer[k] == 0)
-            {
-                blockIndicesBuffer[k] = currentBlockIdx;
-                numMapTilesRows++;
-            }
-            TeachyTvPushBackNewMapPalIndexArrayEntry(layout, &buffer[64 * i + 2 * j], palIndicesBuffer, currentBlockIdx, k);
-        }
-    }
-
-    bgTilesBuffer = Alloc(numMapTilesRows * 0x80);
-    mapTilesRowBuffer = Alloc(0x80);
-    for (i = 0; i < numMapTilesRows; i++)
-    {
-        memset(mapTilesRowBuffer, 0, 0x80);
-        if (blockIndicesBuffer[i] < 0x280)
-        {
-            TeachyTvComputeMapTilesFromTilesetAndMetaTiles(layout->primaryTileset->metatiles + blockIndicesBuffer[i] * 16, mapTilesRowBuffer, tilesetsBuffer);
-        }
-        else
-        {
-            TeachyTvComputeMapTilesFromTilesetAndMetaTiles(layout->secondaryTileset->metatiles + (blockIndicesBuffer[i] - 0x280) * 16, mapTilesRowBuffer, tilesetsBuffer);
-        }
-        CpuFastCopy(mapTilesRowBuffer, bgTilesBuffer + i * 0x40, 0x80);
-    }
-
-    LoadBgTiles(3, bgTilesBuffer, numMapTilesRows * 0x80, 0);
-    TeachyTvLoadMapPalette(layout, palIndicesBuffer);
-
-    Free(mapTilesRowBuffer);
-    Free(bgTilesBuffer);
-    Free(palIndicesBuffer);
-    Free(tilesetsBuffer);
-    Free(blockIndicesBuffer);*/
 }
 
 static void TeachyTvLoadMapTilesetToBuffer(struct Tileset *ts, u8 *dstBuffer, u16 size)

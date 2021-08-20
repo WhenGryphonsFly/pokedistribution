@@ -420,42 +420,6 @@ static void Task_Hof_InitMonData(u8 taskId)
 
 static void Task_Hof_InitTeamSaveData(u8 taskId)
 {
-    /*u16 i;
-    struct HallofFameTeam* lastSavedTeam = (struct HallofFameTeam *)(gDecompressionBuffer);
-
-    SaveQuestLogData();
-    if (!gHasHallOfFameRecords)
-    {
-        memset(gDecompressionBuffer, 0, 0x2000);
-    }
-    else
-    {
-        if (Save_LoadGameData(SAVE_HALL_OF_FAME) != TRUE)
-            memset(gDecompressionBuffer, 0, 0x2000);
-    }
-
-    for (i = 0; i < HALL_OF_FAME_MAX_TEAMS; i++, lastSavedTeam++)
-    {
-        if (lastSavedTeam[0].mon[0].species == SPECIES_NONE)
-            break;
-    }
-    if (i >= HALL_OF_FAME_MAX_TEAMS)
-    {
-        struct HallofFameTeam *afterTeam = (struct HallofFameTeam*)(gDecompressionBuffer);
-        struct HallofFameTeam *beforeTeam = (struct HallofFameTeam*)(gDecompressionBuffer);
-        afterTeam++;
-        for (i = 0; i < HALL_OF_FAME_MAX_TEAMS - 1; i++, beforeTeam++, afterTeam++)
-        {
-            *beforeTeam = *afterTeam;
-        }
-        lastSavedTeam--;
-    }
-    *lastSavedTeam = *sHofMonPtr;
-
-    DrawDialogueFrame(0, 0);
-    AddTextPrinterParameterized2(0, 2, gText_SavingDontTurnOffThePower2, 0, NULL, 2, 1, 3);
-    CopyWindowToVram(0, COPYWIN_BOTH);
-    gTasks[taskId].func = Task_Hof_TrySaveData;*/
 }
 
 static void Task_Hof_TrySaveData(u8 taskId)
@@ -697,12 +661,6 @@ static void Task_Hof_HandleExit(u8 taskId)
 
 static void SetWarpsToRollCredits(void)
 {
-    /*VarSet(VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR, 1);
-    FlagSet(FLAG_DONT_SHOW_MAP_NAME_POPUP);
-    gDisableMapMusicChangeOnMapLoad = 2;
-    SetWarpDestination(MAP_GROUP(INDIGO_PLATEAU_EXTERIOR), MAP_NUM(INDIGO_PLATEAU_EXTERIOR), -1, 11, 6);
-    DoWarp();
-    ResetInitialPlayerAvatarState();*/
 }
 
 void CB2_InitHofPC(void)

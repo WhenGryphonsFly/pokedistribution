@@ -19,23 +19,6 @@
 #define SECTOR_DATA_SIZE 3968
 #define SECTOR_FOOTER_SIZE 128
 
-/*
- * Sector Layout:
- *
- * Sectors 0 - 13:      Save Slot 1
- * Sectors 14 - 27:     Save Slot 2
- * Sectors 28 - 29:     Hall of Fame
- * Sector 30:           e-Reader/Mystery Gift Stuff (note: e-Reader is deprecated in Emerald US)
- * Sector 31:           Recorded Battle
- *
- * There are two save slots for saving the player's game data. We alternate between
- * them each time the game is saved, so that if the current save slot is corrupt,
- * we can load the previous one. We also rotate the sectors in each save slot
- * so that the same data is not always being written to the same sector. This
- * might be done to reduce wear on the flash memory, but I'm not sure, since all
- * 14 sectors get written anyway.
- */
-
 // (u8 *)structure was removed from the first statement of the macro in Emerald
 // and Fire Red/Leaf Green. This is because malloc is used to allocate addresses
 // so storing the raw addresses should not be done in the offsets information.

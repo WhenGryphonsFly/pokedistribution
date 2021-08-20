@@ -31,14 +31,6 @@ enum
     AIState_DoNotProcess
 };
 
-/*
-sAIScriptPtr is a pointer to the next battle AI cmd command to read.
-when a command finishes processing, sAIScriptPtr is incremented by
-the number of bytes that the current command had reserved for arguments
-in order to read the next command correctly. refer to battle_ai_scripts.s for the
-AI scripts.
-*/
-
 static EWRAM_DATA const u8 *sAIScriptPtr = NULL;
 extern u8 *gBattleAI_ScriptsTable[];
 
@@ -1300,20 +1292,6 @@ static void Cmd_if_status_in_party(void)
         party = partyPtr = gPlayerParty;
         break;
     }
-
-    /* Emerald's fixed version below
-    switch (sAIScriptPtr[1])
-    {
-    case AI_USER:
-        battlerId = gBattlerAttacker;
-        break;
-    default:
-        battlerId = gBattlerTarget;
-        break;
-    }
-
-    party = (GetBattlerSide(battlerId) == B_SIDE_PLAYER) ? gPlayerParty : gEnemyParty;
-    */
 
     statusToCompareTo = T1_READ_32(sAIScriptPtr + 2);
 

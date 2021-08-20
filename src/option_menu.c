@@ -37,11 +37,11 @@ enum
 // RAM symbols
 struct OptionMenu
 {
-    /*0x00*/ u16 option[MENUITEM_COUNT];
-    /*0x0E*/ u16 cursorPos;
-    /*0x10*/ u8 loadState;
-    /*0x11*/ u8 state;
-    /*0x12*/ u8 loadPaletteState;
+    u16 option[MENUITEM_COUNT];
+    u16 cursorPos;
+    u8 loadState;
+    u8 state;
+    u8 loadPaletteState;
 };
 
 static EWRAM_DATA struct OptionMenu *sOptionMenuPtr = NULL;

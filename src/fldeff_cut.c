@@ -118,47 +118,6 @@ static u8 MetatileAtCoordsIsGrassTile(s16 x, s16 y)
 
 bool8 SetUpFieldMove_Cut(void)
 {
-    /*s16 x, y;
-    u8 i, j;
-    sScheduleOpenDottedHole = FALSE;
-    if (CutMoveRuinValleyCheck() == TRUE)
-    {
-        sScheduleOpenDottedHole = TRUE;
-        gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
-        gPostMenuFieldCallback = FieldCallback_CutGrass;
-        return TRUE;
-    }
-
-    if (CheckObjectGraphicsInFrontOfPlayer(OBJ_EVENT_GFX_CUT_TREE) == TRUE)
-    {
-        gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
-        gPostMenuFieldCallback = FieldCallback_CutTree;
-        return TRUE;
-    }
-    
-    else
-    {
-        PlayerGetDestCoords(&gPlayerFacingPosition.x, &gPlayerFacingPosition.y);
-    
-        for (i = 0; i < CUT_SIDE; i++)
-        {
-            y = gPlayerFacingPosition.y - 1 + i;
-            for (j = 0; j < CUT_SIDE; j++)
-            {
-                x = gPlayerFacingPosition.x - 1 + j;
-                if (MapGridGetZCoordAt(x, y) == gPlayerFacingPosition.height)
-                {
-                    if (MetatileAtCoordsIsGrassTile(x, y) == TRUE)
-                    {
-                        gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
-                        gPostMenuFieldCallback = FieldCallback_CutGrass;
-                        return TRUE;
-                    }
-                }
-            }
-        }
-        return FALSE;
-    }*/
 	return FALSE;
 }
 

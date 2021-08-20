@@ -189,18 +189,6 @@ static u16 MapNamePopupCreateWindow(bool32 palintoFadedBuffer)
 
 static void MapNamePopupPrintMapNameOnWindow(u16 windowId)
 {
-    /*u8 mapName[25];
-    u32 maxWidth = 112;
-    u32 xpos;
-    u8 *ptr = GetMapName(mapName, gMapHeader.regionMapSectionId, 0);
-    if (gMapHeader.floorNum != 0)
-    {
-        ptr = MapNamePopupAppendFloorNum(ptr, gMapHeader.floorNum);
-        maxWidth = gMapHeader.floorNum != 0x7F ? 152 : 176;
-    }
-    xpos = (maxWidth - GetStringWidth(2, mapName, -1)) / 2;
-    FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
-    AddTextPrinterParameterized(windowId, 2, mapName, xpos, 2, TEXT_SPEED_FF, NULL);*/
 }
 
 static u8 *MapNamePopupAppendFloorNum(u8 *dest, s8 floorNum)

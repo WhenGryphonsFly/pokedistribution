@@ -42,39 +42,13 @@ void ExitSafariMode(void)
 
 bool8 SafariZoneTakeStep(void)
 {
-    /*if (GetSafariZoneFlag() == FALSE)
-        return FALSE;
-    gSafariZoneStepCounter--;
-    if (gSafariZoneStepCounter == 0)
-    {
-        ScriptContext1_SetupScript(SafariZone_EventScript_TimesUp);
-        return TRUE;
-    }*/
     return FALSE;
 }
 
 void SafariZoneRetirePrompt(void)
 {
-    //ScriptContext1_SetupScript(SafariZone_EventScript_RetirePrompt);
 }
 
 void CB2_EndSafariBattle(void)
 {
-    /*if (gNumSafariBalls != 0)
-    {
-        SetMainCallback2(CB2_ReturnToField);
-    }
-    else if (gBattleOutcome == B_OUTCOME_NO_SAFARI_BALLS)
-    {
-        ScriptContext2_RunNewScript(SafariZone_EventScript_OutOfBallsMidBattle);
-        WarpIntoMap();
-        gFieldCallback = FieldCB_SafariZoneRanOutOfBalls;
-        SetMainCallback2(CB2_LoadMap);
-    }
-    else if (gBattleOutcome == B_OUTCOME_CAUGHT)
-    {
-        ScriptContext1_SetupScript(SafariZone_EventScript_OutOfBalls);
-        ScriptContext1_Stop();
-        SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
-    }*/
 }

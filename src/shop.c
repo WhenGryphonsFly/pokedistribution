@@ -54,31 +54,31 @@ enum
 
 struct ShopData
 {
-    /*0x00*/ void (*callback)(void);
-    /*0x04*/ const u16 *itemList;
-    /*0x08*/ u32 itemPrice;
-    /*0x0C*/ u16 selectedRow;
-    /*0x0E*/ u16 scrollOffset;
-    /*0x10*/ u16 itemCount;
-    /*0x12*/ u16 field12;
-    /*0x14*/ u16 maxQuantity;
-    /*0x16*/ u16 martType:4;    // 0x1 if tm list
+    void (*callback)(void);
+    const u16 *itemList;
+    u32 itemPrice;
+    u16 selectedRow;
+    u16 scrollOffset;
+    u16 itemCount;
+    u16 field12;
+    u16 maxQuantity;
+    u16 martType:4;    // 0x1 if tm list
              u16 unk16_4:5;
              u16 itemSlot:2;
              u16 unk16_11:5;
-    /*0x18*/ u16 unk18;
+    u16 unk18;
 };
 
 struct MartHistory
 {
-    /*0x00*/ u32 unk0;
-    /*0x04*/ u16 unk4;
-    /*0x06*/ u16 unk6;
-    /*0x08*/ u8 unk8;
-    /*0x09*/ u8 unk9;
-    /*0x0A*/ u8 unkA;
-    /*0x0B*/ u8 unkB;
-}; /* size = 12 */
+    u32 unk0;
+    u16 unk4;
+    u16 unk6;
+    u8 unk8;
+    u8 unk9;
+    u8 unkA;
+    u8 unkB;
+};
 
 static EWRAM_DATA s16 sViewportObjectEvents[OBJECT_EVENTS_COUNT][4] = {0};
 EWRAM_DATA struct ShopData gShopData = {0};

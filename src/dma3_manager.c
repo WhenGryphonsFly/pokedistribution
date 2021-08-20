@@ -4,11 +4,11 @@
 #define MAX_DMA_REQUESTS 128
 
 static struct {
-    /* 0x00 */ const u8 *src;
-    /* 0x04 */ u8 *dest;
-    /* 0x08 */ u16 size;
-    /* 0x0A */ u16 mode;
-    /* 0x0C */ u32 value;
+    const u8 *src;
+    u8 *dest;
+    u16 size;
+    u16 mode;
+    u32 value;
 } gDma3Requests[128];
 
 static volatile bool8 gDma3ManagerLocked;

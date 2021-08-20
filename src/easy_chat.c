@@ -21,7 +21,7 @@ struct Unk203A120
     u8 filler3958[0x2C];
     u16 allWords[270];
     u16 totalWords;
-}; /*size = 0x3BA4*/
+};
 
 static EWRAM_DATA struct Unk203A120 * sEasyChatSelectionData = NULL;
 

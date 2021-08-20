@@ -1910,101 +1910,6 @@ static void CreateTrainerCardInBuffer(void *dest, bool32 setWonderCard)
 
 static void Task_StartActivity(u8 taskId)
 {
-    /*ResetReceivedWonderCardFlag();
-    switch (sPlayerCurrActivity)
-    {
-    case ACTIVITY_BATTLE:
-    case ACTIVITY_DBLBATTLE:
-    case ACTIVITY_MLTBATTLE:
-    case ACTIVITY_TRADE:
-    case ACTIVITY_PJUMP:
-    case ACTIVITY_BCRUSH:
-    case ACTIVITY_BPICK:
-    case ACTIVITY_SPINTRADE:
-    case ACTIVITY_ITEMTRADE:
-        RecordMixTrainerNames();
-        break;
-    }
-
-    switch (sPlayerCurrActivity)
-    {
-    case ACTIVITY_BATTLE | IN_UNION_ROOM:
-    case ACTIVITY_ACCEPT | IN_UNION_ROOM:
-        CleanupOverworldWindowsAndTilemaps();
-        gMain.savedCallback = CB2_UnionRoomBattle;
-        InitChooseHalfPartyForBattle(2);
-        break;
-    case ACTIVITY_BATTLE:
-        CleanupOverworldWindowsAndTilemaps();
-        CreateTrainerCardInBuffer(gBlockSendBuffer, TRUE);
-        HealPlayerParty();
-        SavePlayerParty();
-        LoadPlayerBag();
-        SetCableClubStateAndWarpToNewMap(MAP_GROUP(BATTLE_COLOSSEUM_2P), MAP_NUM(BATTLE_COLOSSEUM_2P), 6, 8, USING_SINGLE_BATTLE);
-        SetMainCallback2(CB2_TransitionToCableClub);
-        break;
-    case ACTIVITY_DBLBATTLE:
-        CleanupOverworldWindowsAndTilemaps();
-        HealPlayerParty();
-        SavePlayerParty();
-        LoadPlayerBag();
-        CreateTrainerCardInBuffer(gBlockSendBuffer, TRUE);
-        SetCableClubStateAndWarpToNewMap(MAP_GROUP(BATTLE_COLOSSEUM_2P), MAP_NUM(BATTLE_COLOSSEUM_2P), 6, 8, USING_DOUBLE_BATTLE);
-        SetMainCallback2(CB2_TransitionToCableClub);
-        break;
-    case ACTIVITY_MLTBATTLE:
-        CleanupOverworldWindowsAndTilemaps();
-        HealPlayerParty();
-        SavePlayerParty();
-        LoadPlayerBag();
-        CreateTrainerCardInBuffer(gBlockSendBuffer, TRUE);
-        SetCableClubStateAndWarpToNewMap(MAP_GROUP(BATTLE_COLOSSEUM_4P), MAP_NUM(BATTLE_COLOSSEUM_4P), 5, 8, USING_MULTI_BATTLE);
-        SetMainCallback2(CB2_TransitionToCableClub);
-        break;
-    case ACTIVITY_TRADE:
-        CreateTrainerCardInBuffer(gBlockSendBuffer, TRUE);
-        CleanupOverworldWindowsAndTilemaps();
-        SetCableClubStateAndWarpToNewMap(MAP_GROUP(TRADE_CENTER), MAP_NUM(TRADE_CENTER), 5, 8, USING_TRADE_CENTER);
-        SetMainCallback2(CB2_TransitionToCableClub);
-        break;
-    case ACTIVITY_TRADE | IN_UNION_ROOM:
-        CreateTask(Task_StartUnionRoomTrade, 0);
-        break;
-    case ACTIVITY_CHAT:
-    case ACTIVITY_CHAT | IN_UNION_ROOM:
-        if (GetMultiplayerId() == 0)
-        {
-            LinkRfu_CreateConnectionAsParent();
-        }
-        else
-        {
-            LinkRfu_StopManagerBeforeEnteringChat();
-            SetHostRFUtgtGname(ACTIVITY_CHAT | IN_UNION_ROOM, 0, 1);
-        }
-        EnterUnionRoomChat();
-        break;
-    case ACTIVITY_CARD:
-    case ACTIVITY_CARD | IN_UNION_ROOM:
-        CreateTrainerCardInBuffer(gBlockSendBuffer, FALSE);
-        SetMainCallback2(CB2_ShowCard);
-        break;
-    case ACTIVITY_PJUMP:
-        SetCableClubStateAndWarpCurrentMap(USING_MINIGAME, 5, 1);
-        StartPokemonJump(GetCursorSelectionMonId(), CB2_LoadMap);
-        break;
-    case ACTIVITY_BCRUSH:
-        SetCableClubStateAndWarpCurrentMap(USING_BERRY_CRUSH, 9, 1);
-        StartBerryCrush(CB2_LoadMap);
-        break;
-    case ACTIVITY_BPICK:
-        SetCableClubStateAndWarpCurrentMap(USING_MINIGAME, 5, 1);
-        StartDodrioBerryPicking(GetCursorSelectionMonId(), CB2_LoadMap);
-        break;
-    }
-
-    DestroyTask(taskId);
-    gSpecialVar_Result = 1;
-    ScriptContext2_Disable();*/
 }
 
 static void Task_RunScriptAndFadeToActivity(u8 taskId)
@@ -4541,9 +4446,6 @@ static bool32 PollPartnerYesNoResponse(struct UnkStruct_URoom * uroom)
 
 bool32 InUnionRoom(void)
 {
-    /*return    gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(UNION_ROOM)
-           && gSaveBlock1Ptr->location.mapNum == MAP_NUM(UNION_ROOM)
-           ? TRUE : FALSE;*/
 	return FALSE;
 }
 
