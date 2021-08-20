@@ -86,7 +86,7 @@ gStdScripts:: @ 8160450
 	.4byte Std_ReceivedItem
 gStdScriptsEnd::
 
-	.include "data/maps/BattleColosseum_2P/scripts.inc"
+	/*.include "data/maps/BattleColosseum_2P/scripts.inc"
 	.include "data/maps/TradeCenter/scripts.inc"
 	.include "data/maps/RecordCorner/scripts.inc"
 	.include "data/maps/BattleColosseum_4P/scripts.inc"
@@ -801,7 +801,7 @@ gStdScriptsEnd::
 	.include "data/maps/TwoIsland_CapeBrink_House/text.inc"
 	.include "data/maps/SixIsland_WaterPath_House1/text.inc"
 	.include "data/maps/SixIsland_WaterPath_House2/text.inc"
-	.include "data/maps/SevenIsland_SevaultCanyon_House/text.inc"
+	.include "data/maps/SevenIsland_SevaultCanyon_House/text.inc"*/
 
 	.include "data/scripts/std_msgbox.inc"
 	.include "data/scripts/trainer_battle.inc"
