@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "task.h"
 #include "gflib.h"
 #include "menu_helpers.h"
@@ -1216,7 +1217,7 @@ static void TeachyTvRestorePlayerPartyCallback(void)
 
 static void TeachyTvLoadBg3Map(u16 *buffer)
 {
-    u16 * bgTilesBuffer;
+    /*u16 * bgTilesBuffer;
     u8 * mapTilesRowBuffer;
     u16 i, j, k;
     u16 currentBlockIdx;
@@ -1276,7 +1277,7 @@ static void TeachyTvLoadBg3Map(u16 *buffer)
     Free(bgTilesBuffer);
     Free(palIndicesBuffer);
     Free(tilesetsBuffer);
-    Free(blockIndicesBuffer);
+    Free(blockIndicesBuffer);*/
 }
 
 static void TeachyTvLoadMapTilesetToBuffer(struct Tileset *ts, u8 *dstBuffer, u16 size)

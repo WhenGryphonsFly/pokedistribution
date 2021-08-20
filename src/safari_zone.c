@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "battle.h"
 #include "event_scripts.h"
@@ -41,25 +42,25 @@ void ExitSafariMode(void)
 
 bool8 SafariZoneTakeStep(void)
 {
-    if (GetSafariZoneFlag() == FALSE)
+    /*if (GetSafariZoneFlag() == FALSE)
         return FALSE;
     gSafariZoneStepCounter--;
     if (gSafariZoneStepCounter == 0)
     {
         ScriptContext1_SetupScript(SafariZone_EventScript_TimesUp);
         return TRUE;
-    }
+    }*/
     return FALSE;
 }
 
 void SafariZoneRetirePrompt(void)
 {
-    ScriptContext1_SetupScript(SafariZone_EventScript_RetirePrompt);
+    //ScriptContext1_SetupScript(SafariZone_EventScript_RetirePrompt);
 }
 
 void CB2_EndSafariBattle(void)
 {
-    if (gNumSafariBalls != 0)
+    /*if (gNumSafariBalls != 0)
     {
         SetMainCallback2(CB2_ReturnToField);
     }
@@ -75,5 +76,5 @@ void CB2_EndSafariBattle(void)
         ScriptContext1_SetupScript(SafariZone_EventScript_OutOfBalls);
         ScriptContext1_Stop();
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
-    }
+    }*/
 }

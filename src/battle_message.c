@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "battle_string_ids.h"
@@ -1774,7 +1775,7 @@ static const u8* TryGetStatusString(u8 *src)
 
 u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
 {
-    u32 dstId = 0; // if they used dstId, why not use srcId as well?
+    /*u32 dstId = 0; // if they used dstId, why not use srcId as well?
     const u8 *toCpy = NULL;
     u8 text[30];
     u8 multiplayerId;
@@ -2152,7 +2153,8 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
     dst[dstId] = *src;
     dstId++;
 
-    return dstId;
+    return dstId;*/
+	return 0;
 }
 
 static void ExpandBattleTextBuffPlaceholders(const u8 *src, u8 *dst)

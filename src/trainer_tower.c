@@ -1,5 +1,5 @@
 //[[!!!]]
-/*#include "global.h"
+#include "global.h"
 #include "gflib.h"
 #include "util.h"
 #include "event_data.h"
@@ -20,7 +20,7 @@
 #include "constants/event_objects.h"
 #include "constants/trainer_tower.h"
 
-#define CURR_FLOOR sTrainerTowerState->data.floors[sTrainerTowerState->floorIdx]
+/*#define CURR_FLOOR sTrainerTowerState->data.floors[sTrainerTowerState->floorIdx]
 #define TRAINER_TOWER gSaveBlock1Ptr->trainerTower[gSaveBlock1Ptr->towerChallengeId]
 
 struct TrainerTowerState
@@ -456,11 +456,11 @@ void GetTrainerTowerOpponentName(u8 *dest)
 u8 GetTrainerTowerTrainerFrontSpriteId(void)
 {
     return gFacilityClassToPicIndex[sTrainerTowerOpponent->facilityClass];
-}
+}*/
 
 void InitTrainerTowerBattleStruct(void)
 {
-    u16 trainerId;
+    /*u16 trainerId;
     int i;
 
     SetUpTrainerTowerDataStruct();
@@ -484,15 +484,15 @@ void InitTrainerTowerBattleStruct(void)
     sTrainerTowerOpponent->facilityClass = CURR_FLOOR.trainers[trainerId].facilityClass;
     sTrainerTowerOpponent->textColor = CURR_FLOOR.trainers[trainerId].textColor;
     SetVBlankCounter1Ptr(&TRAINER_TOWER.timer);
-    FreeTrainerTowerDataStruct();
+    FreeTrainerTowerDataStruct();*/
 }
 
 void FreeTrainerTowerBattleStruct(void)
 {
-    FREE_AND_SET_NULL(sTrainerTowerOpponent);
+    /*FREE_AND_SET_NULL(sTrainerTowerOpponent);*/
 }
 
-void GetTrainerTowerOpponentWinText(u8 *dest, u8 opponentIdx)
+/*void GetTrainerTowerOpponentWinText(u8 *dest, u8 opponentIdx)
 {
     VarSet(VAR_TEMP_3, opponentIdx);
     TrainerTowerGetOpponentTextColor(sTrainerTowerOpponent->battleType, sTrainerTowerOpponent->facilityClass);

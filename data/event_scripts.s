@@ -1063,7 +1063,7 @@ EventScript_ResetAllMapFlags:: @ 81A6481
 	end
 
 	.include "data/scripts/hall_of_fame.inc"
-	.include "data/scripts/pkmn_center_nurse.inc"
+	//.include "data/scripts/pkmn_center_nurse.inc"
 	.include "data/scripts/obtain_item.inc"
 	.include "data/scripts/pc.inc"
 
@@ -1243,7 +1243,7 @@ Common_EventScript_DirectCornerAttendant:: @ 81A8D02
 	call CableClub_EventScript_DirectCornerAttendant
 	end
 
-VermilionCity_PokemonCenter_1F_EventScript_VSSeekerWoman:: @ 81A8D08
+/*VermilionCity_PokemonCenter_1F_EventScript_VSSeekerWoman:: @ 81A8D08
 	lock
 	faceplayer
 	goto_if_set FLAG_GOT_VS_SEEKER, VermilionCity_PokemonCenter_1F_EventScript_ExplainVSSeeker
@@ -1259,7 +1259,7 @@ VermilionCity_PokemonCenter_1F_EventScript_VSSeekerWoman:: @ 81A8D08
 VermilionCity_PokemonCenter_1F_EventScript_ExplainVSSeeker:: @ 81A8D3F
 	msgbox VermilionCity_PokemonCenter_1F_Text_ExplainVSSeeker
 	release
-	end
+	end*/
 
 	.include "data/scripts/itemfinder.inc"
 	.include "data/scripts/white_out.inc"
@@ -1324,7 +1324,7 @@ EventScript_NoMoreRoomForPokemon:: @ 81A927C
 	end
 
 	.include "data/text/braille.inc"
-	.include "data/scripts/trainers.inc"
+	//.include "data/scripts/trainers.inc"
 
 @ Test message!
 @ Welcome to the world of Pokémon!
@@ -1332,21 +1332,21 @@ Text_TestMsg:: @ 81ACD45
 	.string "テストよう　メッセージです！\n"
 	.string "ポケモンの　せかいへ　ようこそ！$"
 
-	.include "data/scripts/fame_checker.inc"
+	//.include "data/scripts/fame_checker.inc"
 	.include "data/text/fame_checker.inc"
 	.include "data/text/sign_lady.inc"
 	.include "data/text/trainer_card.inc"
 	.include "data/scripts/trainer_card.inc"
 	.include "data/text/help_system.inc"
-	.include "data/scripts/cable_club.inc"
+	//.include "data/scripts/cable_club.inc"
 	.include "data/scripts/field_moves.inc"
 	.include "data/scripts/item_ball_scripts.inc"
 	.include "data/scripts/mystery_event_club.inc"
-	.include "data/scripts/day_care.inc"
+	//.include "data/scripts/day_care.inc"
 	.include "data/text/day_care.inc"
 	.include "data/scripts/flash.inc"
 	.include "data/scripts/repel.inc"
-	.include "data/scripts/safari_zone.inc"
+	//.include "data/scripts/safari_zone.inc"
 	.include "data/text/safari_zone.inc"
 	.include "data/text/competitive_brothers.inc"
 	.include "data/text/eon_ticket.inc"
@@ -1354,8 +1354,8 @@ Text_TestMsg:: @ 81ACD45
 	.include "data/text/flavor_text.inc"
 	.include "data/scripts/hole.inc"
 	.include "data/text/trainers.inc"
-	.include "data/scripts/move_tutors.inc"
-	.include "data/scripts/trainer_tower.inc"
+	//.include "data/scripts/move_tutors.inc"
+	//.include "data/scripts/trainer_tower.inc"
 	.include "data/scripts/test.inc"
 	.include "data/text/save.inc"
 	.include "data/text/pokedude.inc"

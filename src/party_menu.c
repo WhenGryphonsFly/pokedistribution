@@ -3927,7 +3927,7 @@ static void CursorCB_Trade2(u8 taskId)
 
 static void CursorCB_FieldMove(u8 taskId)
 {
-    u8 fieldMove = sPartyMenuInternal->actions[Menu_GetCursorPos()] - MENU_FIELD_MOVES;
+    /*u8 fieldMove = sPartyMenuInternal->actions[Menu_GetCursorPos()] - MENU_FIELD_MOVES;
     const struct MapHeader *mapHeader;
 
     PlaySE(SE_SELECT);
@@ -4001,7 +4001,7 @@ static void CursorCB_FieldMove(u8 taskId)
             }
             gTasks[taskId].func = Task_CancelAfterAorBPress;
         }
-    }
+    }*/
 }
 
 static void DisplayFieldMoveExitAreaMessage(u8 taskId)

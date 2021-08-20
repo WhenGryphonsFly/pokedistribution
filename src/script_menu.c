@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "menu.h"
@@ -594,22 +595,22 @@ const u8 *const gStdStringPtrs[] = {
 };
 
 static const u8 *const sDescriptionPtrs_CableClub_TradeBattleCancel[] = {
-    CableClub_Text_TradeMonsUsingLinkCable,
+    /*CableClub_Text_TradeMonsUsingLinkCable,
     CableClub_Text_BattleUsingLinkCable,
-    CableClub_Text_CancelSelectedItem
+    CableClub_Text_CancelSelectedItem*/
 };
 
 static const u8 *const sDescriptionPtrs_WirelessCenter_TradeBattleCrushCancel[] = {
-    CableClub_Text_YouMayTradeHere,
+    /*CableClub_Text_YouMayTradeHere,
     CableClub_Text_YouMayBattleHere,
     CableClub_Text_CanMakeBerryPowder,
-    CableClub_Text_CancelSelectedItem
+    CableClub_Text_CancelSelectedItem*/
 };
 
 static const u8 *const sDescriptionPtrs_WirelessCenter_TradeBattleCancel[] = {
-    CableClub_Text_YouMayTradeHere,
+    /*CableClub_Text_YouMayTradeHere,
     CableClub_Text_YouMayBattleHere,
-    CableClub_Text_CancelSelectedItem
+    CableClub_Text_CancelSelectedItem*/
 };
 
 static const union AnimCmd sMuseumFossilAnim0[] = {

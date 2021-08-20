@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "script_pokemon_util.h"
 #include "event_data.h"
@@ -9,7 +10,7 @@
 
 bool8 EnterHallOfFame(void)
 {
-    bool8 ribbonState;
+    /*bool8 ribbonState;
     bool8 *r7;
     int i;
     bool8 gaveAtLeastOneRibbon;
@@ -47,7 +48,7 @@ bool8 EnterHallOfFame(void)
         IncrementGameStat(GAME_STAT_RECEIVED_RIBBONS);
         FlagSet(FLAG_SYS_RIBBON_GET);
     }
-    SetMainCallback2(CB2_DoHallOfFameScreen);
+    SetMainCallback2(CB2_DoHallOfFameScreen);*/
     return FALSE;
 }
 

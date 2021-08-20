@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "event_object_lock.h"
@@ -117,7 +118,7 @@ static u8 MetatileAtCoordsIsGrassTile(s16 x, s16 y)
 
 bool8 SetUpFieldMove_Cut(void)
 {
-    s16 x, y;
+    /*s16 x, y;
     u8 i, j;
     sScheduleOpenDottedHole = FALSE;
     if (CutMoveRuinValleyCheck() == TRUE)
@@ -157,7 +158,8 @@ bool8 SetUpFieldMove_Cut(void)
             }
         }
         return FALSE;
-    }
+    }*/
+	return FALSE;
 }
 
 static void FieldCallback_CutGrass(void)

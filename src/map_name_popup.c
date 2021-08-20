@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "task.h"
@@ -188,7 +189,7 @@ static u16 MapNamePopupCreateWindow(bool32 palintoFadedBuffer)
 
 static void MapNamePopupPrintMapNameOnWindow(u16 windowId)
 {
-    u8 mapName[25];
+    /*u8 mapName[25];
     u32 maxWidth = 112;
     u32 xpos;
     u8 *ptr = GetMapName(mapName, gMapHeader.regionMapSectionId, 0);
@@ -199,7 +200,7 @@ static void MapNamePopupPrintMapNameOnWindow(u16 windowId)
     }
     xpos = (maxWidth - GetStringWidth(2, mapName, -1)) / 2;
     FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
-    AddTextPrinterParameterized(windowId, 2, mapName, xpos, 2, TEXT_SPEED_FF, NULL);
+    AddTextPrinterParameterized(windowId, 2, mapName, xpos, 2, TEXT_SPEED_FF, NULL);*/
 }
 
 static u8 *MapNamePopupAppendFloorNum(u8 *dest, s8 floorNum)

@@ -135,7 +135,7 @@ void NewGameInitData(void)
     gPlayerPartyCount = 0;
     ZeroPlayerPartyMons();
     ResetPokemonStorageSystem();
-    ClearRoamerData();
+    /*ClearRoamerData();*/
     gSaveBlock1Ptr->registeredItem = 0;
     ClearBag();
     NewGameInitPCItems();
@@ -145,11 +145,11 @@ void NewGameInitData(void)
     UnionRoomChat_InitializeRegisteredTexts();
     ResetMiniGamesResults();
     InitMEventData();
-    SetAllRenewableItemFlags();
+    /*SetAllRenewableItemFlags();*/
     WarpToPlayersRoom();
     ScriptContext2_RunNewScript(EventScript_ResetAllMapFlags);
     StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
-    ResetTrainerTowerResults();
+    /*ResetTrainerTowerResults();*/
 }
 
 static void ResetMiniGamesResults(void)

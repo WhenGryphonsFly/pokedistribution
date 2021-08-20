@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "battle.h"
@@ -3744,8 +3745,8 @@ static void HandleEndTurn_FinishBattle(void)
             }
         }
         TrySetQuestLogBattleEvent();
-        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
-            ClearRematchStateByTrainerId();
+        /*if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+            ClearRematchStateByTrainerId();*/
         BeginFastPaletteFade(3);
         FadeOutMapMusic(5);
         gBattleMainFunc = FreeResetData_ReturnToOvOrDoEvolutions;
@@ -3822,7 +3823,7 @@ static void ReturnFromBattleToOverworld(void)
         gSpecialVar_Result = gBattleOutcome;
         gMain.inBattle = FALSE;
         gMain.callback1 = gPreBattleCallback1;
-        if (gBattleTypeFlags & BATTLE_TYPE_ROAMER)
+        /*if (gBattleTypeFlags & BATTLE_TYPE_ROAMER)
         {
             UpdateRoamerHPStatus(&gEnemyParty[0]);
 #ifdef BUGFIX
@@ -3831,7 +3832,7 @@ static void ReturnFromBattleToOverworld(void)
             if ((gBattleOutcome & B_OUTCOME_WON) || gBattleOutcome == B_OUTCOME_CAUGHT) // Bug: When Roar is used by roamer, gBattleOutcome is B_OUTCOME_PLAYER_TELEPORTED (5).
 #endif                                                                                  // & with B_OUTCOME_WON (1) will return TRUE and deactivates the roamer.
                 SetRoamerInactive();
-        }
+        }*/
         m4aSongNumStop(SE_LOW_HEALTH);
         SetMainCallback2(gMain.savedCallback);
     }

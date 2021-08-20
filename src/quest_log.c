@@ -1103,7 +1103,7 @@ static void Task_FinalScene_WaitFade(u8 taskId)
 
 static void Task_QuestLogScene_SavedGame(u8 taskId)
 {
-    struct Task *task = &gTasks[taskId];
+    /*struct Task *task = &gTasks[taskId];
 
     if (!gPaletteFade.active)
     {
@@ -1118,7 +1118,7 @@ static void Task_QuestLogScene_SavedGame(u8 taskId)
         task->func = Task_WaitAtEndOfQuestLog;
         FreezeObjectEvents();
         ScriptContext2_Enable();
-    }
+    }*/
 }
 
 #define tTimer data[0]

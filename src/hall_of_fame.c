@@ -420,7 +420,7 @@ static void Task_Hof_InitMonData(u8 taskId)
 
 static void Task_Hof_InitTeamSaveData(u8 taskId)
 {
-    u16 i;
+    /*u16 i;
     struct HallofFameTeam* lastSavedTeam = (struct HallofFameTeam *)(gDecompressionBuffer);
 
     SaveQuestLogData();
@@ -455,7 +455,7 @@ static void Task_Hof_InitTeamSaveData(u8 taskId)
     DrawDialogueFrame(0, 0);
     AddTextPrinterParameterized2(0, 2, gText_SavingDontTurnOffThePower2, 0, NULL, 2, 1, 3);
     CopyWindowToVram(0, COPYWIN_BOTH);
-    gTasks[taskId].func = Task_Hof_TrySaveData;
+    gTasks[taskId].func = Task_Hof_TrySaveData;*/
 }
 
 static void Task_Hof_TrySaveData(u8 taskId)

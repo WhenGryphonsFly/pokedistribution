@@ -664,7 +664,7 @@ void FieldUseFunc_TownMap(u8 taskId)
 
 static void sub_80A1CAC(void)
 {
-    InitRegionMapWithExitCB(REGIONMAP_TYPE_NORMAL, CB2_BagMenuFromStartMenu);
+    /*InitRegionMapWithExitCB(REGIONMAP_TYPE_NORMAL, CB2_BagMenuFromStartMenu);*/
 }
 
 static void sub_80A1CC0(u8 taskId)
@@ -673,7 +673,7 @@ static void sub_80A1CC0(u8 taskId)
     {
         CleanupOverworldWindowsAndTilemaps();
         sub_80A1184();
-        InitRegionMapWithExitCB(REGIONMAP_TYPE_NORMAL, CB2_ReturnToField);
+        /*InitRegionMapWithExitCB(REGIONMAP_TYPE_NORMAL, CB2_ReturnToField);*/
         DestroyTask(taskId);
     }
 }

@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "bike.h"
@@ -216,10 +217,10 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     {
         IncrementGameStat(GAME_STAT_STEPS);
         MENewsJisanStepCounter();
-        IncrementRenewableHiddenItemStepCounter();
+        /*IncrementRenewableHiddenItemStepCounter();*/
         RunMassageCooldownStepCounter();
         IncrementResortGorgeousStepCounter();
-        IncrementBirthIslandRockStepCount();
+        /*IncrementBirthIslandRockStepCount();*/
         if (TryStartStepBasedScript(&position, metatileBehavior, playerDirection) == TRUE)
         {
             gInputToStoreInQuestLogMaybe.tookStep = TRUE;
@@ -375,9 +376,9 @@ static bool8 TryStartInteractionScript(struct MapPosition *position, u16 metatil
         return FALSE;
 
     // Don't play interaction sound for certain scripts.
-    if (script != PalletTown_PlayersHouse_2F_EventScript_PC
+    /*if (script != PalletTown_PlayersHouse_2F_EventScript_PC
         && script != EventScript_PC)
-        PlaySE(SE_SELECT);
+        PlaySE(SE_SELECT);*/
 
     ScriptContext1_SetupScript(script);
     return TRUE;
@@ -535,8 +536,8 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
         return EventScript_Burglary;
     if (MetatileBehavior_IsComputer(metatileBehavior) == TRUE)
         return EventScript_Computer;
-    if (MetatileBehavior_IsTrainerTowerMonitor(metatileBehavior) == TRUE)
-        return TrainerTower_EventScript_ShowTime;
+    /*if (MetatileBehavior_IsTrainerTowerMonitor(metatileBehavior) == TRUE)
+        return TrainerTower_EventScript_ShowTime;*/
     if (MetatileBehavior_IsPlayerFacingTVScreen(metatileBehavior, direction) == TRUE)
         return EventScript_PlayerFacingTVScreen;
     if (MetatileBehavior_IsCabinet(metatileBehavior) == TRUE)
@@ -569,12 +570,12 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
         return EventScript_BlinkingLights;
     if (MetatileBehavior_IsNeatlyLinedUpTools(metatileBehavior) == TRUE)
         return EventScript_NeatlyLinedUpTools;
-    if (MetatileBehavior_IsPlayerFacingCableClubWirelessMonitor(metatileBehavior, direction) == TRUE)
-        return CableClub_EventScript_ShowWirelessCommunicationScreen;
+    /*if (MetatileBehavior_IsPlayerFacingCableClubWirelessMonitor(metatileBehavior, direction) == TRUE)
+        return CableClub_EventScript_ShowWirelessCommunicationScreen;*/
     if (MetatileBehavior_IsQuestionnaire(metatileBehavior) == TRUE)
         return EventScript_Questionnaire;
-    if (MetatileBehavior_IsPlayerFacingBattleRecords(metatileBehavior, direction) == TRUE)
-        return CableClub_EventScript_ShowBattleRecords;
+    /*if (MetatileBehavior_IsPlayerFacingBattleRecords(metatileBehavior, direction) == TRUE)
+        return CableClub_EventScript_ShowBattleRecords;*/
     if (MetatileBehavior_IsIndigoPlateauMark(metatileBehavior) == TRUE)
     {
         MsgSetSignPost();
@@ -657,12 +658,12 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
 
     if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED) && !MetatileBehavior_IsForcedMovementTile(metatileBehavior))
     {
-        if (UpdateVsSeekerStepCounter() == TRUE)
+        /*if (UpdateVsSeekerStepCounter() == TRUE)
         {
             ScriptContext1_SetupScript(EventScript_VsSeekerChargingDone);
             return TRUE;
         }
-        else if (UpdatePoisonStepCounter() == TRUE)
+        else*/ if (UpdatePoisonStepCounter() == TRUE)
         {
             ScriptContext1_SetupScript(EventScript_FieldPoison);
             return TRUE;
@@ -670,7 +671,7 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
         else if (ShouldEggHatch())
         {
             IncrementGameStat(GAME_STAT_HATCHED_EGGS);
-            ScriptContext1_SetupScript(EventScript_EggHatch);
+            //ScriptContext1_SetupScript(EventScript_EggHatch);
             return TRUE;
         }
     }
