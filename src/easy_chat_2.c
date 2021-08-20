@@ -31,26 +31,26 @@ struct EasyChatScreenTemplate
 
 struct EasyChatScreen
 {
-    /*0x00*/ u8 type;
-    /*0x01*/ u8 templateId;
-    /*0x02*/ u8 numColumns;
-    /*0x03*/ u8 numRows;
-    /*0x04*/ u8 state;
-    /*0x05*/ s8 mainCursorColumn;
-    /*0x06*/ s8 mainCursorRow;
-    /*0x07*/ u8 numWords;
-    /*0x08*/ u8 stateBackup;
-    /*0x09*/ bool8 isAlphaMode;
-    /*0x0A*/ s8 selectGroupCursorX;
-    /*0x0B*/ s8 selectGroupCursorY;
-    /*0x0C*/ u8 selectGroupRowsAbove;
-    /*0x0D*/ u8 selectGroupNumRows;
-    /*0x0E*/ u8 selectWordRowsAbove;
-    /*0x0F*/ u8 selectWordNumRows;
-    /*0x10*/ s8 selectWordCursorX;
-    /*0x11*/ s8 selectWordCursorY;
-    /*0x14*/ u16 *words;
-    /*0x18*/ u16 ecWordBuffer[9];
+    u8 type;
+    u8 templateId;
+    u8 numColumns;
+    u8 numRows;
+    u8 state;
+    s8 mainCursorColumn;
+    s8 mainCursorRow;
+    u8 numWords;
+    u8 stateBackup;
+    bool8 isAlphaMode;
+    s8 selectGroupCursorX;
+    s8 selectGroupCursorY;
+    u8 selectGroupRowsAbove;
+    u8 selectGroupNumRows;
+    u8 selectWordRowsAbove;
+    u8 selectWordNumRows;
+    s8 selectWordCursorX;
+    s8 selectWordCursorY;
+    u16 *words;
+    u16 ecWordBuffer[9];
 };
 
 static EWRAM_DATA struct EasyChatScreen * sEasyChatScreen = NULL;

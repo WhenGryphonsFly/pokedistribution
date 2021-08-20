@@ -227,11 +227,6 @@ static bool32 MainMenuGpuInit(u8 a0)
     return FALSE;
 }
 
-/*
- * The entire screen is darkened slightly except at WIN0 to indicate
- * the player cursor position.
- */
-
 static void Task_SetWin0BldRegsAndCheckSaveFile(u8 taskId)
 {
     if (!gPaletteFade.active)

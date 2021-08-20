@@ -1,3 +1,4 @@
+#[[!!!]]
 TOOLCHAIN := $(DEVKITARM)
 COMPARE ?= 0
 

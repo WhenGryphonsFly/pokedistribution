@@ -1,3 +1,4 @@
+//[[!!!]]
 const struct SpritePalette gSpritePalette_GeneralFieldEffect0 = { .data = gFieldEffectObjectPalette0, .tag = FLDEFF_PAL_TAG_GENERAL_0 };
 const struct SpritePalette gSpritePalette_GeneralFieldEffect1 = { .data = gFieldEffectObjectPalette1, .tag = FLDEFF_PAL_TAG_GENERAL_1 };
 
@@ -930,57 +931,6 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_ReflectionDistortion =
     .affineAnims = sAffineAnims_ReflectionDistortion,
     .callback = SpriteCallbackDummy,
 };
-
-/*
-static const struct SpriteFrameImage sPicTable_Sparkle[] = {
-    overworld_frame(gFieldEffectObjectPic_Sparkle, 2, 2, 0),
-    overworld_frame(gFieldEffectObjectPic_Sparkle, 2, 2, 1),
-    overworld_frame(gFieldEffectObjectPic_Sparkle, 2, 2, 2),
-    overworld_frame(gFieldEffectObjectPic_Sparkle, 2, 2, 3),
-    overworld_frame(gFieldEffectObjectPic_Sparkle, 2, 2, 4),
-    overworld_frame(gFieldEffectObjectPic_Sparkle, 2, 2, 5),
-};
-
-static const union AnimCmd sAnim_Sparkle[] =
-{
-    ANIMCMD_FRAME(0, 8),
-    ANIMCMD_FRAME(1, 8),
-    ANIMCMD_FRAME(2, 8),
-    ANIMCMD_FRAME(3, 8),
-    ANIMCMD_FRAME(4, 8),
-    ANIMCMD_FRAME(5, 8),
-    ANIMCMD_LOOP(0),
-    ANIMCMD_FRAME(0, 4),
-    ANIMCMD_FRAME(1, 4),
-    ANIMCMD_FRAME(2, 4),
-    ANIMCMD_FRAME(3, 4),
-    ANIMCMD_FRAME(4, 4),
-    ANIMCMD_FRAME(5, 4),
-    ANIMCMD_LOOP(3),
-    ANIMCMD_FRAME(0, 8),
-    ANIMCMD_FRAME(1, 8),
-    ANIMCMD_FRAME(2, 8),
-    ANIMCMD_FRAME(3, 8),
-    ANIMCMD_FRAME(4, 8),
-    ANIMCMD_FRAME(5, 8),
-    ANIMCMD_END,
-};
-
-static const union AnimCmd *const sAnimTable_Sparkle[] =
-{
-    sAnim_Sparkle,
-};
-
-const struct SpriteTemplate gFieldEffectObjectTemplate_Sparkle = {
-    .tileTag = 0xFFFF,
-    .paletteTag = 0xFFFF,
-    .oam = &gObjectEventBaseOam_16x16,
-    .anims = sAnimTable_Sparkle,
-    .images = sPicTable_Sparkle,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = WaitFieldEffectSpriteAnim,
-};
-*/
 
 static const struct SpriteFrameImage sPicTable_TreeDisguise[] =
 {

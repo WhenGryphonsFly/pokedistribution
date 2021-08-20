@@ -91,17 +91,17 @@ typedef void (*AffineAnimCmdFunc)(u8 matrixNum, struct Sprite *);
 
 #define DUMMY_OAM_DATA        \
 {                             \
-    160, /* Y (off-screen) */ \
+    160,  \
     ST_OAM_AFFINE_OFF,        \
     ST_OAM_OBJ_NORMAL,        \
     FALSE,                    \
     ST_OAM_4BPP,              \
     ST_OAM_SQUARE,            \
-    304, /* X */              \
+    304,              \
     0,                        \
     ST_OAM_SIZE_0,            \
     0x000,                    \
-    3, /* lowest priority */  \
+    3,  \
     0x0,                      \
     0                         \
 }

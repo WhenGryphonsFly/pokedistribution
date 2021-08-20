@@ -14,15 +14,15 @@ bool8 gHelpSystemEnabled;
 
 struct HelpSystemVideoState
 {
-    /*0x00*/ MainCallback savedVblankCb;
-    /*0x04*/ MainCallback savedHblankCb;
-    /*0x08*/ u16 savedDispCnt;
-    /*0x0a*/ u16 savedBg0Cnt;
-    /*0x0c*/ u16 savedBg0Hofs;
-    /*0x0e*/ u16 savedBg0Vofs;
-    /*0x10*/ u16 savedBldCnt;
-    /*0x12*/ u8 savedTextColor[3];
-    /*0x15*/ u8 state;
+    MainCallback savedVblankCb;
+    MainCallback savedHblankCb;
+    u16 savedDispCnt;
+    u16 savedBg0Cnt;
+    u16 savedBg0Hofs;
+    u16 savedBg0Vofs;
+    u16 savedBldCnt;
+    u8 savedTextColor[3];
+    u8 state;
 };
 
 static EWRAM_DATA u8 sMapTilesBackup[BG_CHAR_SIZE] = {0};

@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "random.h"
@@ -81,8 +82,6 @@ static void ClearBattleTower(void)
 
 static void WarpToPlayersRoom(void)
 {
-    SetWarpDestination(MAP_GROUP(PALLET_TOWN_PLAYERS_HOUSE_2F), MAP_NUM(PALLET_TOWN_PLAYERS_HOUSE_2F), -1, 6, 6);
-    WarpIntoMap();
 }
 
 void Sav2_ClearSetDefault(void)
@@ -134,7 +133,6 @@ void NewGameInitData(void)
     gPlayerPartyCount = 0;
     ZeroPlayerPartyMons();
     ResetPokemonStorageSystem();
-    ClearRoamerData();
     gSaveBlock1Ptr->registeredItem = 0;
     ClearBag();
     NewGameInitPCItems();
@@ -144,11 +142,9 @@ void NewGameInitData(void)
     UnionRoomChat_InitializeRegisteredTexts();
     ResetMiniGamesResults();
     InitMEventData();
-    SetAllRenewableItemFlags();
     WarpToPlayersRoom();
     ScriptContext2_RunNewScript(EventScript_ResetAllMapFlags);
     StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
-    ResetTrainerTowerResults();
 }
 
 static void ResetMiniGamesResults(void)

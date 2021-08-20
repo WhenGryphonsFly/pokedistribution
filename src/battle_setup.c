@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "task.h"
 #include "help_system.h"
@@ -210,12 +211,7 @@ static void CreateBattleStartTask(u8 transition, u16 song) // song == 0 means de
 
 static bool8 CheckSilphScopeInPokemonTower(u16 mapGroup, u16 mapNum)
 {
-    if (mapGroup == MAP_GROUP(POKEMON_TOWER_1F)
-     && ((u16)(mapNum - MAP_NUM(POKEMON_TOWER_1F)) <= 6)
-     && !(CheckBagHasItem(ITEM_SILPH_SCOPE, 1)))
-        return TRUE;
-    else
-        return FALSE;
+    return FALSE;
 }
 
 void StartWildBattle(void)
@@ -790,18 +786,6 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
         TrainerBattleLoadArgs(sContinueScriptDoubleBattleParams, data);
         SetMapVarsToTrainer();
         return EventScript_TryDoDoubleTrainerBattle;
-    case TRAINER_BATTLE_REMATCH_DOUBLE:
-        FinishRecordingQuestLogScene();
-        TrainerBattleLoadArgs(sDoubleBattleParams, data);
-        SetMapVarsToTrainer();
-        gTrainerBattleOpponent_A = GetRematchTrainerId(gTrainerBattleOpponent_A);
-        return EventScript_TryDoDoubleRematchBattle;
-    case TRAINER_BATTLE_REMATCH:
-        FinishRecordingQuestLogScene();
-        TrainerBattleLoadArgs(sOrdinaryBattleParams, data);
-        SetMapVarsToTrainer();
-        gTrainerBattleOpponent_A = GetRematchTrainerId(gTrainerBattleOpponent_A);
-        return EventScript_TryDoRematchBattle;
     case TRAINER_BATTLE_EARLY_RIVAL:
         TrainerBattleLoadArgs(sEarlyRivalBattleParams, data);
         return EventScript_DoNoIntroTrainerBattle;
@@ -936,21 +920,6 @@ static void CB2_EndTrainerBattle(void)
 
 static void CB2_EndRematchBattle(void)
 {
-    if (gTrainerBattleOpponent_A == TRAINER_SECRET_BASE)
-    {
-        SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
-    }
-    else if (IsPlayerDefeated(gBattleOutcome) == TRUE)
-    {
-        SetMainCallback2(CB2_WhiteOut);
-    }
-    else
-    {
-        SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
-        SetBattledTrainerFlag();
-        ClearRematchStateOfLastTalked();
-        ResetDeferredLinkEvent();
-    }
 }
 
 void StartRematchBattle(void)

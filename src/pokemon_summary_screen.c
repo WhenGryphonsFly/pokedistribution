@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "pokemon.h"
@@ -156,7 +157,7 @@ struct PokemonSummaryScreenData
 
     u8 ALIGNED(4) numMonPicBounces;
 
-    bool32 isEnemyParty; /* 0x3024 */
+    bool32 isEnemyParty;
 
     struct PokeSummary
     {
@@ -187,48 +188,48 @@ struct PokemonSummaryScreenData
         u8 ALIGNED(4) abilityDescStrBuf[52];
     } summary;
 
-    u8 ALIGNED(4) isEgg; /* 0x3200 */
-    u8 ALIGNED(4) isBadEgg; /* 0x3204 */
+    u8 ALIGNED(4) isEgg;
+    u8 ALIGNED(4) isBadEgg;
 
-    u8 ALIGNED(4) mode; /* 0x3208 */
-    u8 ALIGNED(4) unk320C; /* 0x320C */
-    u8 ALIGNED(4) lastIndex; /* 0x3210 */
-    u8 ALIGNED(4) curPageIndex; /* 0x3214 */
-    u8 ALIGNED(4) unk3218; /* 0x3218 */
-    u8 ALIGNED(4) isBoxMon; /* 0x321C */
-    u8 ALIGNED(4) monTypes[2]; /* 0x3220 */
+    u8 ALIGNED(4) mode;
+    u8 ALIGNED(4) unk320C;
+    u8 ALIGNED(4) lastIndex;
+    u8 ALIGNED(4) curPageIndex;
+    u8 ALIGNED(4) unk3218;
+    u8 ALIGNED(4) isBoxMon;
+    u8 ALIGNED(4) monTypes[2];
 
-    u8 ALIGNED(4) pageFlipDirection; /* 0x3224 */
-    u8 ALIGNED(4) unk3228; /* 0x3228 */
-    u8 ALIGNED(4) unk322C; /* 0x322C */
-    u8 ALIGNED(4) unk3230; /* 0x3230 */
+    u8 ALIGNED(4) pageFlipDirection;
+    u8 ALIGNED(4) unk3228;
+    u8 ALIGNED(4) unk322C;
+    u8 ALIGNED(4) unk3230;
 
-    u8 ALIGNED(4) lockMovesFlag; /* 0x3234 */
+    u8 ALIGNED(4) lockMovesFlag;
 
-    u8 ALIGNED(4) whichBgLayerToTranslate; /* 0x3238 */
-    u8 ALIGNED(4) skillsPageBgNum; /* 0x323C */
-    u8 ALIGNED(4) infoAndMovesPageBgNum; /* 0x3240 */
-    u8 ALIGNED(4) flippingPages; /* 0x3244 */
-    u8 ALIGNED(4) unk3248; /* 0x3248 */
-    s16 ALIGNED(4) flipPagesBgHofs; /* 0x324C */
+    u8 ALIGNED(4) whichBgLayerToTranslate;
+    u8 ALIGNED(4) skillsPageBgNum;
+    u8 ALIGNED(4) infoAndMovesPageBgNum;
+    u8 ALIGNED(4) flippingPages;
+    u8 ALIGNED(4) unk3248;
+    s16 ALIGNED(4) flipPagesBgHofs;
 
-    u16 moveTypes[5]; /* 0x3250 */
-    u16 moveIds[5]; /* 0x325A */
-    u8 ALIGNED(4) numMoves; /* 0x3264 */
-    u8 ALIGNED(4) isSwappingMoves; /* 0x3268 */
+    u16 moveTypes[5];
+    u16 moveIds[5];
+    u8 ALIGNED(4) numMoves;
+    u8 ALIGNED(4) isSwappingMoves;
 
-    u8 ALIGNED(4) curMonStatusAilment; /* 0x326C */
+    u8 ALIGNED(4) curMonStatusAilment;
 
-    u8 ALIGNED(4) state3270; /* 0x3270 */
-    u8 ALIGNED(4) summarySetupStep; /* 0x3274 */
-    u8 ALIGNED(4) loadBgGfxStep; /* 0x3278 */
-    u8 ALIGNED(4) spriteCreationStep; /* 0x327C */
-    u8 ALIGNED(4) bufferStringsStep; /* 0x3280 */
-    u8 ALIGNED(4) state3284; /* 0x3284 */
-    u8 ALIGNED(4) selectMoveInputHandlerState; /* 0x3288 */
-    u8 ALIGNED(4) switchMonTaskState; /* 0x328C */
+    u8 ALIGNED(4) state3270;
+    u8 ALIGNED(4) summarySetupStep;
+    u8 ALIGNED(4) loadBgGfxStep;
+    u8 ALIGNED(4) spriteCreationStep;
+    u8 ALIGNED(4) bufferStringsStep;
+    u8 ALIGNED(4) state3284;
+    u8 ALIGNED(4) selectMoveInputHandlerState;
+    u8 ALIGNED(4) switchMonTaskState;
 
-    struct Pokemon currentMon; /* 0x3290 */
+    struct Pokemon currentMon;
 
     union
     {
@@ -239,8 +240,8 @@ struct PokemonSummaryScreenData
     MainCallback savedCallback;
     struct Sprite * markingSprite;
 
-    u8 ALIGNED(4) lastPageFlipDirection; /* 0x3300 */
-    u8 ALIGNED(4) unk3304; /* 0x3304 */
+    u8 ALIGNED(4) lastPageFlipDirection;
+    u8 ALIGNED(4) unk3304;
 };
 
 struct Struct203B144
@@ -263,54 +264,54 @@ struct Struct203B144
 
 struct ExpBarObjs
 {
-    struct Sprite * sprites[11]; /* 0x00 */
-    u16 xpos[11]; /* 0x2c */
-    u16 tileTag; /* 0x42 */
-    u16 palTag; /* 0x44 */
+    struct Sprite * sprites[11];
+    u16 xpos[11];
+    u16 tileTag;
+    u16 palTag;
 };
 
 struct HpBarObjs
 {
-    struct Sprite * sprites[10]; /* 0x00 */
-    u16 xpos[10]; /* 0x28 */
-    u16 tileTag; /* 0x3c */
-    u16 palTag; /* 0x3e */
+    struct Sprite * sprites[10];
+    u16 xpos[10];
+    u16 tileTag;
+    u16 palTag;
 };
 
 struct MonPicBounceState
 {
-    u8 ALIGNED(4) animFrame; /* 0x00 */
-    u8 ALIGNED(4) initDelay; /* 0x04 */
-    u8 ALIGNED(4) vigor; /* 0x08 */
+    u8 ALIGNED(4) animFrame;
+    u8 ALIGNED(4) initDelay;
+    u8 ALIGNED(4) vigor;
 };
 
 struct MoveSelectionCursor
 {
-    struct Sprite * sprite; /* 0x00 */
-    u16 whichSprite; /* 0x04 */
-    u16 tileTag; /* 0x06 */
-    u16 palTag; /* 0x08 */
+    struct Sprite * sprite;
+    u16 whichSprite;
+    u16 tileTag;
+    u16 palTag;
 };
 
 struct MonStatusIconObj
 {
-    struct Sprite * sprite; /* 0x00 */
-    u16 tileTag; /* 0x04 */
-    u16 palTag; /* 0x06 */
+    struct Sprite * sprite;
+    u16 tileTag;
+    u16 palTag;
 };
 
 struct PokerusIconObj
 {
-    struct Sprite * sprite; /* 0x00 */
-    u16 tileTag; /* 0x04 */
-    u16 palTag; /* 0x06 */
+    struct Sprite * sprite;
+    u16 tileTag;
+    u16 palTag;
 };
 
 struct ShinyStarObjData
 {
-    struct Sprite * sprite; /* 0x00 */
-    u16 tileTag; /* 0x04 */
-    u16 palTag; /* 0x06 */
+    struct Sprite * sprite;
+    u16 tileTag;
+    u16 palTag;
 };
 
 static EWRAM_DATA struct PokemonSummaryScreenData * sMonSummaryScreen = NULL;
@@ -2609,173 +2610,10 @@ static void PokeSum_PrintTrainerMemo(void)
 
 static void PokeSum_PrintTrainerMemo_Mon_HeldByOT(void)
 {
-    u8 nature;
-    u8 level;
-    u8 metLocation;
-    u8 levelStr[5];
-    u8 mapNameStr[32];
-    u8 natureMetOrHatchedAtLevelStr[152];
-
-    DynamicPlaceholderTextUtil_Reset();
-    nature = GetNature(&sMonSummaryScreen->currentMon);
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gNatureNamePointers[nature]);
-    level = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_MET_LEVEL);
-
-    if (level == 0)
-        level = 5;
-
-    ConvertIntToDecimalStringN(levelStr, level, STR_CONV_MODE_LEFT_ALIGN, 3);
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, levelStr);
-
-    metLocation = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_MET_LOCATION);
-
-    if (MapSecIsInKantoOrSevii(metLocation) == TRUE)
-        GetMapNameGeneric_(mapNameStr, metLocation);
-    else
-    {
-        if (sMonSummaryScreen->isEnemyParty == TRUE || IsMultiBattlePartner() == TRUE)
-            StringCopy(mapNameStr, gText_Somewhere);
-        else
-            StringCopy(mapNameStr, gText_PokeSum_ATrade);
-    }
-
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(2, mapNameStr);
-
-    // These pairs of strings are bytewise identical to each other in English,
-    // but Japanese uses different grammar for Bold and Gentle natures.
-    if (GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_MET_LEVEL) == 0) // Hatched
-    {
-        if (GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_EVENT_LEGAL) == 1) // Fateful encounter
-        {
-            if (PokeSum_IsMonBoldOrGentle(nature))
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(natureMetOrHatchedAtLevelStr, gText_PokeSum_FatefulEncounterHatched_BoldGentleGrammar);
-            else
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(natureMetOrHatchedAtLevelStr, gText_PokeSum_FatefulEncounterHatched);
-        }
-        else
-        {
-            if (PokeSum_IsMonBoldOrGentle(nature))
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(natureMetOrHatchedAtLevelStr, gText_PokeSum_Hatched_BoldGentleGrammar);
-            else
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(natureMetOrHatchedAtLevelStr, gText_PokeSum_Hatched);
-        }
-    }
-    else
-    {
-        if (metLocation == METLOC_FATEFUL_ENCOUNTER)
-        {
-            if (PokeSum_IsMonBoldOrGentle(nature))
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(natureMetOrHatchedAtLevelStr, gText_PokeSum_FatefulEncounterMet_BoldGentleGrammar);
-            else
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(natureMetOrHatchedAtLevelStr, gText_PokeSum_FatefulEncounterMet);
-        }
-        else
-        {
-            if (PokeSum_IsMonBoldOrGentle(nature))
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(natureMetOrHatchedAtLevelStr, gText_PokeSum_Met_BoldGentleGrammar);
-            else
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(natureMetOrHatchedAtLevelStr, gText_PokeSum_Met);
-        }
-    }
-
-    AddTextPrinterParameterized4(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO], 2, 0, 3, 0, 0, sLevelNickTextColors[0], TEXT_SPEED_FF, natureMetOrHatchedAtLevelStr);
 }
 
 static void PokeSum_PrintTrainerMemo_Mon_NotHeldByOT(void)
 {
-    u8 nature;
-    u8 level;
-    u8 metLocation;
-    u8 levelStr[5];
-    u8 mapNameStr[32];
-    u8 natureMetOrHatchedAtLevelStr[152];
-
-    DynamicPlaceholderTextUtil_Reset();
-    nature = GetNature(&sMonSummaryScreen->currentMon);
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gNatureNamePointers[nature]);
-
-    level = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_MET_LEVEL);
-
-    if (level == 0)
-        level = 5;
-
-    ConvertIntToDecimalStringN(levelStr, level, STR_CONV_MODE_LEFT_ALIGN, 3);
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, levelStr);
-
-    metLocation = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_MET_LOCATION);
-
-    if (!MapSecIsInKantoOrSevii(metLocation) || !CurrentMonIsFromGBA())
-    {
-        if (IsMultiBattlePartner() == TRUE)
-        {
-            PokeSum_PrintTrainerMemo_Mon_HeldByOT();
-            return;
-        }
-
-        if (metLocation == METLOC_FATEFUL_ENCOUNTER)
-        {
-            if (PokeSum_IsMonBoldOrGentle(nature))
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(natureMetOrHatchedAtLevelStr, gText_PokeSum_FatefulEncounterMet_BoldGentleGrammar);
-            else
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(natureMetOrHatchedAtLevelStr, gText_PokeSum_FatefulEncounterMet);
-        }
-        else
-        {
-            if (PokeSum_IsMonBoldOrGentle(nature))
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(natureMetOrHatchedAtLevelStr, gText_PokeSum_MetInATrade_BoldGentleGrammar);
-            else
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(natureMetOrHatchedAtLevelStr, gText_PokeSum_MetInATrade);
-        }
-
-        AddTextPrinterParameterized4(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO], 2, 0, 3, 0, 0, sLevelNickTextColors[0], TEXT_SPEED_FF, natureMetOrHatchedAtLevelStr);
-        return;
-    }
-
-    if (MapSecIsInKantoOrSevii(metLocation) == TRUE)
-        GetMapNameGeneric_(mapNameStr, metLocation);
-    else
-        StringCopy(mapNameStr, gText_PokeSum_ATrade);
-
-    DynamicPlaceholderTextUtil_SetPlaceholderPtr(2, mapNameStr);
-
-    // These pairs of strings are bytewise identical to each other in English,
-    // but Japanese uses different grammar for Bold and Gentle natures.
-    if (GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_MET_LEVEL) == 0) // hatched from an EGG
-    {
-        if (GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_EVENT_LEGAL) == 1) // Fateful encounter
-        {
-            if (PokeSum_IsMonBoldOrGentle(nature))
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(natureMetOrHatchedAtLevelStr, gText_PokeSum_ApparentlyFatefulEncounterHatched_BoldGentleGrammar);
-            else
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(natureMetOrHatchedAtLevelStr, gText_PokeSum_ApparentlyFatefulEncounterHatched);
-        }
-        else
-        {
-            if (PokeSum_IsMonBoldOrGentle(nature))
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(natureMetOrHatchedAtLevelStr, gText_PokeSum_ApparentlyMet_BoldGentleGrammar);
-            else
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(natureMetOrHatchedAtLevelStr, gText_PokeSum_ApparentlyMet);
-        }
-    }
-    else
-    {
-        if (metLocation == METLOC_FATEFUL_ENCOUNTER)
-        {
-            if (PokeSum_IsMonBoldOrGentle(nature))
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(natureMetOrHatchedAtLevelStr, gText_PokeSum_FatefulEncounterMet_BoldGentleGrammar);
-            else
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(natureMetOrHatchedAtLevelStr, gText_PokeSum_FatefulEncounterMet);
-        }
-        else
-        {
-            if (PokeSum_IsMonBoldOrGentle(nature))
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(natureMetOrHatchedAtLevelStr, gText_PokeSum_ApparentlyMet_BoldGentleGrammar);
-            else
-                DynamicPlaceholderTextUtil_ExpandPlaceholders(natureMetOrHatchedAtLevelStr, gText_PokeSum_ApparentlyMet);
-        }
-    }
-
-    AddTextPrinterParameterized4(sMonSummaryScreen->windowIds[POKESUM_WIN_TRAINER_MEMO], 2, 0, 3, 0, 0, sLevelNickTextColors[0], TEXT_SPEED_FF, natureMetOrHatchedAtLevelStr);
 }
 
 static void PokeSum_PrintTrainerMemo_Mon(void)

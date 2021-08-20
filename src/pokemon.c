@@ -1,3 +1,4 @@
+//[[!!!]]
 #define IS_POKEMON_C
 
 #include "global.h"
@@ -1941,19 +1942,6 @@ void CreateBattleTowerMon(struct Pokemon *mon, struct BattleTowerPokemon *src)
     SetMonData(mon, MON_DATA_PP_BONUSES, &src->ppBonuses);
     SetMonData(mon, MON_DATA_HELD_ITEM, &src->heldItem);
 
-    // Why is this commented out in FR/LG?
-    /*
-    StringCopy(nickname, src->nickname);
-
-    if (nickname[0] == 0xFC && nickname[1] == 0x15)
-        language = LANGUAGE_JAPANESE;
-    else
-        language = GAME_LANGUAGE;
-
-    SetMonData(mon, MON_DATA_LANGUAGE, &language);
-    Text_StripExtCtrlCodes(nickname);
-    */
-
     SetMonData(mon, MON_DATA_NICKNAME, &src->nickname);
     SetMonData(mon, MON_DATA_FRIENDSHIP, &src->friendship);
     SetMonData(mon, MON_DATA_HP_EV, &src->hpEV);
@@ -2383,25 +2371,25 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         attack *= 2;
 
     // In FRLG, the Battle Tower and opponent checks are stubbed here.
-    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | /*BATTLE_TYPE_BATTLE_TOWER |*/ BATTLE_TYPE_EREADER_TRAINER)))
+    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_EREADER_TRAINER)))
     {
         if (FlagGet(FLAG_BADGE01_GET)
             && GetBattlerSide(battlerIdAtk) == B_SIDE_PLAYER)
             attack = (110 * attack) / 100;
     }
-    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | /*BATTLE_TYPE_BATTLE_TOWER |*/ BATTLE_TYPE_EREADER_TRAINER)))
+    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_EREADER_TRAINER)))
     {
         if (FlagGet(FLAG_BADGE05_GET)
             && GetBattlerSide(battlerIdDef) == B_SIDE_PLAYER)
             defense = (110 * defense) / 100;
     }
-    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | /*BATTLE_TYPE_BATTLE_TOWER |*/ BATTLE_TYPE_EREADER_TRAINER)))
+    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_EREADER_TRAINER)))
     {
         if (FlagGet(FLAG_BADGE07_GET)
             && GetBattlerSide(battlerIdAtk) == B_SIDE_PLAYER)
             spAttack = (110 * spAttack) / 100;
     }
-    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | /*BATTLE_TYPE_BATTLE_TOWER |*/ BATTLE_TYPE_EREADER_TRAINER)))
+    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_EREADER_TRAINER)))
     {
         if (FlagGet(FLAG_BADGE07_GET)
             && GetBattlerSide(battlerIdDef) == B_SIDE_PLAYER)
@@ -4919,18 +4907,8 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
                 break;
             // FR/LG removed the time of day evolutions due to having no RTC.
             case EVO_FRIENDSHIP_DAY:
-                /*
-                RtcCalcLocalTime();
-                if (gLocalTime.hours >= 12 && gLocalTime.hours < 24 && friendship >= 220)
-                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
-                */
                 break;
             case EVO_FRIENDSHIP_NIGHT:
-                /*
-                RtcCalcLocalTime();
-                if (gLocalTime.hours >= 0 && gLocalTime.hours < 12 && friendship >= 220)
-                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
-                */
                 break;
             case EVO_LEVEL:
                 if (gEvolutionTable[species][i].param <= level)

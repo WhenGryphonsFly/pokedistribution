@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "battle.h"
@@ -663,7 +664,6 @@ void FieldUseFunc_TownMap(u8 taskId)
 
 static void sub_80A1CAC(void)
 {
-    InitRegionMapWithExitCB(REGIONMAP_TYPE_NORMAL, CB2_BagMenuFromStartMenu);
 }
 
 static void sub_80A1CC0(u8 taskId)
@@ -672,7 +672,6 @@ static void sub_80A1CC0(u8 taskId)
     {
         CleanupOverworldWindowsAndTilemaps();
         sub_80A1184();
-        InitRegionMapWithExitCB(REGIONMAP_TYPE_NORMAL, CB2_ReturnToField);
         DestroyTask(taskId);
     }
 }
@@ -711,22 +710,6 @@ static void sub_80A1D68(u8 taskId)
 
 void FieldUseFunc_VsSeeker(u8 taskId)
 {
-    if ((gMapHeader.mapType != MAP_TYPE_ROUTE
-      && gMapHeader.mapType != MAP_TYPE_TOWN
-      && gMapHeader.mapType != MAP_TYPE_CITY)
-     || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(VIRIDIAN_FOREST)
-      && (gSaveBlock1Ptr->location.mapNum == MAP_NUM(VIRIDIAN_FOREST)
-       || gSaveBlock1Ptr->location.mapNum == MAP_NUM(MT_EMBER_EXTERIOR)
-       || gSaveBlock1Ptr->location.mapNum == MAP_NUM(THREE_ISLAND_BERRY_FOREST)
-       || gSaveBlock1Ptr->location.mapNum == MAP_NUM(SIX_ISLAND_PATTERN_BUSH))))
-    {
-        PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
-    }
-    else
-    {
-        sItemUseOnFieldCB = Task_VsSeeker_0;
-        sub_80A103C(taskId);
-    }
 }
 
 void Task_ItemUse_CloseMessageBoxAndReturnToField_VsSeeker(u8 taskId)

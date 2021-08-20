@@ -1873,9 +1873,6 @@ static u8 DexScreen_CreateCategoryMenuScrollArrows(void)
     return AddScrollIndicatorArrowPair(&template, &sPokedexScreenData->modeSelectCursorPosBak);
 }
 
-/*
- * Returns 1 to flip pages left, 2 to flip pages right, 0 for no action
- */
 static int DexScreen_InputHandler_GetShoulderInput(void)
 {
     switch (gSaveBlock2Ptr->optionsButtonMode)
@@ -2494,9 +2491,6 @@ bool8 DexScreen_TurnCategoryPage_BgEffect(u8 page)
     return FALSE;
 }
 
-/*
- * Direction = 0: Left; 1: Right
- */
 static bool8 DexScreen_FlipCategoryPageInDirection(u8 direction)
 {
     u16 color;

@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "event_data.h"
@@ -133,9 +134,6 @@ static void MainCB2_SetUp(void)
     case 7:
         EnableDisplay();
         SetVBlankCallback(VBlankCB);
-        if (gSpecialVar_0x8004)
-            PrintTrainerTowerRecords();
-        else
             PrintBattleRecords();
         CreateTask(Task_WaitFadeIn, 8);
         SetMainCallback2(MainCB2);
@@ -442,11 +440,6 @@ static void UpdateBattleOutcomeOnTrainerCards(s32 battlerId)
 
 void TryRecordLinkBattleOutcome(s32 battlerId)
 {
-    if (gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(UNION_ROOM) || gSaveBlock1Ptr->location.mapNum != MAP_NUM(UNION_ROOM))
-    {
-        UpdateBattleOutcomeOnTrainerCards(battlerId);
-        AddOpponentLinkBattleRecord(&gSaveBlock2Ptr->linkBattleRecords, gTrainerCards[battlerId].rse.playerName, gTrainerCards[battlerId].rse.trainerId, gBattleOutcome, gLinkPlayers[battlerId].language);
-    }
 }
 
 static void PrintTotalRecord(struct LinkBattleRecords * records)

@@ -928,7 +928,6 @@ void CgbSound(void)
         if (!(channels->statusFlags & SOUND_CHANNEL_SF_ON))
             continue;
 
-        /* 1. determine hardware channel registers */
         switch (ch)
         {
         case 1:
@@ -964,7 +963,6 @@ void CgbSound(void)
         prevC15 = soundInfo->c15;
         envelopeStepTimeAndDir = *nrx2ptr;
 
-        /* 2. calculate envelope volume */
         if (channels->statusFlags & SOUND_CHANNEL_SF_START)
         {
             if (!(channels->statusFlags & SOUND_CHANNEL_SF_STOP))
@@ -1161,7 +1159,6 @@ void CgbSound(void)
         }
 
     envelope_complete:
-        /* 3. apply pitch to HW registers */
         if (channels->modify & CGB_CHANNEL_MO_PIT)
         {
             if (ch < 4 && (channels->type & TONEDATA_TYPE_FIX))
@@ -1182,7 +1179,6 @@ void CgbSound(void)
             *nrx4ptr = (s8)(channels->n4 & mask);
         }
 
-        /* 4. apply envelope & volume to HW registers */
         if (channels->modify & CGB_CHANNEL_MO_VOL)
         {
             REG_NR51 = (REG_NR51 & ~channels->panMask) | channels->pan;

@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "battle.h"
@@ -255,39 +256,7 @@ void SetQuestLogEvent(u16 eventId, const u16 *eventData)
 
 static bool8 InQuestLogDisabledLocation(void)
 {
-    // In Trainer Tower
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(TRAINER_TOWER_1F)
-        && (gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRAINER_TOWER_1F)
-            || gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRAINER_TOWER_2F)
-            || gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRAINER_TOWER_3F)
-            || gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRAINER_TOWER_4F)
-            || gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRAINER_TOWER_5F)
-            || gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRAINER_TOWER_6F)
-            || gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRAINER_TOWER_7F)
-            || gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRAINER_TOWER_8F)
-            || gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRAINER_TOWER_ROOF)
-            || gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRAINER_TOWER_LOBBY)
-            || gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRAINER_TOWER_ELEVATOR)))
-        return TRUE;
-
-    // In pokemon trainer fan club
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SAFFRON_CITY_POKEMON_TRAINER_FAN_CLUB) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(SAFFRON_CITY_POKEMON_TRAINER_FAN_CLUB))
-        return TRUE;
-
-    // In E-Reader house
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SEVEN_ISLAND_HOUSE_ROOM1) &&
-        (gSaveBlock1Ptr->location.mapNum == MAP_NUM(SEVEN_ISLAND_HOUSE_ROOM1)
-         || gSaveBlock1Ptr->location.mapNum == MAP_NUM(SEVEN_ISLAND_HOUSE_ROOM2)))
-        return TRUE;
-
-    // In elevator
-    if ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROCKET_HIDEOUT_ELEVATOR) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROCKET_HIDEOUT_ELEVATOR))
-        || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SILPH_CO_ELEVATOR) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(SILPH_CO_ELEVATOR))
-        || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(TRAINER_TOWER_ELEVATOR) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(TRAINER_TOWER_ELEVATOR))
-        || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(CELADON_CITY_DEPARTMENT_STORE_ELEVATOR) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(CELADON_CITY_DEPARTMENT_STORE_ELEVATOR)))
-        return TRUE;
-
-    return FALSE;
+    return TRUE;
 }
 
 bool8 QuestLog_ShouldEndSceneOnMapChange(void)
@@ -857,7 +826,6 @@ static const u16 *BufferQuestLogText_UsedItem(const u16 *eventData)
         StringCopy(gStringVar1, ItemId_GetName(r5[0]));
         if (r5[0] == ITEM_ESCAPE_ROPE)
         {
-            GetMapNameGeneric(gStringVar2, (u8)r5[2]);
             StringExpandPlaceholders(gStringVar4, gText_QuestLog_UsedEscapeRope);
         }
         else if (r5[1] != 0xFFFF)
@@ -1504,7 +1472,6 @@ static const u16 *BufferQuestLogText_DefeatedGymLeader(const u16 *eventData)
     eventData = sub_8113E88(QL_EVENT_DEFEATED_GYM_LEADER, eventData);
     r6 = (const u8 *)eventData + 6;
     DynamicPlaceholderTextUtil_Reset();
-    GetMapNameGeneric(gStringVar1, r6[0]);
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gStringVar1);
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, gTrainers[eventData[2]].trainerName);
     QuestLog_GetSpeciesName(eventData[0], 0, 2);
@@ -1545,7 +1512,6 @@ static const u16 *BufferQuestLogText_DefeatedWildMon(const u16 *a0)
 
     data = (const u8 *)a0 + 8;
     DynamicPlaceholderTextUtil_Reset();
-    GetMapNameGeneric(gStringVar1, data[2]);
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gStringVar1);
     QuestLog_GetSpeciesName(a0[2], NULL, 1);
     ConvertIntToDecimalStringN(gStringVar2, data[0], STR_CONV_MODE_LEFT_ALIGN, 3);
@@ -1677,7 +1643,6 @@ static const u16 *BufferQuestLogText_DefeatedTrainer(const u16 *eventData)
     const u16 *r5 = sub_8113E88(QL_EVENT_DEFEATED_TRAINER, eventData);
     const u8 *r6 = (const u8 *)r5 + 6;
     DynamicPlaceholderTextUtil_Reset();
-    GetMapNameGeneric(gStringVar1, r6[0]);
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gStringVar1);
 
     if (gTrainers[r5[2]].trainerClass == CLASS_RIVAL
@@ -1862,7 +1827,6 @@ static const u16 *BufferQuestLogText_DepartedLocation(const u16 *eventData)
     const u16 *r5 = sub_8113E88(QL_EVENT_DEPARTED, eventData);
     const u8 *r5_2 = (const u8 *)r5 + 0;
     locationId = r5_2[1];
-    GetMapNameGeneric(gStringVar1, r5_2[0]);
     StringCopy(gStringVar2, sLocationNameTexts[locationId]);
     if (sLocationToDepartedTextId[locationId] == QL_DEPARTED_GYM)
     {
@@ -1939,7 +1903,6 @@ static const u16 *BufferQuestLogText_UsedFieldMove(const u16 *eventData)
     const u8 *r5 = (const u8 *)r4 + 2;
     QuestLog_GetSpeciesName(r4[0], gStringVar1, 0);
     if (r5[1] != 0xFF)
-        GetMapNameGeneric(gStringVar2, r5[1]);
 
     // If used Teleport, get name of destination
     if (r5[0] == FIELD_MOVE_TELEPORT)
@@ -1974,7 +1937,6 @@ static const u16 *BufferQuestLogText_BoughtItem(const u16 *eventData)
     const u8 *r7 = (const u8 *)r4 + 8;
     u32 r6 = (r4[2] << 16) + r4[3];
     DynamicPlaceholderTextUtil_Reset();
-    GetMapNameGeneric(gStringVar1, r7[0]);
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gStringVar1);
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, ItemId_GetName(r4[0]));
     if (r4[1] < 2)
@@ -2008,7 +1970,6 @@ static const u16 *BufferQuestLogText_SoldItem(const u16 *eventData)
     const u8 *r7 = (const u8 *) r5 + 8;
     u32 r6 = (r5[2] << 16) + r5[3];
     DynamicPlaceholderTextUtil_Reset();
-    GetMapNameGeneric(gStringVar1, r7[0]);
     if (r7[1] == 0) {
         DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gSaveBlock2Ptr->playerName);
         DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, gStringVar1);
@@ -2049,7 +2010,6 @@ static const u16 *BufferQuestLogText_ObtainedItem(const u16 *eventData)
 {
     const u16 *r4 = sub_8113E88(QL_EVENT_OBTAINED_ITEM, eventData);
     const u8 *r5 = (const u8 *)r4 + 2;
-    GetMapNameGeneric(gStringVar1, r5[0]);
     StringCopy(gStringVar2, ItemId_GetName(r4[0]));
     StringExpandPlaceholders(gStringVar4, gText_QuestLog_ObtainedItemInLocation);
     return (const u16 *)(r5 + 2);
@@ -2128,7 +2088,6 @@ static u16 *BufferQuestLogData_ArrivedInLocation(u16 *a0, const u16 *eventData)
 static const u16 *BufferQuestLogText_ArrivedInLocation(const u16 *eventData)
 {
     const u16 *r4 = sub_8113E88(QL_EVENT_ARRIVED, eventData);
-    GetMapNameGeneric(gStringVar1, (u8)r4[0]);
     StringExpandPlaceholders(gStringVar4, gText_QuestLog_ArrivedInLocation);
     return r4 + 1;
 }

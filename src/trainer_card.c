@@ -77,7 +77,7 @@ struct TrainerCardData
     u16 var_7BCC;
     bool8 timeColonNeedDraw;
     u8 language;
-}; /* size = 0x7BD0 */
+};
 
 // RAM
 EWRAM_DATA struct TrainerCard gTrainerCards[4] = {0};

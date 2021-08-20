@@ -153,13 +153,6 @@ static void WindowFunc_ClearStdWindowAndFrameToTransparent(u8 bg, u8 tilemapLeft
     FillBgTilemapBufferRect(bg, 0, tilemapLeft - 1, tilemapTop - 1, width + 2, height + 2, 0);
 }
 
-/*
-   The following functions are used for handling top bar window
-   in hall of fame screen and story mode screen before oak intro. 
-   However, you can still designate a yPos value to place that bar
-   as well as the bar width.
-   The xPos is simply computed according to width (always right aligned). 
-*/
 u8 CreateTopBarWindowLoadPalette(u8 bg, u8 width, u8 yPos, u8 palette, u16 baseTile)
 {
     struct WindowTemplate window;

@@ -118,12 +118,6 @@ static void Unused_LZDecompressWramIndirect(const void **src, void *dest)
 
 static void sub_800EDDC(s32 object_size, s32 object_count, u8 *src_tiles, u8 *dest_tiles)
 {
-    /*
-      This function appears to emulate behaviour found in the GB(C) versions regarding how the Pokemon images
-      are stitched together to be displayed on the battle screen.
-      Given "compacted" tiles, an object count and a bounding box/object size, place the tiles in such a way
-      that the result will have each object centered in a 8x8 tile canvas.
-    */
     s32 i, j, k, l;
     u8 *src = src_tiles, *dest = dest_tiles;
     u8 bottom_off;

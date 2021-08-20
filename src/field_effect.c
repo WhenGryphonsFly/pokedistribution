@@ -3261,7 +3261,7 @@ static void sub_80871C8(u8 spriteId)
     sprite->y = 0x00;
     sprite->x2 = 0;
     sprite->y2 = 0;
-    memset(&sprite->data[0], 0, 8 * sizeof(u16) /* zero all data cells */);
+    memset(&sprite->data[0], 0, 8 * sizeof(u16));
     sprite->data[6] = 0x40;
 }
 

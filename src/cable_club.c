@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "battle.h"
@@ -205,13 +206,13 @@ static void Task_Linkup1(u8 taskId)
         if (IsLinkMaster() == TRUE)
         {
             PlaySE(SE_PIN);
-            ShowFieldAutoScrollMessage(CableClub_Text_WhenAllPlayersReadyAConfirmBCancel);
+            //ShowFieldAutoScrollMessage(CableClub_Text_WhenAllPlayersReadyAConfirmBCancel);
             gTasks[taskId].func = Task_LinkupMaster_2;
         }
         else
         {
             PlaySE(SE_BOO);
-            ShowFieldAutoScrollMessage(CableClub_Text_AwaitingLinkupBCancel);
+            //ShowFieldAutoScrollMessage(CableClub_Text_AwaitingLinkupBCancel);
             gTasks[taskId].func = Task_LinkupSlave_2;
         }
     }
@@ -238,7 +239,7 @@ static void Task_LinkupMaster_3(u8 taskId)
             sub_800A900(linkPlayerCount);
             DestroyLinkPlayerCountDisplayWindow(data[5]);
             ConvertIntToDecimalStringN(gStringVar1, linkPlayerCount, STR_CONV_MODE_LEFT_ALIGN, 1);
-            ShowFieldAutoScrollMessage(CableClub_Text_StartLinkWithXPlayersAConfirmBCancel);
+            //ShowFieldAutoScrollMessage(CableClub_Text_StartLinkWithXPlayersAConfirmBCancel);
             gTasks[taskId].func = Task_LinkupMaster_4;
         }
     }
@@ -250,12 +251,12 @@ static void Task_LinkupMaster_4(u8 taskId)
     {
         if (GetSavedPlayerCount() != GetLinkPlayerCount_2())
         {
-            ShowFieldAutoScrollMessage(CableClub_Text_WhenAllPlayersReadyAConfirmBCancel);
+            //ShowFieldAutoScrollMessage(CableClub_Text_WhenAllPlayersReadyAConfirmBCancel);
             gTasks[taskId].func = Task_LinkupMaster_2;
         }
         else if (JOY_HELD(B_BUTTON))
         {
-            ShowFieldAutoScrollMessage(CableClub_Text_WhenAllPlayersReadyAConfirmBCancel);
+            //ShowFieldAutoScrollMessage(CableClub_Text_WhenAllPlayersReadyAConfirmBCancel);
             gTasks[taskId].func = Task_LinkupMaster_2;
         }
         else if (JOY_HELD(A_BUTTON))
@@ -776,7 +777,7 @@ static void Task_EnterCableClubSeat(u8 taskId)
     switch (task->data[0])
     {
     case 0:
-        ShowFieldMessage(CableClub_Text_PleaseWaitBCancel);
+        //ShowFieldMessage(CableClub_Text_PleaseWaitBCancel);
         task->data[0] = 1;
         break;
     case 1:

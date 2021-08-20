@@ -1230,18 +1230,6 @@ static bool8 BT_Phase2ClockwiseBlackFade_Step3(struct Task *task)
     return FALSE;
 }
 
-/*
- * BUG: The following 2 functions are incorrect. The animation after 
- * the rotation angle reaches 1.5π will not be displayed. 
- *
- * There're 2 problems which need to be solved in order to correct the logic. 
- * 1. With current setup, nothing is displayed inside WIN0 and everything
- * is displayed outside WIN0. Thus, if the rotation angle is > 1.5π, it
- * won't be able to handle the situation. 
- * 2. The programmer sometimes swapped the place of left and right boundary
- * of WIN0 (see variables left and right), which will sometimes cause right
- * to be smaller than left. In this way, garbage data will be written to WIN0H. 
- */
 static bool8 BT_Phase2ClockwiseBlackFade_Step4(struct Task *task)
 {
     s16 right, left;

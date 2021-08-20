@@ -2,10 +2,6 @@
 #include "gflib.h"
 #include "task.h"
 
-/*
- * Animates the screen as though it was a CRT monitor turning on or off.
- */
-
 #define tState data[0]
 #define tXSpeed data[1]
 #define tYSpeed data[2]

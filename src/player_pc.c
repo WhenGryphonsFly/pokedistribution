@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "item.h"
@@ -256,9 +257,6 @@ static void Task_PlayerPcMailbox(u8 taskId)
 
 static void Task_PlayerPcTurnOff(u8 taskId)
 {
-    if (gPlayerPcMenuManager.notInRoom == FALSE)
-        ScriptContext1_SetupScript(EventScript_PalletTown_PlayersHouse_2F_ShutDownPC);
-    else
         EnableBothScriptContexts();
     DestroyTask(taskId);
 }

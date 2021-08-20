@@ -1,3 +1,4 @@
+//[[!!!]]
 const struct SpriteTemplate gFieldEffectObjectTemplate_ShadowSmall;
 const struct SpriteTemplate gFieldEffectObjectTemplate_ShadowMedium;
 const struct SpriteTemplate gFieldEffectObjectTemplate_ShadowLarge;
@@ -21,7 +22,6 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_UnusedSand;
 const struct SpriteTemplate gFieldEffectObjectTemplate_WaterSurfacing;
 const struct SpriteTemplate gFieldEffectObjectTemplate_ReflectionDistortion;
 const struct SpriteTemplate gFieldEffectObjectTemplate_DeepSandFootprints;
-/*const struct SpriteTemplate gFieldEffectObjectTemplate_Sparkle;*/
 const struct SpriteTemplate gFieldEffectObjectTemplate_TreeDisguise;
 const struct SpriteTemplate gFieldEffectObjectTemplate_MountainDisguise;
 const struct SpriteTemplate gFieldEffectObjectTemplate_Bird;

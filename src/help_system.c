@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "event_data.h"
@@ -1707,60 +1708,6 @@ static const bool8 sHelpSystemContextTopicFlags[HELPCONTEXT_COUNT + 1][TOPIC_COU
     [HELPCONTEXT_COUNT]                 = {}
 };
 
-static const u16 sMartMaps[] = {
-    MAP_VIRIDIAN_CITY_MART,
-    MAP_PEWTER_CITY_MART,
-    MAP_CERULEAN_CITY_MART,
-    MAP_LAVENDER_TOWN_MART,
-    MAP_VERMILION_CITY_MART,
-    MAP_CELADON_CITY_DEPARTMENT_STORE_1F,
-    MAP_CELADON_CITY_DEPARTMENT_STORE_2F,
-    MAP_CELADON_CITY_DEPARTMENT_STORE_3F,
-    MAP_CELADON_CITY_DEPARTMENT_STORE_4F,
-    MAP_CELADON_CITY_DEPARTMENT_STORE_5F,
-    MAP_CELADON_CITY_DEPARTMENT_STORE_ROOF,
-    MAP_CELADON_CITY_DEPARTMENT_STORE_ELEVATOR,
-    MAP_FUCHSIA_CITY_MART,
-    MAP_CINNABAR_ISLAND_MART,
-    MAP_SAFFRON_CITY_MART,
-    MAP_THREE_ISLAND_MART,
-    MAP_FOUR_ISLAND_MART,
-    MAP_SEVEN_ISLAND_MART,
-    MAP_SIX_ISLAND_MART,
-    MAP_UNDEFINED
-};
-
-static const u16 sGymMaps[] = {
-    MAP_PEWTER_CITY_GYM,
-    MAP_CERULEAN_CITY_GYM,
-    MAP_VERMILION_CITY_GYM,
-    MAP_CELADON_CITY_GYM,
-    MAP_FUCHSIA_CITY_GYM,
-    MAP_SAFFRON_CITY_GYM,
-    MAP_CINNABAR_ISLAND_GYM,
-    MAP_VIRIDIAN_CITY_GYM,
-    MAP_UNDEFINED
-};
-
-static const u8 sDungeonMaps[][3] = {
-    { MAP_GROUP(VIRIDIAN_FOREST), MAP_NUM(VIRIDIAN_FOREST), 1 },
-    { MAP_GROUP(MT_MOON_1F), MAP_NUM(MT_MOON_1F), 3 },
-    { MAP_GROUP(ROCK_TUNNEL_1F), MAP_NUM(ROCK_TUNNEL_1F), 2 },
-    { MAP_GROUP(DIGLETTS_CAVE_NORTH_ENTRANCE), MAP_NUM(DIGLETTS_CAVE_NORTH_ENTRANCE), 3 },
-    { MAP_GROUP(SEAFOAM_ISLANDS_1F), MAP_NUM(SEAFOAM_ISLANDS_1F), 5 },
-    { MAP_GROUP(VICTORY_ROAD_1F), MAP_NUM(VICTORY_ROAD_1F), 3 },
-    { MAP_GROUP(CERULEAN_CAVE_1F), MAP_NUM(CERULEAN_CAVE_1F), 3 },
-    { MAP_GROUP(MT_EMBER_RUBY_PATH_B4F), MAP_NUM(MT_EMBER_RUBY_PATH_B4F), 1 },
-    { MAP_GROUP(MT_EMBER_SUMMIT_PATH_1F), MAP_NUM(MT_EMBER_SUMMIT_PATH_1F), 3 },
-    { MAP_GROUP(MT_EMBER_RUBY_PATH_B5F), MAP_NUM(MT_EMBER_RUBY_PATH_B5F), 7 },
-    { MAP_GROUP(THREE_ISLAND_BERRY_FOREST), MAP_NUM(THREE_ISLAND_BERRY_FOREST), 1 },
-    { MAP_GROUP(SIX_ISLAND_PATTERN_BUSH), MAP_NUM(SIX_ISLAND_PATTERN_BUSH), 1 },
-    { MAP_GROUP(FIVE_ISLAND_LOST_CAVE_ENTRANCE), MAP_NUM(FIVE_ISLAND_LOST_CAVE_ENTRANCE), 15 },
-    { MAP_GROUP(FOUR_ISLAND_ICEFALL_CAVE_ENTRANCE), MAP_NUM(FOUR_ISLAND_ICEFALL_CAVE_ENTRANCE), 4 },
-    { MAP_GROUP(SIX_ISLAND_ALTERING_CAVE), MAP_NUM(SIX_ISLAND_ALTERING_CAVE), 1 },
-    { MAP_GROUP(SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER), MAP_NUM(SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER), 7 }
-};
-
 void SetHelpContextDontCheckBattle(u8 contextId)
 {
     sHelpSystemContextId = contextId;
@@ -1804,12 +1751,12 @@ void RestoreHelpContext(void)
 
 static bool32 IsInMartMap(void)
 {
-    return IsCurrentMapInArray(sMartMaps);
+    return FALSE;
 }
 
 static bool32 IsInGymMap(void)
 {
-    return IsCurrentMapInArray(sGymMaps);
+    return FALSE;
 }
 
 static bool32 IsCurrentMapInArray(const u16 * mapIdxs)
@@ -1828,58 +1775,11 @@ static bool32 IsCurrentMapInArray(const u16 * mapIdxs)
 
 static bool8 IsInDungeonMap(void)
 {
-    u8 i, j;
-
-    for (i = 0; i < NELEMS(sDungeonMaps); i++)
-    {
-        for (j = 0; j < sDungeonMaps[i][2]; j++)
-        {
-            if (
-                   sDungeonMaps[i][0] == gSaveBlock1Ptr->location.mapGroup
-                && sDungeonMaps[i][1] + j == gSaveBlock1Ptr->location.mapNum
-                && (i != 15 /* TANOBY */ || FlagGet(FLAG_SYS_UNLOCKED_TANOBY_RUINS) == TRUE)
-            )
-                return TRUE;
-        }
-    }
-
     return FALSE;
 }
 
-#define IN_PLAYERS_HOUSE \
-    ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PALLET_TOWN_PLAYERS_HOUSE_1F) \
-  && gSaveBlock1Ptr->location.mapNum == MAP_NUM(PALLET_TOWN_PLAYERS_HOUSE_1F))     \
- || (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PALLET_TOWN_PLAYERS_HOUSE_2F)  \
-  && gSaveBlock1Ptr->location.mapNum == MAP_NUM(PALLET_TOWN_PLAYERS_HOUSE_2F)))    \
-
- #define IN_OAKS_LAB \
-    (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PALLET_TOWN_PROFESSOR_OAKS_LAB) \
-  && gSaveBlock1Ptr->location.mapNum == MAP_NUM(PALLET_TOWN_PROFESSOR_OAKS_LAB))    \
-
 void SetHelpContextForMap(void)
 {
-    HelpSystem_EnableToggleWithRButton();
-    if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
-        SetHelpContext(HELPCONTEXT_SURFING);
-    else if (IsInDungeonMap())
-        SetHelpContext(HELPCONTEXT_DUNGEON);
-    else if (IsMapTypeIndoors(gMapHeader.mapType))
-    {
-        if (IN_PLAYERS_HOUSE)
-            SetHelpContext(HELPCONTEXT_PLAYERS_HOUSE);
-        else if (IN_OAKS_LAB)
-            SetHelpContext(HELPCONTEXT_OAKS_LAB);
-        else if (IsCurMapPokeCenter() == TRUE)
-            SetHelpContext(HELPCONTEXT_POKECENTER);
-        else if (IsInMartMap() == TRUE)
-            SetHelpContext(HELPCONTEXT_MART);
-        else if (IsInGymMap() == TRUE)
-            SetHelpContext(HELPCONTEXT_GYM);
-        else
-            SetHelpContext(HELPCONTEXT_INDOORS);
-    }
-    else
-        SetHelpContext(HELPCONTEXT_OVERWORLD);
 }
 
 bool8 HelpSystem_UpdateHasntSeenIntro(void)

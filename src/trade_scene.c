@@ -45,69 +45,69 @@
 #define TAG_BALL_PAL         5558
 
 struct InGameTrade {
-    /*0x00*/ u8 nickname[POKEMON_NAME_LENGTH + 1];
-    /*0x0C*/ u16 species;
-    /*0x0E*/ u8 ivs[NUM_STATS];
-    /*0x14*/ u8 abilityNum;
-    /*0x18*/ u32 otId;
-    /*0x1C*/ u8 conditions[5];
-    /*0x24*/ u32 personality;
-    /*0x28*/ u16 heldItem;
-    /*0x2A*/ u8 mailNum;
-    /*0x2B*/ u8 otName[11];
-    /*0x36*/ u8 otGender;
-    /*0x37*/ u8 sheen;
-    /*0x38*/ u16 requestedSpecies;
+    u8 nickname[POKEMON_NAME_LENGTH + 1];
+    u16 species;
+    u8 ivs[NUM_STATS];
+    u8 abilityNum;
+    u32 otId;
+    u8 conditions[5];
+    u32 personality;
+    u16 heldItem;
+    u8 mailNum;
+    u8 otName[11];
+    u8 otGender;
+    u8 sheen;
+    u16 requestedSpecies;
 };
 
 struct TradeAnimationResources {
-    /*0x00*/ struct Pokemon mon;
-    /*0x64*/ u32 timer;
-    /*0x68*/ u32 monPersonalities[2];
-    /*0x70*/ u8 filler_70[2];
-    /*0x72*/ u8 tradeStatus1;
-    /*0x73*/ u8 tradeStatus2;
-    /*0x74*/ u16 linkData[10];
-    /*0x88*/ u8 linkTimeoutCheck1;
-    /*0x89*/ u8 linkTimeoutCheck2;
-    /*0x8A*/ u16 linkTimeoutTimer;
-    /*0x8C*/ u16 unk_8C;
-    /*0x8E*/ u8 pokePicSpriteIdxs[2];
-    /*0x90*/ u8 tradeGlow1SpriteId;
-    /*0x91*/ u8 gbaScreenSpriteId;
-    /*0x92*/ u8 linkCableEndSpriteId;
-    /*0x93*/ u8 scheduleLinkTransfer;
-    /*0x94*/ u16 state;
-    /*0x96*/ u8 filler_96[0xD2 - 0x96];
-    /*0xD2*/ u8 pokeballSpriteId;
-    /*0xD3*/ u8 pokeballSpriteId2;
-    /*0xD4*/ u16 bg2texX;
-    /*0xD6*/ u16 bg2texY;
-    /*0xD8*/ u16 unk_D8;
-    /*0xDA*/ u16 unk_DA;
-    /*0xDC*/ u16 bg2srcX;
-    /*0xDE*/ u16 bg2srcY;
-    /*0xE0*/ s16 bg1vofs;
-    /*0xE2*/ s16 bg1hofs;
-    /*0xE4*/ s16 bg2vofs;
-    /*0xE6*/ s16 bg2hofs;
-    /*0xE8*/ u16 sXY;
-    /*0xEA*/ u16 bg2Zoom;
-    /*0xEC*/ u16 bg2alpha;
-    /*0xEE*/ bool8 isLinkTrade;
-    /*0xF0*/ u16 tradeSpecies[2];
-    /*0xF4*/ u16 cachedMapMusic;
-    /*0xF6*/ u8 unk_F6;
-    /*0xF8*/ u16 monSpecies[2];
-    /*0xFC*/ u8 linkPartnerName[7];
-    /*0x103*/ u8 filler_103[1];
-    /*0x104*/ u8 textColor[3];
-    /*0x107*/ u8 filler_107[1];
-    /*0x108*/ bool8 isCableTrade;
-    /*0x109*/ u8 win0left;
-    /*0x10A*/ u8 win0top;
-    /*0x10B*/ u8 win0right;
-    /*0x10C*/ u8 win0bottom;
+    struct Pokemon mon;
+    u32 timer;
+    u32 monPersonalities[2];
+    u8 filler_70[2];
+    u8 tradeStatus1;
+    u8 tradeStatus2;
+    u16 linkData[10];
+    u8 linkTimeoutCheck1;
+    u8 linkTimeoutCheck2;
+    u16 linkTimeoutTimer;
+    u16 unk_8C;
+    u8 pokePicSpriteIdxs[2];
+    u8 tradeGlow1SpriteId;
+    u8 gbaScreenSpriteId;
+    u8 linkCableEndSpriteId;
+    u8 scheduleLinkTransfer;
+    u16 state;
+    u8 filler_96[0xD2 - 0x96];
+    u8 pokeballSpriteId;
+    u8 pokeballSpriteId2;
+    u16 bg2texX;
+    u16 bg2texY;
+    u16 unk_D8;
+    u16 unk_DA;
+    u16 bg2srcX;
+    u16 bg2srcY;
+    s16 bg1vofs;
+    s16 bg1hofs;
+    s16 bg2vofs;
+    s16 bg2hofs;
+    u16 sXY;
+    u16 bg2Zoom;
+    u16 bg2alpha;
+    bool8 isLinkTrade;
+    u16 tradeSpecies[2];
+    u16 cachedMapMusic;
+    u8 unk_F6;
+    u16 monSpecies[2];
+    u8 linkPartnerName[7];
+    u8 filler_103[1];
+    u8 textColor[3];
+    u8 filler_107[1];
+    bool8 isCableTrade;
+    u8 win0left;
+    u8 win0top;
+    u8 win0right;
+    u8 win0bottom;
 };
 
 static EWRAM_DATA struct TradeAnimationResources * sTradeData = NULL;
@@ -741,7 +741,7 @@ static void LoadTradeMonPic(u8 whichParty, u8 action)
         pos = 1;
     }
 
-    /*else*/ if (whichParty == 1)
+    if (whichParty == 1)
     {
         mon = &gEnemyParty[gSelectedTradeMonPositions[1] % PARTY_SIZE];
         pos = 3;
@@ -1047,9 +1047,6 @@ static void ReceivedMonSetPokedexFlags(u8 partyIdx)
 static void RS_TryEnableNationalPokedex(void)
 {
     u8 mpId = GetMultiplayerId();
-    // Originally in Ruby but commented out
-    /*if (gLinkPlayers[mpId ^ 1].lp_field_2 == 0x8000)
-        EnableNationalPokedex();*/
 }
 
 static void TradeMons(u8 playerPartyIdx, u8 partnerPartyIdx)
