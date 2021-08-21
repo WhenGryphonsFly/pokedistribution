@@ -42,6 +42,7 @@ void ShowDodrioBerryPickingRecords(void){}
 void ShowPokemonJumpRecords(void){}
 void VsSeekerFreezeObjectsAfterChargeComplete(void){}
 void VsSeekerResetObjectMovementAfterChargeComplete(void){}
+void DoSSAnneDepartureCutscene(void){}
 
 // scrcmd-needed (but otherwise unneeded / unrelated to mystery gift)
 #include "battle_setup.h"
