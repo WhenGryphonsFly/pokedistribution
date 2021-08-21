@@ -1,3 +1,5 @@
+//[[!!!]]
+/*
 #include "global.h"
 #include "gflib.h"
 #include "roulette_util.h"
@@ -460,4 +462,4 @@ void sub_80D95C4(u16 *dest, u16 *src, u8 left, u8 top, u8 width, u8 height)
             *_dest++ = *_src++;
         }
     }
-}
+}*/

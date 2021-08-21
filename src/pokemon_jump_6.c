@@ -1,3 +1,5 @@
+//[[!!!]]
+/*
 #include "global.h"
 #include "gflib.h"
 #include "menu.h"
@@ -126,4 +128,4 @@ static void TruncateToFirstWordOnly(u8 *str)
             break;
         }
     }
-}
+}*/

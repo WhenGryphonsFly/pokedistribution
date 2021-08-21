@@ -1,3 +1,5 @@
+//[[!!!]]
+/*
 #include "global.h"
 #include "gflib.h"
 #include "battle_anim.h"
@@ -3485,4 +3487,4 @@ static void SpriteCB_Sparkle_Init(struct Sprite * sprite)
 #undef sAmplitude
 #undef sBitfield
 #undef MASK_TARGET_Y
-#undef F_MOVE_HORIZ
+#undef F_MOVE_HORIZ*/

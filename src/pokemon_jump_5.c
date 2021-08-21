@@ -1,3 +1,5 @@
+//[[!!!]]
+/*
 #include "global.h"
 #include "gflib.h"
 #include "decompress.h"
@@ -634,4 +636,4 @@ void sub_814B43C(struct PokemonJump2 *arg0)
 bool32 sub_814B460(void)
 {
     return IsMinigameCountdownRunning();
-}
+}*/

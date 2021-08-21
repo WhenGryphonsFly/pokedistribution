@@ -1,3 +1,5 @@
+//[[!!!]]
+/*
 #include "global.h"
 #include "gflib.h"
 #include "dodrio_berry_picking.h"
@@ -2432,4 +2434,4 @@ static void sub_8153A04(void)
         for (playerId = 0; playerId < gUnknown_203F3E0->unk24; playerId++)
             gUnknown_203F3E0->unk4A[playerId][i] = sUnknown_8475608[playerId][i];
     }
-}
+}*/

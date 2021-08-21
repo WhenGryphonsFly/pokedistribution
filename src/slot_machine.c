@@ -1,3 +1,5 @@
+//[[!!!]]
+/*
 #include "global.h"
 #include "gflib.h"
 #include "decompress.h"
@@ -2453,4 +2455,4 @@ static void PressReelButton(u8 reel, u8 taskId)
 {
     GetSlotMachineSetupTaskDataPtr()->reelButtonToPress = reel;
     SetSlotMachineSetupTask(SLOTTASK_PRESS_BUTTON, taskId);
-}
+}*/
