@@ -539,9 +539,6 @@ static void STWI_stop_timer(void)
     REG_TMCNT_H(gSTWIStatus->timerSelect) = 0;
 }
 
-/*
- * Set up STWI to send REQ. Returns 1 if error (see below).
- */
 static u16 STWI_init(u8 request)
 {
     if (!REG_IME)

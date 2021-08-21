@@ -3372,8 +3372,6 @@ void InitUnionRoom(void)
     struct UnkStruct_URoom * ptr;
 
     sUnionRoomPlayerName[0] = EOS;
-    if (QL_IS_PLAYBACK_STATE)
-        return;
     CreateTask(Task_InitUnionRoom, 0);
     sUnionRoomMain.uRoom = sUnionRoomMain.uRoom; // Needed to match.
     sUnionRoomMain.uRoom = ptr = AllocZeroed(sizeof(struct UnkStruct_URoom));

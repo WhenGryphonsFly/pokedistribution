@@ -775,7 +775,6 @@ static u8 SaveDialogCB_AskOverwriteOrReplacePreviousFileHandleInput(void)
 
 static u8 SaveDialogCB_PrintSavingDontTurnOffPower(void)
 {
-    SaveQuestLogData();
     PrintSaveTextWithFollowupFunc(gText_SavingDontTurnOffThePower, SaveDialogCB_DoSave);
     return SAVECB_RETURN_CONTINUE;
 }

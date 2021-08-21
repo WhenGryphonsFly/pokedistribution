@@ -59,7 +59,6 @@ static void Task_RunTimeBasedEvents(u8 taskId)
 
     if (!ScriptContext2_IsEnabled())
     {
-        if (!QL_IS_PLAYBACK_STATE)
         {
             UpdateAmbientCry(&data[1], &data[2]);
         }

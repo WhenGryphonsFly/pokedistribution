@@ -860,64 +860,6 @@ void ClearTrainerFlag(u16 trainerId)
     FlagClear(TRAINER_FLAGS_START + trainerId);
 }
 
-void StartTrainerBattle(void)
-{
-    gBattleTypeFlags = BATTLE_TYPE_TRAINER;
-    if (GetTrainerBattleMode() == TRAINER_BATTLE_EARLY_RIVAL && GetRivalBattleFlags() & RIVAL_BATTLE_TUTORIAL)
-        gBattleTypeFlags |= BATTLE_TYPE_FIRST_BATTLE;
-    gMain.savedCallback = CB2_EndTrainerBattle;
-    DoTrainerBattle();
-    ScriptContext1_Stop();
-}
-
-static void CB2_EndTrainerBattle(void)
-{
-    if (sTrainerBattleMode == TRAINER_BATTLE_EARLY_RIVAL)
-    {
-        if (IsPlayerDefeated(gBattleOutcome) == TRUE)
-        {
-            gSpecialVar_Result = TRUE;
-            if (sRivalBattleFlags & RIVAL_BATTLE_HEAL_AFTER)
-            {
-                HealPlayerParty();
-            }
-            else
-            {
-                SetMainCallback2(CB2_WhiteOut);
-                return;
-            }
-            SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
-            SetBattledTrainerFlag();
-            QuestLogEvents_HandleEndTrainerBattle();
-        }
-        else
-        {
-            gSpecialVar_Result = FALSE;
-            SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
-            SetBattledTrainerFlag();
-            QuestLogEvents_HandleEndTrainerBattle();
-        }
-
-    }
-    else
-    {
-        if (gTrainerBattleOpponent_A == TRAINER_SECRET_BASE)
-        {
-            SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
-        }
-        else if (IsPlayerDefeated(gBattleOutcome) == TRUE)
-        {
-            SetMainCallback2(CB2_WhiteOut);
-        }
-        else
-        {
-            SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
-            SetBattledTrainerFlag();
-            QuestLogEvents_HandleEndTrainerBattle();
-        }
-    }
-}
-
 static void CB2_EndRematchBattle(void)
 {
 }
@@ -960,8 +902,7 @@ void PlayTrainerEncounterMusic(void)
 {
     u16 music;
 
-    if (!QL_IS_PLAYBACK_STATE
-     && sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_NO_MUSIC
+    if (sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_NO_MUSIC
      && sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC)
     {
         switch (GetTrainerEncounterMusicId(gTrainerBattleOpponent_A))

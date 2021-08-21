@@ -108,7 +108,6 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
         {
             if ((newKeys & START_BUTTON) && !(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED))
                 input->pressedStartButton = TRUE;
-            if (!QL_IS_PLAYBACK_STATE)
             {
                 if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED))
                 {
@@ -124,7 +123,6 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
             }
         }
 
-        if (!QL_IS_PLAYBACK_STATE)
         {
             if (heldKeys & (DPAD_UP | DPAD_DOWN | DPAD_LEFT | DPAD_RIGHT))
             {
@@ -143,7 +141,6 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
             input->checkStandardWildEncounter = TRUE;
     }
 
-    if (!QL_IS_PLAYBACK_STATE)
     {
         if (heldKeys & DPAD_UP)
             input->dpadDirection = DIR_NORTH;
@@ -636,8 +633,6 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
 {
     if (InUnionRoom() == TRUE)
         return FALSE;
-    if (gQuestLogState == QL_STATE_PLAYBACK)
-        return FALSE;
 
     UpdateHappinessStepCounter();
 
@@ -1059,7 +1054,6 @@ void HandleBoulderActivateVictoryRoadSwitch(u16 x, u16 y)
         {
             if (events[i].x + 7 == x && events[i].y + 7 == y)
             {
-                QuestLog_CutRecording();
                 ScriptContext1_SetupScript(events[i].script);
                 ScriptContext2_Enable();
             }

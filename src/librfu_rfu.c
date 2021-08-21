@@ -316,17 +316,6 @@ u16 rfu_getRFUStatus(u8 *rfuState)
     return 0;
 }
 
-/*
- * RFU Multiboot images are loaded into IWRAM
- * struct RfuMbootLL
- * {
- *   struct RfuLinkStatus status;
- *   u8 filler_B4[0x3C];
- *   char name[10];
- *   u16 checksum;
- * }
- * Returns 1 if the packet to inherit is malformed.
- */
 u16 rfu_MBOOT_CHILD_inheritanceLinkStatus(void)
 {
     const char *s1 = str_checkMbootLL;

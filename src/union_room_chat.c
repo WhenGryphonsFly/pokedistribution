@@ -268,7 +268,6 @@ static void CB2_LoadInterface(void)
         if (!gPaletteFade.active)
         {
             SetMainCallback2(CB2_UnionRoomChatMain);
-            SetQuestLogEvent(QL_EVENT_USED_UNION_ROOM_CHAT, NULL);
             sWork->handleInputTask = CreateTask(Task_HandlePlayerInput, 8);
             sWork->receiveMessagesTask = CreateTask(Task_ReceiveChatMessage, 7);
             LoadWirelessStatusIndicatorSpriteGfx();

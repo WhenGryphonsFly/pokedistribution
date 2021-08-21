@@ -113,7 +113,6 @@ void DisplayBerryPowderVendorMenu(void)
 {
     struct WindowTemplate template;
 
-    if (QuestLog_SchedulePlaybackCB(QLPlaybackCB_DestroyScriptMenuMonPicSprites) != TRUE)
     {
         template = SetWindowTemplateFields(0, 1, 1, 8, 3, 15, 32);
         sBerryPowderVendorWindowId = AddWindow(&template);

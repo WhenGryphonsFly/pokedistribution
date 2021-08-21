@@ -540,9 +540,6 @@ void LinkRfu_Shutdown(void)
 {
     u8 i;
 
-    if (QL_IS_PLAYBACK_STATE)
-        return;
-
     rfu_LMAN_powerDownRFU();
     if (Rfu.parent_child == MODE_PARENT)
     {
@@ -579,8 +576,6 @@ void LinkRfu_Shutdown(void)
 
 static void CreateTask_LinkLeaderSearchForChildren(void)
 {
-    if (QL_IS_PLAYBACK_STATE)
-        return;
     Rfu.searchTaskId = CreateTask(Task_LinkLeaderSearchForChildren, 1);
 }
 
@@ -605,8 +600,6 @@ static bool32 IsParentSuccessfullyReconnected(void)
 
 static void CreateTask_JoinGroupSearchForParent(void)
 {
-    if (QL_IS_PLAYBACK_STATE)
-        return;
     Rfu.searchTaskId = CreateTask(Task_JoinGroupSearchForParent, 1);
 }
 
@@ -2533,8 +2526,6 @@ void InitializeRfuLinkManager_JoinGroup(void)
 
 void InitializeRfuLinkManager_EnterUnionRoom(void)
 {
-    if (QL_IS_PLAYBACK_STATE)
-        return;
     Rfu.parent_child = 2;
     CopyPlayerNameToUnameBuffer();
     rfu_LMAN_initializeManager(LmanCallback_Parent, NULL);
@@ -2550,13 +2541,6 @@ static u16 ReadU16(const void *ptr)
     return (ptr_[1] << 8) | (ptr_[0]);
 }
 
-/*
- * ================================================================
- * Looks up the player by uname and pid. Returns the index in
- * gRfuLinkStatus->partner of the first match with a valid slot ID.
- * Returns 0xFF if not found.
- * ================================================================
- */
 static u8 GetPartnerIndexByNameAndTrainerID(const u8 *trainerName, u16 trainerId)
 {
     u8 i;

@@ -687,13 +687,6 @@ void InitHostRFUtgtGname(struct GFtgtGname *data, u8 activity, bool32 started, s
     data->unk_00.gameClear = FlagGet(FLAG_SYS_GAME_CLEAR);
 }
 
-/*
- * ==========================================================
- * Returns 1 if parent, 0 if child or neutral.
- * If partner serial number is valid, copies gname and uname.
- * Otherwise, blanks these.
- * ==========================================================
- */
 bool8 LinkRfu_GetNameIfCompatible(struct GFtgtGname *gname, u8 *uname, u8 idx)
 {
     bool8 retVal;
@@ -729,12 +722,6 @@ bool8 LinkRfu_GetNameIfCompatible(struct GFtgtGname *gname, u8 *uname, u8 idx)
     return retVal;
 }
 
-/*
- * ==========================================================
- * Specific check for serial number 0x7F7D,
- * which comes from ???
- * ==========================================================
- */
 bool8 LinkRfu_GetNameIfSerial7F7D(struct GFtgtGname *gname, u8 *uname, u8 idx)
 {
     bool8 retVal = FALSE;
