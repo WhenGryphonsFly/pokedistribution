@@ -317,27 +317,6 @@ void ClearItemSlots(struct ItemSlot * slots, u8 capacity)
     }
 }
 
-void ClearPCItemSlots(void)
-{
-    u16 i;
-
-    for (i = 0; i < PC_ITEMS_COUNT; i++)
-    {
-        gSaveBlock1Ptr->pcItems[i].itemId = ITEM_NONE;
-        SetPcItemQuantity(&gSaveBlock1Ptr->pcItems[i].quantity, 0);
-    }
-}
-
-void ClearBag(void)
-{
-    u16 i;
-
-    for (i = 0; i < 5; i++)
-    {
-        ClearItemSlots(gBagPockets[i].itemSlots, gBagPockets[i].capacity);
-    }
-}
-
 s8 PCItemsGetFirstEmptySlot(void)
 {
     s8 i;

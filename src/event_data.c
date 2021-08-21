@@ -42,41 +42,6 @@ void ClearTempFieldEventData(void)
     FlagClear(FLAG_SYS_INFORMED_OF_LOCAL_WIRELESS_PLAYER);
 }
 
-void sub_806E168(void)
-{
-    u16 *ptr = GetVarPointer(VAR_0x403C);
-    gSaveBlock2Ptr->pokedex.nationalMagic = 0;
-    *ptr = 0;
-    FlagClear(FLAG_0x838);
-}
-
-void sub_806E190(void)
-{
-    u16 *ptr = GetVarPointer(VAR_0x403C);
-    gSaveBlock2Ptr->pokedex.nationalMagic = 0xDA;
-    *ptr = 0x0302;
-    FlagSet(FLAG_0x838);
-}
-
-bool32 sub_806E1C0(void)
-{
-    if (gSaveBlock2Ptr->pokedex.nationalMagic != 0xDA)
-        return FALSE;
-    if (VarGet(VAR_0x403C) != 0x0302)
-        return FALSE;
-    if (!FlagGet(FLAG_0x838))
-        return FALSE;
-    return TRUE;
-}
-
-void sub_806E204(void)
-{
-    u16 *ptr = GetVarPointer(VAR_0x404E);
-    gSaveBlock2Ptr->pokedex.unknown2 = 0;
-    *ptr = 0;
-    FlagClear(FLAG_SYS_NATIONAL_DEX);
-}
-
 void EnableNationalPokedex(void)
 {
     u16 *ptr = GetVarPointer(VAR_0x404E);
@@ -94,16 +59,6 @@ bool32 IsNationalPokedexEnabled(void)
     if (!FlagGet(FLAG_SYS_NATIONAL_DEX))
         return FALSE;
     return TRUE;
-}
-
-void DisableMysteryGift(void)
-{
-    FlagClear(FLAG_SYS_MYSTERY_GIFT_ENABLED);
-}
-
-void EnableMysteryGift(void)
-{
-    FlagSet(FLAG_SYS_MYSTERY_GIFT_ENABLED);
 }
 
 bool32 IsMysteryGiftEnabled(void)

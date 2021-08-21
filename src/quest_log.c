@@ -556,8 +556,6 @@ static void QLPlayback_InitOverworldState(void)
 {
     gQuestLogState = QL_STATE_PLAYBACK;
     ResetSpecialVars();
-    ClearBag();
-    ClearPCItemSlots();
     if (GetQuestLogStartType() == QL_START_NORMAL)
     {
         QLPlayback_SetInitialPlayerPosition(sCurrentSceneNum, FALSE);

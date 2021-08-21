@@ -31,9 +31,6 @@
 #include "pokemon_jump.h"
 #include "event_scripts.h"
 
-// this file's functions
-static void ResetMiniGamesResults(void);
-
 // EWRAM vars
 EWRAM_DATA bool8 gDifferentSaveFile = FALSE;
 
@@ -55,11 +52,6 @@ static void SetDefaultOptions(void)
     gSaveBlock2Ptr->optionsButtonMode = OPTIONS_BUTTON_MODE_HELP;
 }
 
-static void ClearBattleTower(void)
-{
-    CpuFill32(0, &gSaveBlock2Ptr->battleTower, sizeof(gSaveBlock2Ptr->battleTower));
-}
-
 void Sav2_ClearSetDefault(void)
 {
     ClearSav2();
@@ -79,10 +71,3 @@ void ResetMenuAndMonGlobals(void)
     ResetSpecialVars();
 }
 
-static void ResetMiniGamesResults(void)
-{
-    CpuFill16(0, &gSaveBlock2Ptr->berryCrush, sizeof(struct BerryCrush));
-    SetBerryPowder(&gSaveBlock2Ptr->berryCrush.berryPowderAmount, 0);
-    ResetPokeJumpResults();
-    CpuFill16(0, &gSaveBlock2Ptr->berryPick, sizeof(struct BerryPickingResults));
-}

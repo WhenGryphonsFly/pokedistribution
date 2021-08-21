@@ -15,17 +15,6 @@ static struct PokemonJumpResults *sub_814B46C(void)
     return &gSaveBlock2Ptr->pokeJump;
 }
 
-void ResetPokeJumpResults(void)
-{
-    struct PokemonJumpResults *pokeJump = sub_814B46C();
-    pokeJump->jumpsInRow = 0;
-    pokeJump->bestJumpScore = 0;
-    pokeJump->excellentsInRow = 0;
-    pokeJump->field6 = 0;
-    pokeJump->field8 = 0;
-    pokeJump->field2 = 0;
-}
-
 bool32 sub_814B494(u32 jumpScore, u16 jumpsInRow, u16 excellentsInRow)
 {
     struct PokemonJumpResults *pokeJump = sub_814B46C();
