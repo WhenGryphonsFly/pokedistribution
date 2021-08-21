@@ -67,7 +67,6 @@ gFieldEffectScriptPointers:: @ 81D96AC
 	.4byte gFldEffScript_HallOfFameRecord
 	.4byte gFldEffScript_UseTeleport
 	.4byte gFldEffScript_SmileyFaceIcon
-	.4byte gFldEffScript_UseVsSeeker
 	.4byte gFldEffScript_DoubleExclMarkIcon
 	.4byte gFldEffScript_MoveDeoxysRock
 	.4byte gFldEffScript_Unk44
@@ -323,10 +322,6 @@ gFldEffScript_UseTeleport:: @ 81D9986
 
 gFldEffScript_SmileyFaceIcon:: @ 81D998C
 	callnative FldEff_SmileyFaceIcon
-	end 
-
-gFldEffScript_UseVsSeeker:: @ 81D9992
-	callnative FldEff_UseVsSeeker
 	end 
 
 gFldEffScript_DoubleExclMarkIcon:: @ 81D9998

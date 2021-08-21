@@ -1528,10 +1528,6 @@ u8 GetMartClerkObjectId(void)
     return 1;
 }
 
-void QuestLog_CheckDepartingIndoorsMap(void)
-{
-}
-
 struct QuestLogDepartedData {
     u8 map_section_id;
     u8 entrance_id;
