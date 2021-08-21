@@ -43,7 +43,10 @@ void ShowPokemonJumpRecords(void){}
 void VsSeekerFreezeObjectsAfterChargeComplete(void){}
 void VsSeekerResetObjectMovementAfterChargeComplete(void){}
 void DoSSAnneDepartureCutscene(void){}
+void GetHeracrossSizeRecordInfo(void){}
+void CompareHeracrossSize(void){}
+void GetMagikarpSizeRecordInfo(void){}
+void CompareMagikarpSize(void){}
+void EnterHallOfFame(void){}
+void SetCB2WhiteOut(void){}
 
-// scrcmd-needed (but otherwise unneeded / unrelated to mystery gift)
-#include "battle_setup.h"
-void StartTrainerBattle(void){}

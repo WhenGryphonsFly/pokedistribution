@@ -268,7 +268,6 @@ Text_TheDoorIsOpen:: @ 81A5CDF
 	.string "The door is open…$"
 
 	.include "data/text/pc_transfer.inc"
-	.include "data/text/white_out.inc"
 	.include "data/text/poke_mart.inc"
 
 Text_MonFlewAway:: @ 81A63C4
