@@ -596,7 +596,7 @@ static bool8 CanStopSurfing(s16 x, s16 y, u8 direction)
         && MapGridGetZCoordAt(x, y) == 3
         && GetObjectEventIdByXYZ(x, y, 3) == OBJECT_EVENTS_COUNT)
     {
-        QuestLogRecordPlayerAvatarGfxTransitionWithDuration(sQuestLogSurfDismountActionIds[direction], 16);
+        /*QuestLogRecordPlayerAvatarGfxTransitionWithDuration(sQuestLogSurfDismountActionIds[direction], 16);*/
         CreateStopSurfingTask(direction);
         return TRUE;
     }
@@ -712,21 +712,21 @@ static void PlayerAvatarTransition_Dummy(struct ObjectEvent * playerObjEvent)
 
 static void PlayerAvatarTransition_Normal(struct ObjectEvent * playerObjEvent)
 {
-    QuestLogTryRecordPlayerAvatarGfxTransition(QL_PLAYER_GFX_NORMAL);
-    QuestLogCallUpdatePlayerSprite(QL_PLAYER_GFX_NORMAL);
+    /*QuestLogTryRecordPlayerAvatarGfxTransition(QL_PLAYER_GFX_NORMAL);
+    QuestLogCallUpdatePlayerSprite(QL_PLAYER_GFX_NORMAL);*/
 }
 
 static void PlayerAvatarTransition_Bike(struct ObjectEvent * playerObjEvent)
 {
-    QuestLogTryRecordPlayerAvatarGfxTransition(QL_PLAYER_GFX_BIKE);
-    QuestLogCallUpdatePlayerSprite(QL_PLAYER_GFX_BIKE);
+    /*QuestLogTryRecordPlayerAvatarGfxTransition(QL_PLAYER_GFX_BIKE);
+    QuestLogCallUpdatePlayerSprite(QL_PLAYER_GFX_BIKE);*/
     BikeClearState(0, 0);
 }
 
 static void PlayerAvatarTransition_Surfing(struct ObjectEvent * playerObjEvent)
 {
-    QuestLogTryRecordPlayerAvatarGfxTransition(QL_PLAYER_GFX_SURF);
-    QuestLogCallUpdatePlayerSprite(QL_PLAYER_GFX_SURF);
+    /*QuestLogTryRecordPlayerAvatarGfxTransition(QL_PLAYER_GFX_SURF);
+    QuestLogCallUpdatePlayerSprite(QL_PLAYER_GFX_SURF);*/
 }
 
 static void PlayerAvatarTransition_Underwater(struct ObjectEvent * playerObjEvent)
@@ -809,21 +809,21 @@ static void PlayerSetAnimId(u8 movementActionId, u8 copyableMovement)
     if (!PlayerIsAnimActive())
     {
         PlayerSetCopyableMovement(copyableMovement);
-        if (!ObjectEventSetHeldMovement(&gObjectEvents[gPlayerAvatar.objectEventId], movementActionId))
-            QuestLogRecordPlayerStep(movementActionId);
+        /*if (!ObjectEventSetHeldMovement(&gObjectEvents[gPlayerAvatar.objectEventId], movementActionId))
+            QuestLogRecordPlayerStep(movementActionId);*/
     }
 }
 
 static void QL_TryRecordPlayerStepWithDuration0(struct ObjectEvent * objectEvent, u8 movementAction)
 {
-    if (!ObjectEventSetHeldMovement(&gObjectEvents[gPlayerAvatar.objectEventId], movementAction))
-        QuestLogRecordPlayerStepWithDuration(movementAction, 0);
+    /*if (!ObjectEventSetHeldMovement(&gObjectEvents[gPlayerAvatar.objectEventId], movementAction))
+        QuestLogRecordPlayerStepWithDuration(movementAction, 0);*/
 }
 
 static void QL_TryRecordNPCStepWithDuration32(struct ObjectEvent * objectEvent, u8 movementAction)
 {
-    if (!ObjectEventSetHeldMovement(objectEvent, movementAction))
-        QuestLogRecordNPCStepWithDuration(objectEvent->localId, objectEvent->mapNum, objectEvent->mapGroup, movementAction, 32);
+    /*if (!ObjectEventSetHeldMovement(objectEvent, movementAction))
+        QuestLogRecordNPCStepWithDuration(objectEvent->localId, objectEvent->mapNum, objectEvent->mapGroup, movementAction, 32);*/
 }
 
 void PlayerGoSlowest(u8 direction)
@@ -1343,7 +1343,7 @@ void StartPlayerAvatarVsSeekerAnim(void)
 
 void StartPlayerAvatarFishAnim(u8 direction)
 {
-    QuestLogCallUpdatePlayerSprite(QL_PLAYER_GFX_FISH);
+    /*QuestLogCallUpdatePlayerSprite(QL_PLAYER_GFX_FISH);*/
 }
 
 // Stubbed from R/S
@@ -1594,14 +1594,14 @@ void CreateStopSurfingTask_NoMusicChange(u8 direction)
     Task_StopSurfingInit(taskId);
 }
 
-void SeafoamIslandsB4F_CurrentDumpsPlayerOnLand(void)
+/*void SeafoamIslandsB4F_CurrentDumpsPlayerOnLand(void)
 {
     if (gQuestLogPlaybackState != 1 && gQuestLogPlaybackState != 3)
     {
         QuestLogRecordPlayerAvatarGfxTransitionWithDuration(sQuestLogSurfDismountActionIds[DIR_NORTH], 16);
         CreateStopSurfingTask(DIR_NORTH);
     }
-}
+}*/
 
 static void Task_StopSurfingInit(u8 taskId)
 {
@@ -1676,8 +1676,8 @@ void StartFishing(u8 rod)
 
     gTasks[taskId].tFishingRod = rod;
     Task_Fishing(taskId);
-    if (QuestLogTryRecordPlayerAvatarGfxTransition(QL_PLAYER_GFX_FISH) == TRUE)
-        QL_AfterRecordFishActionSuccessful();
+    /*if (QuestLogTryRecordPlayerAvatarGfxTransition(QL_PLAYER_GFX_FISH) == TRUE)
+        QL_AfterRecordFishActionSuccessful();*/
 }
 
 

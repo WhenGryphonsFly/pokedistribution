@@ -1,4 +1,5 @@
 //[[!!!]]
+/*
 #include "global.h"
 #include "gflib.h"
 #include "battle.h"
@@ -2107,4 +2108,4 @@ static void BufferLinkPartnersName(u8 *dest)
         *dest++ = EXT_CTRL_CODE_ENG;
         *dest++ = EOS;
     }
-}
+}*/

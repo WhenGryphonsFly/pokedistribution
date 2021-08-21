@@ -917,10 +917,10 @@ static void Fieldmap_ApplyGlobalTintToPaletteEntries(u16 offset, u16 size)
         case QL_TINT_SEPIA:
             TintPalette_SepiaTone(gPlttBufferUnfaded + offset, size);
             break;
-        case QL_TINT_BACKUP_GRAYSCALE:
+        /*case QL_TINT_BACKUP_GRAYSCALE:
             QuestLog_BackUpPalette(offset, size);
             TintPalette_GrayScale(gPlttBufferUnfaded + offset, size);
-            break;
+            break;*/
         default:
             return;
     }
@@ -939,10 +939,10 @@ void Fieldmap_ApplyGlobalTintToPaletteSlot(u8 slot, u8 count)
         case QL_TINT_SEPIA:
             TintPalette_SepiaTone(gPlttBufferUnfaded + slot * 16, count * 16);
             break;
-        case QL_TINT_BACKUP_GRAYSCALE:
+        /*case QL_TINT_BACKUP_GRAYSCALE:
             QuestLog_BackUpPalette(slot * 16, count * 16);
             TintPalette_GrayScale(gPlttBufferUnfaded + slot * 16, count * 16);
-            break;
+            break;*/
         default:
             return;
     }

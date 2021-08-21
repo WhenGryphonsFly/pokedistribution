@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "battle_setup.h"
 #include "event_object_movement.h"
@@ -87,8 +88,8 @@ static const TrainerSeeFunc sTrainerSeeFuncList2[] = {
 bool8 CheckForTrainersWantingBattle(void)
 {
     u8 i;
-    if (sub_8111C2C() == TRUE)
-        return FALSE;
+    /*if (sub_8111C2C() == TRUE)
+        return FALSE;*/
 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
     {

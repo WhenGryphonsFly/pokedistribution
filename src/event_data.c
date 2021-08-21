@@ -127,7 +127,7 @@ u16 *GetVarPointer(u16 idx)
         return NULL;
     if (idx < SPECIAL_VARS_START)
     {
-        switch (gQuestLogPlaybackState)
+        /*switch (gQuestLogPlaybackState)
         {
         case 0:
         default:
@@ -144,7 +144,7 @@ u16 *GetVarPointer(u16 idx)
                 QuestLogSetFlagOrVar(FALSE, idx, gSaveBlock1Ptr->vars[idx - VARS_START]);
             }
             break;
-        }
+        }*/
         return &gSaveBlock1Ptr->vars[idx - VARS_START];
     }
     return gSpecialVars[idx - SPECIAL_VARS_START];
@@ -198,7 +198,7 @@ u8 *GetFlagAddr(u16 idx)
         return NULL;
     if (idx < SPECIAL_FLAGS_START)
     {
-        switch (gQuestLogPlaybackState)
+        /*switch (gQuestLogPlaybackState)
         {
         case 0:
         default:
@@ -215,7 +215,7 @@ u8 *GetFlagAddr(u16 idx)
                 QuestLogSetFlagOrVar(TRUE, idx, gSaveBlock1Ptr->flags[idx / 8]);
             }
             break;
-        }
+        }*/
         return &gSaveBlock1Ptr->flags[idx / 8];
     }
     return &sSpecialFlags[(idx - SPECIAL_FLAGS_START) / 8];

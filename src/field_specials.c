@@ -88,12 +88,12 @@ static u8 *const sStringVarPtrs[] = {
     gStringVar3
 };
 
-void ShowDiploma(void)
+/*void ShowDiploma(void)
 {
     QuestLog_CutRecording();
     SetMainCallback2(CB2_ShowDiploma);
     ScriptContext2_Enable();
-}
+}*/
 
 void ForcePlayerOntoBike(void)
 {
@@ -869,7 +869,7 @@ static void Task_ElevatorShake(u8 taskId)
     }
 }
 
-void DrawElevatorCurrentFloorWindow(void)
+/*void DrawElevatorCurrentFloorWindow(void)
 {
     const u8 *floorname;
     u32 strwidth;
@@ -885,7 +885,7 @@ void DrawElevatorCurrentFloorWindow(void)
         PutWindowTilemap(sElevatorCurrentFloorWindowId);
         CopyWindowToVram(sElevatorCurrentFloorWindowId, COPYWIN_BOTH);
     }
-}
+}*/
 
 void CloseElevatorCurrentFloorWindow(void)
 {
@@ -946,7 +946,7 @@ void ListMenu(void)
 {
     u8 taskId;
     struct Task * task;
-    if (QuestLog_SchedulePlaybackCB(QLPlaybackCB_DestroyScriptMenuMonPicSprites) != TRUE)
+    if (FALSE != TRUE)
     {
         taskId = CreateTask(Task_CreateScriptListMenu, 8);
         task = &gTasks[taskId];
@@ -1553,10 +1553,10 @@ u8 GetMartClerkObjectId(void)
     return 1;
 }
 
-void SetUsedPkmnCenterQuestLogEvent(void)
+/*void SetUsedPkmnCenterQuestLogEvent(void)
 {
     SetQuestLogEvent(QL_EVENT_USED_PKMN_CENTER, NULL);
-}
+}*/
 
 
 void QuestLog_CheckDepartingIndoorsMap(void)
@@ -1951,14 +1951,11 @@ void BrailleCursorToggle(void)
     // 8005 = y
     // 8006 = action (0 = create, 1 = delete)
     u16 x;
-    if (gQuestLogState != QL_STATE_PLAYBACK)
-    {
         x = gSpecialVar_0x8004 + 27;
         if (gSpecialVar_0x8006 == 0)
             sBrailleTextCursorSpriteID = CreateTextCursorSpriteForOakSpeech(0, x, gSpecialVar_0x8005, 0, 0);
         else
             DestroyTextCursorSprite(sBrailleTextCursorSpriteID);
-    }
 }
 
 bool8 PlayerPartyContainsSpeciesWithPlayerID(void)

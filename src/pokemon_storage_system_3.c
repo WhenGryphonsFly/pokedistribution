@@ -2764,7 +2764,7 @@ static void sub_808FE54(u8 action)
         qlogBuffer->toBox = toBox;
         break;
     }
-    SetQuestLogEvent(event, (const void *)qlogBuffer);
+    /*SetQuestLogEvent(event, (const void *)qlogBuffer);*/
 }
 
 static void sub_808FF70(void)

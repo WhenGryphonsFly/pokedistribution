@@ -594,7 +594,7 @@ bool8 ScrCmd_comparestattoword(struct ScriptContext * ctx)
 bool8 ScrCmd_setworldmapflag(struct ScriptContext * ctx)
 {
     u16 value = ScriptReadHalfword(ctx);
-    QuestLog_RecordEnteredMap(value);
+    /*QuestLog_RecordEnteredMap(value);*/
     MapPreview_SetFlag(value);
     return FALSE;
 }
@@ -923,8 +923,8 @@ bool8 ScrCmd_playbgm(struct ScriptContext * ctx)
     u16 songId = ScriptReadHalfword(ctx);
     bool8 val = ScriptReadByte(ctx);
 
-    if (QL_IS_PLAYBACK_STATE)
-        return FALSE;
+    /*if (QL_IS_PLAYBACK_STATE)
+        return FALSE;*/
     if (val == TRUE)
         Overworld_SetSavedMusic(songId);
     PlayNewMapMusic(songId);
@@ -939,8 +939,8 @@ bool8 ScrCmd_savebgm(struct ScriptContext * ctx)
 
 bool8 ScrCmd_fadedefaultbgm(struct ScriptContext * ctx)
 {
-    if (QL_IS_PLAYBACK_STATE)
-        return FALSE;
+    /*if (QL_IS_PLAYBACK_STATE)
+        return FALSE;*/
     Overworld_ChangeMusicToDefault();
     return FALSE;
 }
@@ -948,8 +948,8 @@ bool8 ScrCmd_fadedefaultbgm(struct ScriptContext * ctx)
 bool8 ScrCmd_fadenewbgm(struct ScriptContext * ctx)
 {
     u16 music = ScriptReadHalfword(ctx);
-    if (QL_IS_PLAYBACK_STATE)
-        return FALSE;
+    /*if (QL_IS_PLAYBACK_STATE)
+        return FALSE;*/
     Overworld_ChangeMusicTo(music);
     return FALSE;
 }
@@ -958,8 +958,8 @@ bool8 ScrCmd_fadeoutbgm(struct ScriptContext * ctx)
 {
     u8 speed = ScriptReadByte(ctx);
 
-    if (QL_IS_PLAYBACK_STATE)
-        return FALSE;
+    /*if (QL_IS_PLAYBACK_STATE)
+        return FALSE;*/
     if (speed != 0)
         FadeOutBGMTemporarily(4 * speed);
     else
@@ -972,8 +972,8 @@ bool8 ScrCmd_fadeinbgm(struct ScriptContext * ctx)
 {
     u8 speed = ScriptReadByte(ctx);
 
-    if (QL_IS_PLAYBACK_STATE)
-        return FALSE;
+    /*if (QL_IS_PLAYBACK_STATE)
+        return FALSE;*/
     if (speed != 0)
         FadeInBGM(4 * speed);
     else
@@ -1322,7 +1322,7 @@ static bool8 WaitForAorBPress(void)
         RegisterQuestLogInput(qlogInput);
         if (qlogInput != QL_INPUT_OFF)
         {
-            if (gQuestLogState != QL_STATE_PLAYBACK)
+            /*if (gQuestLogState != QL_STATE_PLAYBACK)*/
             {
                 ClearMsgBoxCancelableState();
                 if (qlogInput != QL_INPUT_A && qlogInput != QL_INPUT_B)
@@ -1336,13 +1336,13 @@ static bool8 WaitForAorBPress(void)
             }
         }
     }
-    if (sub_8112CAC() == 1 || gQuestLogState == QL_STATE_PLAYBACK)
+    /*if (sub_8112CAC() == 1 || gQuestLogState == QL_STATE_PLAYBACK)
     {
         if (sQuestLogWaitButtonPressTimer == 120)
             return TRUE;
         else
             sQuestLogWaitButtonPressTimer++;
-    }
+    }*/
 
     return FALSE;
 }
@@ -1401,8 +1401,8 @@ bool8 ScrCmd_waitbuttonpress(struct ScriptContext * ctx)
 {
     sQuestLogScriptContextPtr = ctx;
 
-    if (sub_8112CAC() == 1 || gQuestLogState == QL_STATE_PLAYBACK)
-        sQuestLogWaitButtonPressTimer = 0;
+    /*if (sub_8112CAC() == 1 || gQuestLogState == QL_STATE_PLAYBACK)
+        sQuestLogWaitButtonPressTimer = 0;*/
     SetupNativeScript(ctx, WaitForAorBPress);
     return TRUE;
 }
@@ -1827,7 +1827,7 @@ bool8 ScrCmd_showmoneybox(struct ScriptContext * ctx)
     u8 y = ScriptReadByte(ctx);
     u8 ignore = ScriptReadByte(ctx);
 
-    if (!ignore && QuestLog_SchedulePlaybackCB(QLPlaybackCB_DestroyScriptMenuMonPicSprites) != TRUE)
+    if (!ignore /*&& QuestLog_SchedulePlaybackCB(QLPlaybackCB_DestroyScriptMenuMonPicSprites) != TRUE*/)
         DrawMoneyBox(GetMoney(&gSaveBlock1Ptr->money), x, y);
     return FALSE;
 }
@@ -1857,7 +1857,7 @@ bool8 ScrCmd_showcoinsbox(struct ScriptContext * ctx)
     u8 x = ScriptReadByte(ctx);
     u8 y = ScriptReadByte(ctx);
 
-    if (QuestLog_SchedulePlaybackCB(QLPlaybackCB_DestroyScriptMenuMonPicSprites) != TRUE)
+    /*if (QuestLog_SchedulePlaybackCB(QLPlaybackCB_DestroyScriptMenuMonPicSprites) != TRUE)*/
         ShowCoinsWindow(GetCoins(), x, y);
     return FALSE;
 }
@@ -1888,7 +1888,7 @@ bool8 ScrCmd_trainerbattle(struct ScriptContext * ctx)
 
 bool8 ScrCmd_dotrainerbattle(struct ScriptContext * ctx)
 {
-    StartTrainerBattle();
+    /*StartTrainerBattle();*/
     return TRUE;
 }
 

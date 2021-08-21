@@ -1,5 +1,5 @@
 //[[!!!]]
-#include "global.h"
+/*#include "global.h"
 #include "gflib.h"
 #include "task.h"
 #include "menu.h"
@@ -415,31 +415,6 @@ static bool8 TryRecordQuestLogEntrySequence(struct QuestLogEntry * entry)
     }
     gUnknown_203ADFC = sQuestLogCursor;
     return TRUE;
-}
-
-void TrySetUpQuestLogScenes_ElseContinueFromSave(u8 taskId)
-{
-    u8 i;
-
-    QL_EnableRecordingSteps();
-    sNumScenes = 0;
-    for (i = 0; i < QUEST_LOG_SCENE_COUNT; i++)
-    {
-        if (gSaveBlock1Ptr->questLog[i].startType != 0)
-            sNumScenes++;
-    }
-
-    if (sNumScenes != 0)
-    {
-        gHelpSystemEnabled = FALSE;
-        Task_BeginQuestLogPlayback(taskId);
-        DestroyTask(taskId);
-    }
-    else
-    {
-        SetMainCallback2(CB2_ContinueSavedGame);
-        DestroyTask(taskId);
-    }
 }
 
 static void Task_BeginQuestLogPlayback(u8 taskId)
@@ -1676,4 +1651,4 @@ void sub_8112E3C(u8 state, struct FlagOrVarRecord * records, u16 size)
             }
         }
     }
-}
+}*/

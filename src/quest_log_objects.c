@@ -1,3 +1,5 @@
+//[[!!!]]
+/*
 #include "global.h"
 #include "quest_log.h"
 #include "fieldmap.h"
@@ -143,4 +145,4 @@ void sub_815A540(void)
             DestroySprite(&gSprites[objectEvent->fieldEffectSpriteId]);
         }
     }
-}
+}*/

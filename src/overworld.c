@@ -747,7 +747,7 @@ void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum)
     for (paletteIndex = 7; paletteIndex < 13; paletteIndex++)
         ApplyWeatherGammaShiftToPal(paletteIndex);
     InitSecondaryTilesetAnimation();
-    sub_8110920();
+    /*sub_8110920();*/
     DoCurrentWeather();
     ResetFieldTasksArgs();
     RunOnResumeMapScript();
@@ -774,7 +774,7 @@ static void mli0_load_map(bool32 a1)
     SetDefaultFlashLevel();
     Overworld_ClearSavedMusic();
     RunOnTransitionMapScript();
-    sub_8110920();
+    /*sub_8110920();*/
     InitMap();
 }
 
@@ -789,8 +789,8 @@ static void sub_80559A8(void)
     SetSav1WeatherFromCurrMapHeader();
     ChooseAmbientCrySpecies();
     SetDefaultFlashLevel();
-    sub_8110920();
-    sub_8111708();
+    /*sub_8110920();
+    sub_8111708();*/
     LoadSaveblockMapHeader();
     InitMap();
 }
@@ -1325,7 +1325,7 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
 {
     struct FieldInput fieldInput;
 
-    sub_8112B3C();
+    /*sub_8112B3C();*/
     UpdatePlayerAvatarTransitionState();
     FieldClearPlayerInput(&fieldInput);
     FieldGetPlayerInput(&fieldInput, newKeys, heldKeys);
@@ -1334,8 +1334,8 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
     {
         if (ProcessPlayerFieldInput(&fieldInput) == TRUE)
         {
-            if (gQuestLogPlaybackState == 2)
-                sub_81127F8(&gInputToStoreInQuestLogMaybe);
+            /*if (gQuestLogPlaybackState == 2)
+                sub_81127F8(&gInputToStoreInQuestLogMaybe);*/
             ScriptContext2_Enable();
             DismissMapNamePopup();
         }
@@ -1344,16 +1344,16 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
             player_step(fieldInput.dpadDirection, newKeys, heldKeys);
         }
     }
-    RunQuestLogCB();
+    /*RunQuestLogCB();*/
 }
 
-static void DoCB1_Overworld_QuestLogPlayback(void)
+/*static void DoCB1_Overworld_QuestLogPlayback(void)
 {
     struct FieldInput fieldInput;
 
-    sub_8112B3C();
+    /*sub_8112B3C();
     UpdatePlayerAvatarTransitionState();
-    sub_8111C68();
+    /*sub_8111C68();
     FieldClearPlayerInput(&fieldInput);
     fieldInput = gQuestLogFieldInput;
     FieldInput_HandleCancelSignpost(&fieldInput);
@@ -1364,25 +1364,25 @@ static void DoCB1_Overworld_QuestLogPlayback(void)
             ScriptContext2_Enable();
             DismissMapNamePopup();
         }
-        else
+        /*else
         {
             RunQuestLogCB();
         }
     }
-    else if (QuestLogScenePlaybackIsEnding() == TRUE)
+    /*else if (QuestLogScenePlaybackIsEnding() == TRUE)
     {
         RunQuestLogCB();
     }
     FieldClearPlayerInput(&gQuestLogFieldInput);
-}
+}*/
 
 void CB1_Overworld(void)
 {
     if (gMain.callback2 == CB2_Overworld)
     {
-        if (sub_8112CAC() == 1 || gQuestLogState == QL_STATE_PLAYBACK)
+        /*if (sub_8112CAC() == 1 || gQuestLogState == QL_STATE_PLAYBACK)
             DoCB1_Overworld_QuestLogPlayback();
-        else
+        else*/
             DoCB1_Overworld(gMain.newKeys, gMain.heldKeys);
     }
 }
@@ -1393,7 +1393,7 @@ static void OverworldBasic(void)
     RunTasks();
     AnimateSprites();
     CameraUpdate();
-    sub_8115798();
+    /*sub_8115798();*/
     UpdateCameraPanning();
     BuildOamBuffer();
     UpdatePaletteFade();
@@ -1465,7 +1465,7 @@ void CB2_WhiteOut(void)
         gFieldCallback = FieldCB_RushInjuredPokemonToCenter;
         val = 0;
         do_load_map_stuff_loop(&val);
-        QuestLog_CutRecording();
+        /*QuestLog_CutRecording();*/
         SetFieldVBlankCallback();
         SetMainCallback1(CB1_Overworld);
         SetMainCallback2(CB2_Overworld);
@@ -1485,11 +1485,11 @@ void CB2_LoadMap(void)
 static void CB2_LoadMap2(void)
 {
     do_load_map_stuff_loop(&gMain.state);
-    if (QuestLog_ShouldEndSceneOnMapChange() == TRUE)
+    /*if (QuestLog_ShouldEndSceneOnMapChange() == TRUE)
     {
         QuestLog_AdvancePlayhead_();
     }
-    else
+    else*/
     {
         SetFieldVBlankCallback();
         SetMainCallback1(CB1_Overworld);
@@ -1761,7 +1761,7 @@ static bool32 load_map_stuff(u8 *state, bool32 a1)
         (*state)++;
         break;
     case 1:
-        QuestLog_InitPalettesBackup();
+        /*QuestLog_InitPalettesBackup();*/
         (*state)++;
         break;
     case 2:
@@ -1769,17 +1769,17 @@ static bool32 load_map_stuff(u8 *state, bool32 a1)
         (*state)++;
         break;
     case 3:
-        if (QuestLog_ShouldEndSceneOnMapChange() == TRUE)
-            return TRUE;
+        /*if (QuestLog_ShouldEndSceneOnMapChange() == TRUE)
+            return TRUE;*/
         (*state)++;
         break;
     case 4:
         mli4_mapscripts_and_other();
         sub_8057114();
-        if (gQuestLogState != QL_STATE_PLAYBACK)
+        /*if (gQuestLogState != QL_STATE_PLAYBACK)
         {
             QuestLog_CheckDepartingIndoorsMap();
-        }
+        }*/
         SetHelpContextForMap();
         (*state)++;
         break;
@@ -1843,7 +1843,7 @@ static bool32 sub_8056CD8(u8 *state)
     {
     case 0:
         InitOverworldBgs();
-        QuestLog_InitPalettesBackup();
+        /*QuestLog_InitPalettesBackup();*/
         sub_8057024(FALSE);
         ReloadObjectsAndRunReturnToFieldMapScript();
         sub_8057114();
@@ -1877,7 +1877,7 @@ static bool32 map_loading_iteration_2_link(u8 *state)
         (*state)++;
         break;
     case 1:
-        QuestLog_InitPalettesBackup();
+        /*QuestLog_InitPalettesBackup();*/
         sub_8057024(1);
         (*state)++;
         break;
@@ -2144,11 +2144,11 @@ static void CB2_LoadMapForQLPlayback(void)
 
 static void DoLoadMap_QLPlayback(u8 *state)
 {
-    while (!LoadMap_QLPlayback(state))
-        ;
+    /*while (!LoadMap_QLPlayback(state))
+        ;*/
 }
 
-static bool32 LoadMap_QLPlayback(u8 *state)
+/*static bool32 LoadMap_QLPlayback(u8 *state)
 {
     switch (*state)
     {
@@ -2269,7 +2269,7 @@ void Overworld_CreditsMainCB(void)
     DoScheduledBgTilemapCopiesToVram();
     if (fading)
         SetFieldVBlankCallback();
-}
+}*/
 
 static bool8 FieldCB2_Credits_WaitFade(void)
 {

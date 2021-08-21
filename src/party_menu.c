@@ -3382,7 +3382,7 @@ static void SetSwitchedPartyOrderQuestLogEvent(void)
 
     buffer[0] = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_SPECIES2);
     buffer[1] = GetMonData(&gPlayerParty[gPartyMenu.slotId2], MON_DATA_SPECIES2);
-    SetQuestLogEvent(QL_EVENT_SWITCHED_PARTY_ORDER, buffer);
+    /*SetQuestLogEvent(QL_EVENT_SWITCHED_PARTY_ORDER, buffer);*/
     Free(buffer);
 }
 
@@ -4066,10 +4066,10 @@ static void SetSwappedHeldItemQuestLogEvent(struct Pokemon *mon, u16 item, u16 i
     ptr[2] = GetMonData(mon, MON_DATA_SPECIES2);
     ptr[0] = item;
     ptr[1] = item2;
-    if (gPartyMenu.action == PARTY_ACTION_GIVE_PC_ITEM)
+    /*if (gPartyMenu.action == PARTY_ACTION_GIVE_PC_ITEM)
         SetQuestLogEvent(QL_EVENT_SWAPPED_HELD_ITEM_PC, ptr);
     else
-        SetQuestLogEvent(QL_EVENT_SWAPPED_HELD_ITEM, ptr);
+        SetQuestLogEvent(QL_EVENT_SWAPPED_HELD_ITEM, ptr);*/
     Free(ptr);
 }
 
@@ -4097,11 +4097,11 @@ static void SetUsedFieldMoveQuestLogEvent(struct Pokemon *mon, u8 fieldMove)
     default:
         ptr->regionMapSectionId = 0xFF;
     }
-    SetQuestLogEvent(QL_EVENT_USED_FIELD_MOVE, (u16 *)ptr);
+    /*SetQuestLogEvent(QL_EVENT_USED_FIELD_MOVE, (u16 *)ptr);*/
     Free(ptr);
 }
 
-void SetUsedFlyQuestLogEvent(const u8 *healLocCtrlData)
+/*void SetUsedFlyQuestLogEvent(const u8 *healLocCtrlData)
 {
     const struct MapHeader *mapHeader;
     struct FieldMoveWarpParams *ptr2;
@@ -4122,7 +4122,7 @@ void SetUsedFlyQuestLogEvent(const u8 *healLocCtrlData)
     ptr2->regionMapSectionId = mapHeader->regionMapSectionId;
     SetQuestLogEvent(QL_EVENT_USED_FIELD_MOVE, (u16 *)ptr2);
     Free(ptr2);
-}
+}*/
 
 void CB2_ShowPartyMenuForItemUse(void)
 {

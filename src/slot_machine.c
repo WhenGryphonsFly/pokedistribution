@@ -929,7 +929,7 @@ static void MainTask_SlotsGameLoop(u8 taskId)
         }
         break;
     case 2:
-        SetQLPlayedTheSlots();
+        /*SetQLPlayedTheSlots();*/
         CalcSlotBias();
         StartReels();
         sSlotMachineState->currentReel = 0;

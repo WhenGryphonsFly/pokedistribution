@@ -860,7 +860,7 @@ void ClearTrainerFlag(u16 trainerId)
     FlagClear(TRAINER_FLAGS_START + trainerId);
 }
 
-void StartTrainerBattle(void)
+/*void StartTrainerBattle(void)
 {
     gBattleTypeFlags = BATTLE_TYPE_TRAINER;
     if (GetTrainerBattleMode() == TRAINER_BATTLE_EARLY_RIVAL && GetRivalBattleFlags() & RIVAL_BATTLE_TUTORIAL)
@@ -868,9 +868,9 @@ void StartTrainerBattle(void)
     gMain.savedCallback = CB2_EndTrainerBattle;
     DoTrainerBattle();
     ScriptContext1_Stop();
-}
+}*/
 
-static void CB2_EndTrainerBattle(void)
+/*static void CB2_EndTrainerBattle(void)
 {
     if (sTrainerBattleMode == TRAINER_BATTLE_EARLY_RIVAL)
     {
@@ -916,7 +916,7 @@ static void CB2_EndTrainerBattle(void)
             QuestLogEvents_HandleEndTrainerBattle();
         }
     }
-}
+}*/
 
 static void CB2_EndRematchBattle(void)
 {
@@ -960,8 +960,8 @@ void PlayTrainerEncounterMusic(void)
 {
     u16 music;
 
-    if (!QL_IS_PLAYBACK_STATE
-     && sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_NO_MUSIC
+    if (/*!QL_IS_PLAYBACK_STATE
+     && */sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_NO_MUSIC
      && sTrainerBattleMode != TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC)
     {
         switch (GetTrainerEncounterMusicId(gTrainerBattleOpponent_A))

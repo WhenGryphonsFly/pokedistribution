@@ -435,8 +435,8 @@ bool8 TryRunOnFrameMapScript(void)
 {
     u8 *ptr;
 
-    if(gQuestLogState == QL_STATE_PLAYBACK_LAST)
-        return 0;
+    /*if(gQuestLogState == QL_STATE_PLAYBACK_LAST)
+        return 0;*/
 
     ptr = mapheader_get_first_match_from_tagged_ptr_list(2);
 

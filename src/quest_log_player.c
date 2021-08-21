@@ -1,3 +1,5 @@
+//[[!!!]]
+/*
 #include "global.h"
 #include "bike.h"
 #include "script.h"
@@ -194,4 +196,4 @@ static void QL_GfxTransition_StopSurfWest(void)
 static void QL_GfxTransition_StopSurfEast(void)
 {
     CreateStopSurfingTask_NoMusicChange(DIR_EAST);
-}
+}*/

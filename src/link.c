@@ -222,8 +222,8 @@ static const u8 sLinkErrorTextColor[] = { 0x00, 0x01, 0x02 };
 
 bool8 IsWirelessAdapterConnected(void)
 {
-    if (QL_IS_PLAYBACK_STATE)
-        return FALSE;
+    /*if (QL_IS_PLAYBACK_STATE)
+        return FALSE;*/
 
     SetWirelessCommType1();
     InitRFUAPI();

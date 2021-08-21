@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "gba/flash_internal.h"
@@ -72,7 +73,7 @@ void SetSaveBlocksPointers(void)
     gPokemonStoragePtr = (void*)(&gPokemonStorage) + offset;
 
     SetBagPocketsPointers();
-    SetQuestLogRecordAndPlaybackPointers(oldSave);
+    /*SetQuestLogRecordAndPlaybackPointers(oldSave);*/
 }
 
 void MoveSaveBlocks_ResetHeap(void)

@@ -2570,7 +2570,7 @@ static void CB2_HandleTradeEnded(void)
         DrawTextOnTradeWindow(0, gStringVar4, 0);
         break;
     case 50:
-        if (InUnionRoom())
+        /*if (InUnionRoom())
         {
             SetQuestLogEvent(QL_EVENT_LINK_TRADED_UNION, sTradeData->monSpecies);
         }
@@ -2578,7 +2578,7 @@ static void CB2_HandleTradeEnded(void)
         {
             SetQuestLogEvent(QL_EVENT_LINK_TRADED, sTradeData->monSpecies);
             IncrementGameStat(GAME_STAT_POKEMON_TRADES);
-        }
+        }*/
         if (gWirelessCommType)
         {
             MEvent_RecordIdOfWonderCardSenderByEventType(2, gLinkPlayers[GetMultiplayerId() ^ 1].trainerId);

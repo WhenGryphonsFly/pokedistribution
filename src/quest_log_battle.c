@@ -1,4 +1,5 @@
-#include "global.h"
+//[[!!!]]
+/*#include "global.h"
 #include "gflib.h"
 #include "battle.h"
 #include "battle_anim.h"
@@ -163,4 +164,4 @@ static void sub_812C334(s32 * a0, s32 * a1)
         else if (r5 != gBattleStruct->multiplayerId)
             a1[_optimized_out++] = r5;
     }
-}
+}*/
