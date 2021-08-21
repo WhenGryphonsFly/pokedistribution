@@ -88,13 +88,6 @@ static u8 *const sStringVarPtrs[] = {
     gStringVar3
 };
 
-/*void ShowDiploma(void)
-{
-    QuestLog_CutRecording();
-    SetMainCallback2(CB2_ShowDiploma);
-    ScriptContext2_Enable();
-}*/
-
 void ForcePlayerOntoBike(void)
 {
     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ON_FOOT)
@@ -869,24 +862,6 @@ static void Task_ElevatorShake(u8 taskId)
     }
 }
 
-/*void DrawElevatorCurrentFloorWindow(void)
-{
-    const u8 *floorname;
-    u32 strwidth;
-    if (QuestLog_SchedulePlaybackCB(QLPlaybackCB_DestroyScriptMenuMonPicSprites) != TRUE)
-    {
-        sElevatorCurrentFloorWindowId = AddWindow(&sElevatorCurrentFloorWindowTemplate);
-        TextWindow_SetStdFrame0_WithPal(sElevatorCurrentFloorWindowId, 0x21D, 0xD0);
-        DrawStdFrameWithCustomTileAndPalette(sElevatorCurrentFloorWindowId, FALSE, 0x21D, 0xD);
-        AddTextPrinterParameterized(sElevatorCurrentFloorWindowId, 2, gText_NowOn, 0, 2, 0xFF, NULL);
-        floorname = sFloorNamePointers[gSpecialVar_0x8005];
-        strwidth = GetStringWidth(2, floorname, 0);
-        AddTextPrinterParameterized(sElevatorCurrentFloorWindowId, 2, floorname, 56 - strwidth, 16, 0xFF, NULL);
-        PutWindowTilemap(sElevatorCurrentFloorWindowId);
-        CopyWindowToVram(sElevatorCurrentFloorWindowId, COPYWIN_BOTH);
-    }
-}*/
-
 void CloseElevatorCurrentFloorWindow(void)
 {
     ClearStdWindowAndFrameToTransparent(sElevatorCurrentFloorWindowId, TRUE);
@@ -1552,12 +1527,6 @@ u8 GetMartClerkObjectId(void)
 {
     return 1;
 }
-
-/*void SetUsedPkmnCenterQuestLogEvent(void)
-{
-    SetQuestLogEvent(QL_EVENT_USED_PKMN_CENTER, NULL);
-}*/
-
 
 void QuestLog_CheckDepartingIndoorsMap(void)
 {

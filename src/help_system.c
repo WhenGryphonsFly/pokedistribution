@@ -1809,7 +1809,6 @@ void HelpSystem_Disable(void)
 
 void HelpSystem_Enable(void)
 {
-    /*if (!QL_IS_PLAYBACK_STATE)*/
     {
         gHelpSystemEnabled = TRUE;
         HelpSystem_EnableToggleWithRButton();

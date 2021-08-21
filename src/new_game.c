@@ -66,7 +66,6 @@ void ResetMenuAndMonGlobals(void)
     ResetBagCursorPositions();
     ResetTMCaseCursorPos();
     BerryPouch_CursorResetToTop();
-    /*ResetQuestLog();*/
     SeedWildEncounterRng(Random());
     ResetSpecialVars();
 }

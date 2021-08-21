@@ -518,7 +518,7 @@ void TextPrinterClearDownArrow(struct TextPrinter *textPrinter)
 bool8 TextPrinterWaitAutoMode(struct TextPrinter *textPrinter)
 {
     struct TextPrinterSubStruct *subStruct = &textPrinter->subUnion.sub;
-    u8 delay = /*(gQuestLogState == QL_STATE_PLAYBACK) ? 50 : */120;
+    u8 delay = 120;
 
     if (subStruct->autoScrollDelay == delay)
     {
@@ -707,7 +707,6 @@ u16 RenderText(struct TextPrinter *textPrinter)
                 textPrinter->printerTemplate.currentChar++;
                 currChar |= *textPrinter->printerTemplate.currentChar << 8;
                 textPrinter->printerTemplate.currentChar++;
-                /*if (!QL_IS_PLAYBACK_STATE)*/
                     PlayBGM(currChar);
                 return 2;
             case EXT_CTRL_CODE_PLAY_SE:

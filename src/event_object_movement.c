@@ -1713,9 +1713,6 @@ void MakeObjectTemplateFromObjectEventGraphicsInfo(u16 graphicsId, void (*callba
     
     do
     {
-        /*if (ScriptContext1_IsScriptSetUp() != TRUE && sub_8112CAC() == TRUE)
-            spriteTemplate->callback = sub_811246C;
-        else*/
             spriteTemplate->callback = callback;
     } while (0);
     
@@ -5102,9 +5099,7 @@ bool8 ObjectEventIsHeldMovementActive(struct ObjectEvent *objectEvent)
 
 bool8 ObjectEventSetHeldMovement(struct ObjectEvent *objectEvent, u8 movementActionId)
 {
-    /*if(sub_8112CAC() == TRUE)
-        ObjectEventClearHeldMovementIfActive(objectEvent);
-    else */if (ObjectEventIsMovementOverridden(objectEvent))
+    if (ObjectEventIsMovementOverridden(objectEvent))
         return TRUE;
 
     UnfreezeObjectEvent(objectEvent);
@@ -5330,11 +5325,6 @@ static void ObjectEventSetSingleMovement(struct ObjectEvent *objectEvent, struct
 {
     objectEvent->movementActionId = animId;
     sprite->data[2] = 0;
-    
-    /*if (gQuestLogPlaybackState == 2)
-    {
-        QuestLogRecordNPCStep(objectEvent->localId, objectEvent->mapNum, objectEvent->mapGroup, animId);
-    }*/
 }
 
 static void FaceDirection(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction)

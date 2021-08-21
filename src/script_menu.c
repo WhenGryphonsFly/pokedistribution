@@ -702,7 +702,6 @@ static void DrawVerticalMultichoiceMenu(u8 left, u8 top, u8 mcId, u8 ignoreBpres
     u8 windowId;
     const struct MenuAction * list;
 
-    /*if ((ignoreBpress & 2) || QuestLog_SchedulePlaybackCB(QLPlaybackCB_DestroyScriptMenuMonPicSprites) != TRUE)*/
     {
         ignoreBpress &= 1;
         count = gScriptMultiChoiceMenus[mcId].count;
@@ -836,7 +835,6 @@ bool8 ScriptMenu_YesNo(u8 unused, u8 stuff)
     if (FuncIsActiveTask(Task_YesNoMenu_HandleInput) == TRUE)
         return FALSE;
     gSpecialVar_Result = SCR_MENU_UNSET;
-    /*if (!QuestLog_SchedulePlaybackCB(QLPlaybackCB_DestroyScriptMenuMonPicSprites))*/
     {
         DisplayYesNoMenuDefaultYes();
         CreateTask(Task_YesNoMenu_HandleInput, 80);
@@ -890,7 +888,6 @@ bool8 ScriptMenu_MultichoiceGrid(u8 left, u8 top, u8 multichoiceId, u8 a4, u8 co
     if (FuncIsActiveTask(Hask_MultichoiceGridMenu_HandleInput) == TRUE)
         return FALSE;
     gSpecialVar_Result = SCR_MENU_UNSET;
-    /*if (QuestLog_SchedulePlaybackCB(QLPlaybackCB_DestroyScriptMenuMonPicSprites) != TRUE)*/
     {
         list = gScriptMultiChoiceMenus[multichoiceId].list;
         count = gScriptMultiChoiceMenus[multichoiceId].count;
@@ -1022,8 +1019,6 @@ bool8 ScriptMenu_ShowPokemonPic(u16 species, u8 x, u8 y)
 {
     u8 spriteId;
     u8 taskId;
-    /*if (QuestLog_SchedulePlaybackCB(QLPlaybackCB_DestroyScriptMenuMonPicSprites) == TRUE)
-        return TRUE;*/
     if (FindTaskIdByFunc(Task_ScriptShowMonPic) != 0xFF)
         return FALSE;
     spriteId = CreateMonSprite_PicBox(species, 8 * x + 40, 8 * y + 40, FALSE);
@@ -1106,8 +1101,6 @@ bool8 OpenMuseumFossilPic(void)
 {
     u8 spriteId;
     u8 taskId;
-    /*if (QuestLog_SchedulePlaybackCB(QLPlaybackCB_DestroyScriptMenuMonPicSprites) == TRUE)
-        return TRUE;*/
     if (FindTaskIdByFunc(Task_WaitMuseumFossilPic) != 0xFF)
         return FALSE;
     if (gSpecialVar_0x8004 == SPECIES_KABUTOPS)
@@ -1195,7 +1188,6 @@ void DrawSeagallopDestinationMenu(void)
     u8 windowId;
     u8 i;
     gSpecialVar_Result = SCR_MENU_UNSET;
-    /*if (QuestLog_SchedulePlaybackCB(QLPlaybackCB_DestroyScriptMenuMonPicSprites) != TRUE)*/
     {
         if (gSpecialVar_0x8005 == 1)
         {

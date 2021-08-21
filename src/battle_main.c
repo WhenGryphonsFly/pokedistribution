@@ -1788,7 +1788,6 @@ static void EndLinkBattleInSteps(void)
         if (!gPaletteFade.active)
         {
             SetMainCallback2(gMain.savedCallback);
-            /*TrySetQuestLogLinkBattleEvent();*/
             FreeMonSpritesGfx();
             FreeBattleSpritesData();
             FreeBattleResources();
@@ -3744,7 +3743,6 @@ static void HandleEndTurn_FinishBattle(void)
                 }
             }
         }
-        /*TrySetQuestLogBattleEvent();*/
         BeginFastPaletteFade(3);
         FadeOutMapMusic(5);
         gBattleMainFunc = FreeResetData_ReturnToOvOrDoEvolutions;

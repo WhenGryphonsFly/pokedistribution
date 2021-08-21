@@ -88,8 +88,6 @@ static const TrainerSeeFunc sTrainerSeeFuncList2[] = {
 bool8 CheckForTrainersWantingBattle(void)
 {
     u8 i;
-    /*if (sub_8111C2C() == TRUE)
-        return FALSE;*/
 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
     {

@@ -73,7 +73,6 @@ void SetSaveBlocksPointers(void)
     gPokemonStoragePtr = (void*)(&gPokemonStorage) + offset;
 
     SetBagPocketsPointers();
-    /*SetQuestLogRecordAndPlaybackPointers(oldSave);*/
 }
 
 void MoveSaveBlocks_ResetHeap(void)

@@ -912,6 +912,5 @@ void ItemUse_SetQuestLogEvent(u8 eventId, struct Pokemon * pokemon, u16 itemId, 
         questLog->species = GetMonData(pokemon, MON_DATA_SPECIES2);
     else
         questLog->species = 0xFFFF;
-    /*SetQuestLogEvent(eventId, (void *)questLog);*/
     Free(questLog);
 }
