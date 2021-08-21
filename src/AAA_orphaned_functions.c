@@ -13,6 +13,7 @@ void TryRecordLinkBattleOutcome(s32 battlerId){}
 
 // specials
 void CallTrainerTowerFunc(void){}
+void ChooseMonForWirelessMinigame(void){}
 void DoCredits(void){}
 void DoPokemonLeagueLightingEffect(void){}
 void DoSeagallopFerryScene(void){}
