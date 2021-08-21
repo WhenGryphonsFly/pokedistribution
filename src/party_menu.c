@@ -499,7 +499,7 @@ static bool8 ShowPartyMenu(void)
         ++gMain.state;
         break;
     case 6:
-        SetPartyMonsAllowedInMinigame();
+        /*SetPartyMonsAllowedInMinigame();*/
         ++gMain.state;
         break;
     case 7:
@@ -1788,7 +1788,7 @@ u8 GetMonAilment(struct Pokemon *mon)
     return AILMENT_NONE;
 }
 
-static void SetPartyMonsAllowedInMinigame(void)
+/*static void SetPartyMonsAllowedInMinigame(void)
 {
     u16 *ptr;
 
@@ -1824,7 +1824,7 @@ static bool16 IsMonAllowedInDodrioBerryPicking(struct Pokemon *mon)
     if (GetMonData(mon, MON_DATA_IS_EGG) != TRUE && GetMonData(mon, MON_DATA_SPECIES) == SPECIES_DODRIO)
         return TRUE;
     return FALSE;
-}
+}*/
 
 static bool8 IsMonAllowedInMinigame(u8 slot)
 {

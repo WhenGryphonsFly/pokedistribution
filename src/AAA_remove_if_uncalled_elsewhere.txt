@@ -3,3 +3,5 @@ Task_BeginQuestLogPlayback
 CB2_ContinueSavedGame
 ? QuestLog_CheckDepartingIndoorsMap
 ? FldEff_UseVsSeeker
+
+? party_menu.c - minigame functions not yet removed

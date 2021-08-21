@@ -1976,7 +1976,7 @@ bool8 ScrCmd_playslotmachine(struct ScriptContext * ctx)
 {
     u8 slotMachineIndex = VarGet(ScriptReadHalfword(ctx));
 
-    PlaySlotMachine(slotMachineIndex, CB2_ReturnToFieldContinueScriptPlayMapMusic);
+    /*PlaySlotMachine(slotMachineIndex, CB2_ReturnToFieldContinueScriptPlayMapMusic);*/
     ScriptContext1_Stop();
     return TRUE;
 }
