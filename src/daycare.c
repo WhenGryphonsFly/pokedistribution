@@ -1,4 +1,4 @@
-#include "global.h"
+/*#include "global.h"
 #include "gflib.h"
 #include "data.h"
 #include "battle.h"
@@ -2148,4 +2148,4 @@ static void EggHatchPrintMessage(u8 windowId, u8* string, u8 x, u8 y, u8 speed)
     sEggHatchData->textColor[1] = 5;
     sEggHatchData->textColor[2] = 6;
     AddTextPrinterParameterized4(windowId, 3, x, y, 1, 1, sEggHatchData->textColor, speed, string);
-}
+}*/

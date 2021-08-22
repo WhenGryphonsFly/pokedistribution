@@ -636,13 +636,14 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
 
     UpdateHappinessStepCounter();
 
-    if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED) && !MetatileBehavior_IsForcedMovementTile(metatileBehavior))
-    {if (ShouldEggHatch())
+    /*if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED) && !MetatileBehavior_IsForcedMovementTile(metatileBehavior))
+    {
+		if (ShouldEggHatch())
         {
             IncrementGameStat(GAME_STAT_HATCHED_EGGS);
             return TRUE;
         }
-    }
+    }*/
     if (SafariZoneTakeStep() == TRUE)
         return TRUE;
     return FALSE;
