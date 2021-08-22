@@ -625,24 +625,6 @@ void CB2_InitBattle(void)
     else
     {
         CB2_InitBattleInternal();
-        /*if (!(gBattleTypeFlags & BATTLE_TYPE_LINK))
-        {
-            if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
-            {
-                if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
-                    SetHelpContext(HELPCONTEXT_TRAINER_BATTLE_DOUBLE);
-                else
-                    SetHelpContext(HELPCONTEXT_TRAINER_BATTLE_SINGLE);
-            }
-            else if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
-            {
-                SetHelpContext(HELPCONTEXT_SAFARI_BATTLE);
-            }
-            else
-            {
-                SetHelpContext(HELPCONTEXT_WILD_BATTLE);
-            }
-        }*/
     }
 }
 
@@ -4256,7 +4238,7 @@ static void HandleAction_SafariZoneBallThrow(void)
     gBattlerAttacker = gBattlerByTurnOrder[gCurrentTurnActionNumber];
     gBattle_BG0_X = 0;
     gBattle_BG0_Y = 0;
-    --gNumSafariBalls;
+    /*--gNumSafariBalls;*/
     gLastUsedItem = ITEM_SAFARI_BALL;
     gBattlescriptCurrInstr = gBattlescriptsForBallThrow[ITEM_SAFARI_BALL];
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;

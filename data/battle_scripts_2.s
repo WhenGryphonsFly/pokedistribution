@@ -105,11 +105,11 @@ BattleScript_OldMan_Pokedude_CaughtMessage::
 BattleScript_ShakeBallThrow::
 	printfromtable gBallEscapeStringIds
 	waitmessage 64
-	jumpifnotbattletype BATTLE_TYPE_SAFARI, BattleScript_CatchFailEnd
-	jumpifbyte CMP_NOT_EQUAL, gNumSafariBalls, 0, BattleScript_CatchFailEnd
-	printstring STRINGID_OUTOFSAFARIBALLS
-	waitmessage 64
-	setbyte gBattleOutcome, B_OUTCOME_NO_SAFARI_BALLS
+@	jumpifnotbattletype BATTLE_TYPE_SAFARI, BattleScript_CatchFailEnd
+@	jumpifbyte CMP_NOT_EQUAL, gNumSafariBalls, 0, BattleScript_CatchFailEnd
+@	printstring STRINGID_OUTOFSAFARIBALLS
+@	waitmessage 64
+@	setbyte gBattleOutcome, B_OUTCOME_NO_SAFARI_BALLS
 BattleScript_CatchFailEnd::
 	finishaction
 

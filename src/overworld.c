@@ -667,9 +667,6 @@ static void SetContinueGameWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
 
 void SetContinueGameWarpToHealLocation(u8 healLocationId)
 {
-    /*const struct HealLocation *warp = GetHealLocation(healLocationId);
-    if (warp)
-        SetWarpData(&gSaveBlock1Ptr->continueGameWarp, warp->group, warp->map, -1, warp->x, warp->y);*/
 }
 
 void SetContinueGameWarpToDynamicWarp(int unused)
@@ -1306,7 +1303,7 @@ void CleanupOverworldWindowsAndTilemaps(void)
 
 static void ResetSafariZoneFlag_(void)
 {
-    ResetSafariZoneFlag();
+    /*ResetSafariZoneFlag();*/
 }
 
 bool32 IsUpdateLinkStateCBActive(void)

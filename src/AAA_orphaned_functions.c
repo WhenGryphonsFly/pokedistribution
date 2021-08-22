@@ -88,3 +88,8 @@ void VsSeekerFreezeObjectsAfterChargeComplete(void){}
 void VsSeekerResetObjectMovementAfterChargeComplete(void){}
 void BedroomPC(void){}
 void PlayerPC(void){}
+void GetPokedexCount(void){}
+void GetProfOaksRatingMessage(void){}
+void EnterSafariMode(void){}
+void ExitSafariMode(void){}
+

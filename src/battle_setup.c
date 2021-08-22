@@ -180,9 +180,7 @@ static void Task_BattleStart(u8 taskId)
     switch (tState)
     {
     case 0:
-        /*if (!FldEffPoison_IsActive())*/
         {
-        	/*HelpSystem_Disable();*/
             BT_StartOnField(tTransition);
             ++tState;
         }
@@ -216,9 +214,9 @@ static bool8 CheckSilphScopeInPokemonTower(u16 mapGroup, u16 mapNum)
 
 void StartWildBattle(void)
 {
-    if (GetSafariZoneFlag())
+    /*if (GetSafariZoneFlag())
         DoSafariBattle();
-    else if (CheckSilphScopeInPokemonTower(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum))
+    else */if (CheckSilphScopeInPokemonTower(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum))
         DoGhostBattle();
     else
         DoStandardWildBattle();
@@ -253,7 +251,7 @@ static void DoSafariBattle(void)
     ScriptContext2_Enable();
     FreezeObjectEvents();
     StopPlayerAvatar();
-    gMain.savedCallback = CB2_EndSafariBattle;
+    gMain.savedCallback = CB2_EndWildBattle;
     gBattleTypeFlags = BATTLE_TYPE_SAFARI;
     CreateBattleStartTask(GetWildBattleTransition(), 0);
 }
