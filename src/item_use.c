@@ -534,18 +534,10 @@ void FieldUseFunc_TeachyTv(u8 taskId)
 
 static void InitTeachyTvFromBag(void)
 {
-    /*InitTeachyTvController(0, CB2_BagMenuFromStartMenu);*/
 }
 
 static void Task_InitTeachyTvFromField(u8 taskId)
 {
-    /*if (!gPaletteFade.active)
-    {
-        CleanupOverworldWindowsAndTilemaps();
-        sub_80A1184();
-        InitTeachyTvController(0, CB2_ReturnToField);
-        DestroyTask(taskId);
-    }*/
 }
 
 void FieldUseFunc_SuperRepel(u8 taskId)
