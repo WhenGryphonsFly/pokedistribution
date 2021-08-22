@@ -8,8 +8,8 @@
 
 void AllocateBattleResources(void)
 {
-    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_TOWER)
-        InitTrainerTowerBattleStruct();
+    /*if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_TOWER)
+        InitTrainerTowerBattleStruct();*/
     gBattleStruct = AllocZeroed(sizeof(*gBattleStruct));
     gBattleResources = AllocZeroed(sizeof(*gBattleResources));
     gBattleResources->secretBase = AllocZeroed(sizeof(*gBattleResources->secretBase));
@@ -30,8 +30,8 @@ void AllocateBattleResources(void)
 
 void FreeBattleResources(void)
 {
-    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_TOWER)
-        FreeTrainerTowerBattleStruct();
+    /*if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_TOWER)
+        FreeTrainerTowerBattleStruct();*/
     if (gBattleResources != NULL)
     {
         FREE_AND_SET_NULL(gBattleStruct);
