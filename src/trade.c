@@ -1,5 +1,5 @@
 //[[!!!]]
-#include "global.h"
+/*#include "global.h"
 #include "gflib.h"
 #include "task.h"
 #include "decompress.h"
@@ -2836,4 +2836,4 @@ int CanRegisterMonForTradingBoard(struct GFtgtGnameSub playerSub, u16 species2, 
     }
 
     return 0;
-}
+}*/

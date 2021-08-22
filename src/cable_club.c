@@ -822,7 +822,7 @@ static void CreateEnterCableClubSeatTaskWithFollowupFunc(TaskFunc followUpFunc)
 
 static void Task_StartWiredCableClubTrade(u8 taskId)
 {
-    struct Task * task = &gTasks[taskId];
+    /*struct Task * task = &gTasks[taskId];
     switch (task->data[0])
     {
     case 0:
@@ -849,12 +849,12 @@ static void Task_StartWiredCableClubTrade(u8 taskId)
             DestroyTask(taskId);
         }
         break;
-    }
+    }*/
 }
 
 static void Task_StartWirelessCableClubTrade(u8 taskId)
 {
-    s16 *data = gTasks[taskId].data;
+    /*s16 *data = gTasks[taskId].data;
     switch (data[0])
     {
     case 0:
@@ -881,7 +881,7 @@ static void Task_StartWirelessCableClubTrade(u8 taskId)
             DestroyTask(taskId);
         }
         break;
-    }
+    }*/
 }
 
 void EnterTradeSeat(void)

@@ -1738,7 +1738,7 @@ static u8 GetNewLeaderCandidate(void)
 
 static void Task_CallCB2ReturnFromLinkTrade(u8 taskId)
 {
-    CB2_ReturnFromLinkTrade();
+    /*CB2_ReturnFromLinkTrade();*/
     DestroyTask(taskId);
 }
 

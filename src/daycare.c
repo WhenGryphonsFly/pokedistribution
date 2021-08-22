@@ -1361,6 +1361,10 @@ bool8 NameHasGenderSymbol(const u8 *name, u8 genderRatio)
     return FALSE;
 }
 
+const u8 gText_MaleSymbol4[] = _("♂");
+const u8 gText_FemaleSymbol4[] = _("♀");
+const u8 gText_GenderlessSymbol[] = _("");
+
 static u8 *AppendGenderSymbol(u8 *name, u8 gender)
 {
     if (gender == MON_MALE)

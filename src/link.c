@@ -804,7 +804,7 @@ u8 GetLinkPlayerDataExchangeStatusTimed(int lower, int upper)
             }
             if (count == GetLinkPlayerCount())
             {
-                if (gLinkPlayers[0].linkType == 0x1133)
+                /*if (gLinkPlayers[0].linkType == 0x1133)
                 {
                     switch (Trade_CalcLinkPlayerCompatibilityParam())
                     {
@@ -819,7 +819,7 @@ u8 GetLinkPlayerDataExchangeStatusTimed(int lower, int upper)
                         break;
                     }
                 }
-                else
+                else*/
                 {
                     sPlayerDataExchangeStatus = EXCHANGE_COMPLETE;
                 }
