@@ -1139,10 +1139,10 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
     {
         switch (gPartyMenu.action)
         {
-        case PARTY_ACTION_SOFTBOILED:
+        /*case PARTY_ACTION_SOFTBOILED:
             if (IsSelectedMonNotEgg((u8 *)slotPtr))
                 Task_TryUseSoftboiledOnPartyMon(taskId);
-            break;
+            break;*/
         case PARTY_ACTION_USE_ITEM:
             if (IsSelectedMonNotEgg((u8 *)slotPtr))
             {

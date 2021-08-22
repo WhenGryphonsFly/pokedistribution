@@ -686,7 +686,7 @@ void FieldUseFunc_FameChecker(u8 taskId)
 
 static void sub_80A1D58(void)
 {
-    UseFameChecker(CB2_BagMenuFromStartMenu);
+    /*UseFameChecker(CB2_BagMenuFromStartMenu);*/
 }
 
 static void sub_80A1D68(u8 taskId)
@@ -695,7 +695,7 @@ static void sub_80A1D68(u8 taskId)
     {
         CleanupOverworldWindowsAndTilemaps();
         sub_80A1184();
-        UseFameChecker(CB2_ReturnToField);
+        /*UseFameChecker(CB2_ReturnToField);*/
         DestroyTask(taskId);
     }
 }
@@ -704,10 +704,10 @@ void FieldUseFunc_VsSeeker(u8 taskId)
 {
 }
 
-void Task_ItemUse_CloseMessageBoxAndReturnToField_VsSeeker(u8 taskId)
+/*void Task_ItemUse_CloseMessageBoxAndReturnToField_VsSeeker(u8 taskId)
 {
     Task_ItemUse_CloseMessageBoxAndReturnToField(taskId);
-}
+}*/
 
 void BattleUseFunc_PokeBallEtc(u8 taskId)
 {

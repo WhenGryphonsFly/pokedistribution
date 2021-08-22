@@ -80,4 +80,7 @@ void TakePokemonFromDaycare(void){}
 void TakePokemonFromRoute5Daycare(void){}
 void VsSeekerFreezeObjectsAfterChargeComplete(void){}
 void VsSeekerResetObjectMovementAfterChargeComplete(void){}
+void HallOfFamePCBeginFade(void){}
+void SetFlavorTextFlagFromSpecialVars(void){}
+void UpdatePickStateFromSpecialVar8005(void){}
 

@@ -3,8 +3,8 @@
 	.align 2
 gFieldEffectScriptPointers:: @ 81D96AC
 	.4byte gFldEffScript_ExclamationMarkIcon
-	.4byte gFldEffScript_UseCutOnGrass
-	.4byte gFldEffScript_UseCutOnTree
+@	.4byte gFldEffScript_UseCutOnGrass
+@	.4byte gFldEffScript_UseCutOnTree
 	.4byte gFldEffScript_Shadow
 	.4byte gFldEffScript_TallGrass
 	.4byte gFldEffScript_Ripple
@@ -39,10 +39,10 @@ gFieldEffectScriptPointers:: @ 81D96AC
 	.4byte gFldEffScript_FeetInFlowingWater
 	.4byte gFldEffScript_BikeTireTracks
 	.4byte gFldEffScript_SandDisguise
-	.4byte gFldEffScript_UseRockSmash
-	.4byte gFldEffScript_UseDig
+@	.4byte gFldEffScript_UseRockSmash
+@	.4byte gFldEffScript_UseDig
 	.4byte gFldEffScript_SandPile
-	.4byte gFldEffScript_UseStrength
+@	.4byte gFldEffScript_UseStrength
 	.4byte gFldEffScript_ShortGrass
 	.4byte gFldEffScript_HotSpringsWater
 	.4byte gFldEffScript_UseWaterfall
@@ -53,19 +53,19 @@ gFieldEffectScriptPointers:: @ 81D96AC
 	.4byte gFldEffScript_Nop48
 	.4byte gFldEffScript_PopOutOfAsh
 	.4byte gFldEffScript_LavaridgeGymWarp
-	.4byte gFldEffScript_SweetScent
+@	.4byte gFldEffScript_SweetScent
 	.4byte gFldEffScript_SandPillar
 	.4byte gFldEffScript_Bubbles
 	.4byte gFldEffScript_Sparkle
 	.4byte gFldEffScript_SecretPowerCave
 	.4byte gFldEffScript_SecretPowerTree
 	.4byte gFldEffScript_SecretPowerShrub
-	.4byte gFldEffScript_CutGrass
+@	.4byte gFldEffScript_CutGrass
 	.4byte gFldEffScript_FieldMoveShowMonInit
 	.4byte gFldEffScript_UseFlyAncientTomb
 	.4byte gFldEffScript_PcturnOn
 	.4byte gFldEffScript_HallOfFameRecord
-	.4byte gFldEffScript_UseTeleport
+@	.4byte gFldEffScript_UseTeleport
 	.4byte gFldEffScript_SmileyFaceIcon
 	.4byte gFldEffScript_DoubleExclMarkIcon
 	.4byte gFldEffScript_MoveDeoxysRock
@@ -76,13 +76,13 @@ gFldEffScript_ExclamationMarkIcon:: @ 81D97C4
 	callnative FldEff_ExclamationMarkIcon1
 	end 
 
-gFldEffScript_UseCutOnGrass:: @ 81D97CA
-	callnative FldEff_UseCutOnGrass
-	end 
+@gFldEffScript_UseCutOnGrass:: @ 81D97CA
+@	callnative FldEff_UseCutOnGrass
+@	end 
 
-gFldEffScript_UseCutOnTree:: @ 81D97D0
-	callnative FldEff_UseCutOnTree
-	end 
+@gFldEffScript_UseCutOnTree:: @ 81D97D0
+@	callnative FldEff_UseCutOnTree
+@	end 
 
 gFldEffScript_Shadow:: @ 81D97D6
 	callnative FldEff_Shadow
@@ -218,17 +218,17 @@ gFldEffScript_SandDisguise:: @ 81D98DE
 	callnative ShowSandDisguiseFieldEffect
 	end 
 
-gFldEffScript_UseRockSmash:: @ 81D98E4
-	callnative FldEff_UseRockSmash
-	end 
+@gFldEffScript_UseRockSmash:: @ 81D98E4
+@	callnative FldEff_UseRockSmash
+@	end 
 
-gFldEffScript_UseStrength:: @ 81D98EA
-	callnative FldEff_UseStrength
-	end 
+@gFldEffScript_UseStrength:: @ 81D98EA
+@	callnative FldEff_UseStrength
+@	end 
 
-gFldEffScript_UseDig:: @ 81D98F0
-	callnative FldEff_UseDig
-	end 
+@gFldEffScript_UseDig:: @ 81D98F0
+@	callnative FldEff_UseDig
+@	end 
 
 gFldEffScript_SandPile:: @ 81D98F6
 	loadfadedpal_callnative gSpritePalette_GeneralFieldEffect0, FldEff_SandPile
@@ -273,9 +273,9 @@ gFldEffScript_LavaridgeGymWarp:: @ 81D993D
 	loadfadedpal_callnative gSpritePalette_Ash, FldEff_LavaridgeGymWarp
 	end 
 
-gFldEffScript_SweetScent:: @ 81D9947
-	callnative FldEff_SweetScent
-	end 
+@gFldEffScript_SweetScent:: @ 81D9947
+@	callnative FldEff_SweetScent
+@	end 
 
 gFldEffScript_SandPillar:: @ 81D994D
 	end 
@@ -297,9 +297,9 @@ gFldEffScript_SecretPowerTree:: @ 81D9963
 gFldEffScript_SecretPowerShrub:: @ 81D9964
 	end 
 
-gFldEffScript_CutGrass:: @ 81D9965
-	loadfadedpal_callnative gFldEffPalette_CutGrass, FldEff_CutGrass
-	end 
+@gFldEffScript_CutGrass:: @ 81D9965
+@	loadfadedpal_callnative gFldEffPalette_CutGrass, FldEff_CutGrass
+@	end 
 
 gFldEffScript_FieldMoveShowMonInit:: @ 81D996F
 	callnative FldEff_FieldMoveShowMonInit
@@ -316,9 +316,9 @@ gFldEffScript_HallOfFameRecord:: @ 81D9977
 	loadfadedpal_callnative gUnknown_83CBEA4, FldEff_HallOfFameRecord
 	end 
 
-gFldEffScript_UseTeleport:: @ 81D9986
-	callnative FldEff_UseTeleport
-	end 
+@gFldEffScript_UseTeleport:: @ 81D9986
+@	callnative FldEff_UseTeleport
+@	end 
 
 gFldEffScript_SmileyFaceIcon:: @ 81D998C
 	callnative FldEff_SmileyFaceIcon

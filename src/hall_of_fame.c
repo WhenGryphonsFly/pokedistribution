@@ -919,7 +919,7 @@ static void Task_HofPC_HandleExit(u8 taskId)
         if (sHofMonPtr != NULL)
             FREE_AND_SET_NULL(sHofMonPtr);
 
-        ReturnFromHallOfFamePC();
+        /*ReturnFromHallOfFamePC();*/
     }
 }
 

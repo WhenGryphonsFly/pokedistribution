@@ -180,9 +180,9 @@ static void Task_BattleStart(u8 taskId)
     switch (tState)
     {
     case 0:
-        if (!FldEffPoison_IsActive())
+        /*if (!FldEffPoison_IsActive())*/
         {
-        	HelpSystem_Disable();
+        	/*HelpSystem_Disable();*/
             BT_StartOnField(tTransition);
             ++tState;
         }
