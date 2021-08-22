@@ -18,6 +18,8 @@ void ChooseMonForWirelessMinigame(void){}
 void ChooseSendDaycareMon(void){}
 void CompareHeracrossSize(void){}
 void CompareMagikarpSize(void){}
+void CountPartyAliveNonEggMons_IgnoreVar0x8004Slot(void){}
+void CountPartyNonEggMons(void){}
 void CreateInGameTradePokemon(void){}
 void DaycareMonReceivedMail(void){}
 void DoCredits(void){}
@@ -45,6 +47,7 @@ void GetSeagallopNumber(void){}
 void GetSelectedMonNicknameAndSpecies(void){}
 void GetTradeSpecies(void){}
 void GiveEggFromDaycare(void){}
+void HallOfFamePCBeginFade(void){}
 void HelpSystem_Disable(void){}
 void HelpSystem_Enable(void){}
 void InitElevatorFloorSelectMenuPos(void){}
@@ -66,6 +69,7 @@ void Script_SetHelpContext(void){}
 void SeafoamIslandsB4F_CurrentDumpsPlayerOnLand(void){}
 void SetCB2WhiteOut(void){}
 void SetDaycareCompatibilityString(void){}
+void SetFlavorTextFlagFromSpecialVars(void){}
 void SetHelpContextForMap(void){}
 void SetUsedPkmnCenterQuestLogEvent(void){}
 void ShouldTryRematchBattle(void){}
@@ -75,12 +79,12 @@ void ShowDaycareLevelMenu(void){}
 void ShowDiploma(void){}
 void ShowDodrioBerryPickingRecords(void){}
 void ShowPokemonJumpRecords(void){}
+void ShowPokemonStorageSystemPC(void){}
 void StoreSelectedPokemonInDaycare(void){}
 void TakePokemonFromDaycare(void){}
 void TakePokemonFromRoute5Daycare(void){}
+void UpdatePickStateFromSpecialVar8005(void){}
 void VsSeekerFreezeObjectsAfterChargeComplete(void){}
 void VsSeekerResetObjectMovementAfterChargeComplete(void){}
-void HallOfFamePCBeginFade(void){}
-void SetFlavorTextFlagFromSpecialVars(void){}
-void UpdatePickStateFromSpecialVar8005(void){}
-
+void BedroomPC(void){}
+void PlayerPC(void){}

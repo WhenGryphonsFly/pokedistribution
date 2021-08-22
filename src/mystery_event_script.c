@@ -231,6 +231,31 @@ bool8 MEScrCmd_setrecordmixinggift(struct ScriptContext *ctx)
     return TRUE;
 }
 
+s16 CompactPartySlots(void)
+{
+    s16 retVal = -1;
+    u16 i, last;
+
+    for (i = 0, last = 0; i < PARTY_SIZE; i++)
+    {
+        u16 species = GetMonData(gPlayerParty + i, MON_DATA_SPECIES);
+        if (species != SPECIES_NONE)
+        {
+            if (i != last)
+                gPlayerParty[last] = gPlayerParty[i];
+            last++;
+        }
+        else if (retVal == -1)
+        {
+            retVal = i;
+        }
+    }
+    for (; last < PARTY_SIZE; last++)
+        ZeroMonData(gPlayerParty + last);
+
+    return retVal;
+}
+
 bool8 MEScrCmd_givepokemon(struct ScriptContext *ctx)
 {
     struct MailStruct mail;

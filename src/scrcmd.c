@@ -1735,7 +1735,7 @@ bool8 ScrCmd_bufferboxname(struct ScriptContext * ctx)
     u8 stringVarIndex = ScriptReadByte(ctx);
     u16 boxId = VarGet(ScriptReadHalfword(ctx));
 
-    StringCopy(sScriptStringVars[stringVarIndex], GetBoxNamePtr(boxId));
+    /*StringCopy(sScriptStringVars[stringVarIndex], GetBoxNamePtr(boxId));*/
     return FALSE;
 }
 

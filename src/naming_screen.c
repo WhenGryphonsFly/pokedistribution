@@ -519,7 +519,6 @@ static void sub_809DD60(void)
     CreateTask(sub_809DD88, 2);
     SetMainCallback2(sub_809FB70);
     BackupHelpContext();
-    /*SetHelpContext(HELPCONTEXT_NAMING_SCREEN);*/
 }
 
 static void sub_809DD88(u8 taskId)
@@ -685,7 +684,7 @@ static bool8 MainState_WaitFadeOutAndExit(void)
 
 static void pokemon_transfer_to_pc_with_message(void)
 {
-    u8 stringToDisplay = 0;
+    /*u8 stringToDisplay = 0;
 
     if (!IsDestinationBoxFull())
     {
@@ -707,7 +706,7 @@ static void pokemon_transfer_to_pc_with_message(void)
     DrawDialogueFrame(0, FALSE);
     gTextFlags.canABSpeedUpPrint = TRUE;
     AddTextPrinterParameterized2(0, 2, gStringVar4, GetTextSpeedSetting(), NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
-    CopyWindowToVram(0, COPYWIN_BOTH);
+    CopyWindowToVram(0, COPYWIN_BOTH);*/
 }
 
 static bool8 sub_809E1D4(void)

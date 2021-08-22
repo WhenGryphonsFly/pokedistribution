@@ -1139,10 +1139,6 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
     {
         switch (gPartyMenu.action)
         {
-        /*case PARTY_ACTION_SOFTBOILED:
-            if (IsSelectedMonNotEgg((u8 *)slotPtr))
-                Task_TryUseSoftboiledOnPartyMon(taskId);
-            break;*/
         case PARTY_ACTION_USE_ITEM:
             if (IsSelectedMonNotEgg((u8 *)slotPtr))
             {
@@ -5431,12 +5427,12 @@ static bool8 ReturnGiveItemToBagOrPC(u16 item)
 
 void ChooseMonToGiveMailFromMailbox(void)
 {
-    InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_GIVE_MAILBOX_MAIL, FALSE, PARTY_MSG_GIVE_TO_WHICH_MON, Task_HandleChooseMonInput, Mailbox_ReturnToMailListAfterDeposit);
+    /*InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_GIVE_MAILBOX_MAIL, FALSE, PARTY_MSG_GIVE_TO_WHICH_MON, Task_HandleChooseMonInput, Mailbox_ReturnToMailListAfterDeposit);*/
 }
 
 static void TryGiveMailToSelectedMon(u8 taskId)
 {
-    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    /*struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
     struct MailStruct *mail;
 
     gPartyMenuUseExitCallback = FALSE;
@@ -5451,7 +5447,7 @@ static void TryGiveMailToSelectedMon(u8 taskId)
         ClearMailStruct(mail);
         DisplayPartyMenuMessage(gText_MailTransferredFromMailbox, TRUE);
     }
-    ScheduleBgCopyTilemapToVram(2);
+    ScheduleBgCopyTilemapToVram(2);*/
     gTasks[taskId].func = Task_UpdateHeldItemSpriteAndClosePartyMenu;
 }
 

@@ -3982,15 +3982,6 @@ static void PokeSum_CreateMonIconSprite(void)
     personality = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_PERSONALITY);
 
     SafeLoadMonIconPalette(species);
-
-    /*if (sMonSummaryScreen->savedCallback == CB2_ReturnToTradeMenuFromSummary)
-    {
-        if (sMonSummaryScreen->isEnemyParty == TRUE)
-            sMonSummaryScreen->monIconSpriteId = CreateMonIcon(species, SpriteCallbackDummy, 24, 32, 0, personality, 0);
-        else
-            sMonSummaryScreen->monIconSpriteId = CreateMonIcon(species, SpriteCallbackDummy, 24, 32, 0, personality, 1);
-    }
-    else*/
     {
         if (ShouldIgnoreDeoxysForm(DEOXYS_CHECK_TRADE_MAIN, sLastViewedMonIndex))
             sMonSummaryScreen->monIconSpriteId = CreateMonIcon(species, SpriteCallbackDummy, 24, 32, 0, personality, 0);
@@ -4756,7 +4747,7 @@ static void PokeSum_SeekToNextMon(u8 taskId, s8 direction)
 {
     s8 scrollResult = -1;
 
-    if (sMonSummaryScreen->isBoxMon == TRUE)
+    /*if (sMonSummaryScreen->isBoxMon == TRUE)
     {
         if (sMonSummaryScreen->curPageIndex != PSS_PAGE_INFO)
         {
@@ -4776,7 +4767,7 @@ static void PokeSum_SeekToNextMon(u8 taskId, s8 direction)
 
         scrollResult = SeekToNextMonInBox(sMonSummaryScreen->monList.boxMons, GetLastViewedMonIndex(), sMonSummaryScreen->lastIndex, (u8)direction);
     }
-    else
+    else*/
     {
         if (IsUpdateLinkStateCBActive() == FALSE
             && gReceivedRemoteLinkPlayers == 1

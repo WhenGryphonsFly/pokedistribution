@@ -3627,7 +3627,7 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
 
 static u8 SendMonToPC(struct Pokemon* mon)
 {
-    s32 boxNo, boxPos;
+    /*s32 boxNo, boxPos;
 
     SetPCBoxToSendMon(VarGet(VAR_PC_BOX_TO_SEND_MON));
 
@@ -3654,7 +3654,7 @@ static u8 SendMonToPC(struct Pokemon* mon)
         boxNo++;
         if (boxNo == TOTAL_BOXES_COUNT)
             boxNo = 0;
-    } while (boxNo != StorageGetCurrentBox());
+    } while (boxNo != StorageGetCurrentBox());*/
 
     return MON_CANT_GIVE;
 }
@@ -3775,23 +3775,23 @@ u8 GetSecretBaseTrainerNameIndex(void)
 
 bool8 IsPlayerPartyAndPokemonStorageFull(void)
 {
-    s32 i;
+    /*s32 i;
 
     for (i = 0; i < PARTY_SIZE; i++)
         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
-            return FALSE;
+            return FALSE;*/
 
     return IsPokemonStorageFull();
 }
 
 static bool8 IsPokemonStorageFull(void)
 {
-    s32 i, j;
+    /*s32 i, j;
 
     for (i = 0; i < TOTAL_BOXES_COUNT; i++)
         for (j = 0; j < IN_BOX_COUNT; j++)
             if (GetBoxMonDataAt(i, j, MON_DATA_SPECIES) == SPECIES_NONE)
-                return FALSE;
+                return FALSE;*/
 
     return TRUE;
 }

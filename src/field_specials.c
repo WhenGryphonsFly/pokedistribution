@@ -422,7 +422,7 @@ bool8 IsStarterFirstStageInParty(void)
 
 bool8 IsThereRoomInAnyBoxForMorePokemon(void)
 {
-    u16 i;
+    /*u16 i;
     u16 j;
     for (i = 0; i < TOTAL_BOXES_COUNT; i++)
     {
@@ -431,7 +431,7 @@ bool8 IsThereRoomInAnyBoxForMorePokemon(void)
             if (GetBoxMonDataAt(i, j, MON_DATA_SPECIES) == SPECIES_NONE)
                 return TRUE;
         }
-    }
+    }*/
     return FALSE;
 }
 
@@ -1267,7 +1267,6 @@ static void Task_ListMenuRemoveScrollIndicatorArrowPair(u8 taskId)
 
 void ForcePlayerToStartSurfing(void)
 {
-    /*SetHelpContext(HELPCONTEXT_SURFING);*/
     SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_SURFING);
 }
 
@@ -1375,7 +1374,7 @@ bool8 NameRaterWasNicknameChanged(void)
 
 void ChangeBoxPokemonNickname(void)
 {
-    struct BoxPokemon * pokemon = GetBoxedMonPtr(gSpecialVar_MonBoxId, gSpecialVar_MonBoxPos);
+    /*struct BoxPokemon * pokemon = GetBoxedMonPtr(gSpecialVar_MonBoxId, gSpecialVar_MonBoxPos);
     u16 species;
     u8 gender;
     u32 personality;
@@ -1386,13 +1385,13 @@ void ChangeBoxPokemonNickname(void)
     species = GetBoxMonData(pokemon, MON_DATA_SPECIES, NULL);
     gender = GetBoxMonGender(pokemon);
     personality = GetBoxMonData(pokemon, MON_DATA_PERSONALITY, NULL);
-    DoNamingScreen(NAMING_SCREEN_NAME_RATER, gStringVar2, species, gender, personality, ChangeBoxPokemonNickname_CB);
+    DoNamingScreen(NAMING_SCREEN_NAME_RATER, gStringVar2, species, gender, personality, ChangeBoxPokemonNickname_CB);*/
 }
 
 static void ChangeBoxPokemonNickname_CB(void)
 {
-    SetBoxMonNickAt(gSpecialVar_MonBoxId, gSpecialVar_MonBoxPos, gStringVar2);
-    CB2_ReturnToFieldContinueScriptPlayMapMusic();
+    /*SetBoxMonNickAt(gSpecialVar_MonBoxId, gSpecialVar_MonBoxPos, gStringVar2);
+    CB2_ReturnToFieldContinueScriptPlayMapMusic();*/
 }
 
 void ChangePokemonNickname(void)
@@ -1565,17 +1564,18 @@ u16 GetPCBoxToSendMon(void)
 
 bool8 ShouldShowBoxWasFullMessage(void)
 {
-    if (FlagGet(FLAG_SHOWN_BOX_WAS_FULL_MESSAGE))
+    /*if (FlagGet(FLAG_SHOWN_BOX_WAS_FULL_MESSAGE))
         return FALSE;
     if (StorageGetCurrentBox() == VarGet(VAR_PC_BOX_TO_SEND_MON))
         return FALSE;
     FlagSet(FLAG_SHOWN_BOX_WAS_FULL_MESSAGE);
-    return TRUE;
+    return TRUE;*/
+	return FALSE;
 }
 
 bool8 IsDestinationBoxFull(void)
 {
-    s32 i;
+    /*s32 i;
     s32 j;
     SetPCBoxToSendMon(VarGet(VAR_PC_BOX_TO_SEND_MON));
     i = StorageGetCurrentBox();
@@ -1594,7 +1594,7 @@ bool8 IsDestinationBoxFull(void)
         i++;
         if (i == TOTAL_BOXES_COUNT)
             i = 0;
-    } while (i != StorageGetCurrentBox());
+    } while (i != StorageGetCurrentBox());*/
     return FALSE;
 }
 
