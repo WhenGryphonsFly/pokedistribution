@@ -1751,42 +1751,6 @@ u8 UnionRoom_CreateTask_CallCB2ReturnFromLinkTrade(void)
 
 static void Task_StartUnionRoomTrade(u8 taskId)
 {
-    u32 monId = GetPartyPositionOfRegisteredMon(&sUnionRoomTrade, GetMultiplayerId());
-
-    switch (gTasks[taskId].data[0])
-    {
-    case 0:
-        gTasks[taskId].data[0]++;
-        SendBlock(0, &gPlayerParty[monId], sizeof(struct Pokemon));
-        break;
-    case 1:
-        if (GetBlockReceivedStatus() == 3)
-        {
-            gEnemyParty[0] = *(struct Pokemon*)(gBlockRecvBuffer[GetMultiplayerId() ^ 1]);
-            IncrementGameStat(GAME_STAT_NUM_UNION_ROOM_BATTLES);
-            ResetBlockReceivedFlags();
-            gTasks[taskId].data[0]++;
-        }
-        break;
-    case 2:
-        memcpy(gBlockSendBuffer, gSaveBlock1Ptr->mail, sizeof(struct MailStruct) * PARTY_SIZE + 4);
-        if (SendBlock(0, gBlockSendBuffer, sizeof(struct MailStruct) * PARTY_SIZE + 4))
-            gTasks[taskId].data[0]++;
-        break;
-    case 3:
-        if (GetBlockReceivedStatus() == 3)
-        {
-            memcpy(gLinkPartnerMail, gBlockRecvBuffer[GetMultiplayerId() ^ 1], sizeof(struct MailStruct) * PARTY_SIZE);
-            ResetBlockReceivedFlags();
-            gSelectedTradeMonPositions[TRADE_PLAYER] = monId;
-            gSelectedTradeMonPositions[TRADE_PARTNER] = PARTY_SIZE;
-            gMain.savedCallback = CB2_ReturnToField;
-            SetMainCallback2(CB2_InitTradeAnim_LinkTrade);
-            ResetUnionRoomTrade(&sUnionRoomTrade);
-            DestroyTask(taskId);
-        }
-        break;
-    }
 }
 
 static void Task_ExchangeCards(u8 taskId)

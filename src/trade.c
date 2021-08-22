@@ -1,3 +1,4 @@
+//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "task.h"
@@ -1218,7 +1219,7 @@ static void TradeMenuCB_13(void)
             Free(sTradeMenuResourcesPtr);
             gMain.callback1 = NULL;
             DestroyWirelessStatusIndicatorSprite();
-            SetMainCallback2(CB2_InitTradeAnim_LinkTrade);
+            SetMainCallback2(CB2_ReturnFromLinkTrade);
         }
     }
     else
@@ -1229,7 +1230,7 @@ static void TradeMenuCB_13(void)
             FreeAllWindowBuffers();
             Free(sTradeMenuResourcesPtr);
             gMain.callback1 = NULL;
-            SetMainCallback2(CB2_InitTradeAnim_LinkTrade);
+            SetMainCallback2(CB2_ReturnFromLinkTrade);
         }
     }
 }

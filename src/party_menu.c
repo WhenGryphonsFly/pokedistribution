@@ -4993,20 +4993,6 @@ static void Task_TryLearningNextMove(u8 taskId)
 
 static void PartyMenuTryEvolution(u8 taskId)
 {
-    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
-    u16 targetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, 0);
-
-    if (targetSpecies != SPECIES_NONE)
-    {
-        FreePartyPointers();
-        gCB2_AfterEvolution = gPartyMenu.exitCallback;
-        BeginEvolutionScene(mon, targetSpecies, 1, gPartyMenu.slotId);
-        DestroyTask(taskId);
-    }
-    else
-    {
-        gTasks[taskId].func = Task_ClosePartyMenuAfterText;
-    }
 }
 
 static void DisplayMonNeedsToReplaceMove(u8 taskId)
@@ -5141,10 +5127,6 @@ void ItemUseCB_EvolutionStone(u8 taskId, TaskFunc func)
 
 static void sub_8126BD4(void)
 {
-    gCB2_AfterEvolution = gPartyMenu.exitCallback;
-    ExecuteTableBasedItemEffect_(gPartyMenu.slotId, gSpecialVar_ItemId, 0);
-    ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, &gPlayerParty[gPartyMenu.slotId], gSpecialVar_ItemId, 0xFFFF);
-    RemoveBagItem(gSpecialVar_ItemId, 1);
 }
 
 static bool8 MonCanEvolve(void)

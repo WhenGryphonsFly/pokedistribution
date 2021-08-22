@@ -3746,7 +3746,6 @@ static void HandleEndTurn_FinishBattle(void)
         BeginFastPaletteFade(3);
         FadeOutMapMusic(5);
         gBattleMainFunc = FreeResetData_ReturnToOvOrDoEvolutions;
-        gCB2_AfterEvolution = BattleMainCB2;
     }
     else if (!gBattleControllerExecFlags)
     {
@@ -3792,7 +3791,6 @@ static void TryEvolvePokemon(void)
                 if (species != SPECIES_NONE)
                 {
                     gBattleMainFunc = WaitForEvoSceneToFinish;
-                    EvolutionScene(&gPlayerParty[i], species, 0x81, i);
                     return;
                 }
             }

@@ -49,4 +49,8 @@ void GetMagikarpSizeRecordInfo(void){}
 void CompareMagikarpSize(void){}
 void EnterHallOfFame(void){}
 void SetCB2WhiteOut(void){}
+void GetInGameTradeSpeciesInfo(void){}
+void CreateInGameTradePokemon(void){}
+void DoInGameTradeScene(void){}
+void GetTradeSpecies(void){}
 
