@@ -26,7 +26,7 @@ void ReshowBattleScreenAfterMenu(void)
     SetGpuReg(REG_OFFSET_MOSAIC, 0);
     gBattleScripting.reshowMainState = 0;
     gBattleScripting.reshowHelperState = 0;
-    if (!(gBattleTypeFlags & BATTLE_TYPE_LINK))
+    /*if (!(gBattleTypeFlags & BATTLE_TYPE_LINK))
     {
         if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
         {
@@ -43,7 +43,7 @@ void ReshowBattleScreenAfterMenu(void)
         {
             SetHelpContext(HELPCONTEXT_WILD_BATTLE);
         }
-    }
+    }*/
     SetMainCallback2(CB2_ReshowBattleScreenAfterMenu);
 }
 

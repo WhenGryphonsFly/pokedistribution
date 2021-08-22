@@ -625,7 +625,7 @@ void CB2_InitBattle(void)
     else
     {
         CB2_InitBattleInternal();
-        if (!(gBattleTypeFlags & BATTLE_TYPE_LINK))
+        /*if (!(gBattleTypeFlags & BATTLE_TYPE_LINK))
         {
             if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
             {
@@ -642,7 +642,7 @@ void CB2_InitBattle(void)
             {
                 SetHelpContext(HELPCONTEXT_WILD_BATTLE);
             }
-        }
+        }*/
     }
 }
 

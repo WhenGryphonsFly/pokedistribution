@@ -41,13 +41,13 @@ bool32 RunSaveFailedScreen(void)
         if (!sIsInSaveFailedScreen)
             return FALSE;
         m4aMPlayVolumeControl(&gMPlayInfo_BGM, 0xFFFF, 128);
-        SaveCallbacks();
+        /*SaveCallbacks();*/
         sSaveFailedScreenState = 1;
         break;
     case 1:
-        SaveMapTiles();
+        /*SaveMapTiles();
         SaveMapGPURegs();
-        SaveMapTextColors();
+        SaveMapTextColors();*/
         BlankPalettes();
         SetGpuReg(REG_OFFSET_DISPCNT, 0);
         sSaveFailedScreenState = 2;
@@ -90,15 +90,15 @@ bool32 RunSaveFailedScreen(void)
         break;
     case 7:
         SetGpuReg(REG_OFFSET_DISPCNT, 0);
-        RestoreMapTiles();
+        /*RestoreMapTiles();*/
         BlankPalettes();
         sSaveFailedScreenState = 8;
         break;
     case 8:
         m4aMPlayVolumeControl(&gMPlayInfo_BGM, 0xFFFF, 256);
-        RestoreMapTextColors();
+        /*RestoreMapTextColors();
         RestoreGPURegs();
-        RestoreCallbacks();
+        RestoreCallbacks();*/
         sIsInSaveFailedScreen = FALSE;
         sSaveFailedScreenState = 0;
         break;
@@ -155,7 +155,7 @@ static void PrintTextOnSaveFailedScreen(const u8 *str)
 {
     GenerateFontHalfRowLookupTable(TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
     CpuFill16(PIXEL_FILL(1) | (PIXEL_FILL(1) << 8), gDecompressionBuffer + 0x20, 0x2300);
-    HelpSystemRenderText(2, gDecompressionBuffer + 0x20, str, 2, 2, 28, 10);
+    /*HelpSystemRenderText(2, gDecompressionBuffer + 0x20, str, 2, 2, 28, 10);*/
     RequestDmaCopyFromCharBuffer();
 }
 

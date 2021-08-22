@@ -1004,20 +1004,20 @@ void ShowPokemonSummaryScreen(struct Pokemon * party, u8 cursorPos, u8 lastIdx, 
     {
     case PSS_MODE_NORMAL:
     default:
-        SetHelpContext(HELPCONTEXT_POKEMON_INFO);
+        /*SetHelpContext(HELPCONTEXT_POKEMON_INFO);*/
         sMonSummaryScreen->curPageIndex = PSS_PAGE_INFO;
         sMonSummaryScreen->isBoxMon = FALSE;
         sMonSummaryScreen->lockMovesFlag = FALSE;
         break;
     case PSS_MODE_BOX:
-        SetHelpContext(HELPCONTEXT_POKEMON_INFO);
+        /*SetHelpContext(HELPCONTEXT_POKEMON_INFO);*/
         sMonSummaryScreen->curPageIndex = PSS_PAGE_INFO;
         sMonSummaryScreen->isBoxMon = TRUE;
         sMonSummaryScreen->lockMovesFlag = FALSE;
         break;
     case PSS_MODE_SELECT_MOVE:
     case PSS_MODE_FORGET_MOVE:
-        SetHelpContext(HELPCONTEXT_POKEMON_MOVES);
+        /*SetHelpContext(HELPCONTEXT_POKEMON_MOVES);*/
         sMonSummaryScreen->curPageIndex = PSS_PAGE_MOVES_INFO;
         sMonSummaryScreen->isBoxMon = FALSE;
         sMonSummaryScreen->lockMovesFlag = TRUE;
@@ -3063,7 +3063,7 @@ static void PokeSum_RemoveWindows(u8 curPageIndex)
 
 static void PokeSum_SetHelpContext(void)
 {
-    switch (sMonSummaryScreen->curPageIndex)
+    /*switch (sMonSummaryScreen->curPageIndex)
     {
     case PSS_PAGE_INFO:
         SetHelpContext(HELPCONTEXT_POKEMON_INFO);
@@ -3075,7 +3075,7 @@ static void PokeSum_SetHelpContext(void)
     case PSS_PAGE_MOVES_INFO:
         SetHelpContext(HELPCONTEXT_POKEMON_MOVES);
         break;
-    }
+    }*/
 }
 
 static u8 PokeSum_BufferOtName_IsEqualToCurrentOwner(struct Pokemon * mon)

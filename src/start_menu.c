@@ -559,8 +559,8 @@ static bool8 StartMenuLinkPlayerCallback(void)
 
 static bool8 StartCB_Save1(void)
 {
-    BackupHelpContext();
-    SetHelpContext(HELPCONTEXT_SAVE);
+    /*BackupHelpContext();
+    SetHelpContext(HELPCONTEXT_SAVE);*/
     StartMenu_PrepareForSave();
     sStartMenuCallback = StartCB_Save2;
     return FALSE;
@@ -611,8 +611,8 @@ static u8 RunSaveDialogCB(void)
 
 void Field_AskSaveTheGame(void)
 {
-    BackupHelpContext();
-    SetHelpContext(HELPCONTEXT_SAVE);
+    /*BackupHelpContext();
+    SetHelpContext(HELPCONTEXT_SAVE);*/
     StartMenu_PrepareForSave();
     CreateTask(task50_save_game, 80);
 }
