@@ -1126,7 +1126,7 @@ static void Task_AfterSale_ReturnToList(u8 taskId)
     }
 }
 
-void Pokedude_InitTMCase(void)
+/*void Pokedude_InitTMCase(void)
 {
     sPokedudePackBackup = AllocZeroed(sizeof(*sPokedudePackBackup));
     memcpy(sPokedudePackBackup->bagPocket_TMHM, gSaveBlock1Ptr->bagPocket_TMHM, sizeof(gSaveBlock1Ptr->bagPocket_TMHM));
@@ -1141,7 +1141,7 @@ void Pokedude_InitTMCase(void)
     AddBagItem(ITEM_TM09, 1);
     AddBagItem(ITEM_TM35, 1);
     InitTMCase(4, CB2_ReturnToTeachyTV, 0);
-}
+}*/
 
 static void Task_TMCaseDude1(u8 taskId)
 {
@@ -1157,7 +1157,7 @@ static void Task_TMCaseDude1(u8 taskId)
 
 static void Task_TMCaseDude_Playback(u8 taskId)
 {
-    s16 * data = gTasks[taskId].data;
+    /*s16 * data = gTasks[taskId].data;
 
     if (JOY_NEW(B_BUTTON))
     {
@@ -1281,7 +1281,7 @@ static void Task_TMCaseDude_Playback(u8 taskId)
             DestroyTask(taskId);
         }
         break;
-    }
+    }*/
 }
 
 static void InitWindowTemplatesAndPals(void)

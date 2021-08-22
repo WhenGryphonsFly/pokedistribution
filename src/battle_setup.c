@@ -379,7 +379,7 @@ void StartRegiBattle(void)
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
 }
-
+/*
 // not used
 static void sub_807FAF8(void)
 {
@@ -397,7 +397,7 @@ static void sub_807FB08(void)
     SavePlayerParty();
     InitPokedudePartyAndOpponent();
     CreateBattleStartTask(GetWildBattleTransition(), 0);
-}
+}*/
 
 static void CB2_EndWildBattle(void)
 {

@@ -1,4 +1,4 @@
-#include "global.h"
+/*#include "global.h"
 #include "gflib.h"
 #include "task.h"
 #include "party_menu.h"
@@ -2696,4 +2696,4 @@ void InitPokedudePartyAndOpponent(void)
         for (j = 0; j < 4; ++j)
             SetMonMoveSlot(mon, data[i].moves[j], j);
     } while (data[++i].side != 0xFF);
-}
+}*/

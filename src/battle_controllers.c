@@ -81,7 +81,7 @@ static void InitSinglePlayerBtlControllers(void)
     if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
     {
         gBattleMainFunc = BeginBattleIntro;
-        if (gBattleTypeFlags & BATTLE_TYPE_POKEDUDE)
+        /*if (gBattleTypeFlags & BATTLE_TYPE_POKEDUDE)
         {
             gBattlerControllerFuncs[0] = SetControllerToPokedude;
             gBattlerPositions[0] = B_POSITION_PLAYER_LEFT;
@@ -89,7 +89,7 @@ static void InitSinglePlayerBtlControllers(void)
             gBattlerPositions[1] = B_POSITION_OPPONENT_LEFT;
             gBattlersCount = 2;
         }
-        else
+        else*/
         {
             if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
                 gBattlerControllerFuncs[0] = SetControllerToSafari;
@@ -106,7 +106,7 @@ static void InitSinglePlayerBtlControllers(void)
     else
     {
         gBattleMainFunc = BeginBattleIntro;
-        if (gBattleTypeFlags & BATTLE_TYPE_POKEDUDE)
+        /*if (gBattleTypeFlags & BATTLE_TYPE_POKEDUDE)
         {
             gBattlerControllerFuncs[0] = SetControllerToPokedude;
             gBattlerPositions[0] = B_POSITION_PLAYER_LEFT;
@@ -118,7 +118,7 @@ static void InitSinglePlayerBtlControllers(void)
             gBattlerPositions[3] = B_POSITION_OPPONENT_RIGHT;
             gBattlersCount = MAX_BATTLERS_COUNT;
         }
-        else
+        else*/
         {
             gBattlerControllerFuncs[0] = SetControllerToPlayer;
             gBattlerPositions[0] = B_POSITION_PLAYER_LEFT;

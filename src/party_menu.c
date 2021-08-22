@@ -2005,10 +2005,10 @@ static bool8 PartyMenuPokedudeIsCancelled(u8 taskId)
 
 static void PartyMenuHandlePokedudeCancel(void)
 {
-    FreeRestoreBattleData();
+    /*FreeRestoreBattleData();
     LoadPlayerParty();
     SetTeachyTvControllerModeToResume();
-    SetMainCallback2(CB2_ReturnToTeachyTV);
+    SetMainCallback2(CB2_ReturnToTeachyTV);*/
 }
 
 // Pokedude uses item on his own Pokemon

@@ -2162,7 +2162,7 @@ static void Task_Pokedude_WaitFadeAndExitBag(u8 taskId)
     }
 }
 
-void InitPokedudeBag(u8 a0)
+/*void InitPokedudeBag(u8 a0)
 {
     MainCallback cb2;
     u8 location;
@@ -2190,11 +2190,11 @@ void InitPokedudeBag(u8 a0)
         break;
     }
     GoToBagMenu(location, OPEN_BAG_ITEMS, cb2);
-}
+}*/
 
 static bool8 Task_BButtonInterruptTeachyTv(u8 taskId)
 {
-    if (JOY_NEW(B_BUTTON))
+    /*if (JOY_NEW(B_BUTTON))
     {
         RestorePlayerBag();
         SetTeachyTvControllerModeToResume();
@@ -2205,12 +2205,13 @@ static bool8 Task_BButtonInterruptTeachyTv(u8 taskId)
     else
     {
         return FALSE;
-    }
+    }*/
+	return TRUE;
 }
 
 static void Task_Bag_TeachyTvRegister(u8 taskId)
 {
-    s16 *data = gTasks[taskId].data;
+    /*s16 *data = gTasks[taskId].data;
     if (!gPaletteFade.active && Task_BButtonInterruptTeachyTv(taskId) != TRUE)
     {
         switch (data[8])
@@ -2259,12 +2260,12 @@ static void Task_Bag_TeachyTvRegister(u8 taskId)
             return;
         }
         data[8]++;
-    }
+    }*/
 }
 
 static void Task_Bag_TeachyTvCatching(u8 taskId)
 {
-    s16 *data = gTasks[taskId].data;
+    /*s16 *data = gTasks[taskId].data;
     if (!gPaletteFade.active)
     {
         if (Task_BButtonInterruptTeachyTv(taskId) == TRUE)
@@ -2313,12 +2314,12 @@ static void Task_Bag_TeachyTvCatching(u8 taskId)
             return;
         }
         data[8]++;
-    }
+    }*/
 }
 
 static void Task_Bag_TeachyTvStatus(u8 taskId)
 {
-    s16 *data = gTasks[taskId].data;
+    /*s16 *data = gTasks[taskId].data;
     if (!gPaletteFade.active)
     {
         if (Task_BButtonInterruptTeachyTv(taskId) == TRUE)
@@ -2356,12 +2357,12 @@ static void Task_Bag_TeachyTvStatus(u8 taskId)
             return;
         }
         data[8]++;
-    }
+    }*/
 }
 
 static void Task_Bag_TeachyTvTMs(u8 taskId)
 {
-    s16 *data = gTasks[taskId].data;
+    /*s16 *data = gTasks[taskId].data;
     if (!gPaletteFade.active && Task_BButtonInterruptTeachyTv(taskId) != TRUE)
     {
         switch (data[8])
@@ -2396,5 +2397,5 @@ static void Task_Bag_TeachyTvTMs(u8 taskId)
             return;
         }
         data[8]++;
-    }
+    }*/
 }

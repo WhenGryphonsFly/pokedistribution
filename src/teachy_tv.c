@@ -1,5 +1,5 @@
 //[[!!!]]
-#include "task.h"
+/*#include "task.h"
 #include "gflib.h"
 #include "menu_helpers.h"
 #include "new_menu_helpers.h"
@@ -1336,4 +1336,4 @@ static void TeachyTvLoadMapPalette(const struct MapLayout * mStruct, const u8 * 
             dest = (u16 *)mStruct->primaryTileset->palettes + 0x10 * palIndexArray[i];
         LoadPalette(dest, 0x10 * (15 - i), 0x20);
     }
-}
+}*/
