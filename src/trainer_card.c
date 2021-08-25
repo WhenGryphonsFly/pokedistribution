@@ -1028,7 +1028,7 @@ static void InitBgsAndWindows(void)
 
 static void SetTrainerCardCB2(void)
 {
-    SetMainCallback2(CB2_TrainerCard);/
+    SetMainCallback2(CB2_TrainerCard);
 }
 
 static void SetUpTrainerCardTask(void)
