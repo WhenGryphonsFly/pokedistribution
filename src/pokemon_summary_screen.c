@@ -4661,7 +4661,6 @@ static void PokeSum_CreateMonMarkingsSprite(void)
     u32 markings = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_MARKINGS);
 
     DestroySpriteAndFreeResources(sMonSummaryScreen->markingSprite);
-    sMonSummaryScreen->markingSprite = CreateMonMarkingSprite_SelectCombo(TAG_PSS_UNK_8C, TAG_PSS_UNK_8C, sMonMarkingSpritePalette);
 
     if (sMonSummaryScreen->markingSprite != NULL)
     {
