@@ -9127,26 +9127,6 @@ static void atkEF_handleballthrow(void)
 
 static void atkF0_givecaughtmon(void)
 {
-    /*if (GiveMonToPlayer(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]]) != MON_GIVEN_TO_PARTY)
-    {
-        if (!ShouldShowBoxWasFullMessage())
-        {
-            gBattleCommunication[MULTISTRING_CHOOSER] = 0;
-            StringCopy(gStringVar1, GetBoxNamePtr(VarGet(VAR_PC_BOX_TO_SEND_MON)));
-            GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gStringVar2);
-        }
-        else
-        {
-            StringCopy(gStringVar1, GetBoxNamePtr(VarGet(VAR_PC_BOX_TO_SEND_MON))); // box the mon was sent to
-            GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gStringVar2);
-            StringCopy(gStringVar3, GetBoxNamePtr(GetPCBoxToSendMon())); //box the mon was going to be sent to
-            gBattleCommunication[MULTISTRING_CHOOSER] = 2;
-        }
-        if (FlagGet(FLAG_SYS_NOT_SOMEONES_PC))
-            ++gBattleCommunication[MULTISTRING_CHOOSER];
-    }
-    gBattleResults.caughtMonSpecies = gBattleMons[gBattlerAttacker ^ BIT_SIDE].species;
-    GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_NICKNAME, gBattleResults.caughtMonNick);*/
     ++gBattlescriptCurrInstr;
 }
 

@@ -422,16 +422,6 @@ bool8 IsStarterFirstStageInParty(void)
 
 bool8 IsThereRoomInAnyBoxForMorePokemon(void)
 {
-    /*u16 i;
-    u16 j;
-    for (i = 0; i < TOTAL_BOXES_COUNT; i++)
-    {
-        for (j = 0; j < IN_BOX_COUNT; j++)
-        {
-            if (GetBoxMonDataAt(i, j, MON_DATA_SPECIES) == SPECIES_NONE)
-                return TRUE;
-        }
-    }*/
     return FALSE;
 }
 
@@ -1374,24 +1364,10 @@ bool8 NameRaterWasNicknameChanged(void)
 
 void ChangeBoxPokemonNickname(void)
 {
-    /*struct BoxPokemon * pokemon = GetBoxedMonPtr(gSpecialVar_MonBoxId, gSpecialVar_MonBoxPos);
-    u16 species;
-    u8 gender;
-    u32 personality;
-
-
-    GetBoxMonData(pokemon, MON_DATA_NICKNAME, gStringVar3);
-    GetBoxMonData(pokemon, MON_DATA_NICKNAME, gStringVar2);
-    species = GetBoxMonData(pokemon, MON_DATA_SPECIES, NULL);
-    gender = GetBoxMonGender(pokemon);
-    personality = GetBoxMonData(pokemon, MON_DATA_PERSONALITY, NULL);
-    DoNamingScreen(NAMING_SCREEN_NAME_RATER, gStringVar2, species, gender, personality, ChangeBoxPokemonNickname_CB);*/
 }
 
 static void ChangeBoxPokemonNickname_CB(void)
 {
-    /*SetBoxMonNickAt(gSpecialVar_MonBoxId, gSpecialVar_MonBoxPos, gStringVar2);
-    CB2_ReturnToFieldContinueScriptPlayMapMusic();*/
 }
 
 void ChangePokemonNickname(void)
@@ -1564,37 +1540,11 @@ u16 GetPCBoxToSendMon(void)
 
 bool8 ShouldShowBoxWasFullMessage(void)
 {
-    /*if (FlagGet(FLAG_SHOWN_BOX_WAS_FULL_MESSAGE))
-        return FALSE;
-    if (StorageGetCurrentBox() == VarGet(VAR_PC_BOX_TO_SEND_MON))
-        return FALSE;
-    FlagSet(FLAG_SHOWN_BOX_WAS_FULL_MESSAGE);
-    return TRUE;*/
 	return FALSE;
 }
 
 bool8 IsDestinationBoxFull(void)
 {
-    /*s32 i;
-    s32 j;
-    SetPCBoxToSendMon(VarGet(VAR_PC_BOX_TO_SEND_MON));
-    i = StorageGetCurrentBox();
-    do
-    {
-        for (j = 0; j < IN_BOX_COUNT; j++)
-        {
-            if (GetBoxMonData(GetBoxedMonPtr(i, j), MON_DATA_SPECIES, NULL) == SPECIES_NONE)
-            {
-                if (GetPCBoxToSendMon() != i)
-                    FlagClear(FLAG_SHOWN_BOX_WAS_FULL_MESSAGE);
-                VarSet(VAR_PC_BOX_TO_SEND_MON, i);
-                return ShouldShowBoxWasFullMessage();
-            }
-        }
-        i++;
-        if (i == TOTAL_BOXES_COUNT)
-            i = 0;
-    } while (i != StorageGetCurrentBox());*/
     return FALSE;
 }
 

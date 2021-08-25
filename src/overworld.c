@@ -597,9 +597,6 @@ void SetWarpDestinationToDynamicWarp(u8 unusedWarpId)
 
 void SetWarpDestinationToHealLocation(u8 healLocationId)
 {
-    /*const struct HealLocation *warp = GetHealLocation(healLocationId);
-    if (warp)
-        SetWarpDestination(warp->group, warp->map, -1, warp->x, warp->y);*/
 }
 
 void SetWarpDestinationToLastHealLocation(void)
@@ -613,9 +610,6 @@ static void Overworld_SetWhiteoutRespawnPoint(void)
 
 void SetLastHealLocationWarp(u8 healLocationId)
 {
-    /*const struct HealLocation *healLocation = GetHealLocation(healLocationId);
-    if (healLocation)
-        SetWarpData(&gSaveBlock1Ptr->lastHealLocation, healLocation->group, healLocation->map, -1, healLocation->x, healLocation->y);*/
 }
 
 void UpdateEscapeWarp(s16 x, s16 y)
@@ -1303,7 +1297,6 @@ void CleanupOverworldWindowsAndTilemaps(void)
 
 static void ResetSafariZoneFlag_(void)
 {
-    /*ResetSafariZoneFlag();*/
 }
 
 bool32 IsUpdateLinkStateCBActive(void)
@@ -1646,7 +1639,6 @@ static bool32 map_loading_iteration_3(u8 *state)
         sub_8057074();
         sub_80571A8();
         SetCameraToTrackGuestPlayer();
-        /*SetHelpContextForMap();*/
         (*state)++;
         break;
     case 4:
@@ -1723,7 +1715,6 @@ static bool32 load_map_stuff(u8 *state, bool32 a1)
     case 4:
         mli4_mapscripts_and_other();
         sub_8057114();
-        /*SetHelpContextForMap();*/
         (*state)++;
         break;
     case 5:
@@ -1796,7 +1787,6 @@ static bool32 sub_8056CD8(u8 *state)
         break;
     case 2:
         sub_8056F08();
-        /*SetHelpContextForMap();*/
         (*state)++;
         break;
     case 3:
@@ -1826,7 +1816,6 @@ static bool32 map_loading_iteration_2_link(u8 *state)
         CreateLinkPlayerSprites();
         ReloadObjectsAndRunReturnToFieldMapScript();
         SetCameraToTrackGuestPlayer_2();
-        /*SetHelpContextForMap();*/
         (*state)++;
         break;
     case 3:

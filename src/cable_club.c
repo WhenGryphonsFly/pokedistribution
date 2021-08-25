@@ -822,66 +822,10 @@ static void CreateEnterCableClubSeatTaskWithFollowupFunc(TaskFunc followUpFunc)
 
 static void Task_StartWiredCableClubTrade(u8 taskId)
 {
-    /*struct Task * task = &gTasks[taskId];
-    switch (task->data[0])
-    {
-    case 0:
-        ScriptContext2_Enable();
-        FadeScreen(FADE_TO_BLACK, 0);
-        ClearLinkCallback_2();
-        task->data[0]++;
-        break;
-    case 1:
-        if (!gPaletteFade.active)
-            task->data[0]++;
-        break;
-    case 2:
-        gSelectedTradeMonPositions[0] = 0;
-        gSelectedTradeMonPositions[1] = 0;
-        m4aMPlayAllStop();
-        SetCloseLinkCallback();
-        task->data[0]++;
-        break;
-    case 3:
-        if (!gReceivedRemoteLinkPlayers)
-        {
-            SetMainCallback2(CB2_ReturnFromLinkTrade);
-            DestroyTask(taskId);
-        }
-        break;
-    }*/
 }
 
 static void Task_StartWirelessCableClubTrade(u8 taskId)
 {
-    /*s16 *data = gTasks[taskId].data;
-    switch (data[0])
-    {
-    case 0:
-        ScriptContext2_Enable();
-        FadeScreen(FADE_TO_BLACK, 0);
-        ClearLinkRfuCallback();
-        data[0]++;
-        break;
-    case 1:
-        if (!gPaletteFade.active)
-            data[0]++;
-        break;
-    case 2:
-        gSelectedTradeMonPositions[0] = 0;
-        gSelectedTradeMonPositions[1] = 0;
-        m4aMPlayAllStop();
-        SetLinkStandbyCallback();
-        data[0]++;
-        break;
-    case 3:
-        if (IsLinkTaskFinished())
-        {
-            UnionRoom_CreateTask_CallCB2ReturnFromLinkTrade();
-            DestroyTask(taskId);
-        }
-        break;
-    }*/
 }
 
 void EnterTradeSeat(void)

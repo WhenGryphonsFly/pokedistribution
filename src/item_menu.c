@@ -1726,12 +1726,10 @@ static void Task_ItemContext_FieldGive(u8 taskId)
 
 static void GoToTMCase_Give(void)
 {
-    /*InitTMCase(TMCASE_FROMPARTYGIVE, ReturnToBagMenuFromSubmenu_Give, FALSE);*/
 }
 
 static void GoToBerryPouch_Give(void)
 {
-    /*InitBerryPouch(BERRYPOUCH_FROMPARTYGIVE, ReturnToBagMenuFromSubmenu_Give, FALSE);*/
 }
 
 static void ReturnToBagMenuFromSubmenu_Give(void)
@@ -1770,12 +1768,10 @@ static void Task_ItemContext_PcBoxGive(u8 taskId)
 
 static void GoToTMCase_PCBox(void)
 {
-    /*InitTMCase(TMCASE_FROMPOKEMONSTORAGEPC, ReturnToBagMenuFromSubmenu_PCBox, FALSE);*/
 }
 
 static void GoToBerryPouch_PCBox(void)
 {
-    /*InitBerryPouch(BERRYPOUCH_FROMPOKEMONSTORAGEPC, ReturnToBagMenuFromSubmenu_PCBox, FALSE);*/
 }
 
 static void ReturnToBagMenuFromSubmenu_PCBox(void)
@@ -1822,12 +1818,10 @@ static void Task_ItemContext_Sell(u8 taskId)
 
 static void GoToTMCase_Sell(void)
 {
-    /*InitTMCase(TMCASE_FROMMARTSELL, ReturnToBagMenuFromSubmenu_Sell, FALSE);*/
 }
 
 static void GoToBerryPouch_Sell(void)
 {
-    /*InitBerryPouch(BERRYPOUCH_FROMMARTSELL, ReturnToBagMenuFromSubmenu_Sell, FALSE);*/
 }
 
 static void ReturnToBagMenuFromSubmenu_Sell(void)

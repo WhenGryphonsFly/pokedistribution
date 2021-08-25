@@ -1004,20 +1004,17 @@ void ShowPokemonSummaryScreen(struct Pokemon * party, u8 cursorPos, u8 lastIdx, 
     {
     case PSS_MODE_NORMAL:
     default:
-        /*SetHelpContext(HELPCONTEXT_POKEMON_INFO);*/
         sMonSummaryScreen->curPageIndex = PSS_PAGE_INFO;
         sMonSummaryScreen->isBoxMon = FALSE;
         sMonSummaryScreen->lockMovesFlag = FALSE;
         break;
     case PSS_MODE_BOX:
-        /*SetHelpContext(HELPCONTEXT_POKEMON_INFO);*/
         sMonSummaryScreen->curPageIndex = PSS_PAGE_INFO;
         sMonSummaryScreen->isBoxMon = TRUE;
         sMonSummaryScreen->lockMovesFlag = FALSE;
         break;
     case PSS_MODE_SELECT_MOVE:
     case PSS_MODE_FORGET_MOVE:
-        /*SetHelpContext(HELPCONTEXT_POKEMON_MOVES);*/
         sMonSummaryScreen->curPageIndex = PSS_PAGE_MOVES_INFO;
         sMonSummaryScreen->isBoxMon = FALSE;
         sMonSummaryScreen->lockMovesFlag = TRUE;
@@ -2170,29 +2167,6 @@ static void BufferMonSkills(void)
 
     sMonSkillsPrinterXpos->curHpStr = GetNumberRightAlign63(sMonSummaryScreen->summary.curHpStrBuf);
 
-    /*if (sMonSummaryScreen->savedCallback == CB2_ReturnToTradeMenuFromSummary && sMonSummaryScreen->isEnemyParty == TRUE)
-    {
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ATK2);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_ATK], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-        sMonSkillsPrinterXpos->atkStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_ATK]);
-
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_DEF2);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_DEF], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-        sMonSkillsPrinterXpos->defStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_DEF]);
-
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPATK2);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPA], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-        sMonSkillsPrinterXpos->spAStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPA]);
-
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPDEF2);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPD], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-        sMonSkillsPrinterXpos->spDStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPD]);
-
-        statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPEED2);
-        ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPE], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
-        sMonSkillsPrinterXpos->speStr = GetNumberRightAlign27(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_SPE]);
-    }
-    else*/
     {
         statValue = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_ATK);
         ConvertIntToDecimalStringN(sMonSummaryScreen->summary.statValueStrBufs[PSS_STAT_ATK], statValue, STR_CONV_MODE_LEFT_ALIGN, 3);
@@ -3063,19 +3037,6 @@ static void PokeSum_RemoveWindows(u8 curPageIndex)
 
 static void PokeSum_SetHelpContext(void)
 {
-    /*switch (sMonSummaryScreen->curPageIndex)
-    {
-    case PSS_PAGE_INFO:
-        SetHelpContext(HELPCONTEXT_POKEMON_INFO);
-        break;
-    case PSS_PAGE_SKILLS:
-        SetHelpContext(HELPCONTEXT_POKEMON_SKILLS);
-        break;
-    case PSS_PAGE_MOVES:
-    case PSS_PAGE_MOVES_INFO:
-        SetHelpContext(HELPCONTEXT_POKEMON_MOVES);
-        break;
-    }*/
 }
 
 static u8 PokeSum_BufferOtName_IsEqualToCurrentOwner(struct Pokemon * mon)
@@ -3855,14 +3816,6 @@ static void PokeSum_CreateMonPicSprite(void)
     personality = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_PERSONALITY);
     trainerId = GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_OT_ID);
 
-    /*if (sMonSummaryScreen->savedCallback == CB2_ReturnToTradeMenuFromSummary)
-    {
-        if (sMonSummaryScreen->isEnemyParty == TRUE)
-            spriteId = CreateMonPicSprite(species, trainerId, personality, TRUE, 60, 65, 12, 0xffff, TRUE);
-        else
-            spriteId = CreateMonPicSprite_HandleDeoxys(species, trainerId, personality, TRUE, 60, 65, 12, 0xffff);
-    }
-    else*/
     {
         if (ShouldIgnoreDeoxysForm(DEOXYS_CHECK_TRADE_MAIN, sLastViewedMonIndex))
             spriteId = CreateMonPicSprite(species, trainerId, personality, TRUE, 60, 65, 12, 0xffff, TRUE);
@@ -4747,27 +4700,6 @@ static void PokeSum_SeekToNextMon(u8 taskId, s8 direction)
 {
     s8 scrollResult = -1;
 
-    /*if (sMonSummaryScreen->isBoxMon == TRUE)
-    {
-        if (sMonSummaryScreen->curPageIndex != PSS_PAGE_INFO)
-        {
-            if (direction == 1)
-                direction = 0;
-            else
-                direction = 2;
-        }
-        else
-        {
-            // Allow Eggs
-            if (direction == 1)
-                direction = 1;
-            else
-                direction = 3;
-        }
-
-        scrollResult = SeekToNextMonInBox(sMonSummaryScreen->monList.boxMons, GetLastViewedMonIndex(), sMonSummaryScreen->lastIndex, (u8)direction);
-    }
-    else*/
     {
         if (IsUpdateLinkStateCBActive() == FALSE
             && gReceivedRemoteLinkPlayers == 1

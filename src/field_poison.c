@@ -109,8 +109,6 @@ s32 DoPoisonFieldEffect(void)
         }
         pokemon++;
     }
-    /*if (numFainted || numPoisoned)
-        FldEffPoison_Start();*/
     if (numFainted)
         return FLDPSN_FNT;
     if (numPoisoned)

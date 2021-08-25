@@ -4025,12 +4025,10 @@ static void CB2_ReturnToBagMenu(void)
 
 static void CB2_ReturnToTMCaseMenu(void)
 {
-    /*InitTMCase(TMCASE_NA, NULL, 0xFF);*/
 }
 
 static void CB2_ReturnToBerryPouchMenu(void)
 {
-    /*InitBerryPouch(BERRYPOUCH_NA, NULL, 0xFF);*/
 }
 
 static void sub_8124DC0(u8 taskId)

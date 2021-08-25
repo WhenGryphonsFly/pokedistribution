@@ -145,7 +145,6 @@ void AgbMain()
     SetDefaultFontsPointer();
 
     gSoftResetDisabled = FALSE;
-    /*gHelpSystemEnabled = FALSE;*/
 
     SetNotInSaveFailedScreen();
 
@@ -217,7 +216,7 @@ static void InitMainCallbacks(void)
 
 static void CallCallbacks(void)
 {
-    if (!RunSaveFailedScreen()/* && !RunHelpSystemCallback()*/)
+    if (!RunSaveFailedScreen())
     {
         if (gMain.callback1)
             gMain.callback1();

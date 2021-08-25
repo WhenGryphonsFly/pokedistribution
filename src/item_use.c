@@ -142,8 +142,6 @@ static void Task_FadeOuFromBackToField(u8 taskId)
         itemType = ItemId_GetType(gSpecialVar_ItemId) - 1;
     if (GetPocketByItemId(gSpecialVar_ItemId) == POCKET_BERRY_POUCH)
     {
-        /*BerryPouch_SetExitCallback(sExitCallbackByItemType[itemType]);*/
-        /*BerryPouch_StartFadeToExitCallback(taskId);*/
     }
     else
     {
@@ -460,7 +458,6 @@ void FieldUseFunc_TmCase(u8 taskId)
 
 static void InitTMCaseFromBag(void)
 {
-   /* InitTMCase(0, CB2_BagMenuFromStartMenu, 0);*/
 }
 
 static void Task_InitTMCaseFromField(u8 taskId)
@@ -469,7 +466,6 @@ static void Task_InitTMCaseFromField(u8 taskId)
     {
         CleanupOverworldWindowsAndTilemaps();
         sub_80A1184();
-        /*InitTMCase(0, CB2_ReturnToField, 1);*/
         DestroyTask(taskId);
     }
 }
@@ -491,7 +487,6 @@ void FieldUseFunc_BerryPouch(u8 taskId)
 
 static void InitBerryPouchFromBag(void)
 {
-    /*InitBerryPouch(BERRYPOUCH_FROMFIELD, CB2_BagMenuFromStartMenu, 0);*/
 }
 
 static void Task_InitBerryPouchFromField(u8 taskId)
@@ -500,7 +495,6 @@ static void Task_InitBerryPouchFromField(u8 taskId)
     {
         CleanupOverworldWindowsAndTilemaps();
         sub_80A1184();
-        /*InitBerryPouch(BERRYPOUCH_FROMFIELD, CB2_ReturnToField, 1);*/
         DestroyTask(taskId);
     }
 }
@@ -513,7 +507,6 @@ void BattleUseFunc_BerryPouch(u8 taskId)
 
 static void InitBerryPouchFromBattle(void)
 {
-    /*InitBerryPouch(BERRYPOUCH_FROMBATTLE, CB2_BagMenuFromBattle, 0);*/
 }
 
 void FieldUseFunc_TeachyTv(u8 taskId)
@@ -761,8 +754,6 @@ static void ItemUse_SwitchToPartyMenuInBattle(u8 taskId)
 {
     if (GetPocketByItemId(gSpecialVar_ItemId) == POCKET_BERRY_POUCH)
     {
-        /*BerryPouch_SetExitCallback(EnterPartyFromItemMenuInBattle);*/
-        /*BerryPouch_StartFadeToExitCallback(taskId);*/
     }
     else
     {
@@ -875,7 +866,6 @@ void FieldUseFunc_OakStopsYou(u8 taskId)
     if (GetPocketByItemId(gSpecialVar_ItemId) == POCKET_BERRY_POUCH)
     {
         StringExpandPlaceholders(gStringVar4, gText_OakForbidsUseOfItemHere);
-        /*DisplayItemMessageInBerryPouch(taskId, 4, gStringVar4, Task_BerryPouch_DestroyDialogueWindowAndRefreshListMenu);*/
     }
     else
         PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);

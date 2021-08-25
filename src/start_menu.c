@@ -191,8 +191,6 @@ static void SetUpStartMenu(void)
         SetUpStartMenu_Link();
     else if (InUnionRoom() == TRUE)
         SetUpStartMenu_UnionRoom();
-    /*else if (GetSafariZoneFlag() == TRUE)
-        SetUpStartMenu_SafariZone();*/
     else
         SetUpStartMenu_NormalField();
 }
@@ -249,9 +247,7 @@ static void DrawSafariZoneStatsWindow(void)
     sSafariZoneStatsWindowId = AddWindow(&sSafariZoneStatsWindowTemplate);
     PutWindowTilemap(sSafariZoneStatsWindowId);
     DrawStdWindowFrame(sSafariZoneStatsWindowId, FALSE);
-    /*ConvertIntToDecimalStringN(gStringVar1, gSafariZoneStepCounter, STR_CONV_MODE_RIGHT_ALIGN, 3);*/
     ConvertIntToDecimalStringN(gStringVar2, 600, STR_CONV_MODE_RIGHT_ALIGN, 3);
-    /*ConvertIntToDecimalStringN(gStringVar3, gNumSafariBalls, STR_CONV_MODE_RIGHT_ALIGN, 2);*/
     StringExpandPlaceholders(gStringVar4, gUnknown_84162A9);
     AddTextPrinterParameterized(sSafariZoneStatsWindowId,2, gStringVar4, 4, 3, 0xFF, NULL);
     CopyWindowToVram(sSafariZoneStatsWindowId, COPYWIN_GFX);
@@ -259,12 +255,6 @@ static void DrawSafariZoneStatsWindow(void)
 
 static void DestroySafariZoneStatsWindow(void)
 {
-    /*if (GetSafariZoneFlag())
-    {
-        ClearStdWindowAndFrameToTransparent(sSafariZoneStatsWindowId, FALSE);
-        CopyWindowToVram(sSafariZoneStatsWindowId, COPYWIN_GFX);
-        RemoveWindow(sSafariZoneStatsWindowId);
-    }*/
 }
 
 static s8 PrintStartMenuItems(s8 *cursor_p, u8 nitems)
@@ -309,8 +299,6 @@ static s8 DoDrawStartMenu(void)
         sDrawStartMenuState[0]++;
         break;
     case 3:
-        /*if (GetSafariZoneFlag())
-            DrawSafariZoneStatsWindow();*/
         sDrawStartMenuState[0]++;
         break;
     case 4:
@@ -531,7 +519,6 @@ static bool8 StartMenuSafariZoneRetireCallback(void)
     DestroySafariZoneStatsWindow();
     DestroyHelpMessageWindow_();
     CloseStartMenu();
-    /*SafariZoneRetirePrompt();*/
     return TRUE;
 }
 
@@ -600,8 +587,6 @@ static u8 RunSaveDialogCB(void)
 
 void Field_AskSaveTheGame(void)
 {
-    /*BackupHelpContext();
-    SetHelpContext(HELPCONTEXT_SAVE);*/
     StartMenu_PrepareForSave();
     CreateTask(task50_save_game, 80);
 }

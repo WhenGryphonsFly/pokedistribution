@@ -684,29 +684,6 @@ static bool8 MainState_WaitFadeOutAndExit(void)
 
 static void pokemon_transfer_to_pc_with_message(void)
 {
-    /*u8 stringToDisplay = 0;
-
-    if (!IsDestinationBoxFull())
-    {
-        StringCopy(gStringVar1, GetBoxNamePtr(VarGet(VAR_PC_BOX_TO_SEND_MON)));
-        StringCopy(gStringVar2, sNamingScreenData->destBuffer);
-    }
-    else
-    {
-        StringCopy(gStringVar1, GetBoxNamePtr(VarGet(VAR_PC_BOX_TO_SEND_MON)));
-        StringCopy(gStringVar2, sNamingScreenData->destBuffer);
-        StringCopy(gStringVar3, GetBoxNamePtr(GetPCBoxToSendMon()));
-        stringToDisplay = 2;
-    }
-
-    if (FlagGet(FLAG_SYS_NOT_SOMEONES_PC))
-        stringToDisplay++;
-
-    StringExpandPlaceholders(gStringVar4, sTransferredToPCMessages[stringToDisplay]);
-    DrawDialogueFrame(0, FALSE);
-    gTextFlags.canABSpeedUpPrint = TRUE;
-    AddTextPrinterParameterized2(0, 2, gStringVar4, GetTextSpeedSetting(), NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
-    CopyWindowToVram(0, COPYWIN_BOTH);*/
 }
 
 static bool8 sub_809E1D4(void)
