@@ -64,8 +64,8 @@ void ResetMenuAndMonGlobals(void)
     ZeroPlayerPartyMons();
     ZeroEnemyPartyMons();
     ResetBagCursorPositions();
-    ResetTMCaseCursorPos();
-    BerryPouch_CursorResetToTop();
+    /*ResetTMCaseCursorPos();
+    BerryPouch_CursorResetToTop();*/
     SeedWildEncounterRng(Random());
     ResetSpecialVars();
 }

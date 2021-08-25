@@ -565,7 +565,6 @@ static bool8 ShowPartyMenu(void)
         ++gMain.state;
         break;
     case 19:
-        /*SetHelpContext(HELPCONTEXT_PARTY_MENU);*/
         ++gMain.state;
         break;
     case 20:
@@ -3779,53 +3778,10 @@ static void CursorCB_Store(u8 taskId)
 // Register mon for the Trading Board in Union Room
 static void CursorCB_Register(u8 taskId)
 {
-    /*u16 species2 = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_SPECIES2);
-    u16 species = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_SPECIES);
-    u8 isEventLegal = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_EVENT_LEGAL);
-
-    switch (CanRegisterMonForTradingBoard(*(struct GFtgtGnameSub *)GetHostRFUtgtGname(), species2, species, isEventLegal))
-    {
-    case CANT_REGISTER_MON:
-        StringExpandPlaceholders(gStringVar4, gText_PkmnCantBeTradedNow);
-        break;
-    case CANT_REGISTER_EGG:
-        StringExpandPlaceholders(gStringVar4, gText_EggCantBeTradedNow);
-        break;
-    default:
-        PlaySE(SE_SELECT);
-        Task_ClosePartyMenu(taskId);
-        return;
-    }
-    PlaySE(SE_FAILURE);
-    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
-    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
-    StringAppend(gStringVar4, gText_PauseUntilPress);
-    DisplayPartyMenuMessage(gStringVar4, TRUE);
-    gTasks[taskId].func = Task_ReturnToChooseMonAfterText;*/
 }
 
 static void CursorCB_Trade1(u8 taskId)
 {
-    /*u16 species2 = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_SPECIES2);
-    u16 species = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_SPECIES);
-    u8 isEventLegal = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_EVENT_LEGAL);
-    u32 stringId = GetUnionRoomTradeMessageId(*(struct GFtgtGnameSub *)GetHostRFUtgtGname(), gPartnerTgtGnameSub, species2, gUnionRoomOfferedSpecies, gUnionRoomRequestedMonType, species, isEventLegal);
-
-    if (stringId != UR_TRADE_MSG_NONE)
-    {
-        StringExpandPlaceholders(gStringVar4, sUnionRoomTradeMessages[stringId - 1]);
-        PlaySE(SE_FAILURE);
-        PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
-        PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
-        StringAppend(gStringVar4, gText_PauseUntilPress);
-        DisplayPartyMenuMessage(gStringVar4, TRUE);
-        gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
-    }
-    else
-    {
-        PlaySE(SE_SELECT);
-        Task_ClosePartyMenu(taskId);
-    }*/
 }
 
 // Spin Trade (based on the translation of the Japanese trade prompt)
@@ -4069,12 +4025,12 @@ static void CB2_ReturnToBagMenu(void)
 
 static void CB2_ReturnToTMCaseMenu(void)
 {
-    InitTMCase(TMCASE_NA, NULL, 0xFF);
+    /*InitTMCase(TMCASE_NA, NULL, 0xFF);*/
 }
 
 static void CB2_ReturnToBerryPouchMenu(void)
 {
-    InitBerryPouch(BERRYPOUCH_NA, NULL, 0xFF);
+    /*InitBerryPouch(BERRYPOUCH_NA, NULL, 0xFF);*/
 }
 
 static void sub_8124DC0(u8 taskId)

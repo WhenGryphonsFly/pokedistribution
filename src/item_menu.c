@@ -495,10 +495,6 @@ static bool8 LoadBagMenuGraphics(void)
         gMain.state++;
         break;
     case 19:
-        /*if (gBagMenuState.location == ITEMMENULOCATION_ITEMPC)
-            SetHelpContext(HELPCONTEXT_PLAYERS_PC_ITEMS);
-        else
-            SetHelpContext(HELPCONTEXT_BAG);*/
         gPaletteFade.bufferTransferDisabled = FALSE;
         gMain.state++;
         break;
@@ -1730,12 +1726,12 @@ static void Task_ItemContext_FieldGive(u8 taskId)
 
 static void GoToTMCase_Give(void)
 {
-    InitTMCase(TMCASE_FROMPARTYGIVE, ReturnToBagMenuFromSubmenu_Give, FALSE);
+    /*InitTMCase(TMCASE_FROMPARTYGIVE, ReturnToBagMenuFromSubmenu_Give, FALSE);*/
 }
 
 static void GoToBerryPouch_Give(void)
 {
-    InitBerryPouch(BERRYPOUCH_FROMPARTYGIVE, ReturnToBagMenuFromSubmenu_Give, FALSE);
+    /*InitBerryPouch(BERRYPOUCH_FROMPARTYGIVE, ReturnToBagMenuFromSubmenu_Give, FALSE);*/
 }
 
 static void ReturnToBagMenuFromSubmenu_Give(void)
@@ -1774,17 +1770,16 @@ static void Task_ItemContext_PcBoxGive(u8 taskId)
 
 static void GoToTMCase_PCBox(void)
 {
-    InitTMCase(TMCASE_FROMPOKEMONSTORAGEPC, ReturnToBagMenuFromSubmenu_PCBox, FALSE);
+    /*InitTMCase(TMCASE_FROMPOKEMONSTORAGEPC, ReturnToBagMenuFromSubmenu_PCBox, FALSE);*/
 }
 
 static void GoToBerryPouch_PCBox(void)
 {
-    InitBerryPouch(BERRYPOUCH_FROMPOKEMONSTORAGEPC, ReturnToBagMenuFromSubmenu_PCBox, FALSE);
+    /*InitBerryPouch(BERRYPOUCH_FROMPOKEMONSTORAGEPC, ReturnToBagMenuFromSubmenu_PCBox, FALSE);*/
 }
 
 static void ReturnToBagMenuFromSubmenu_PCBox(void)
 {
-    /*GoToBagMenu(ITEMMENULOCATION_PCBOX, OPEN_BAG_LAST, Cb2_ReturnToPSS);*/
 }
 
 static void Task_ItemContext_Sell(u8 taskId)
@@ -1827,12 +1822,12 @@ static void Task_ItemContext_Sell(u8 taskId)
 
 static void GoToTMCase_Sell(void)
 {
-    InitTMCase(TMCASE_FROMMARTSELL, ReturnToBagMenuFromSubmenu_Sell, FALSE);
+    /*InitTMCase(TMCASE_FROMMARTSELL, ReturnToBagMenuFromSubmenu_Sell, FALSE);*/
 }
 
 static void GoToBerryPouch_Sell(void)
 {
-    InitBerryPouch(BERRYPOUCH_FROMMARTSELL, ReturnToBagMenuFromSubmenu_Sell, FALSE);
+    /*InitBerryPouch(BERRYPOUCH_FROMMARTSELL, ReturnToBagMenuFromSubmenu_Sell, FALSE);*/
 }
 
 static void ReturnToBagMenuFromSubmenu_Sell(void)
