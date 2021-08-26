@@ -59,7 +59,7 @@ static const u8 sUnownLetterSlots[][12] = {
     {25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 26},
 };
 
-void DisableWildEncounters(bool8 state)
+/*void DisableWildEncounters(bool8 state)
 {
     sWildEncountersDisabled = state;
 }
@@ -576,7 +576,7 @@ static u8 GetMapBaseEncounterCooldown(u8 encounterType)
         return 8 - (gWildMonHeaders[headerIdx].waterMonsInfo->encounterRate / 10);
     }
     return 0xFF;
-}
+}*/
 
 void ResetEncounterRateModifiers(void)
 {
@@ -584,7 +584,7 @@ void ResetEncounterRateModifiers(void)
     sWildEncounterData.stepsSinceLastEncounter = 0;
 }
 
-static bool8 HandleWildEncounterCooldown(u32 currMetatileAttrs)
+/*static bool8 HandleWildEncounterCooldown(u32 currMetatileAttrs)
 {
     u8 encounterType = GetMetatileAttributeFromRawMetatileBehavior(currMetatileAttrs, METATILE_ATTRIBUTE_ENCOUNTER_TYPE);
     u32 minSteps;
@@ -661,4 +661,4 @@ static void AddToWildEncounterRateBuff(u8 encounterRate)
         sWildEncounterData.encounterRateBuff += encounterRate;
     else
         sWildEncounterData.encounterRateBuff = 0;
-}
+}*/

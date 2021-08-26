@@ -1111,7 +1111,7 @@ const struct OamData gOamData_AffineDouble_ObjBlend_32x64 =
     .paletteNum = 0,
 };
 
-const struct CompressedSpriteSheet gBattleAnimPicTable[] =
+/*const struct CompressedSpriteSheet gBattleAnimPicTable[] =
 {
     {gBattleAnimSpriteGfx_Bone, 0x0200, ANIM_TAG_BONE},
     {gBattleAnimSpriteGfx_Spark, 0x0300, ANIM_TAG_SPARK},
@@ -3344,4 +3344,4 @@ static void ScriptCmd_stopsound(void)
     m4aMPlayStop(&gMPlayInfo_SE1);
     m4aMPlayStop(&gMPlayInfo_SE2);
     sBattleAnimScriptPtr++;
-}
+}*/

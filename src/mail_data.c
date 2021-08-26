@@ -5,7 +5,7 @@
 #include "constants/items.h"
 #include "pokemon_icon.h"
 
-void ClearMailStruct(struct MailStruct *mail)
+/*void ClearMailStruct(struct MailStruct *mail)
 {
     s32 i;
 
@@ -69,7 +69,7 @@ u16 SpeciesToMailSpecies(u16 species, u32 personality)
         return mailSpecies;
     }
     return species;
-}
+}*/
 
 u16 MailSpeciesToSpecies(u16 mailSpecies, u16 *unownLetter)
 {
@@ -87,7 +87,7 @@ u16 MailSpeciesToSpecies(u16 mailSpecies, u16 *unownLetter)
     return result;
 }
 
-u8 GiveMailToMon2(struct Pokemon *mon, struct MailStruct *mail)
+/*u8 GiveMailToMon2(struct Pokemon *mon, struct MailStruct *mail)
 {
     u8 heldItem[2];
     u16 itemId = mail->itemId;
@@ -174,4 +174,4 @@ bool8 ItemIsMail(u16 itemId)
     default:
         return FALSE;
     }
-}
+}*/

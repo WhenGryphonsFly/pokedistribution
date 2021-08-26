@@ -61,15 +61,15 @@ CartIdent:
 	.endif
 	.endif
 	.space .game_name+0x20-.
-	.4byte  gMonFrontPicTable
-	.4byte  gMonBackPicTable
-	.4byte  gMonPaletteTable
-	.4byte  gMonShinyPaletteTable
+	@.4byte  gMonFrontPicTable /**/
+	@.4byte  gMonBackPicTable
+	@.4byte  gMonPaletteTable
+	@.4byte  gMonShinyPaletteTable
 	.4byte  gMonIconTable
 	.4byte  gMonIconPaletteIndices
 	.4byte  gMonIconPaletteTable
-	.4byte  gSpeciesNames
-	.4byte  gMoveNames
+	@.4byte  gSpeciesNames
+	@.4byte  gMoveNames
 	.4byte  gDecorations
 	.4byte      0xEE0 @ offsetof(struct SaveBlock1, flags)
 	.4byte     0x1000 @ offsetof(struct SaveBlock1, vars)
@@ -100,12 +100,12 @@ CartIdent:
 	.4byte     0x30A7
 	.4byte          0
 	.4byte  gBaseStats
-	.4byte  gAbilityNames
-	.4byte  gAbilityDescriptionPointers
+	@.4byte  gAbilityNames
+	@.4byte  gAbilityDescriptionPointers
 	.4byte  gItems
 	.4byte  gBattleMoves
-	.4byte  gBallSpriteSheets
-	.4byte  gBallSpritePalettes
+	@.4byte  gBallSpriteSheets
+	@.4byte  gBallSpritePalettes
 	.4byte       0xA8
 	.4byte      0x82C
 	.4byte      0x83B

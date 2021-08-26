@@ -265,7 +265,7 @@ void InitLinkTestBG(u8 paletteNum, u8 bgNum, u8 screenBaseBlock, u8 charBaseBloc
     SetGpuReg(REG_OFFSET_BG0VOFS + bgNum * 4, 0);
 }
 
-void sub_80095BC(u8 paletteNum, u8 bgNum, u8 screenBaseBlock, u8 charBaseBlock)
+/*void sub_80095BC(u8 paletteNum, u8 bgNum, u8 screenBaseBlock, u8 charBaseBlock)
 {
     LoadPalette(sLinkTestFontPal, paletteNum * 16, 0x20);
     DmaCopy16(3, sLinkTestFontGfx, (u16 *)BG_CHAR_ADDR(charBaseBlock), sizeof sLinkTestFontGfx);
@@ -302,7 +302,7 @@ void LinkTestScreen(void)
     InitLocalLinkPlayer();
     CreateTask(Task_PrintTestData, 0);
     SetMainCallback2(CB2_LinkTest);
-}
+}*/
 
 void SetLocalLinkPlayerId(u8 playerId)
 {

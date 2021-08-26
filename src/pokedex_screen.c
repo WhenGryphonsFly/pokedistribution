@@ -199,7 +199,7 @@ static const u8 gExpandedPlaceholder_PokedexDescription[] = _("");
 #include "data/pokemon/pokedex_text.h"
 #include "data/pokemon/pokedex_entries.h"
 
-static const struct BgTemplate sBgTemplates[] = {
+/*static const struct BgTemplate sBgTemplates[] = {
     {
         .bg = 0,
         .charBaseIndex = 0,
@@ -2209,7 +2209,7 @@ static void DexScreen_PrintMonDexNo(u8 windowId, u8 fontId, u16 species, u8 x, u
     u16 dexNum = SpeciesToNationalPokedexNum(species);
     DexScreen_AddTextPrinterParameterized(windowId, fontId, gText_PokedexNo, x, y, 0);
     DexScreen_PrintNum3LeadingZeroes(windowId, fontId, dexNum, x + 9, y, 0);
-}
+}*/
 
 s8 DexScreen_GetSetPokedexFlag(u16 nationalDexNo, u8 caseId, bool8 indexIsSpecies)
 {
@@ -2260,7 +2260,7 @@ s8 DexScreen_GetSetPokedexFlag(u16 nationalDexNo, u8 caseId, bool8 indexIsSpecie
     return retVal;
 }
 
-static u16 DexScreen_GetDexCount(u8 caseId, bool8 whichDex)
+/*static u16 DexScreen_GetDexCount(u8 caseId, bool8 whichDex)
 {
     u16 count = 0;
     u16 i;
@@ -3437,4 +3437,4 @@ void DexScreen_PrintStringWithAlignment(const u8 * str, s32 mode)
     }
 
     DexScreen_AddTextPrinterParameterized(0, 2, str, x, 2, 4);
-}
+}*/

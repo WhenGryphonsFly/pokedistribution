@@ -28,7 +28,7 @@ static void SetBattlePartyIds(void);
 static void Task_HandleSendLinkBuffersData(u8 taskId);
 static void Task_HandleCopyReceivedLinkBuffersData(u8 taskId);
 
-void HandleLinkBattleSetup(void)
+/*void HandleLinkBattleSetup(void)
 {
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
     {
@@ -457,7 +457,7 @@ static void Task_HandleSendLinkBuffersData(u8 taskId)
         }
         break;
     }
-}
+}*/
 
 void TryReceiveLinkBattleData(void)
 {
@@ -494,7 +494,7 @@ void TryReceiveLinkBattleData(void)
     }
 }
 
-static void Task_HandleCopyReceivedLinkBuffersData(u8 taskId)
+/*static void Task_HandleCopyReceivedLinkBuffersData(u8 taskId)
 {
     u16 blockSize;
     u8 battlerId;
@@ -1143,4 +1143,4 @@ void BtlController_EmitCmd55(u8 bufferId, u8 battleOutcome)
     sBattleBuffersTransferData[0] = CONTROLLER_55;
     sBattleBuffersTransferData[1] = battleOutcome;
     PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 2);
-}
+}*/

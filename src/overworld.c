@@ -244,7 +244,7 @@ static const u16 sWhiteOutMoneyLossBadgeFlagIDs[] = {
     FLAG_BADGE08_GET
 };
 
-static void DoWhiteOut(void)
+/*static void DoWhiteOut(void)
 {
     ScriptContext2_RunNewScript(EventScript_ResetEliteFourEnd);
     RemoveMoney(&gSaveBlock1Ptr->money, ComputeWhiteOutMoneyLoss());
@@ -344,7 +344,7 @@ static void Overworld_ResetStateOnContinue(void)
     FlagClear(FLAG_SYS_SAFARI_MODE);
     VarSet(VAR_MAP_SCENE_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE, 0);
     ChooseAmbientCrySpecies();
-}
+}*/
 
 void IncrementGameStat(u8 statId)
 {
@@ -374,7 +374,7 @@ void SetGameStat(u8 statId, u32 statVal)
     gSaveBlock1Ptr->gameStats[statId] = statVal ^ gSaveBlock2Ptr->encryptionKey;
 }
 
-void ApplyNewEncryptionKeyToGameStats(u32 newKey)
+/*void ApplyNewEncryptionKeyToGameStats(u32 newKey)
 {
     u8 i;
     for (i = 0; i < NUM_GAME_STATS; i++)
@@ -1297,17 +1297,17 @@ void CleanupOverworldWindowsAndTilemaps(void)
 
 static void ResetSafariZoneFlag_(void)
 {
-}
+}*/
 
 bool32 IsUpdateLinkStateCBActive(void)
 {
-    if (gMain.callback1 == CB1_UpdateLinkState)
+    /*if (gMain.callback1 == CB1_UpdateLinkState)
         return TRUE;
-    else
+    else*/
         return FALSE;
 }
 
-static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
+/*static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
 {
     struct FieldInput fieldInput;
 
@@ -1536,11 +1536,13 @@ static void FieldCB_ShowMapNameOnContinue(void)
     if (SHOW_MAP_NAME_ENABLED)
         ShowMapNamePopup(FALSE);
     FieldCB_WarpExitFadeFromBlack();
-}
+}*/
 
+//#include "main.c"
 void CB2_ContinueSavedGame(void)
 {
-    FieldClearVBlankHBlankCallbacks();
+	//DoSoftReset();
+    /*FieldClearVBlankHBlankCallbacks();
     StopMapMusic();
     ResetSafariZoneFlag_();
     LoadSaveblockMapHeader();
@@ -1565,10 +1567,10 @@ void CB2_ContinueSavedGame(void)
         gFieldCallback = FieldCB_ShowMapNameOnContinue;
         SetMainCallback1(CB1_Overworld);
         CB2_ReturnToField();
-    }
+    }*/
 }
 
-static void FieldClearVBlankHBlankCallbacks(void)
+/*static void FieldClearVBlankHBlankCallbacks(void)
 {
 
     if (gWirelessCommType != 0)
@@ -2318,7 +2320,7 @@ static void ResetAllMultiplayerState(void)
 static void ClearAllPlayerKeys(void)
 {
     ResetPlayerHeldKeys(gLinkPartnersHeldKeys);
-}
+}*/
 
 static void SetKeyInterceptCallback(KeyInterCB func)
 {
@@ -2336,7 +2338,7 @@ static void CheckRfuKeepAliveTimer(void)
         LinkRfu_FatalError();
 }
 
-static void ResetAllTradingStates(void)
+/*static void ResetAllTradingStates(void)
 {
     s32 i;
     for (i = 0; i < 4; i++)
@@ -2572,7 +2574,7 @@ static u16 KeyInterCB_SelfIdle(u32 key)
     if (GetLinkSendQueueLength() <= 4)
         return KeyInterCB_ReadButtons(key);
     return LINK_KEY_CODE_HANDLE_SEND_QUEUE;
-}
+}*/
 
 static u16 sub_8057D98(u32 key)
 {
@@ -2631,7 +2633,7 @@ static u16 KeyInterCB_DeferToSendQueue(u32 key)
     return retVal;
 }
 
-static u16 KeyInterCB_DoNothingAndKeepAlive(u32 key)
+/*static u16 KeyInterCB_DoNothingAndKeepAlive(u32 key)
 {
     CheckRfuKeepAliveTimer();
     return LINK_KEY_CODE_EMPTY;
@@ -2861,7 +2863,7 @@ bool32 Overworld_LinkRecvQueueLengthMoreThan2(void)
     else
         sReceivingFromLink = FALSE;
     return sReceivingFromLink;
-}
+}*/
 
 bool32 Overworld_RecvKeysFromLinkIsRunning(void)
 {
@@ -2921,7 +2923,7 @@ static u32 GetLinkSendQueueLength(void)
         return gLink.sendQueue.count;
 }
 
-static void ZeroLinkPlayerObjectEvent(struct LinkPlayerObjectEvent *linkPlayerObjEvent)
+/*static void ZeroLinkPlayerObjectEvent(struct LinkPlayerObjectEvent *linkPlayerObjEvent)
 {
     memset(linkPlayerObjEvent, 0, sizeof(struct LinkPlayerObjectEvent));
 }
@@ -3228,4 +3230,4 @@ static void SpriteCB_LinkPlayer(struct Sprite *sprite)
         sprite->invisible = ((sprite->data[7] & 4) >> 2);
         sprite->data[7]++;
     }
-}
+}*/

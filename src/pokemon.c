@@ -37,6 +37,7 @@
 #include "constants/hold_effects.h"
 #include "constants/battle_move_effects.h"
 
+
 // Extracts the upper 16 bits of a 32-bit number
 #define HIHALF(n) (((n) & 0xFFFF0000) >> 16)
 
@@ -89,7 +90,7 @@ static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon);
 
 // Used in an unreferenced function in RS.
 // Unreferenced here and in Emerald.
-struct CombinedMove
+/*struct CombinedMove
 {
     u16 move1;
     u16 move2;
@@ -515,7 +516,7 @@ static const u16 sSpeciesToHoennPokedexNum[] = // Assigns all species to the Hoe
     SPECIES_TO_HOENN(JIRACHI),
     SPECIES_TO_HOENN(DEOXYS),
     SPECIES_TO_HOENN(CHIMECHO),
-};
+};*/
 
 static const u16 sSpeciesToNationalPokedexNum[] = // Assigns all species to the National Dex Index (Summary No. for National Dex)
 {
@@ -1347,7 +1348,7 @@ static const u16 sHoennToNationalOrder[] = // Assigns Hoenn Dex Pokémon (Using 
     HOENN_TO_NATIONAL(OLD_UNOWN_Z),
 };
 
-static const struct SpindaSpot sSpindaSpotGraphics[] =
+/*static const struct SpindaSpot sSpindaSpotGraphics[] =
 {
     {16, 7, INCBIN_U16("graphics/spinda_spots/spot_0.bin")},
     {40, 8, INCBIN_U16("graphics/spinda_spots/spot_1.bin")},
@@ -1385,7 +1386,7 @@ static const s8 sNatureStatTable[][5] =
     {    0,  0, -1,     0,    +1}, // Sassy
     {    0,  0,  0,    -1,    +1}, // Careful
     {    0,  0,  0,     0,     0}, // Quirky
-};
+};*/
 
 #include "data/pokemon/tmhm_learnsets.h"
 #include "data/pokemon/trainer_class_lookups.h"
@@ -1396,7 +1397,7 @@ static const s8 sNatureStatTable[][5] =
 #include "data/pokemon/evolution.h"
 #include "data/pokemon/level_up_learnset_pointers.h"
 
-static const s8 sPokeblockFlavorCompatibilityTable[] =
+/*static const s8 sPokeblockFlavorCompatibilityTable[] =
 {
     // Cool, Beauty, Cute, Smart, Tough
           0,      0,    0,     0,     0, // Hardy
@@ -1668,7 +1669,7 @@ static const struct SpriteTemplate sOakSpeechNidoranFDummyTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCallbackDummy,
-};
+};*/
 
 // code
 void ZeroBoxMonData(struct BoxPokemon *boxMon)
@@ -1711,7 +1712,7 @@ void ZeroEnemyPartyMons(void)
         ZeroMonData(&gEnemyParty[i]);
 }
 
-void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
+/*void CreateMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
 {
     u32 arg;
     ZeroMonData(mon);
@@ -1746,7 +1747,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
         {
             value = Random32();
             shinyValue = HIHALF(value) ^ LOHALF(value) ^ HIHALF(personality) ^ LOHALF(personality);
-        } while (shinyValue < SHINY_ODDS);
+        } while (shinyValue < 8);
     }
     else if (otIdType == OT_ID_PRESET) //Pokemon has a preset OT ID
     {
@@ -1927,9 +1928,9 @@ void CreateMonWithEVSpread(struct Pokemon *mon, u16 species, u8 level, u8 fixedI
     }
 
     CalculateMonStats(mon);
-}
+}*/
 
-void CreateBattleTowerMon(struct Pokemon *mon, struct BattleTowerPokemon *src)
+/*void CreateBattleTowerMon(struct Pokemon *mon, struct BattleTowerPokemon *src)
 {
     s32 i;
     u8 value;
@@ -1940,9 +1941,22 @@ void CreateBattleTowerMon(struct Pokemon *mon, struct BattleTowerPokemon *src)
         SetMonMoveSlot(mon, src->moves[i], i);
 
     SetMonData(mon, MON_DATA_PP_BONUSES, &src->ppBonuses);
-    SetMonData(mon, MON_DATA_HELD_ITEM, &src->heldItem);
+    SetMonData(mon, MON_DATA_HELD_ITEM, &src->heldItem);*/
 
-    SetMonData(mon, MON_DATA_NICKNAME, &src->nickname);
+    // Why is this commented out in FR/LG?
+    /*
+    StringCopy(nickname, src->nickname);
+
+    if (nickname[0] == 0xFC && nickname[1] == 0x15)
+        language = LANGUAGE_JAPANESE;
+    else
+        language = GAME_LANGUAGE;
+
+    SetMonData(mon, MON_DATA_LANGUAGE, &language);
+    Text_StripExtCtrlCodes(nickname);
+    */
+
+    /*SetMonData(mon, MON_DATA_NICKNAME, &src->nickname);
     SetMonData(mon, MON_DATA_FRIENDSHIP, &src->friendship);
     SetMonData(mon, MON_DATA_HP_EV, &src->hpEV);
     SetMonData(mon, MON_DATA_ATK_EV, &src->attackEV);
@@ -1965,9 +1979,9 @@ void CreateBattleTowerMon(struct Pokemon *mon, struct BattleTowerPokemon *src)
     value = src->spDefenseIV;
     SetMonData(mon, MON_DATA_SPDEF_IV, &value);
     CalculateMonStats(mon);
-}
+}*/
 
-static void CreateEventLegalMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
+/*static void CreateEventLegalMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
 {
     bool32 isEventLegal = TRUE;
 
@@ -2010,7 +2024,7 @@ void ConvertPokemonToBattleTowerPokemon(struct Pokemon *mon, struct BattleTowerP
     dest->abilityNum = GetMonData(mon, MON_DATA_ABILITY_NUM, NULL);
     dest->personality = GetMonData(mon, MON_DATA_PERSONALITY, NULL);
     GetMonData(mon, MON_DATA_NICKNAME, dest->nickname);
-}
+}*/
 
 static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon)
 {
@@ -2036,7 +2050,7 @@ static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon)
     return checksum;
 }
 
-#define CALC_STAT(base, iv, ev, statIndex, field)               \
+/*#define CALC_STAT(base, iv, ev, statIndex, field)               \
 {                                                               \
     u8 baseStat = gBaseStats[species].base;                     \
     s32 n = (((2 * baseStat + iv + ev / 4) * level) / 100) + 5; \
@@ -2371,25 +2385,25 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         attack *= 2;
 
     // In FRLG, the Battle Tower and opponent checks are stubbed here.
-    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_EREADER_TRAINER)))
+    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | /*BATTLE_TYPE_BATTLE_TOWER |*//* BATTLE_TYPE_EREADER_TRAINER)))
     {
         if (FlagGet(FLAG_BADGE01_GET)
             && GetBattlerSide(battlerIdAtk) == B_SIDE_PLAYER)
             attack = (110 * attack) / 100;
     }
-    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_EREADER_TRAINER)))
+    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | /*BATTLE_TYPE_BATTLE_TOWER |*//* BATTLE_TYPE_EREADER_TRAINER)))
     {
         if (FlagGet(FLAG_BADGE05_GET)
             && GetBattlerSide(battlerIdDef) == B_SIDE_PLAYER)
             defense = (110 * defense) / 100;
     }
-    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_EREADER_TRAINER)))
+    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | /*BATTLE_TYPE_BATTLE_TOWER |*//* BATTLE_TYPE_EREADER_TRAINER)))
     {
         if (FlagGet(FLAG_BADGE07_GET)
             && GetBattlerSide(battlerIdAtk) == B_SIDE_PLAYER)
             spAttack = (110 * spAttack) / 100;
     }
-    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_EREADER_TRAINER)))
+    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | /*BATTLE_TYPE_BATTLE_TOWER |*//* BATTLE_TYPE_EREADER_TRAINER)))
     {
         if (FlagGet(FLAG_BADGE07_GET)
             && GetBattlerSide(battlerIdDef) == B_SIDE_PLAYER)
@@ -2728,7 +2742,7 @@ void SetMultiuseSpriteTemplateToTrainerBack(u16 trainerSpriteId, u8 battlerPosit
             gMultiuseSpriteTemplate = gSpriteTemplates_Battlers[battlerPosition];
         gMultiuseSpriteTemplate.anims = gTrainerFrontAnimsPtrTable[trainerSpriteId];
     }
-}
+}*/
 
 static void EncryptBoxMon(struct BoxPokemon *boxMon)
 {
@@ -2831,7 +2845,7 @@ static union PokemonSubstruct *GetSubstruct(struct BoxPokemon *boxMon, u32 perso
     return substruct;
 }
 
-u32 GetMonData(struct Pokemon *mon, s32 field, u8* data)
+/*u32 GetMonData(struct Pokemon *mon, s32 field, u8* data)
 {
     u32 ret;
 
@@ -3249,7 +3263,7 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
         EncryptBoxMon(boxMon);
 
     return retVal;
-}
+}*/
 
 #define SET8(lhs) (lhs) = *data
 #define SET16(lhs) (lhs) = data[0] + (data[1] << 8)
@@ -3598,7 +3612,7 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
     }
 }
 
-void CopyMon(void *dest, void *src, size_t size)
+/*void CopyMon(void *dest, void *src, size_t size)
 {
     memcpy(dest, src, size);
 }
@@ -3627,6 +3641,35 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
 
 static u8 SendMonToPC(struct Pokemon* mon)
 {
+    s32 boxNo, boxPos;
+
+    SetPCBoxToSendMon(VarGet(VAR_PC_BOX_TO_SEND_MON));
+
+    boxNo = StorageGetCurrentBox();
+
+    do
+    {
+        for (boxPos = 0; boxPos < IN_BOX_COUNT; boxPos++)
+        {
+            struct BoxPokemon* checkingMon = GetBoxedMonPtr(boxNo, boxPos);
+            if (GetBoxMonData(checkingMon, MON_DATA_SPECIES, NULL) == SPECIES_NONE)
+            {
+                MonRestorePP(mon);
+                CopyMon(checkingMon, &mon->box, sizeof(mon->box));
+                gSpecialVar_MonBoxId = boxNo;
+                gSpecialVar_MonBoxPos = boxPos;
+                if (GetPCBoxToSendMon() != boxNo)
+                    FlagClear(FLAG_SHOWN_BOX_WAS_FULL_MESSAGE);
+                VarSet(VAR_PC_BOX_TO_SEND_MON, boxNo);
+                return MON_GIVEN_TO_PC;
+            }
+        }
+
+        boxNo++;
+        if (boxNo == TOTAL_BOXES_COUNT)
+            boxNo = 0;
+    } while (boxNo != StorageGetCurrentBox());
+
     return MON_CANT_GIVE;
 }
 
@@ -3729,7 +3772,7 @@ static void CreateSecretBaseEnemyParty(struct SecretBaseRecord *secretBaseRecord
         }
     }
     gBattleTypeFlags = 8;
-    gTrainerBattleOpponent_A = SECRET_BASE_OPPONENT;
+    gTrainerBattleOpponent_A = 0x400;
 }
 
 u8 GetSecretBaseTrainerPicIndex(void)
@@ -3746,11 +3789,24 @@ u8 GetSecretBaseTrainerNameIndex(void)
 
 bool8 IsPlayerPartyAndPokemonStorageFull(void)
 {
+    s32 i;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
+            return FALSE;
+
     return IsPokemonStorageFull();
 }
 
 static bool8 IsPokemonStorageFull(void)
 {
+    s32 i, j;
+
+    for (i = 0; i < TOTAL_BOXES_COUNT; i++)
+        for (j = 0; j < IN_BOX_COUNT; j++)
+            if (GetBoxMonDataAt(i, j, MON_DATA_SPECIES) == SPECIES_NONE)
+                return FALSE;
+
     return TRUE;
 }
 
@@ -4209,6 +4265,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
 
                             if (targetSpecies != SPECIES_NONE)
                             {
+                                BeginEvolutionScene(mon, targetSpecies, 0, partyIndex);
                                 return FALSE;
                             }
                         }
@@ -4864,8 +4921,18 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
                 break;
             // FR/LG removed the time of day evolutions due to having no RTC.
             case EVO_FRIENDSHIP_DAY:
+                /*
+                RtcCalcLocalTime();
+                if (gLocalTime.hours >= 12 && gLocalTime.hours < 24 && friendship >= 220)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                *//*
                 break;
             case EVO_FRIENDSHIP_NIGHT:
+                /*
+                RtcCalcLocalTime();
+                if (gLocalTime.hours >= 0 && gLocalTime.hours < 12 && friendship >= 220)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                *//*
                 break;
             case EVO_LEVEL:
                 if (gEvolutionTable[species][i].param <= level)
@@ -4997,7 +5064,7 @@ static u16 NationalToHoennOrder(u16 nationalNum)
         return 0;
 
     return hoennNum + 1;
-}
+}*/
 
 u16 SpeciesToNationalPokedexNum(u16 species)
 {
@@ -5007,13 +5074,13 @@ u16 SpeciesToNationalPokedexNum(u16 species)
     return sSpeciesToNationalPokedexNum[species - 1];
 }
 
-static u16 SpeciesToHoennPokedexNum(u16 species)
+/*static u16 SpeciesToHoennPokedexNum(u16 species)
 {
     if (!species)
         return 0;
 
     return sSpeciesToHoennPokedexNum[species - 1];
-}
+}*/
 
 u16 HoennToNationalOrder(u16 hoennNum)
 {
@@ -5034,7 +5101,7 @@ u16 SpeciesToCryId(u16 species)
     return sHoennSpeciesIdToCryId[species - ((SPECIES_OLD_UNOWN_Z + 1) - 1)];
 }
 
-#define DRAW_SPINDA_SPOTS                                                       \
+/*#define DRAW_SPINDA_SPOTS                                                       \
 {                                                                               \
     int i;                                                                      \
     for (i = 0; i < 4; i++)                                                     \
@@ -5647,7 +5714,7 @@ const u32 *GetMonSpritePalFromSpeciesAndPersonality(u16 species, u32 otId, u32 p
         return gMonPaletteTable[0].data;
 
     shinyValue = HIHALF(otId) ^ LOHALF(otId) ^ HIHALF(personality) ^ LOHALF(personality);
-    if (shinyValue < SHINY_ODDS)
+    if (shinyValue < 8)
         return gMonShinyPaletteTable[species].data;
     else
         return gMonPaletteTable[species].data;
@@ -5666,7 +5733,7 @@ const struct CompressedSpritePalette *GetMonSpritePalStructFromOtIdPersonality(u
     u32 shinyValue;
 
     shinyValue = HIHALF(otId) ^ LOHALF(otId) ^ HIHALF(personality) ^ LOHALF(personality);
-    if (shinyValue < SHINY_ODDS)
+    if (shinyValue < 8)
         return &gMonShinyPaletteTable[species];
     else
         return &gMonPaletteTable[species];
@@ -5800,7 +5867,7 @@ static bool8 IsShinyOtIdPersonality(u32 otId, u32 personality)
 {
     bool8 retVal = FALSE;
     u32 shinyValue = HIHALF(otId) ^ LOHALF(otId) ^ HIHALF(personality) ^ LOHALF(personality);
-    if (shinyValue < SHINY_ODDS)
+    if (shinyValue < 8)
         retVal = TRUE;
     return retVal;
 }
@@ -6185,4 +6252,4 @@ void *OakSpeechNidoranFGetBuffer(u8 bufferId)
             bufferId = 0;
         return sOakSpeechNidoranResources->bufferPtrs[bufferId];
     }
-}
+}*/

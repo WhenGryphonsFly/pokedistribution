@@ -376,12 +376,12 @@ void ResetBgPositions(void)
     ChangeBgY(3, 0, 0);
 }
 
-void InitStandardTextBoxWindows(void)
+/*void InitStandardTextBoxWindows(void)
 {
     InitWindows(sStandardTextBox_WindowTemplates);
     sStartMenuWindowId = 0xFF;
     MapNamePopupWindowIdSetDummy();
-}
+}*/
 
 void FreeAllOverworldWindowBuffers(void)
 {
@@ -423,7 +423,7 @@ u16 AddTextPrinterParameterized2(u8 windowId, u8 fontId, const u8 *str, u8 speed
     return AddTextPrinter(&printer, speed, callback);
 }
 
-void AddTextPrinterDiffStyle(bool8 allowSkippingDelayWithButtonPress)
+/*void AddTextPrinterDiffStyle(bool8 allowSkippingDelayWithButtonPress)
 {
     u8 result;
     void *nptr = NULL;
@@ -436,7 +436,7 @@ void AddTextPrinterDiffStyle(bool8 allowSkippingDelayWithButtonPress)
         AddTextPrinterParameterized2(0, 5, gStringVar4, GetTextSpeedSetting(), nptr, 4, 1, 3);
     else
         AddTextPrinterParameterized2(0, 2, gStringVar4, GetTextSpeedSetting(), nptr, 2, 1, 3);
-}
+}*/
 
 void AddTextPrinterForMessage(bool8 allowSkippingDelayWithButtonPress)
 {
@@ -477,14 +477,14 @@ void DrawStdWindowFrame(u8 windowId, bool8 copyToVram)
         CopyWindowToVram(windowId, COPYWIN_BOTH);
 }
 
-void ClearDialogWindowAndFrame(u8 windowId, bool8 copyToVram)
+/*void ClearDialogWindowAndFrame(u8 windowId, bool8 copyToVram)
 {
     CallWindowFunction(windowId, WindowFunc_ClearDialogWindowAndFrame);
     FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
     ClearWindowTilemap(windowId);
     if (copyToVram == TRUE)
         CopyWindowToVram(windowId, COPYWIN_BOTH);
-}
+}*/
 
 void ClearStdWindowAndFrame(u8 windowId, bool8 copyToVram)
 {
@@ -626,12 +626,12 @@ static u16 GetStdPalColor(u8 colorNum)
     return gTMCaseMainWindowPalette[colorNum];
 }
 
-void DisplayItemMessageOnField(u8 taskId, u8 textSpeed, const u8 *string, TaskFunc callback)
+/*void DisplayItemMessageOnField(u8 taskId, u8 textSpeed, const u8 *string, TaskFunc callback)
 {
     LoadStdWindowFrameGfx();
     DisplayMessageAndContinueTask(taskId, 0, DLG_WINDOW_BASE_TILE_NUM, DLG_WINDOW_PALETTE_NUM, textSpeed, GetTextSpeedSetting(), string, callback);
     CopyWindowToVram(0, COPYWIN_BOTH);
-}
+}*/
 
 void DisplayYesNoMenuDefaultYes(void)
 {
@@ -686,7 +686,7 @@ u16 GetStdWindowBaseTileNum(void)
     return STD_WINDOW_BASE_TILE_NUM;
 }
 
-void DrawHelpMessageWindowWithText(const u8 * text)
+/*void DrawHelpMessageWindowWithText(const u8 * text)
 {
     sub_814FE6C(CreateHelpMessageWindow(), DLG_WINDOW_BASE_TILE_NUM, 0x10 * DLG_WINDOW_PALETTE_NUM);
     PrintTextOnHelpMessageWindow(text, 2);
@@ -695,7 +695,7 @@ void DrawHelpMessageWindowWithText(const u8 * text)
 void DestroyHelpMessageWindow_(void)
 {
     DestroyHelpMessageWindow(2);
-}
+}*/
 
 void LoadSignPostWindowFrameGfx(void)
 {

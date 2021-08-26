@@ -36,7 +36,7 @@
 
 #define FREE_IF_SET(ptr) ({ if (ptr) Free(ptr); })
 
-struct BagMenuAlloc
+/*struct BagMenuAlloc
 {
     MainCallback exitCB;
     u8 itemOriginalLocation;
@@ -60,7 +60,7 @@ struct BagSlots
     u16 cursorPos[3];
     u16 registeredItem;
     u16 pocket;
-};
+};*/
 
 EWRAM_DATA struct BagStruct gBagMenuState = {};
 static EWRAM_DATA struct BagMenuAlloc * sBagMenuDisplay = NULL;
@@ -159,7 +159,7 @@ static void Task_Bag_TeachyTvCatching(u8 taskId);
 static void Task_Bag_TeachyTvStatus(u8 taskId);
 static void Task_Bag_TeachyTvTMs(u8 taskId);
 
-static const struct BgTemplate sBgTemplates[2] = {
+/*static const struct BgTemplate sBgTemplates[2] = {
     {
         .bg = 0,
         .charBaseIndex = 0,
@@ -2170,4 +2170,4 @@ static void Task_Bag_TeachyTvStatus(u8 taskId)
 
 static void Task_Bag_TeachyTvTMs(u8 taskId)
 {
-}
+}*/

@@ -63,8 +63,8 @@ void ResetMenuAndMonGlobals(void)
     gDifferentSaveFile = FALSE;
     ZeroPlayerPartyMons();
     ZeroEnemyPartyMons();
-    ResetBagCursorPositions();
-    SeedWildEncounterRng(Random());
+    /*ResetBagCursorPositions();*/
+    /*SeedWildEncounterRng(Random());*/
     ResetSpecialVars();
 }
 

@@ -699,7 +699,7 @@ static u8 MultichoiceGrid_MoveCursorIfValid(s8 deltaX, s8 deltaY)
 }
 
 // not used
-static s8 sub_81105A0(void)
+/*static s8 sub_81105A0(void)
 {
     if (JOY_NEW(A_BUTTON))
     {
@@ -856,4 +856,4 @@ static s8 sub_81107A0(void)
         return MENU_NOTHING_CHOSEN;
     }
     return MENU_NOTHING_CHOSEN;
-}
+}*/

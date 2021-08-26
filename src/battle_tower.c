@@ -175,7 +175,7 @@ static const u16 sLongStreakPrizes[] = {
     ITEM_CHOICE_BAND
 };
 
-void BattleTowerMapScript2(void)
+/*void BattleTowerMapScript2(void)
 {
     u8 count = 0;
     s32 levelType;
@@ -1344,7 +1344,7 @@ void CopyEReaderTrainerName5(u8 *trainerName)
         trainerName[i] = gSaveBlock2Ptr->battleTower.ereaderTrainer.name[i];
 
     trainerName[i] = EOS;
-}
+}*/
 
 // Checks if the saved E-Reader trainer is valid.
 void ValidateEReaderTrainer(void)
@@ -1394,7 +1394,7 @@ void ClearEReaderTrainer(struct BattleTowerEReaderTrainer *ereaderTrainer)
         ((u32 *)ereaderTrainer)[i] = 0;
 }
 
-void BufferEReaderTrainerGreeting(void)
+/*void BufferEReaderTrainerGreeting(void)
 {
     BufferBattleTowerTrainerMessage(gSaveBlock2Ptr->battleTower.ereaderTrainer.greeting);
 }
@@ -1418,4 +1418,4 @@ void Dummy_TryEnableBravoTrainerBattleTower(void)
         if (gSaveBlock2Ptr->battleTower.var_4AE[i] == 1)
             TakeBravoTrainerBattleTowerOffTheAir();
     }
-}
+}*/

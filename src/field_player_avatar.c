@@ -29,7 +29,7 @@
 static EWRAM_DATA struct ObjectEvent * sPlayerObjectPtr = NULL;
 static EWRAM_DATA u8 sTeleportSavedFacingDirection = DIR_NONE;
 EWRAM_DATA struct ObjectEvent gObjectEvents[OBJECT_EVENTS_COUNT] = {};
-EWRAM_DATA struct PlayerAvatar gPlayerAvatar = {};
+/*EWRAM_DATA struct PlayerAvatar gPlayerAvatar = {};
 
 static u8 ObjectEventCB2_NoMovement2(struct ObjectEvent * object, struct Sprite * sprite);
 static bool8 TryUpdatePlayerSpinDirection(void);
@@ -2134,3 +2134,4 @@ static u8 TeleportAnim_RotatePlayer(struct ObjectEvent *object, s16 *a1)
 #undef tDeltaY
 #undef tRotationTimer
 #undef tState
+*/

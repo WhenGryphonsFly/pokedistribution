@@ -75,7 +75,7 @@ void SetSaveBlocksPointers(void)
     SetBagPocketsPointers();
 }
 
-void MoveSaveBlocks_ResetHeap(void)
+/*void MoveSaveBlocks_ResetHeap(void)
 {
     void *vblankCB, *hblankCB;
     u32 encryptionKey;
@@ -119,7 +119,7 @@ void MoveSaveBlocks_ResetHeap(void)
     encryptionKey = (Random() << 0x10) + (Random());
     ApplyNewEncryptionKeyToAllEncryptedData(encryptionKey);
     gSaveBlock2Ptr->encryptionKey = encryptionKey;
-}
+}*/
 
 u32 UseContinueGameWarp(void)
 {
@@ -136,11 +136,11 @@ void SetContinueGameWarpStatus(void)
     gSaveBlock2Ptr->specialSaveWarpFlags |= CONTINUE_GAME_WARP;
 }
 
-void SetContinueGameWarpStatusToDynamicWarp(void)
+/*void SetContinueGameWarpStatusToDynamicWarp(void)
 {
     SetContinueGameWarpToDynamicWarp(0);
     gSaveBlock2Ptr->specialSaveWarpFlags |= CONTINUE_GAME_WARP;
-}
+}*/
 
 void ClearContinueGameWarpStatus2(void)
 {
@@ -226,7 +226,7 @@ void LoadPlayerBag(void)
     gLastEncryptionKey = gSaveBlock2Ptr->encryptionKey;
 }
 
-void SavePlayerBag(void)
+/*void SavePlayerBag(void)
 {
     int i;
     u32 encryptionKeyBackup;
@@ -259,7 +259,7 @@ void SavePlayerBag(void)
     gSaveBlock2Ptr->encryptionKey = gLastEncryptionKey;
     ApplyNewEncryptionKeyToBagItems(encryptionKeyBackup);
     gSaveBlock2Ptr->encryptionKey = encryptionKeyBackup;
-}
+}*/
 
 void ApplyNewEncryptionKeyToHword(u16 *hWord, u32 newKey)
 {
@@ -273,7 +273,7 @@ void ApplyNewEncryptionKeyToWord(u32 *word, u32 newKey)
     *word ^= newKey;
 }
 
-void ApplyNewEncryptionKeyToAllEncryptedData(u32 encryptionKey)
+/*void ApplyNewEncryptionKeyToAllEncryptedData(u32 encryptionKey)
 {
     int i;
 
@@ -285,4 +285,4 @@ void ApplyNewEncryptionKeyToAllEncryptedData(u32 encryptionKey)
     ApplyNewEncryptionKeyToBerryPowder(encryptionKey);
     ApplyNewEncryptionKeyToWord(&gSaveBlock1Ptr->money, encryptionKey);
     ApplyNewEncryptionKeyToHword(&gSaveBlock1Ptr->coins, encryptionKey);
-}
+}*/

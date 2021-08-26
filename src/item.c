@@ -24,7 +24,7 @@ u16 GetBagItemQuantity(u16 * ptr)
     return gSaveBlock2Ptr->encryptionKey ^ *ptr;
 }
 
-void SetBagItemQuantity(u16 * ptr, u16 value)
+/*void SetBagItemQuantity(u16 * ptr, u16 value)
 {
     *ptr = value ^ gSaveBlock2Ptr->encryptionKey;
 }
@@ -55,7 +55,7 @@ void ApplyNewEncryptionKeyToBagItems(u32 key)
 void ApplyNewEncryptionKeyToBagItems_(u32 key)
 {
     ApplyNewEncryptionKeyToBagItems(key);
-}
+}*/
 
 void SetBagPocketsPointers(void)
 {
@@ -71,7 +71,7 @@ void SetBagPocketsPointers(void)
     gBagPockets[POCKET_BERRY_POUCH - 1].capacity = BAG_BERRIES_COUNT;
 }
 
-void CopyItemName(u16 itemId, u8 * dest)
+/*void CopyItemName(u16 itemId, u8 * dest)
 {
     if (itemId == ITEM_ENIGMA_BERRY)
     {
@@ -108,7 +108,7 @@ bool8 IsPocketNotEmpty(u8 pocketId)
     }
 
     return FALSE;
-}
+}*/
 
 bool8 CheckBagHasItem(u16 itemId, u16 count)
 {
@@ -140,7 +140,7 @@ bool8 CheckBagHasItem(u16 itemId, u16 count)
     return FALSE;
 }
 
-bool8 HasAtLeastOneBerry(void)
+/*bool8 HasAtLeastOneBerry(void)
 {
     u8 itemId;
     bool8 exists;
@@ -547,7 +547,7 @@ u16 BagGetQuantityByItemId(u16 itemId)
 
 void TrySetObtainedItemQuestLogEvent(u16 itemId)
 {
-}
+}*/
 
 u16 SanitizeItemId(u16 itemId)
 {
@@ -556,7 +556,7 @@ u16 SanitizeItemId(u16 itemId)
     return itemId;
 }
 
-const u8 * ItemId_GetName(u16 itemId)
+/*const u8 * ItemId_GetName(u16 itemId)
 {
     return gItems[SanitizeItemId(itemId)].name;
 }
@@ -594,14 +594,14 @@ bool8 itemid_is_unique(u16 itemId)
 u8 itemid_get_x19(u16 itemId)
 {
     return gItems[SanitizeItemId(itemId)].exitsBagOnUse;
-}
+}*/
 
 u8 ItemId_GetPocket(u16 itemId)
 {
     return gItems[SanitizeItemId(itemId)].pocket;
 }
 
-u8 ItemId_GetType(u16 itemId)
+/*u8 ItemId_GetType(u16 itemId)
 {
     return gItems[SanitizeItemId(itemId)].type;
 }
@@ -624,4 +624,4 @@ ItemUseFunc ItemId_GetBattleFunc(u16 itemId)
 u8 ItemId_GetSecondaryId(u16 itemId)
 {
     return gItems[SanitizeItemId(itemId)].secondaryId;
-}
+}*/

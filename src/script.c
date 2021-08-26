@@ -287,11 +287,11 @@ bool8 IsMsgSignPost(void)
         return FALSE;
 }
 
-void ResetFacingNpcOrSignPostVars(void)
+/*void ResetFacingNpcOrSignPostVars(void)
 {
     ResetContextNpcTextColor();
     MsgSetNotSignPost();
-}
+}*/
 
 bool8 ScriptContext1_IsScriptSetUp(void)
 {
@@ -301,11 +301,11 @@ bool8 ScriptContext1_IsScriptSetUp(void)
         return FALSE;
 }
 
-void ScriptContext1_Init(void)
+/*void ScriptContext1_Init(void)
 {
     InitScriptContext(&sScriptContext1, gScriptCmdTable, gScriptCmdTableEnd);
     sScriptContext1Status = 2;
-}
+}*/
 
 bool8 ScriptContext2_RunScript(void)
 {
@@ -327,7 +327,7 @@ bool8 ScriptContext2_RunScript(void)
     return 1;
 }
 
-void ScriptContext1_SetupScript(const u8 *ptr)
+/*void ScriptContext1_SetupScript(const u8 *ptr)
 {
     ClearMsgBoxCancelableState();
     EnableMsgBoxWalkaway();
@@ -336,7 +336,7 @@ void ScriptContext1_SetupScript(const u8 *ptr)
     SetupBytecodeScript(&sScriptContext1, ptr);
     ScriptContext2_Enable();
     sScriptContext1Status = 0;
-}
+}*/
 
 void ScriptContext1_Stop(void)
 {
@@ -351,12 +351,12 @@ void EnableBothScriptContexts(void)
 
 void ScriptContext2_RunNewScript(const u8 *ptr)
 {
-    InitScriptContext(&sScriptContext2, &gScriptCmdTable, &gScriptCmdTableEnd);
+    /*InitScriptContext(&sScriptContext2, &gScriptCmdTable, &gScriptCmdTableEnd);
     SetupBytecodeScript(&sScriptContext2, ptr);
-    while (RunScriptCommand(&sScriptContext2) == TRUE);
+    while (RunScriptCommand(&sScriptContext2) == TRUE);*/
 }
 
-u8 *mapheader_get_tagged_pointer(u8 tag)
+/*u8 *mapheader_get_tagged_pointer(u8 tag)
 {
     const u8 *mapScripts = gMapHeader.mapScripts;
 
@@ -449,7 +449,7 @@ void TryRunOnWarpIntoMapScript(void)
     u8 *ptr = mapheader_get_first_match_from_tagged_ptr_list(4);
     if (ptr)
         ScriptContext2_RunNewScript(ptr);
-}
+}*/
 
 u32 CalculateRamScriptChecksum(void)
 {

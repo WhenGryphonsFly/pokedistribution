@@ -191,7 +191,7 @@ bool8 MEScrCmd_giveribbon(struct ScriptContext *ctx)
 {
     u8 index = ScriptReadByte(ctx);
     u8 ribbonId = ScriptReadByte(ctx);
-    GiveGiftRibbonToParty(index, ribbonId);
+    /*GiveGiftRibbonToParty(index, ribbonId);*/
     StringExpandPlaceholders(gStringVar4, gText_MysteryGiftSpecialRibbon);
     ctx->data[2] = 2;
     return FALSE;
@@ -218,7 +218,7 @@ bool8 MEScrCmd_givenationaldex(struct ScriptContext *ctx)
 
 bool8 MEScrCmd_addrareword(struct ScriptContext *ctx)
 {
-    EnableRareWord(ScriptReadByte(ctx));
+    /*EnableRareWord(ScriptReadByte(ctx));*/
     StringExpandPlaceholders(gStringVar4, gText_MysteryGiftRareWord);
     ctx->data[2] = 2;
     return FALSE;
@@ -231,7 +231,7 @@ bool8 MEScrCmd_setrecordmixinggift(struct ScriptContext *ctx)
     return TRUE;
 }
 
-s16 CompactPartySlots(void)
+/*s16 CompactPartySlots(void)
 {
     s16 retVal = -1;
     u16 i, last;
@@ -254,7 +254,7 @@ s16 CompactPartySlots(void)
         ZeroMonData(gPlayerParty + last);
 
     return retVal;
-}
+}*/
 
 bool8 MEScrCmd_givepokemon(struct ScriptContext *ctx)
 {
@@ -263,7 +263,7 @@ bool8 MEScrCmd_givepokemon(struct ScriptContext *ctx)
     u16 species;
     u16 heldItem;
     u32 data = ScriptReadWord(ctx) - ctx->data[1] + ctx->data[0];
-    void *pokemonPtr = (void *)data;
+    /*void *pokemonPtr = (void *)data;
     void *mailPtr = (void *)(data + sizeof(struct Pokemon));
 
     pokemon = *(struct Pokemon *)pokemonPtr;
@@ -298,7 +298,7 @@ bool8 MEScrCmd_givepokemon(struct ScriptContext *ctx)
         CalculatePlayerPartyCount();
         StringExpandPlaceholders(gStringVar4, gText_MysteryGiftSentOver);
         ctx->data[2] = 2;
-    }
+    }*/
 
     return FALSE;
 }

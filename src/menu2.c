@@ -629,7 +629,7 @@ static void Task_SmoothBlendLayers(u8 taskId)
     }
 }
 
-u8 Menu2_GetMonSpriteAnchorCoord(u16 species, u32 personality, u8 a2)
+/*u8 Menu2_GetMonSpriteAnchorCoord(u16 species, u32 personality, u8 a2)
 {
     if (species == SPECIES_UNOWN)
     {
@@ -661,4 +661,4 @@ u8 Menu2_GetMonSpriteAnchorCoord(u16 species, u32 personality, u8 a2)
 s8 Menu2_GetMonSpriteAnchorCoordMinusx20(u16 species, u32 personality, u8 a2)
 {
     return Menu2_GetMonSpriteAnchorCoord(species, personality, a2) - 32;
-}
+}*/

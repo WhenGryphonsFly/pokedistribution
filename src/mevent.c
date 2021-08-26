@@ -479,7 +479,7 @@ void InitMEventData(void)
 {
     CpuFill32(0, &gSaveBlock1Ptr->mysteryEventBuffers, sizeof(gSaveBlock1Ptr->mysteryEventBuffers));
     BlankMENewsJisan();
-    EC_ResetMEventProfileMaybe();
+    /*EC_ResetMEventProfileMaybe();*/
 }
 
 struct MEWonderNewsData * GetSavedWonderNews(void)
