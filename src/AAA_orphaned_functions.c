@@ -1,95 +1,44 @@
 //[[!!!]]
-// decoration.c
-#include "global.h"
-#include "decoration.h"
-#include "constants/decorations.h"
-#include "data/decoration/tiles.h"
-#include "data/decoration/description.h"
-#include "data/decoration/header.h"
 
 // battle_records.h
+#include "global.h"
 #include "battle_records.h"
 void TryRecordLinkBattleOutcome(s32 battlerId){}
 
-// specials
-void BackupHelpContext(void){}
-void CallTrainerTowerFunc(void){}
-void ChooseMonForWirelessMinigame(void){}
-void ChooseSendDaycareMon(void){}
-void CompareHeracrossSize(void){}
-void CompareMagikarpSize(void){}
-void CountPartyAliveNonEggMons_IgnoreVar0x8004Slot(void){}
-void CountPartyNonEggMons(void){}
-void CreateInGameTradePokemon(void){}
-void DaycareMonReceivedMail(void){}
-void DoCredits(void){}
-void DoInGameTradeScene(void){}
-void DoPokemonLeagueLightingEffect(void){}
-void DoSeagallopFerryScene(void){}
-void DoSSAnneDepartureCutscene(void){}
-void DoWateringBerryTreeAnim(void){}
-void DrawElevatorCurrentFloorWindow(void){}
-void EggHatch(void){}
-void EnterHallOfFame(void){}
-void GetCostToWithdrawRoute5DaycareMon(void){}
-void GetDaycareCost(void){}
-void GetDaycareMonNicknames(void){}
-void GetDaycarePokemonCount(void){}
-void GetDaycareState(void){}
-void GetElevatorFloor(void){}
-void GetHeracrossSizeRecordInfo(void){}
-void GetInGameTradeSpeciesInfo(void){}
-void GetMagikarpSizeRecordInfo(void){}
-void GetNumLevelsGainedForRoute5DaycareMon(void){}
-void GetNumLevelsGainedFromDaycare(void){}
-void GetQuestLogState(void){}
-void GetSeagallopNumber(void){}
-void GetSelectedMonNicknameAndSpecies(void){}
-void GetTradeSpecies(void){}
-void GiveEggFromDaycare(void){}
-void HallOfFamePCBeginFade(void){}
-void HelpSystem_Disable(void){}
-void HelpSystem_Enable(void){}
-void InitElevatorFloorSelectMenuPos(void){}
-void InitRoamer(void){}
-void IsDodrioInParty(void){}
-void IsPlayerLeftOfVermilionSailor(void){}
-void IsPlayerNotInTrainerTowerLobby(void){}
-void IsPokemonJumpSpeciesInParty(void){}
-void IsThereMonInRoute5Daycare(void){}
-void IsTrainerReadyForRematch(void){}
-void LookThroughPorthole(void){}
-void PutMonInRoute5Daycare(void){}
-void QuestLog_CutRecording(void){}
-void QuestLog_StartRecordingInputsAfterDeferredEvent(void){}
-void RejectEggFromDayCare(void){}
-void RestoreHelpContext(void){}
-void ScriptHatchMon(void){}
-void Script_SetHelpContext(void){}
-void SeafoamIslandsB4F_CurrentDumpsPlayerOnLand(void){}
-void SetCB2WhiteOut(void){}
-void SetDaycareCompatibilityString(void){}
-void SetFlavorTextFlagFromSpecialVars(void){}
-void SetHelpContextForMap(void){}
-void SetUsedPkmnCenterQuestLogEvent(void){}
-void ShouldTryRematchBattle(void){}
-void ShowBattleRecords(void){}
-void ShowBerryCrushRankings(void){}
-void ShowDaycareLevelMenu(void){}
-void ShowDiploma(void){}
-void ShowDodrioBerryPickingRecords(void){}
-void ShowPokemonJumpRecords(void){}
-void ShowPokemonStorageSystemPC(void){}
-void StoreSelectedPokemonInDaycare(void){}
-void TakePokemonFromDaycare(void){}
-void TakePokemonFromRoute5Daycare(void){}
-void UpdatePickStateFromSpecialVar8005(void){}
-void VsSeekerFreezeObjectsAfterChargeComplete(void){}
-void VsSeekerResetObjectMovementAfterChargeComplete(void){}
-void BedroomPC(void){}
-void PlayerPC(void){}
-void GetPokedexCount(void){}
-void GetProfOaksRatingMessage(void){}
-void EnterSafariMode(void){}
-void ExitSafariMode(void){}
+// scrcmd.c
+#include "gba/gba.h"
+#include <string.h>
+#include "constants/global.h"
+#include "constants/flags.h"
+#include "constants/vars.h"
+#include "constants/species.h"
+void *const gNullScriptPtr = NULL;
 
+// new_game.c / mevent.c
+#include "new_game.h"
+void CopyTrainerId(u8 *dst, u8 *src)
+{
+    s32 i;
+    for (i = 0; i < 4; i++)
+        dst[i] = src[i];
+}
+
+// item_menu.c
+#include "item_menu.h"
+#include "constants/items.h"
+EWRAM_DATA u16 gSpecialVar_ItemId = ITEM_NONE;
+
+// random.c
+#include "global.h"
+u32 gRngValue;
+
+u16 Random(void)
+{
+    gRngValue = 1103515245 * gRngValue + 24691;
+    return gRngValue >> 16;
+}
+
+void SeedRng(u16 seed)
+{
+    gRngValue = seed;
+}

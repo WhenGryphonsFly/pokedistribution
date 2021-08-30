@@ -558,53 +558,6 @@ static bool8 RfuUnusedQueue_Enqueue(struct RfuUnusedQueue *queue, u8 *dest)
     return TRUE;
 }
 
-UNUSED
-static void sub_80FC9B8(u8 *q1, u8 mode)
-{
-    s32 i;
-    u8 rval;
-    u16 r5 = 0;
-    static u8 counter;
-
-    switch (mode)
-    {
-        case 0:
-            for (i = 0; i < 200; i++)
-            {
-                q1[i] = i + 1;
-                r5 += i + 1;
-            }
-            *((u16 *)(q1 + i)) = r5;
-            break;
-        case 1:
-            for (i = 0; i < 100; i++)
-            {
-                q1[i] = i + 1;
-                r5 += i + 1;
-            }
-            *((u16 *)(q1 + 200)) = r5;
-            break;
-        case 2:
-            for (i = 0; i < 200; i++)
-            {
-                rval = Random();
-                q1[i] = rval;
-                r5 += rval;
-            }
-            *((u16 *)(q1 + i)) = r5;
-            break;
-        case 3:
-            for (i = 0; i < 200; i++)
-            {
-                q1[i] = i + 1 + counter;
-                r5 += (i + 1 + counter) & 0xFF;
-            }
-            *((u16 *)(q1 + i)) = r5;
-            counter++;
-            break;
-    }
-}
-
 static void PkmnStrToASCII(u8 *dest, const u8 *src)
 {
     s32 i;

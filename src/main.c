@@ -191,7 +191,6 @@ void AgbMain()
             }
         }
 
-        PlayTimeCounter_Update();
         MapMusicMain();
         WaitForVBlank();
     }
@@ -379,7 +378,6 @@ static void VBlankIntr(void)
     sVcountAfterSound = REG_VCOUNT;
 #endif
 
-    TryReceiveLinkBattleData();
     Random();
     UpdateWirelessStatusIndicatorSprite();
 

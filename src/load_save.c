@@ -72,53 +72,7 @@ void SetSaveBlocksPointers(void)
     *sav1_LocalVar = (void*)(&gSaveBlock1) + offset;
     gPokemonStoragePtr = (void*)(&gPokemonStorage) + offset;
 
-    SetBagPocketsPointers();
-}
-
-void MoveSaveBlocks_ResetHeap(void)
-{
-    void *vblankCB, *hblankCB;
-    u32 encryptionKey;
-    struct SaveBlock2 *saveBlock2Copy;
-    struct SaveBlock1 *saveBlock1Copy;
-    struct PokemonStorage *pokemonStorageCopy;
-
-    // save interrupt functions and turn them off
-    vblankCB = gMain.vblankCallback;
-    hblankCB = gMain.hblankCallback;
-    gMain.vblankCallback = NULL;
-    gMain.hblankCallback = NULL;
-    gMain.vblankCounter1 = NULL;
-    
-    saveBlock2Copy = (struct SaveBlock2 *)(gHeap);
-    saveBlock1Copy = (struct SaveBlock1 *)(gHeap + sizeof(struct SaveBlock2));
-    pokemonStorageCopy = (struct PokemonStorage *)(gHeap + sizeof(struct SaveBlock2) + sizeof(struct SaveBlock1));
-
-    // backup the saves.
-    *saveBlock2Copy = *gSaveBlock2Ptr;
-    *saveBlock1Copy = *gSaveBlock1Ptr;
-    *pokemonStorageCopy = *gPokemonStoragePtr;
-
-    // change saveblocks' pointers
-    SetSaveBlocksPointers(); // unlike Emerald, this does not use
-                             // the trainer ID sum for an offset.
-
-    // restore saveblock data since the pointers changed
-    *gSaveBlock2Ptr = *saveBlock2Copy;
-    *gSaveBlock1Ptr = *saveBlock1Copy;
-    *gPokemonStoragePtr = *pokemonStorageCopy;
-
-    // heap was destroyed in the copying process, so reset it
-    InitHeap(gHeap, HEAP_SIZE);
-
-    // restore interrupt functions
-    gMain.hblankCallback = hblankCB;
-    gMain.vblankCallback = vblankCB;
-
-    // create a new encryption key
-    encryptionKey = (Random() << 0x10) + (Random());
-    ApplyNewEncryptionKeyToAllEncryptedData(encryptionKey);
-    gSaveBlock2Ptr->encryptionKey = encryptionKey;
+    /*SetBagPocketsPointers();*/
 }
 
 u32 UseContinueGameWarp(void)
@@ -133,12 +87,6 @@ void ClearContinueGameWarpStatus(void)
 
 void SetContinueGameWarpStatus(void)
 {
-    gSaveBlock2Ptr->specialSaveWarpFlags |= CONTINUE_GAME_WARP;
-}
-
-void SetContinueGameWarpStatusToDynamicWarp(void)
-{
-    SetContinueGameWarpToDynamicWarp(0);
     gSaveBlock2Ptr->specialSaveWarpFlags |= CONTINUE_GAME_WARP;
 }
 
@@ -226,41 +174,6 @@ void LoadPlayerBag(void)
     gLastEncryptionKey = gSaveBlock2Ptr->encryptionKey;
 }
 
-void SavePlayerBag(void)
-{
-    int i;
-    u32 encryptionKeyBackup;
-
-    // save player items.
-    for (i = 0; i < BAG_ITEMS_COUNT; i++)
-        gSaveBlock1Ptr->bagPocket_Items[i] = gLoadedSaveData.items[i];
-
-    // save player key items.
-    for (i = 0; i < BAG_KEYITEMS_COUNT; i++)
-        gSaveBlock1Ptr->bagPocket_KeyItems[i] = gLoadedSaveData.keyItems[i];
-
-    // save player pokeballs.
-    for (i = 0; i < BAG_POKEBALLS_COUNT; i++)
-        gSaveBlock1Ptr->bagPocket_PokeBalls[i] = gLoadedSaveData.pokeBalls[i];
-
-    // save player TMs and HMs.
-    for (i = 0; i < BAG_TMHM_COUNT; i++)
-        gSaveBlock1Ptr->bagPocket_TMHM[i] = gLoadedSaveData.TMsHMs[i];
-
-    // save player berries.
-    for (i = 0; i < BAG_BERRIES_COUNT; i++)
-        gSaveBlock1Ptr->bagPocket_Berries[i] = gLoadedSaveData.berries[i];
-
-    // save mail.
-    for (i = 0; i < MAIL_COUNT; i++)
-        gSaveBlock1Ptr->mail[i] = gLoadedSaveData.mail[i];
-
-    encryptionKeyBackup = gSaveBlock2Ptr->encryptionKey;
-    gSaveBlock2Ptr->encryptionKey = gLastEncryptionKey;
-    ApplyNewEncryptionKeyToBagItems(encryptionKeyBackup);
-    gSaveBlock2Ptr->encryptionKey = encryptionKeyBackup;
-}
-
 void ApplyNewEncryptionKeyToHword(u16 *hWord, u32 newKey)
 {
     *hWord ^= gSaveBlock2Ptr->encryptionKey;
@@ -273,16 +186,3 @@ void ApplyNewEncryptionKeyToWord(u32 *word, u32 newKey)
     *word ^= newKey;
 }
 
-void ApplyNewEncryptionKeyToAllEncryptedData(u32 encryptionKey)
-{
-    int i;
-
-    for(i = 0; i < NUM_TOWER_CHALLENGE_TYPES; i++)
-        ApplyNewEncryptionKeyToWord(&gSaveBlock1Ptr->trainerTower[i].bestTime, encryptionKey);
-
-    ApplyNewEncryptionKeyToGameStats(encryptionKey);
-    ApplyNewEncryptionKeyToBagItems_(encryptionKey);
-    ApplyNewEncryptionKeyToBerryPowder(encryptionKey);
-    ApplyNewEncryptionKeyToWord(&gSaveBlock1Ptr->money, encryptionKey);
-    ApplyNewEncryptionKeyToHword(&gSaveBlock1Ptr->coins, encryptionKey);
-}

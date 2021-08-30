@@ -1,4 +1,4 @@
-	.align 2
+/*	.align 2
 
 gScriptCmdTable:: @ 815F9B4
 	.4byte ScrCmd_nop
@@ -216,4 +216,4 @@ gScriptCmdTable:: @ 815F9B4
 	.4byte ScrCmd_bufferitemnameplural
 
 gScriptCmdTableEnd:: @ 815FD08
-	.4byte ScrCmd_nop
+	.4byte ScrCmd_nop*/

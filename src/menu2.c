@@ -629,36 +629,3 @@ static void Task_SmoothBlendLayers(u8 taskId)
     }
 }
 
-u8 Menu2_GetMonSpriteAnchorCoord(u16 species, u32 personality, u8 a2)
-{
-    if (species == SPECIES_UNOWN)
-    {
-        u8 unownLetter = GetUnownLetterByPersonalityLoByte(personality);
-        switch (unownLetter)
-        {
-        case 0:
-            break;
-        case 26:
-            species = SPECIES_OLD_UNOWN_EMARK;
-            break;
-        case 27:
-            species = SPECIES_OLD_UNOWN_QMARK;
-            break;
-        default:
-            species = SPECIES_OLD_UNOWN_B + unownLetter - 1;
-            break;
-        }
-    }
-    if (species != SPECIES_NONE && a2 < 5)
-    {
-        species--;
-        if (sMonSpriteAnchorCoords[species][a2] != 0xFF)
-            return sMonSpriteAnchorCoords[species][a2];
-    }
-    return 32;
-}
-
-s8 Menu2_GetMonSpriteAnchorCoordMinusx20(u16 species, u32 personality, u8 a2)
-{
-    return Menu2_GetMonSpriteAnchorCoord(species, personality, a2) - 32;
-}
