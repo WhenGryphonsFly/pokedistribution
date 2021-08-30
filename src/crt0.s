@@ -70,7 +70,7 @@ CartIdent:
 	.4byte  gMonIconPaletteTable
 	@.4byte  gSpeciesNames
 	@.4byte  gMoveNames
-	.4byte  gDecorations
+	@.4byte  gDecorations
 	.4byte      0xEE0 @ offsetof(struct SaveBlock1, flags)
 	.4byte     0x1000 @ offsetof(struct SaveBlock1, vars)
 	.4byte       0x18 @ offsetof(struct SaveBlock2, pokedex)
@@ -102,7 +102,7 @@ CartIdent:
 	.4byte  gBaseStats
 	@.4byte  gAbilityNames
 	@.4byte  gAbilityDescriptionPointers
-	.4byte  gItems
+	@.4byte  gItems
 	.4byte  gBattleMoves
 	@.4byte  gBallSpriteSheets
 	@.4byte  gBallSpritePalettes

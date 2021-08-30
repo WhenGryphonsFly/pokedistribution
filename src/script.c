@@ -287,12 +287,6 @@ bool8 IsMsgSignPost(void)
         return FALSE;
 }
 
-/*void ResetFacingNpcOrSignPostVars(void)
-{
-    ResetContextNpcTextColor();
-    MsgSetNotSignPost();
-}*/
-
 bool8 ScriptContext1_IsScriptSetUp(void)
 {
     if (sScriptContext1Status == 0)
@@ -300,12 +294,6 @@ bool8 ScriptContext1_IsScriptSetUp(void)
     else
         return FALSE;
 }
-
-/*void ScriptContext1_Init(void)
-{
-    InitScriptContext(&sScriptContext1, gScriptCmdTable, gScriptCmdTableEnd);
-    sScriptContext1Status = 2;
-}*/
 
 bool8 ScriptContext2_RunScript(void)
 {
@@ -327,17 +315,6 @@ bool8 ScriptContext2_RunScript(void)
     return 1;
 }
 
-/*void ScriptContext1_SetupScript(const u8 *ptr)
-{
-    ClearMsgBoxCancelableState();
-    EnableMsgBoxWalkaway();
-    ClearQuestLogInputIsDpadFlag();
-    InitScriptContext(&sScriptContext1, gScriptCmdTable, gScriptCmdTableEnd);
-    SetupBytecodeScript(&sScriptContext1, ptr);
-    ScriptContext2_Enable();
-    sScriptContext1Status = 0;
-}*/
-
 void ScriptContext1_Stop(void)
 {
     sScriptContext1Status = 1;
@@ -351,105 +328,7 @@ void EnableBothScriptContexts(void)
 
 void ScriptContext2_RunNewScript(const u8 *ptr)
 {
-    /*InitScriptContext(&sScriptContext2, &gScriptCmdTable, &gScriptCmdTableEnd);
-    SetupBytecodeScript(&sScriptContext2, ptr);
-    while (RunScriptCommand(&sScriptContext2) == TRUE);*/
 }
-
-/*u8 *mapheader_get_tagged_pointer(u8 tag)
-{
-    const u8 *mapScripts = gMapHeader.mapScripts;
-
-    if (mapScripts == NULL)
-        return NULL;
-
-    while (1)
-    {
-        if (*mapScripts == 0)
-            return NULL;
-        if (*mapScripts == tag)
-        {
-            mapScripts++;
-            return T2_READ_PTR(mapScripts);
-        }
-        mapScripts += 5;
-    }
-}
-
-void mapheader_run_script_by_tag(u8 tag)
-{
-    u8 *ptr = mapheader_get_tagged_pointer(tag);
-    if (ptr != NULL)
-        ScriptContext2_RunNewScript(ptr);
-}
-
-u8 *mapheader_get_first_match_from_tagged_ptr_list(u8 tag)
-{
-    u8 *ptr = mapheader_get_tagged_pointer(tag);
-
-    if (ptr == NULL)
-        return NULL;
-
-    while (1)
-    {
-        u16 varIndex1;
-        u16 varIndex2;
-        varIndex1 = ptr[0] | (ptr[1] << 8);
-        if (!varIndex1)
-            return NULL;
-        ptr += 2;
-        varIndex2 = ptr[0] | (ptr[1] << 8);
-        ptr += 2;
-        if (VarGet(varIndex1) == VarGet(varIndex2))
-            return (u8 *)(ptr[0] + (ptr[1] << 8) + (ptr[2] << 16) + (ptr[3] << 24));
-        ptr += 4;
-    }
-}
-
-void RunOnLoadMapScript(void)
-{
-    mapheader_run_script_by_tag(1);
-}
-
-void RunOnTransitionMapScript(void)
-{
-    mapheader_run_script_by_tag(3);
-}
-
-void RunOnResumeMapScript(void)
-{
-    mapheader_run_script_by_tag(5);
-}
-
-void RunOnReturnToFieldMapScript(void)
-{
-    mapheader_run_script_by_tag(7);
-}
-
-void RunOnDiveWarpMapScript(void)
-{
-    mapheader_run_script_by_tag(6);
-}
-
-bool8 TryRunOnFrameMapScript(void)
-{
-    u8 *ptr;
-
-    ptr = mapheader_get_first_match_from_tagged_ptr_list(2);
-
-    if (!ptr)
-        return 0;
-
-    ScriptContext1_SetupScript(ptr);
-    return 1;
-}
-
-void TryRunOnWarpIntoMapScript(void)
-{
-    u8 *ptr = mapheader_get_first_match_from_tagged_ptr_list(4);
-    if (ptr)
-        ScriptContext2_RunNewScript(ptr);
-}*/
 
 u32 CalculateRamScriptChecksum(void)
 {

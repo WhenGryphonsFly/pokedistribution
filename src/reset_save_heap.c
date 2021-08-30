@@ -5,6 +5,7 @@
 #include "save.h"
 #include "new_game.h"
 #include "overworld.h"
+#include "main_menu.h"
 
 void ResetSaveHeap(void)
 {
@@ -16,12 +17,9 @@ void ResetSaveHeap(void)
     REG_IME = imeBackup;
     gMain.inBattle = FALSE;
     SetSaveBlocksPointers();
-    ResetMenuAndMonGlobals();
     Save_ResetSaveCounters();
     Save_LoadGameData(SAVE_NORMAL);
-    if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_INVALID)
-        Sav2_ClearSetDefault();
     SetPokemonCryStereo(gSaveBlock2Ptr->optionsSound);
     InitHeap(gHeap, HEAP_SIZE);
-    SetMainCallback2(CB2_ContinueSavedGame);
+    SetMainCallback2(CB2_InitMainMenu);
 }

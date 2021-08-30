@@ -25,9 +25,9 @@ void SaveStatToString(u8 gameStatId, u8 *dest0, u8 color)
         break;
     case SAVE_STAT_POKEDEX:
         if (IsNationalPokedexEnabled())
-            dest = ConvertIntToDecimalStringN(dest, GetNationalPokedexCount(1), STR_CONV_MODE_LEFT_ALIGN, 3);
+            dest = ConvertIntToDecimalStringN(dest, 0, STR_CONV_MODE_LEFT_ALIGN, 3);
         else
-            dest = ConvertIntToDecimalStringN(dest, GetKantoPokedexCount(1), STR_CONV_MODE_LEFT_ALIGN, 3);
+            dest = ConvertIntToDecimalStringN(dest, 0, STR_CONV_MODE_LEFT_ALIGN, 3);
         break;
     case SAVE_STAT_TIME:
         dest = ConvertIntToDecimalStringN(dest, gSaveBlock2Ptr->playTimeHours, STR_CONV_MODE_LEFT_ALIGN, 3);
@@ -40,7 +40,6 @@ void SaveStatToString(u8 gameStatId, u8 *dest0, u8 color)
         dest = ConvertIntToDecimalStringN(dest, gSaveBlock2Ptr->playTimeMinutes, STR_CONV_MODE_LEADING_ZEROS, 2);
         break;
     case SAVE_STAT_LOCATION:
-        //GetMapNameGeneric(dest, gMapHeader.regionMapSectionId);
         break;
     case SAVE_STAT_BADGES:
         for (flagId = FLAG_BADGE01_GET, nBadges = 0; flagId < FLAG_BADGE01_GET + 8; flagId++)

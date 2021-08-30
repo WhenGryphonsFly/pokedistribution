@@ -162,11 +162,11 @@ void CB2_InitMainMenu(void)
 {
 	SeedRngAndSetTrainerId();
     SetSaveBlocksPointers();
-    ResetMenuAndMonGlobals();
+    /*ResetMenuAndMonGlobals();**/
     Save_ResetSaveCounters();
     Save_LoadGameData(SAVE_NORMAL);
-    if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_INVALID)
-        Sav2_ClearSetDefault();
+    /*if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_INVALID)
+        Sav2_ClearSetDefault();*/
     SetPokemonCryStereo(gSaveBlock2Ptr->optionsSound);
     InitHeap(gHeap, HEAP_SIZE);
     MainMenuGpuInit(1);
@@ -476,19 +476,6 @@ static void Task_ExecuteMainMenuSelection(u8 taskId)
         switch (menuAction)
         {
         default:
-        /*case MAIN_MENU_NEWGAME:
-            gUnknown_2031DE0 = 0;
-            FreeAllWindowBuffers();
-            DestroyTask(taskId);
-            StartNewGameScene();
-            break;
-        case MAIN_MENU_CONTINUE:
-            gPlttBufferUnfaded[0] = RGB_BLACK;
-            gPlttBufferFaded[0] = RGB_BLACK;
-            gUnknown_2031DE0 = 0;
-            FreeAllWindowBuffers();
-            TrySetUpQuestLogScenes_ElseContinueFromSave(taskId);
-            break;*/
 		case MAIN_MENU_NEWGAME:
 		case MAIN_MENU_CONTINUE:
         case MAIN_MENU_MYSTERYGIFT:
@@ -658,10 +645,7 @@ static void PrintDexCount(void)
     u16 dexcount;
     if (FlagGet(FLAG_SYS_POKEDEX_GET) == TRUE)
     {
-        if (IsNationalPokedexEnabled())
-            dexcount = GetNationalPokedexCount(FLAG_GET_CAUGHT);
-        else
-            dexcount = GetKantoPokedexCount(FLAG_GET_CAUGHT);
+		dexcount = 0;
         AddTextPrinterParameterized3(MAIN_MENU_WINDOW_CONTINUE, 2, 2, 50, sTextColor2, -1, gText_Pokedex);
         ptr = ConvertIntToDecimalStringN(strbuf, dexcount, STR_CONV_MODE_LEFT_ALIGN, 3);
         StringAppend(ptr, gTextJPDummy_Hiki);
