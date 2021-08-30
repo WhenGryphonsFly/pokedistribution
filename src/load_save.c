@@ -55,11 +55,6 @@ void CheckForFlashMemory(void)
     }
 }
 
-void ClearSav2(void)
-{
-    CpuFill16(0, &gSaveBlock2, sizeof(struct SaveBlock2) + sizeof(gSaveBlock2_DMA));
-}
-
 void SetSaveBlocksPointers(void)
 {
     u32 offset;
@@ -71,28 +66,6 @@ void SetSaveBlocksPointers(void)
     gSaveBlock2Ptr = (void*)(&gSaveBlock2) + offset;
     *sav1_LocalVar = (void*)(&gSaveBlock1) + offset;
     gPokemonStoragePtr = (void*)(&gPokemonStorage) + offset;
-
-    /*SetBagPocketsPointers();*/
-}
-
-u32 UseContinueGameWarp(void)
-{
-    return gSaveBlock2Ptr->specialSaveWarpFlags & CONTINUE_GAME_WARP;
-}
-
-void ClearContinueGameWarpStatus(void)
-{
-    gSaveBlock2Ptr->specialSaveWarpFlags &= ~CONTINUE_GAME_WARP;
-}
-
-void SetContinueGameWarpStatus(void)
-{
-    gSaveBlock2Ptr->specialSaveWarpFlags |= CONTINUE_GAME_WARP;
-}
-
-void ClearContinueGameWarpStatus2(void)
-{
-    gSaveBlock2Ptr->specialSaveWarpFlags &= ~CONTINUE_GAME_WARP;
 }
 
 void SavePlayerParty(void)
@@ -141,48 +114,5 @@ void LoadSerializedGame(void)
 {
     LoadPlayerParty();
     LoadObjectEvents();
-}
-
-void LoadPlayerBag(void)
-{
-    int i;
-
-    // load player items.
-    for (i = 0; i < BAG_ITEMS_COUNT; i++)
-        gLoadedSaveData.items[i] = gSaveBlock1Ptr->bagPocket_Items[i];
-
-    // load player key items.
-    for (i = 0; i < BAG_KEYITEMS_COUNT; i++)
-        gLoadedSaveData.keyItems[i] = gSaveBlock1Ptr->bagPocket_KeyItems[i];
-
-    // load player pokeballs.
-    for (i = 0; i < BAG_POKEBALLS_COUNT; i++)
-        gLoadedSaveData.pokeBalls[i] = gSaveBlock1Ptr->bagPocket_PokeBalls[i];
-
-    // load player TMs and HMs.
-    for (i = 0; i < BAG_TMHM_COUNT; i++)
-        gLoadedSaveData.TMsHMs[i] = gSaveBlock1Ptr->bagPocket_TMHM[i];
-
-    // load player berries.
-    for (i = 0; i < BAG_BERRIES_COUNT; i++)
-        gLoadedSaveData.berries[i] = gSaveBlock1Ptr->bagPocket_Berries[i];
-
-    // load mail.
-    for (i = 0; i < MAIL_COUNT; i++)
-        gLoadedSaveData.mail[i] = gSaveBlock1Ptr->mail[i];
-
-    gLastEncryptionKey = gSaveBlock2Ptr->encryptionKey;
-}
-
-void ApplyNewEncryptionKeyToHword(u16 *hWord, u32 newKey)
-{
-    *hWord ^= gSaveBlock2Ptr->encryptionKey;
-    *hWord ^= newKey;
-}
-
-void ApplyNewEncryptionKeyToWord(u32 *word, u32 newKey)
-{
-    *word ^= gSaveBlock2Ptr->encryptionKey;
-    *word ^= newKey;
 }
 

@@ -251,4 +251,6 @@ void UpdatePickStateFromSpecialVar8005(void){}
 void UpdateTrainerCardPhotoIcons(void){}
 void VsSeekerFreezeObjectsAfterChargeComplete(void){}
 void VsSeekerResetObjectMovementAfterChargeComplete(void){}
-
+void LoadPlayerBag(void){}
+void SetPostgameFlags(void){}
+void SetUnlockedPokedexFlags(void){}
