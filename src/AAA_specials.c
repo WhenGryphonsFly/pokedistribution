@@ -254,3 +254,6 @@ void VsSeekerResetObjectMovementAfterChargeComplete(void){}
 void LoadPlayerBag(void){}
 void SetPostgameFlags(void){}
 void SetUnlockedPokedexFlags(void){}
+void SavePlayerParty(void){}
+void LoadPlayerParty(void){}
+void ReadTrainerTowerAndValidate(void){}

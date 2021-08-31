@@ -395,7 +395,7 @@ void TestBlockTransfer(u8 nothing, u8 is, u8 used)
     }
 }
 
-void LinkTestProcessKeyInput(void)
+/*void LinkTestProcessKeyInput(void)
 {
     if (JOY_NEW(A_BUTTON))
     {
@@ -435,7 +435,7 @@ static void CB2_LinkTest(void)
     AnimateSprites();
     BuildOamBuffer();
     UpdatePaletteFade();
-}
+}*/
 
 u16 LinkMain2(const u16 *heldKeys)
 {

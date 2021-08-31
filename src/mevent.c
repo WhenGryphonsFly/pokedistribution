@@ -224,7 +224,7 @@ static u32 EReaderReceive(u8 * state_p, u16 * receiveDelay)
     return 0;
 }
 
-void task_add_00_ereader(void)
+/*void task_add_00_ereader(void)
 {
     u8 taskId = CreateTask(Task_EReaderComm, 0);
     struct MEventTaskData1 *data = (struct MEventTaskData1 *)gTasks[taskId].data;
@@ -240,7 +240,7 @@ void task_add_00_ereader(void)
     data->t06 = 0;
     data->initialSendResult = 0;
     data->t10 = AllocZeroed(sizeof(struct MEvent_Str_2));
-}
+}*/
 
 static void ResetDelayTimer(u16 *a0)
 {
@@ -257,7 +257,7 @@ static bool32 AdvanceDelayTimerCheckTimeout(u16 * a0, u16 a1)
     return FALSE;
 }
 
-static void Task_EReaderComm(u8 taskId)
+/*static void Task_EReaderComm(u8 taskId)
 {
     struct MEventTaskData1 *data = (struct MEventTaskData1 *)gTasks[taskId].data;
     switch (data->state)
@@ -473,7 +473,7 @@ static void Task_EReaderComm(u8 taskId)
             SetMainCallback2(MainCB_FreeAllBuffersAndReturnToInitTitleScreen);
             break;
     }
-}
+}*/
 
 void InitMEventData(void)
 {

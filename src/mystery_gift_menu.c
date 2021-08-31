@@ -443,7 +443,7 @@ void c2_mystery_gift(void)
     }
 }
 
-void c2_ereader(void)
+/*void c2_ereader(void)
 {
     if (HandleMysteryGiftOrEReaderSetup(1))
     {
@@ -451,7 +451,7 @@ void c2_ereader(void)
         gGiftIsFromEReader = TRUE;
         task_add_00_ereader();
     }
-}
+}*/
 
 void MainCB_FreeAllBuffersAndReturnToInitTitleScreen(void)
 {
@@ -902,7 +902,7 @@ bool32 mevent_message_was_thrown_away(u8 * textState, bool32 cardOrNews)
     }
 }
 
-bool32 mevent_save_game(u8 * state)
+/*bool32 mevent_save_game(u8 * state)
 {
     switch (*state)
     {
@@ -931,7 +931,7 @@ bool32 mevent_save_game(u8 * state)
     }
 
     return FALSE;
-}
+}*/
 
 const u8 * mevent_message(u32 * flag_p, u8 cardOrNews, u8 cardOrNewsSource, u32 msgId)
 {
@@ -1433,7 +1433,7 @@ void task00_mystery_gift(u8 taskId)
         }
         break;
     case 17:
-        if (mevent_save_game(&data->textState))
+        /*if (mevent_save_game(&data->textState))*/
         {
             data->state = 0;
             PrintMysteryGiftOrEReaderTopMenu(0, 0);
@@ -1560,7 +1560,7 @@ void task00_mystery_gift(u8 taskId)
         }
         break;
     case 25:
-        if (mevent_save_game(&data->textState))
+        /*if (mevent_save_game(&data->textState))*/
         {
             data->state = 26;
         }

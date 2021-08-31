@@ -161,13 +161,13 @@ static void VBlankCB_MainMenu(void)
 void CB2_InitMainMenu(void)
 {
 	SeedRngAndSetTrainerId();
-    SetSaveBlocksPointers();
+    /*SetSaveBlocksPointers();*/
     /*ResetMenuAndMonGlobals();**/
-    Save_ResetSaveCounters();
-    Save_LoadGameData(SAVE_NORMAL);
+    /*Save_ResetSaveCounters();
+    Save_LoadGameData(SAVE_NORMAL);*/
     /*if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_INVALID)
         Sav2_ClearSetDefault();*/
-    SetPokemonCryStereo(gSaveBlock2Ptr->optionsSound);
+    SetPokemonCryStereo(1);
     InitHeap(gHeap, HEAP_SIZE);
     MainMenuGpuInit(1);
 }
@@ -238,7 +238,7 @@ static void Task_SetWin0BldRegsAndCheckSaveFile(u8 taskId)
         SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG0 | BLDCNT_TGT1_BG1 | BLDCNT_TGT1_BG2 | BLDCNT_TGT1_BG3 | BLDCNT_TGT1_OBJ | BLDCNT_TGT1_BD | BLDCNT_EFFECT_DARKEN);
         SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(0, 0));
         SetGpuReg(REG_OFFSET_BLDY, 7);
-        switch (gSaveFileStatus)
+        /*switch (gSaveFileStatus)
         {
         case SAVE_STATUS_OK:
             LoadUserFrameToBg(0);
@@ -281,7 +281,10 @@ static void Task_SetWin0BldRegsAndCheckSaveFile(u8 taskId)
             gTasks[taskId].tMenuType = MAIN_MENU_NEWGAME;
             PrintSaveErrorStatus(taskId, gText_1MSubCircuitBoardNotInstalled);
             break;
-        }
+        }*/
+		LoadUserFrameToBg(0);
+		gTasks[taskId].tMenuType = MAIN_MENU_MYSTERYGIFT;
+		gTasks[taskId].func = Task_SetWin0BldRegsNoSaveFileCheck;
     }
 }
 
