@@ -259,17 +259,19 @@ void IncrementGameStat(u8 statId)
 
 u32 GetGameStat(u8 statId)
 {
-    if (statId >= NUM_USED_GAME_STATS)
+    /*if (statId >= NUM_USED_GAME_STATS)
         return 0;
     else
-        return gSaveBlock1Ptr->gameStats[statId] ^ gSaveBlock2Ptr->encryptionKey;
+        return gSaveBlock1Ptr->gameStats[statId] ^ gSaveBlock2Ptr->encryptionKey;*/
+	return 0;
 }
 
 void SetGameStat(u8 statId, u32 statVal)
 {
-    if (statId >= NUM_USED_GAME_STATS)
+    /*if (statId >= NUM_USED_GAME_STATS)
         return;
-    gSaveBlock1Ptr->gameStats[statId] = statVal ^ gSaveBlock2Ptr->encryptionKey;
+    gSaveBlock1Ptr->gameStats[statId] = statVal ^ gSaveBlock2Ptr->encryptionKey;*/
+	return;
 }
 
 bool32 IsUpdateLinkStateCBActive(void)
