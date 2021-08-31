@@ -443,16 +443,6 @@ void c2_mystery_gift(void)
     }
 }
 
-/*void c2_ereader(void)
-{
-    if (HandleMysteryGiftOrEReaderSetup(1))
-    {
-        SetMainCallback2(c2_mystery_gift_e_reader_run);
-        gGiftIsFromEReader = TRUE;
-        task_add_00_ereader();
-    }
-}*/
-
 void MainCB_FreeAllBuffersAndReturnToInitTitleScreen(void)
 {
     gGiftIsFromEReader = FALSE;
@@ -901,37 +891,6 @@ bool32 mevent_message_was_thrown_away(u8 * textState, bool32 cardOrNews)
         return MG_PrintTextOnWindow1AndWaitButton(textState, gText_WonderNewsThrownAway);
     }
 }
-
-/*bool32 mevent_save_game(u8 * state)
-{
-    switch (*state)
-    {
-    case 0:
-        AddTextPrinterToWindow1(gText_DataWillBeSaved);
-        (*state)++;
-        break;
-    case 1:
-        TrySavingData(SAVE_NORMAL);
-        (*state)++;
-        break;
-    case 2:
-        AddTextPrinterToWindow1(gText_SaveCompletedPressA);
-        (*state)++;
-        break;
-    case 3:
-        if (JOY_NEW(A_BUTTON | B_BUTTON))
-        {
-            (*state)++;
-        }
-        break;
-    case 4:
-        *state = 0;
-        ClearTextWindow();
-        return TRUE;
-    }
-
-    return FALSE;
-}*/
 
 const u8 * mevent_message(u32 * flag_p, u8 cardOrNews, u8 cardOrNewsSource, u32 msgId)
 {
@@ -1433,7 +1392,6 @@ void task00_mystery_gift(u8 taskId)
         }
         break;
     case 17:
-        /*if (mevent_save_game(&data->textState))*/
         {
             data->state = 0;
             PrintMysteryGiftOrEReaderTopMenu(0, 0);
@@ -1560,7 +1518,6 @@ void task00_mystery_gift(u8 taskId)
         }
         break;
     case 25:
-        /*if (mevent_save_game(&data->textState))*/
         {
             data->state = 26;
         }

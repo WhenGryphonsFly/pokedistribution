@@ -161,12 +161,6 @@ static void VBlankCB_MainMenu(void)
 void CB2_InitMainMenu(void)
 {
 	SeedRngAndSetTrainerId();
-    /*SetSaveBlocksPointers();*/
-    /*ResetMenuAndMonGlobals();**/
-    /*Save_ResetSaveCounters();
-    Save_LoadGameData(SAVE_NORMAL);*/
-    /*if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_INVALID)
-        Sav2_ClearSetDefault();*/
     SetPokemonCryStereo(1);
     InitHeap(gHeap, HEAP_SIZE);
     MainMenuGpuInit(1);
@@ -238,50 +232,6 @@ static void Task_SetWin0BldRegsAndCheckSaveFile(u8 taskId)
         SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG0 | BLDCNT_TGT1_BG1 | BLDCNT_TGT1_BG2 | BLDCNT_TGT1_BG3 | BLDCNT_TGT1_OBJ | BLDCNT_TGT1_BD | BLDCNT_EFFECT_DARKEN);
         SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(0, 0));
         SetGpuReg(REG_OFFSET_BLDY, 7);
-        /*switch (gSaveFileStatus)
-        {
-        case SAVE_STATUS_OK:
-            LoadUserFrameToBg(0);
-            if (IsMysteryGiftEnabled() == TRUE)
-            {
-                gTasks[taskId].tMenuType = MAIN_MENU_MYSTERYGIFT;
-            }
-            else
-            {
-                gTasks[taskId].tMenuType = MAIN_MENU_CONTINUE;
-            }
-            gTasks[taskId].func = Task_SetWin0BldRegsNoSaveFileCheck;
-            break;
-        case SAVE_STATUS_INVALID:
-            SetStdFrame0OnBg(0);
-            gTasks[taskId].tMenuType = MAIN_MENU_NEWGAME;
-            PrintSaveErrorStatus(taskId, gText_SaveFileHasBeenDeleted);
-            break;
-        case SAVE_STATUS_ERROR:
-            SetStdFrame0OnBg(0);
-            gTasks[taskId].tMenuType = MAIN_MENU_CONTINUE;
-            PrintSaveErrorStatus(taskId, gText_SaveFileCorruptedPrevWillBeLoaded);
-            if (IsMysteryGiftEnabled() == TRUE)
-            {
-                gTasks[taskId].tMenuType = MAIN_MENU_MYSTERYGIFT;
-            }
-            else
-            {
-                gTasks[taskId].tMenuType = MAIN_MENU_CONTINUE;
-            }
-            break;
-        case SAVE_STATUS_EMPTY:
-        default:
-            LoadUserFrameToBg(0);
-            gTasks[taskId].tMenuType = MAIN_MENU_NEWGAME;
-            gTasks[taskId].func = Task_SetWin0BldRegsNoSaveFileCheck;
-            break;
-        case SAVE_STATUS_NO_FLASH:
-            SetStdFrame0OnBg(0);
-            gTasks[taskId].tMenuType = MAIN_MENU_NEWGAME;
-            PrintSaveErrorStatus(taskId, gText_1MSubCircuitBoardNotInstalled);
-            break;
-        }*/
 		LoadUserFrameToBg(0);
 		gTasks[taskId].tMenuType = MAIN_MENU_MYSTERYGIFT;
 		gTasks[taskId].func = Task_SetWin0BldRegsNoSaveFileCheck;

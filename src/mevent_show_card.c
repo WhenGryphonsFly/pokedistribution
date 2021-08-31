@@ -17,22 +17,22 @@ struct MEventScreenMgr_02DC
 
 struct MEventScreenMgr
 {
-    /*0000*/ struct MEWonderCardData wonderCard;
-    /*014c*/ struct MEventBuffer_3430_Sub buff3430Sub;
-    /*0170*/ const struct UnkStruct_8467FB8 * bgSpec;
-    /*0174*/ u8 state;
-    /*0175*/ u8 recordIdx;
-    /*0176*/ u16 windowIds[3];
-    /*017C*/ u8 monIconId;
-    /*017D*/ u8 cardIconAndShadowSprites[7][2];
-    /*018B*/ u8 title[41];
-    /*01B4*/ u8 subtitle[41];
-    /*01DD*/ u8 unk_01DD[7];
-    /*01E4*/ u8 mainMessageLines[4][41];
-    /*0288*/ u8 instructionsLine1[41];
-    /*02B1*/ u8 instructionsLine2[41];
-    /*02DC*/ struct MEventScreenMgr_02DC recordStrings[8];
-    /*045C*/ u8 buffer_045C[0x1000];
+    struct MEWonderCardData wonderCard;
+    struct MEventBuffer_3430_Sub buff3430Sub;
+    const struct UnkStruct_8467FB8 * bgSpec;
+    u8 state;
+    u8 recordIdx;
+    u16 windowIds[3];
+    u8 monIconId;
+    u8 cardIconAndShadowSprites[7][2];
+    u8 title[41];
+    u8 subtitle[41];
+    u8 unk_01DD[7];
+    u8 mainMessageLines[4][41];
+    u8 instructionsLine1[41];
+    u8 instructionsLine2[41];
+    struct MEventScreenMgr_02DC recordStrings[8];
+    u8 buffer_045C[0x1000];
 };
 
 static EWRAM_DATA struct MEventScreenMgr * sMEventScreenData = NULL;

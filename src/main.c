@@ -136,7 +136,6 @@ void AgbMain()
     m4aSoundInit();
     EnableVCountIntrAtLine150();
     InitRFU();
-    /*CheckForFlashMemory();*/
     InitMainCallbacks();
     InitMapMusic();
     ClearDma3Requests();
@@ -145,16 +144,8 @@ void AgbMain()
     SetDefaultFontsPointer();
 
     gSoftResetDisabled = FALSE;
-
-    /*SetNotInSaveFailedScreen();*/
-
     AGBPrintInit();
-/*
-#if REVISION == 1
-    if (gFlashMemoryPresent != TRUE)
-        SetMainCallback2(NULL);
-#endif
-*/
+
     gLinkTransferringData = FALSE;
 
     for (;;)
@@ -215,7 +206,6 @@ static void InitMainCallbacks(void)
 
 static void CallCallbacks(void)
 {
-    /*if (!RunSaveFailedScreen())*/
     {
         if (gMain.callback1)
             gMain.callback1();
