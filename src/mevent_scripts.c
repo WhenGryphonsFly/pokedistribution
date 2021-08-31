@@ -6,7 +6,7 @@ extern const struct mevent_server_cmd gMEventSrvScript_OtherTrainerCanceled[];
 // Unreferenced
 const u8 gUnknown_84687A0[] = _("You have collected all STAMPs!\nWant to input a CARD as a prize?");
 
-/* CLIENT SCRIPTS */
+// CLIENT SCRIPTS
 
 const struct mevent_client_cmd gMEventClientScript_InitialListen[] = { // 84687E0
     CLI_RECEIVE(0x10),
@@ -87,7 +87,7 @@ const struct mevent_client_cmd gMEventClientScript_SuccessFromBuffer[] = { // su
     CLI_RETURN(0x0d)
 };
 
-/* SERVER SCRIPTS */
+// SERVER SCRIPTS
 
 const struct mevent_server_cmd gMEventSrvScript_UnableToSend[] = {
     SRV_SEND(0x10, gMEventClientScript_UnableToRecv),

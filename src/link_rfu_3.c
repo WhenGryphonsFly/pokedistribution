@@ -897,7 +897,7 @@ static bool32 NameIsEmpty(const u8 *name)
 }
 
 // Save the currently connected players into the trainer records, shifting all previous records down.
-void RecordMixTrainerNames(void)
+/*void RecordMixTrainerNames(void)
 {
     if (gWirelessCommType != 0)
     {
@@ -955,9 +955,9 @@ void RecordMixTrainerNames(void)
         memcpy(gSaveBlock1Ptr->trainerNameRecords, newRecords, 20 * sizeof(struct TrainerNameRecord));
         Free(newRecords);
     }
-}
+}*/
 
-bool32 PlayerHasMetTrainerBefore(u16 id, u8 *name)
+/*bool32 PlayerHasMetTrainerBefore(u16 id, u8 *name)
 {
     s32 i;
 
@@ -973,4 +973,4 @@ bool32 PlayerHasMetTrainerBefore(u16 id, u8 *name)
         }
     }
     return FALSE;
-}
+}*/

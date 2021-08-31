@@ -9,23 +9,23 @@
 
 struct UnkStruct_203F3CC
 {
-    /*0000*/ struct MEWonderNewsData wonderNews;
-    /*01bc*/ const struct UnkStruct_8467FB8 * bgSpec;
-    /*01c0*/ u8 verticalScrollDisabled:1;
+    struct MEWonderNewsData wonderNews;
+    const struct UnkStruct_8467FB8 * bgSpec;
+    u8 verticalScrollDisabled:1;
     u8 state:7;
-    /*01c1*/ u8 menuIndicatorsId;
-    /*01c2*/ u8 unk_01C2_0:1;
+    u8 menuIndicatorsId;
+    u8 unk_01C2_0:1;
     u8 unk_01C2_1:7;
-    /*01c3*/ u8 scrollDirection:1;
+    u8 scrollDirection:1;
     u8 unk_01C3_1:7;
-    /*01c4*/ u16 numMails;
-    /*01c6*/ u16 scrollOffset;
-    /*01c8*/ u16 windowIds[2];
-    /*01cc*/ u8 filler_01CC[2];
-    /*01ce*/ u8 title[41];
-    /*01f7*/ u8 messages[10][41];
-    /*0394*/ struct ScrollArrowsTemplate scrollArrowsTemplate;
-    /*03a4*/ u8 buffer_03A4[0x1000];
+    u16 numMails;
+    u16 scrollOffset;
+    u16 windowIds[2];
+    u8 filler_01CC[2];
+    u8 title[41];
+    u8 messages[10][41];
+    struct ScrollArrowsTemplate scrollArrowsTemplate;
+    u8 buffer_03A4[0x1000];
 };
 
 static EWRAM_DATA struct UnkStruct_203F3CC * sWork = NULL;

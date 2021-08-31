@@ -42,3 +42,26 @@ void SeedRng(u16 seed)
 {
     gRngValue = seed;
 }
+
+// reset_save_heap.c
+#include "global.h"
+#include "gflib.h"
+#include "m4a.h"
+#include "load_save.h"
+#include "save.h"
+#include "new_game.h"
+#include "overworld.h"
+#include "main_menu.h"
+
+void ResetSaveHeap(void)
+{
+    u16 imeBackup = REG_IME;
+    
+    REG_IME = 0;
+    RegisterRamReset(RESET_EWRAM);
+    ClearGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_FORCED_BLANK);
+    REG_IME = imeBackup;
+    gMain.inBattle = FALSE;
+    InitHeap(gHeap, HEAP_SIZE);
+    SetMainCallback2(CB2_InitMainMenu);
+}

@@ -395,48 +395,6 @@ void TestBlockTransfer(u8 nothing, u8 is, u8 used)
     }
 }
 
-void LinkTestProcessKeyInput(void)
-{
-    if (JOY_NEW(A_BUTTON))
-    {
-        gShouldAdvanceLinkState = 1;
-    }
-    if (JOY_HELD(B_BUTTON))
-    {
-        InitBlockSend(gHeap + 0x4000, 0x2004);
-    }
-    if (JOY_NEW(L_BUTTON))
-    {
-        BeginNormalPaletteFade(0xFFFFFFFF, 0, 16, 0, RGB(2, 0, 0));
-    }
-    if (JOY_NEW(START_BUTTON))
-    {
-        SetSuppressLinkErrorMessage(TRUE);
-    }
-    if (JOY_NEW(R_BUTTON))
-    {
-        TrySavingData(SAVE_LINK);
-    }
-    if (JOY_NEW(SELECT_BUTTON))
-    {
-        SetCloseLinkCallback();
-    }
-    if (gLinkTestDebugValuesEnabled)
-    {
-        SetLinkDebugValues(gMain.vblankCounter2, gLinkCallback ? gLinkVSyncDisabled : gLinkVSyncDisabled | 0x10);
-    }
-}
-
-static void CB2_LinkTest(void)
-{
-    LinkTestProcessKeyInput();
-    TestBlockTransfer(1, 1, 0);
-    RunTasks();
-    AnimateSprites();
-    BuildOamBuffer();
-    UpdatePaletteFade();
-}
-
 u16 LinkMain2(const u16 *heldKeys)
 {
     u8 i;

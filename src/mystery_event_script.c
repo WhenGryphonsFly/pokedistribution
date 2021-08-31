@@ -191,7 +191,6 @@ bool8 MEScrCmd_giveribbon(struct ScriptContext *ctx)
 {
     u8 index = ScriptReadByte(ctx);
     u8 ribbonId = ScriptReadByte(ctx);
-    /*GiveGiftRibbonToParty(index, ribbonId);*/
     StringExpandPlaceholders(gStringVar4, gText_MysteryGiftSpecialRibbon);
     ctx->data[2] = 2;
     return FALSE;
@@ -218,7 +217,6 @@ bool8 MEScrCmd_givenationaldex(struct ScriptContext *ctx)
 
 bool8 MEScrCmd_addrareword(struct ScriptContext *ctx)
 {
-    /*EnableRareWord(ScriptReadByte(ctx));*/
     StringExpandPlaceholders(gStringVar4, gText_MysteryGiftRareWord);
     ctx->data[2] = 2;
     return FALSE;
@@ -231,31 +229,6 @@ bool8 MEScrCmd_setrecordmixinggift(struct ScriptContext *ctx)
     return TRUE;
 }
 
-/*s16 CompactPartySlots(void)
-{
-    s16 retVal = -1;
-    u16 i, last;
-
-    for (i = 0, last = 0; i < PARTY_SIZE; i++)
-    {
-        u16 species = GetMonData(gPlayerParty + i, MON_DATA_SPECIES);
-        if (species != SPECIES_NONE)
-        {
-            if (i != last)
-                gPlayerParty[last] = gPlayerParty[i];
-            last++;
-        }
-        else if (retVal == -1)
-        {
-            retVal = i;
-        }
-    }
-    for (; last < PARTY_SIZE; last++)
-        ZeroMonData(gPlayerParty + last);
-
-    return retVal;
-}*/
-
 bool8 MEScrCmd_givepokemon(struct ScriptContext *ctx)
 {
     struct MailStruct mail;
@@ -263,42 +236,6 @@ bool8 MEScrCmd_givepokemon(struct ScriptContext *ctx)
     u16 species;
     u16 heldItem;
     u32 data = ScriptReadWord(ctx) - ctx->data[1] + ctx->data[0];
-    /*void *pokemonPtr = (void *)data;
-    void *mailPtr = (void *)(data + sizeof(struct Pokemon));
-
-    pokemon = *(struct Pokemon *)pokemonPtr;
-    species = GetMonData(&pokemon, MON_DATA_SPECIES2);
-
-    if (species == SPECIES_EGG)
-        StringCopyN(gStringVar1, gText_EggNickname, POKEMON_NAME_LENGTH + 1);
-    else
-        StringCopyN(gStringVar1, gStartMenuText_Pokemon, POKEMON_NAME_LENGTH + 1);
-
-    if (gPlayerPartyCount == PARTY_SIZE)
-    {
-        StringExpandPlaceholders(gStringVar4, gText_MysteryGiftFullParty);
-        ctx->data[2] = 3;
-    }
-    else
-    {
-        memcpy(&gPlayerParty[5], pokemonPtr, sizeof(struct Pokemon));
-        memcpy(&mail, mailPtr, sizeof(struct MailStruct));
-
-        if (species != SPECIES_EGG)
-        {
-            u16 pokedexNum = SpeciesToNationalPokedexNum(species);
-            GetSetPokedexFlag(pokedexNum, FLAG_SET_SEEN);
-            GetSetPokedexFlag(pokedexNum, FLAG_SET_CAUGHT);
-        }
-
-        heldItem = GetMonData(&gPlayerParty[5], MON_DATA_HELD_ITEM);
-        if (ItemIsMail(heldItem))
-            GiveMailToMon2(&gPlayerParty[5], &mail);
-        CompactPartySlots();
-        CalculatePlayerPartyCount();
-        StringExpandPlaceholders(gStringVar4, gText_MysteryGiftSentOver);
-        ctx->data[2] = 2;
-    }*/
 
     return FALSE;
 }
