@@ -332,7 +332,8 @@ $(ELF): $(OBJ_DIR)/ld_script.ld $(OBJS)
 	$(FIX) $@ -t"$(TITLE)" -c$(GAME_CODE) -m$(MAKER_CODE) -r$(GAME_REVISION) --silent
 
 $(ROM): $(ELF)
-	$(OBJCOPY) -O binary --gap-fill 0xFF --pad-to 0x8400000 $< $@
+	echo Remember to switch back to 0x8400000!
+	$(OBJCOPY) -O binary --gap-fill 0xFF --pad-to 0x8100000 $< $@
 
 # "friendly" target names for convenience sake
 firered:                ; @$(MAKE) GAME_VERSION=FIRERED
