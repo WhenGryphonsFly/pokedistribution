@@ -255,13 +255,10 @@ gSongTable:: @ 84A32CC
 	song se_deoxys_move, 1, 1
 	song se_poke_jump_success, 1, 1
 	song se_poke_jump_failure, 1, 1
-	/*2 song mus_heal, 2, 2
-	song mus_level_up, 2, 2*/
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
+	song mus_heal, 2, 2
+	song mus_level_up, 2, 2
 	song mus_obtain_item, 2, 2
-
-	/*70song mus_evolved, 2, 2
+	song mus_evolved, 2, 2
 	song mus_obtain_badge, 2, 2
 	song mus_obtain_tmhm, 2, 2
 	song mus_obtain_berry, 2, 2
@@ -271,7 +268,6 @@ gSongTable:: @ 84A32CC
 	song mus_rs_vs_trainer, 0, 0
 	song mus_school, 0, 0
 	song mus_slots_jackpot, 2, 2
-
 	song mus_slots_win, 2, 2
 	song mus_move_deleted, 2, 2
 	song mus_too_bad, 2, 2
@@ -282,7 +278,6 @@ gSongTable:: @ 84A32CC
 	song mus_jigglypuff, 2, 2
 	song mus_intro_fight, 0, 0
 	song mus_title, 0, 0
-
 	song mus_cinnabar, 0, 0
 	song mus_lavender, 0, 0
 	song mus_heal_unused, 0, 0
@@ -293,7 +288,6 @@ gSongTable:: @ 84A32CC
 	song mus_hall_of_fame, 0, 0
 	song mus_viridian_forest, 0, 0
 	song mus_mt_moon, 0, 0
-
 	song mus_poke_mansion, 0, 0
 	song mus_credits, 0, 0
 	song mus_route1, 0, 0
@@ -304,7 +298,6 @@ gSongTable:: @ 84A32CC
 	song mus_vs_gym_leader, 0, 0
 	song mus_vs_trainer, 0, 0
 	song mus_vs_wild, 0, 0
-
 	song mus_vs_champion, 0, 0
 	song mus_pallet, 0, 0
 	song mus_oak_lab, 0, 0
@@ -315,7 +308,6 @@ gSongTable:: @ 84A32CC
 	song mus_poke_tower, 0, 0
 	song mus_silph, 0, 0
 	song mus_fuchsia, 0, 0
-
 	song mus_celadon, 0, 0
 	song mus_victory_trainer, 0, 0
 	song mus_victory_wild, 0, 0
@@ -326,7 +318,6 @@ gSongTable:: @ 84A32CC
 	song mus_rival_exit, 0, 0
 	song mus_dex_rating, 2, 2
 	song mus_obtain_key_item, 2, 2
-
 	song mus_caught_intro, 2, 2
 	song mus_photo, 2, 2
 	song mus_game_freak, 0, 0
@@ -336,87 +327,9 @@ gSongTable:: @ 84A32CC
 	song mus_new_game_exit, 0, 0
 	song mus_poke_jump, 0, 0
 	song mus_union_room, 0, 0
-	song mus_net_center, 0, 0*/
-
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-	song mus_dummy, 0, 0
-
+	song mus_net_center, 0, 0
 	song mus_mystery_gift, 0, 0
-	/*song mus_berry_pick, 0, 0
+	song mus_berry_pick, 0, 0
 	song mus_sevii_cave, 0, 0
 	song mus_teachy_tv_show, 0, 0
 	song mus_sevii_route, 0, 0
@@ -432,7 +345,7 @@ gSongTable:: @ 84A32CC
 	song mus_encounter_deoxys, 0, 0
 	song mus_trainer_tower, 0, 0
 	song mus_slow_pallet, 0, 0
-	song mus_teachy_tv_menu, 0, 0*/
+	song mus_teachy_tv_menu, 0, 0
 
 dummy_song_header: @ 84A3DA4
 	.byte 0, 0, 0, 0
