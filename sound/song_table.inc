@@ -349,3 +349,30 @@ gSongTable:: @ 84A32CC
 
 dummy_song_header: @ 84A3DA4
 	.byte 0, 0, 0, 0
+
+/*
+se_boo
+se_pin
+se_select
+se_ding_dong
+se_ball_bounce_1
+se_pc_login
+se_pokenav_on
+se_wall_hit
+mus_mystery_gift
+mus_obtain_item
+mus_level_up
+mus_evolved
+mus_obtain_tmhm
+mus_heal
+mus_obtain_badge
+mus_move_deleted
+mus_obtain_berry
+mus_slots_jackpot
+mus_slots_win
+mus_too_bad
+mus_poke_flute
+mus_obtain_key_item
+mus_dex_rating
+mus_dummy
+*/
