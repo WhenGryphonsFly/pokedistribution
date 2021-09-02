@@ -2,9 +2,6 @@
 
 #include "data/graphics/pokemon.h"
 
-const u8 gMonIcon_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mark/icon.4bpp");
-const u8 gMonIcon_Egg[] = INCBIN_U8("graphics/pokemon/egg/icon.4bpp");
-
 const u16 gFireRedMenuElements1_Pal[] = INCBIN_U16("graphics/interface/dex_caught_pokeball.gbapal");
 const u16 gFireRedMenuElements2_Pal[] = INCBIN_U16("graphics/interface/pokemon_types.gbapal");
 const u8 gFireRedMenuElements_Gfx[] = INCBIN_U8("graphics/interface/dex_caught_pokeball_and_pokemon_types.4bpp");
