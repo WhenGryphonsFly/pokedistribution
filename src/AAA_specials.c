@@ -257,3 +257,5 @@ void SetUnlockedPokedexFlags(void){}
 void SavePlayerParty(void){}
 void LoadPlayerParty(void){}
 void ReadTrainerTowerAndValidate(void){}
+void IsEnoughForCostInVar0x8005(void){}
+void SubtractMoneyFromVar0x8005(void){}

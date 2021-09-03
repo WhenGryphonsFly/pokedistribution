@@ -89,7 +89,7 @@ void mb_berry_fix_serve(void) // noreturn
     DmaFill32(3, 0, (void *)PLTT, PLTT_SIZE);
     ResetSpriteData();
     ResetTasks();
-    ScanlineEffect_Stop();
+    /*ScanlineEffect_Stop();*/
     taskId = CreateTask(mb_berry_fix_task, 0);
     gTasks[taskId].data[0] = 0;
     SetMainCallback2(mb_berry_fix_maincb);

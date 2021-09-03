@@ -75,45 +75,6 @@ struct MEvent_Str_1 sMEventSendToEReaderManager;
 
 static EWRAM_DATA bool32 sReceivedWonderCardIsValid = FALSE;
 
-void SendUnknownSerialData_Init(struct MEvent_Str_1 *mgr, size_t size, const void * data)
-{
-    vu16 imeBak = REG_IME;
-    REG_IME = 0;
-    gIntrTable[1] = EReaderHelper_SerialCallback;
-    gIntrTable[2] = EReaderHelper_Timer3Callback;
-    EReaderHelper_SaveRegsState();
-    EReaderHelper_ClearsSendRecvMgr();
-    REG_IE |= INTR_FLAG_VCOUNT;
-    REG_IME = imeBak;
-    mgr->status = 0;
-    mgr->size = size;
-    mgr->data = data;
-}
-
-void SendUnknownSerialData_Teardown(struct MEvent_Str_1 *unused)
-{
-    vu16 imeBak = REG_IME;
-    REG_IME = 0;
-    EReaderHelper_ClearsSendRecvMgr();
-    EReaderHelper_RestoreRegsState();
-    RestoreSerialTimer3IntrHandlers();
-    REG_IME = imeBak;
-}
-
-u8 SendUnknownSerialData_Run(struct MEvent_Str_1 *mgr)
-{
-    u8 resp = 0;
-    mgr->status = EReaderHandleTransfer(1, mgr->size, mgr->data, 0);
-    if ((mgr->status & 0x13) == 0x10) // checksum OK and xfer off
-        resp = 1;
-    if (mgr->status & 8) // cancelled by player
-        resp = 2;
-    if (mgr->status & 4) // timed out
-        resp = 3;
-    gShouldAdvanceLinkState = 0;
-    return resp;
-}
-
 static void ResetTTDataBuffer(void)
 {
     memset(gDecompressionBuffer, 0, 0x2000);
