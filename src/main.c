@@ -193,12 +193,14 @@ static void UpdateLinkAndCallCallbacks(void)
         CallCallbacks();
 }
 
+#include "AAA_main.h"
 static void InitMainCallbacks(void)
 {
     gMain.vblankCounter1 = 0;
     gMain.vblankCounter2 = 0;
     gMain.callback1 = NULL;
-    SetMainCallback2(CB2_InitMainMenu);
+	//SetMainCallback2(CB2_InitMainMenu);
+    SetMainCallback2(CB2_MainCodePath); //[[!!!]]
     gSaveBlock2Ptr = &gSaveBlock2;
     gSaveBlock1Ptr = &gSaveBlock1;
     gSaveBlock2.encryptionKey = 0;
