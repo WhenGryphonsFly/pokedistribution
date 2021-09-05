@@ -22,6 +22,7 @@
 #include "m4a.h"
 #include "list_menu.h"
 #include "mystery_gift_menu.h"
+#include "new_menu_helpers.h"
 
 #define GUARD_CUSTOM_CODE_C
 #include "AAA_main.h"
@@ -70,7 +71,7 @@ static void MainCodePathInit(void) {
     FreeAllSpritePalettes();
     ResetPaletteFade();
     ResetBgsAndClearDma3BusyFlags(FALSE);
-    InitBgsFromTemplates(0, custom_sBgTemplate, NELEMS(custom_sBgTemplate));
+    InitBgsFromTemplates(0, custom_sBgTemplate_Init, NELEMS(custom_sBgTemplate_Init));
     ChangeBgX(0, 0, 0);
     ChangeBgY(0, 0, 0);
     ChangeBgX(1, 0, 0);
@@ -83,12 +84,12 @@ static void MainCodePathInit(void) {
     LoadPalette(custom_sBgPal15, 0xF0, 0x20);
     SetGpuReg(REG_OFFSET_WIN0H, 0);
     SetGpuReg(REG_OFFSET_WIN0V, 0);
-    SetGpuReg(REG_OFFSET_WININ, 0x0001);
+    /*SetGpuReg(REG_OFFSET_WININ, 0x0001);
     SetGpuReg(REG_OFFSET_WINOUT, 0x0021);
     SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG0 | BLDCNT_TGT1_BG1 | BLDCNT_TGT1_BG2 | BLDCNT_TGT1_BG3 | BLDCNT_TGT1_OBJ | BLDCNT_TGT1_BD | BLDCNT_EFFECT_DARKEN);
     SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(0, 0));
-    SetGpuReg(REG_OFFSET_BLDY, 7);
-    SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_1D_MAP | DISPCNT_OBJ_ON | DISPCNT_WIN0_ON);
+    SetGpuReg(REG_OFFSET_BLDY, 7);*/
+    SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_1D_MAP/* | DISPCNT_OBJ_ON | DISPCNT_WIN0_ON*/);
 }
 
 // Step 1c
@@ -102,5 +103,68 @@ static void Task_MakeBackgroundBlue(u8 taskId)
 
 // Step 1d
 static void Task_RenderRootMenu(u8 taskId) {
-	
+	/*HandleMysteryGiftOrEReaderSetup(0);
+	HandleMysteryGiftOrEReaderSetup(0);
+	HandleMysteryGiftOrEReaderSetup(0);
+	HandleMysteryGiftOrEReaderSetup(0);*/
+	/*	SetVBlankCallback(NULL);
+        ResetPaletteFade();
+        ResetSpriteData();
+        FreeAllSpritePalettes();
+        ResetTasks();
+        ResetBgsAndClearDma3BusyFlags(1);
+        InitBgsFromTemplates(0, custom_sBGTemplates_RootMenu, NELEMS(custom_sBGTemplates_RootMenu));
+        ChangeBgX(0, 0, 0);
+        ChangeBgY(0, 0, 0);
+        ChangeBgX(1, 0, 0);
+        ChangeBgY(1, 0, 0);
+        ChangeBgX(2, 0, 0);
+        ChangeBgY(2, 0, 0);
+        ChangeBgX(3, 0, 0);
+        ChangeBgY(3, 0, 0);
+        SetBgTilemapBuffer(3, Alloc(0x800));
+        SetBgTilemapBuffer(2, Alloc(0x800));
+        SetBgTilemapBuffer(1, Alloc(0x800));
+        SetBgTilemapBuffer(0, Alloc(0x800));
+        LoadUserWindowBorderGfx(0, 10, 0xE0);
+        DrawWindowBorderWithStdpal3(0,  1, 0xF0);
+        DecompressAndLoadBgGfxUsingHeap(3, gUnkTextboxBorderGfx, 0x100, 0, 0);
+        InitWindows(sMainWindows);
+        DeactivateAllTextPrinters();
+        ClearGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_WIN0_ON | DISPCNT_WIN1_ON);
+        SetGpuReg(REG_OFFSET_BLDCNT, 0);
+        SetGpuReg(REG_OFFSET_BLDALPHA, 0);
+        SetGpuReg(REG_OFFSET_BLDY, 0);
+
+        LoadPalette(gUnkTextboxBorderPal, 0, 0x20);
+        LoadPalette(stdpal_get(2), 0xd0, 0x20);
+        FillBgTilemapBufferRect(0, 0x000, 0, 0, 32, 32, 0x11);
+        FillBgTilemapBufferRect(1, 0x000, 0, 0, 32, 32, 0x11);
+        FillBgTilemapBufferRect(2, 0x000, 0, 0, 32, 32, 0x11);
+        MG_DrawCheckerboardPattern();
+        PrintMysteryGiftOrEReaderTopMenu(mg_or_ereader, 0);
+
+        CopyBgTilemapBufferToVram(3);
+        CopyBgTilemapBufferToVram(2);
+        CopyBgTilemapBufferToVram(1);
+        CopyBgTilemapBufferToVram(0);
+
+        ShowBg(0);
+        ShowBg(3);*/
+
+	/*struct MysteryGiftTaskData * data = (void *)gTasks[taskId].data;
+    data->state = 0;
+    data->textState = 0;
+    data->unkA = 0;
+    data->unkB = 0;
+    data->IsCardOrNews = 0;
+    data->source = 0;
+    data->curPromptWindowId = 0;
+    data->unk2 = 0;
+    data->unk4 = 0;
+    data->unk6 = 0;
+    data->prevPromptWindowId = 0;
+    data->buffer = AllocZeroed(0x40);*/
+
+	gTasks[taskId].func = task00_mystery_gift;
 }
