@@ -1,3 +1,5 @@
+#ifdef GUARD_CUSTOM_CODE_C
+
 void CB2_RootMenu(void)
 {
     RunTasks();
@@ -12,3 +14,5 @@ static void VBlankCB_RootMenu(void) {
     ProcessSpriteCopyRequests();
     TransferPlttBuffer();
 }
+
+#endif // GUARD_CUSTOM_CODE_C

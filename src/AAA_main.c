@@ -23,9 +23,11 @@
 #include "list_menu.h"
 #include "mystery_gift_menu.h"
 
+#define GUARD_CUSTOM_CODE_C
 #include "AAA_main.h"
 #include "custom_code/constants.c"
 #include "custom_code/callbacks.c"
+#undef GUARD_CUSTOM_CODE_C
 
 /*
 	Main Code Path:

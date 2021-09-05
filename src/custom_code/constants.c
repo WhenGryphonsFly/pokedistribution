@@ -1,3 +1,5 @@
+#ifdef GUARD_CUSTOM_CODE_C
+
 static const struct BgTemplate custom_sBgTemplate[] = {
     {
         .bg = 0,
@@ -95,3 +97,5 @@ const struct WindowTemplate custom_sWindowTemplate_RootMenu = {
     .paletteNum = 0x0e,
     .baseBlock = 0x0155
 };
+
+#endif // GUARD_CUSTOM_CODE_C
