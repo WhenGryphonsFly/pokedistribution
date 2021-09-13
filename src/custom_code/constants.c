@@ -8,8 +8,6 @@ static const struct BgTemplate custom_sBgTemplate_Init[] = {
         .priority = 0
     }
 };
-// Before Window: 17, 18, 31
-// After Window: 10, 10, 18
 //static const u16 custom_sBgPal00[] = INCBIN_U16("graphics/main_menu/unk_8234648.gbapal");
 static const u16 custom_sBgPal00[] = INCBIN_U16("graphics/main_menu/bgPal0.gbapal");
 static const u16 custom_sBgPal15[] = INCBIN_U16("graphics/main_menu/unk_8234668.gbapal");
