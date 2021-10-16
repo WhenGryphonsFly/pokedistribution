@@ -608,7 +608,7 @@ bool32 PrintStringAndWait2Seconds(u8 * counter, const u8 * str)
 
 #include "custom_code/custom_list_menu.h"
 
-u32 MysteryGift_HandleThreeOptionMenu(u8 * unused0, u16 * unused1, u8 whichMenu)
+u32 MysteryGift_HandleThreeOptionMenu(u8 * unused0, u16 * unused1, const struct ListMenuItem* items)
 {
     struct ListMenuTemplate listMenuTemplate = sListMenuTemplate_ThreeOptions;
     struct WindowTemplate windowTemplate = sWindowTemplate_ThreeOptions;
@@ -617,16 +617,7 @@ u32 MysteryGift_HandleThreeOptionMenu(u8 * unused0, u16 * unused1, u8 whichMenu)
     s32 response;
     u32 i;
 
-    if (whichMenu == 0)
-    {
-        listMenuTemplate.items = sListMenuItems_CardsOrNews;
-    }
-    else
-    {
-        listMenuTemplate.items = sListMenuItems_WirelessOrFriend;
-    }
-
-
+	listMenuTemplate.items = items;
 	SetListMenuWidth(&listMenuTemplate, &windowTemplate);
 	SetListMenuHeight(&listMenuTemplate, &windowTemplate);
 
@@ -1091,7 +1082,7 @@ void task00_mystery_gift(u8 taskId)
         data->state = 1;
         break;
     case  1:
-        switch (MysteryGift_HandleThreeOptionMenu(&data->textState, &data->curPromptWindowId, FALSE))
+        switch (MysteryGift_HandleThreeOptionMenu(&data->textState, &data->curPromptWindowId, sListMenuItems_CardsOrNews))
         {
         case 0:
             data->IsCardOrNews = 0;
@@ -1152,7 +1143,7 @@ void task00_mystery_gift(u8 taskId)
         data->state = 4;
         break;
     case  4:
-        switch (MysteryGift_HandleThreeOptionMenu(&data->textState, &data->curPromptWindowId, TRUE))
+        switch (MysteryGift_HandleThreeOptionMenu(&data->textState, &data->curPromptWindowId, sListMenuItems_WirelessOrFriend))
         {
         case 0:
             ClearTextWindow();
