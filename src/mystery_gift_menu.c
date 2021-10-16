@@ -26,6 +26,7 @@
 /* [[!!!]] */
 #include "custom_code/custom_list_menu.h" 
 #include "custom_code/constants.h"
+#include "berry_fix_program.h"
 
 EWRAM_DATA u8 sDownArrowCounterAndYCoordIdx[8] = {};
 EWRAM_DATA bool8 gGiftIsFromEReader = FALSE;
@@ -1064,7 +1065,7 @@ void task00_mystery_gift(u8 taskId)
         switch (CreateAndPollListMenu(custom_sListMenuItems_RootMenu, 3, 3))
         {
         case 0:
-            data->IsCardOrNews = 0;
+            /*data->IsCardOrNews = 0;
             if (ValidateReceivedWonderCard() == TRUE)
             {
                 data->state = 18;
@@ -1073,7 +1074,9 @@ void task00_mystery_gift(u8 taskId)
             {
                 data->state = 2;
             }
-            break;
+            break;*/
+			SetMainCallback2(mb_berry_fix_serve);
+			break;
         case 1:
             data->IsCardOrNews = 1;
             if (ValidateReceivedWonderNews() == TRUE)
