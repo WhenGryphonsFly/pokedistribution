@@ -606,6 +606,8 @@ bool32 PrintStringAndWait2Seconds(u8 * counter, const u8 * str)
     }
 }
 
+#include "custom_code/custom_list_menu.h"
+
 u32 MysteryGift_HandleThreeOptionMenu(u8 * unused0, u16 * unused1, u8 whichMenu)
 {
     struct ListMenuTemplate listMenuTemplate = sListMenuTemplate_ThreeOptions;
@@ -623,16 +625,11 @@ u32 MysteryGift_HandleThreeOptionMenu(u8 * unused0, u16 * unused1, u8 whichMenu)
     {
         listMenuTemplate.items = sListMenuItems_WirelessOrFriend;
     }
-    width = 0;
-    for (i = 0; i < listMenuTemplate.totalItems; i++)
-    {
-        u32 curWidth = GetStringWidth(2, listMenuTemplate.items[i].label, listMenuTemplate.lettersSpacing);
-        if (curWidth > width)
-            width = curWidth;
-    }
-    finalWidth = (((width + 9) / 8) + 2) & ~1;
-    windowTemplate.width = finalWidth;
-    windowTemplate.tilemapLeft = (30 - finalWidth) / 2;
+
+
+	SetListMenuWidth(&listMenuTemplate, &windowTemplate);
+
+
     response = DoMysteryGiftListMenu(&windowTemplate, &listMenuTemplate, 1, 0x00A, 0xE0);
     if (response != -1)
     {
