@@ -59,4 +59,11 @@ const struct ListMenuItem custom_sListMenuItems_HeightTest[] = {
 	{ custom_gText_Test9,			8 }
 };
 
+const u8 custom_gText_Official[] = _("Official Events");
+const u8 custom_gText_Custom[] = _("Custom Events");
+const struct ListMenuItem custom_sListMenuItems_CategoryMenu[] = {
+	{ custom_gText_Official,	0 },
+	{ custom_gText_Custom,		1 }
+};
+
 #endif
