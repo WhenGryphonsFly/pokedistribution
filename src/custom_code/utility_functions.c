@@ -1,12 +1,15 @@
-u32 DrawListMenu(void) {
-	struct ListMenuTemplate listMenuTemplate;
-	struct WindowTemplate windowTemplate;
+u32 DrawListMenu(const struct ListMenuItem* listMenuItems, u32 listMenuLength, u32 listMenuMax) {
+	struct ListMenuTemplate listMenuTemplate = custom_sListMenuTemplate_Base;
+	struct WindowTemplate windowTemplate = custom_sWindowTemplate_Base;
 	u32 windowAndTaskId;
 
-	// set ListMenuTemplate Items
+	listMenuTemplate.items = listMenuItems;
+	listMenuTemplate.totalItems = listMenuLength;
+	listMenuTemplate.maxShowed = listMenuMax;
+	
 	SetListMenuWidth(&listMenuTemplate, &windowTemplate);
-	// set ListMenu height
-	windowAndTaskId = InitializeListMenuWindow(&listMenuTemplate, &windowTemplate);
+	SetListMenuHeight(&listMenuTemplate, &windowTemplate);
+	windowAndTaskId = InitializeListMenu(&listMenuTemplate, &windowTemplate);
 
 	return windowAndTaskId;
 }
@@ -17,14 +20,40 @@ void SetListMenuWidth(struct ListMenuTemplate* listMenuTemplate, struct WindowTe
 	u32 i;
 	
 	width = 0;
-	for (i = 0; i < listmenuTemplate->totalItems; i++) {
-		u32 curWidth = GetStringWidth(2, listMenuTemplate.items[i].label, listMenuTemplate.lettersSpacing);
+	for (i = 0; i < listMenuTemplate->totalItems; i++) {
+		u32 curWidth = GetStringWidth(2, listMenuTemplate->items[i].label, listMenuTemplate->lettersSpacing);
         if (curWidth > width)
             width = curWidth;
 	}
 	finalWidth = (((width + 9) / 8) + 2) & ~1;
-	windowTemplate.width = finalWidth;
-    windowTemplate.tilemapLeft = (30 - finalWidth) / 2;
+	windowTemplate->width = finalWidth;
+    windowTemplate->tilemapLeft = (30 - finalWidth) / 2;
+	return;
+}
+
+void SetListMenuHeight(struct ListMenuTemplate* listMenuTemplate, struct WindowTemplate* windowTemplate) {
+	u32 height;
+	u32 delta;
+
+	height = 0;
+	switch (listMenuTemplate->maxShowed) {
+		case 2:
+			height = 4;
+			break;
+		case 3:
+			height = 5;
+			break;
+		case 4:
+			height = 7;
+			break;
+		default:
+			height = 0;
+			break;
+	}
+	
+	windowTemplate->height = height;
+	delta = height / 2;
+	windowTemplate->tilemapTop = 0x09 - delta; // 0x13 / 2 = 0x09
 	return;
 }
 
@@ -70,7 +99,7 @@ u32 GetListMenuResponse(u32 windowAndTaskId) {
 	return LIST_NOTHING_CHOSEN;
 }
 
-void DestroyListMenu(u32 windowAndtaskId) {
+void DestroyListMenu(u32 windowAndTaskId) {
 	u16 windowId;
 	u8 taskId;
 

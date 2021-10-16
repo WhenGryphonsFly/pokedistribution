@@ -3,7 +3,7 @@
 void CB2_MainCodePath(void) {
 	MainCodePathInit();
 	CreateTask(Task_MakeBackgroundBlue, 0);
-	CreateTask(Task_RenderRootMenu, 1);
+	CreateTask(Task_RenderRootMenu, 0);
 	SetMainCallback2(CB2_RootMenu);
 }
 
@@ -50,8 +50,7 @@ static void MainCodePathInit(void) {
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_1D_MAP/* | DISPCNT_OBJ_ON | DISPCNT_WIN0_ON*/);
 }
 
-static void Task_MakeBackgroundBlue(u8 taskId)
-{	
+static void Task_MakeBackgroundBlue(u8 taskId) {	
 	if (WaitDma3Request(-1) != -1) {
 		SetVBlankCallback(VBlankCB_RootMenu);
 		DestroyTask(taskId);
@@ -59,6 +58,8 @@ static void Task_MakeBackgroundBlue(u8 taskId)
 }
 
 static void Task_RenderRootMenu(u8 taskId) {
+	DrawListMenu(custom_sListMenuItems_RootMenu, 3, 3);
+	DestroyTask(taskId);
 }
 
 #endif // GUARD_CUSTOM_CODE_C
