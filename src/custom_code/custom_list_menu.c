@@ -1,13 +1,13 @@
 #ifdef GUARD_CUSTOM_CODE_C
 
-u32 CreateAndPollListMenu(const struct ListMenuItem* items, u8 totalItems, u8 maxShown) {
+u32 CreateAndPollListMenu(const struct ListMenuItem* items, u8 totalItems) {
 	s32 response;
 	struct ListMenuTemplate listMenuTemplate = custom_sListMenuTemplate_Base;
 	struct WindowTemplate windowTemplate = custom_sWindowTemplate_Base;
 
 	listMenuTemplate.items = items;
 	listMenuTemplate.totalItems = totalItems;
-	listMenuTemplate.maxShowed = maxShown;
+	listMenuTemplate.maxShowed = totalItems;
 	SetListMenuWidth(&listMenuTemplate, &windowTemplate);
 	SetListMenuHeight(&listMenuTemplate, &windowTemplate);
 	

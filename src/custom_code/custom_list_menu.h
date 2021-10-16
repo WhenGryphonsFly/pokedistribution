@@ -3,7 +3,7 @@
 
 #include "global.h"
 
-u32 CreateAndPollListMenu(const struct ListMenuItem* items, u8 totalItems, u8 maxShown);
+u32 CreateAndPollListMenu(const struct ListMenuItem* items, u8 totalItems);
 void SetListMenuWidth(struct ListMenuTemplate* listMenuTemplate, struct WindowTemplate* windowTemplate);
 void SetListMenuHeight(struct ListMenuTemplate* listMenuTemplate, struct WindowTemplate* windowTemplate);
 

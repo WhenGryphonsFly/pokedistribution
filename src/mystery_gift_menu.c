@@ -1041,7 +1041,7 @@ void task00_mystery_gift(u8 taskId) {
 			data->state = 1;
 			break;
 		case 1: // Root menu
-			switch (CreateAndPollListMenu(custom_sListMenuItems_RootMenu, 3, 3)) {
+			switch (CreateAndPollListMenu(custom_sListMenuItems_RootMenu, 3)) {
 				case 0: // Berry Fix
 					SetMainCallback2(mb_berry_fix_serve);
 					break;
@@ -1053,11 +1053,17 @@ void task00_mystery_gift(u8 taskId) {
 					break;
 			}
 			break;
+		case 2: // The feature has not been implemented yet
+			if (MG_PrintTextOnWindow1AndWaitButton(&data->textState, custom_gText_NotImplemented)) {
+				data->state = 0;
+			}
+			break;
 
 		case 200: // Mystery Gift
-			switch (CreateAndPollListMenu(custom_sListMenuItems_GiftCategoryMenu, 2, 2)) {
+			switch (CreateAndPollListMenu(custom_sListMenuItems_GiftCategoryMenu, 2)) {
 				case 0: // Official Mystery Gifts
 					// [[TODO]]
+					data->state = 2;
 					break;
 				case 1: // Custom Mystery Gifts
 					// [[TODO]]
@@ -1068,12 +1074,14 @@ void task00_mystery_gift(u8 taskId) {
 			break;
 
 		case 100: // Mystery Event
-			switch (CreateAndPollListMenu(custom_sListMenuItems_EventCategoryMenu, 2, 2)) {
+			switch (CreateAndPollListMenu(custom_sListMenuItems_EventCategoryMenu, 2)) {
 				case 0: // Official Mystery Events
 					// [[TODO]]
+					data->state = 2;
 					break;
 				case 1: // Custom Mystery Events
 					// [[TODO]]
+					data->state = 2;
 					break;
 				case LIST_CANCEL:
 					data->state = 0;

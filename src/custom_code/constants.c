@@ -29,6 +29,7 @@ const struct WindowTemplate custom_sWindowTemplate_Base = {
     .paletteNum = 0x0e,
     .baseBlock = 0x0155
 };
+const u8 custom_gText_NotImplemented[] = _("This feature has not yet been\nimplemented.");
 
 
 
@@ -40,6 +41,8 @@ const struct ListMenuItem custom_sListMenuItems_RootMenu[] = {
 	{ custom_gText_MysteryEvent,    1 },
 	{ custom_gText_MysteryGift,     2 }
 };
+
+
 
 const u8 custom_gText_Test4[] = _("Testing 4");
 const u8 custom_gText_Test5[] = _("Testing 5");
@@ -59,6 +62,8 @@ const struct ListMenuItem custom_sListMenuItems_HeightTest[] = {
 	{ custom_gText_Test9,			8 }
 };
 
+
+
 const u8 custom_gText_OfficialEvents[] = _("Official Events");
 const u8 custom_gText_CustomEvents[] = _("Custom Events");
 const struct ListMenuItem custom_sListMenuItems_EventCategoryMenu[] = {
@@ -66,11 +71,14 @@ const struct ListMenuItem custom_sListMenuItems_EventCategoryMenu[] = {
 	{ custom_gText_CustomEvents,	1 }
 };
 
+
+
 const u8 custom_gText_OfficialGifts[] = _("Official Gifts");
 const u8 custom_gText_CustomGifts[] = _("Custom Gifts");
 const struct ListMenuItem custom_sListMenuItems_GiftCategoryMenu[] = {
 	{ custom_gText_OfficialGifts,	0 },
 	{ custom_gText_CustomGifts,		1 }
 };
+
 
 #endif
