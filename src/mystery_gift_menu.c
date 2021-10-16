@@ -27,32 +27,15 @@
 #include "custom_code/custom_list_menu.h" 
 #include "custom_code/constants.h"
 #include "berry_fix_program.h"
+// Various function and struct declarations have been moved to /include/mystery_gift_menu.h
 
 EWRAM_DATA u8 sDownArrowCounterAndYCoordIdx[8] = {};
 EWRAM_DATA bool8 gGiftIsFromEReader = FALSE;
 
-//void task_add_00_mystery_gift(void);
-//void task00_mystery_gift(u8 taskId);
 void task_add_00_ereader(void);
 
 const u16 gUnkTextboxBorderPal[] = INCBIN_U16("graphics/interface/unk_textbox_border.gbapal");
 const u32 gUnkTextboxBorderGfx[] = INCBIN_U32("graphics/interface/unk_textbox_border.4bpp.lz");
-
-/*struct MysteryGiftTaskData
-{
-    u16 curPromptWindowId;
-    u16 unk2;
-    u16 unk4;
-    u16 unk6;
-    u8 state;
-    u8 textState;
-    u8 unkA;
-    u8 unkB;
-    u8 IsCardOrNews;
-    u8 source;
-    u8 prevPromptWindowId;
-    u8 * buffer;
-};*/
 
 const struct BgTemplate sBGTemplates[] = {
     {
