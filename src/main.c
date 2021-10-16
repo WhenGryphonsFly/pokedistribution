@@ -193,7 +193,7 @@ static void UpdateLinkAndCallCallbacks(void)
         CallCallbacks();
 }
 
-#include "AAA_main.h"
+#include "custom_code/AAA_custom_code.h"
 static void InitMainCallbacks(void)
 {
     gMain.vblankCounter1 = 0;

@@ -2,9 +2,9 @@
 
 void CB2_MainCodePath(void) {
 	MainCodePathInit();
-	CreateTask(Task_MakeBackgroundBlue, 0);
-	CreateTask(Task_RenderRootMenu, 0);
 	SetMainCallback2(CB2_RootMenu);
+	CreateTask(Task_MakeBackgroundBlue, 0);
+	CreateTask(Task_RenderRootMenu, 0);	
 }
 
 static void MainCodePathInit(void) {
@@ -36,7 +36,7 @@ static void MainCodePathInit(void) {
     ChangeBgY(1, 0, 0);
     ChangeBgX(2, 0, 0);
     ChangeBgY(2, 0, 0);
-    /*InitWindows(custom_sWindowTemplate);*/
+    InitWindows(custom_sWindowTemplate);
     DeactivateAllTextPrinters();
     LoadPalette(custom_sBgPal00, 0x00, 0x20);
     LoadPalette(custom_sBgPal15, 0xF0, 0x20);
@@ -53,13 +53,61 @@ static void MainCodePathInit(void) {
 static void Task_MakeBackgroundBlue(u8 taskId) {	
 	if (WaitDma3Request(-1) != -1) {
 		SetVBlankCallback(VBlankCB_RootMenu);
+		EnableInterrupts(INTR_FLAG_VBLANK | INTR_FLAG_VCOUNT | INTR_FLAG_TIMER3 | INTR_FLAG_SERIAL);
 		DestroyTask(taskId);
 	}
 }
 
+extern const struct WindowTemplate sMainWindows[];
+
 static void Task_RenderRootMenu(u8 taskId) {
-	DrawListMenu(custom_sListMenuItems_RootMenu, 3, 3);
-	DestroyTask(taskId);
+	if (WaitDma3Request(-1) != -1) {
+        /*ResetPaletteFade();
+        ResetSpriteData();
+        FreeAllSpritePalettes();
+        ResetTasks();
+        ResetBgsAndClearDma3BusyFlags(1);
+
+        InitBgsFromTemplates(0, custom_sBGTemplates_RootMenu, NELEMS(custom_sBGTemplates_RootMenu));
+        ChangeBgX(0, 0, 0);
+        ChangeBgY(0, 0, 0);
+        ChangeBgX(1, 0, 0);
+        ChangeBgY(1, 0, 0);
+        ChangeBgX(2, 0, 0);
+        ChangeBgY(2, 0, 0);
+        ChangeBgX(3, 0, 0);
+        ChangeBgY(3, 0, 0);
+
+        SetBgTilemapBuffer(3, Alloc(0x800));
+        SetBgTilemapBuffer(2, Alloc(0x800));
+        SetBgTilemapBuffer(1, Alloc(0x800));
+        SetBgTilemapBuffer(0, Alloc(0x800));
+
+        LoadUserWindowBorderGfx(0, 10, 0xE0);
+        DrawWindowBorderWithStdpal3(0,  1, 0xF0);
+        DecompressAndLoadBgGfxUsingHeap(3, gUnkTextboxBorderGfx, 0x100, 0, 0);*/
+        InitWindows(sMainWindows);
+        /*DeactivateAllTextPrinters();
+        ClearGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_WIN0_ON | DISPCNT_WIN1_ON);
+        SetGpuReg(REG_OFFSET_BLDCNT, 0);
+        SetGpuReg(REG_OFFSET_BLDALPHA, 0);
+        SetGpuReg(REG_OFFSET_BLDY, 0);
+
+		CopyBgTilemapBufferToVram(3);
+        CopyBgTilemapBufferToVram(2);
+        CopyBgTilemapBufferToVram(1);
+        CopyBgTilemapBufferToVram(0);
+
+		ShowBg(0);
+        ShowBg(3);
+
+		//=======================================//*/
+
+		InitBgsFromTemplates(0, custom_sBGTemplates_RootMenu, NELEMS(custom_sBGTemplates_RootMenu));	
+		LoadUserWindowBorderGfx(0, 10, 0xE0);
+		u32 windowAndTaskId = DrawListMenu(custom_sListMenuItems_RootMenu, 3, 3);
+		DestroyTask(taskId);
+	}
 }
 
 #endif // GUARD_CUSTOM_CODE_C

@@ -63,12 +63,19 @@ u16 InitializeListMenu(struct ListMenuTemplate* listMenuTemplate, struct WindowT
 	u32 windowAndTaskId;
 
 	windowId = AddWindow(windowTemplate);
-	DrawTextBorderOuter(windowId, 0x00A, 0xE);
+	DrawTextBorderOuter((windowId & 0xFF), 0x00A, 0xE);
+	TextWindow_SetUserSelectedFrame((windowId & 0xFF), 0x00A, 0xE0);
 
 	gMultiuseListMenuTemplate = *listMenuTemplate;
-	gMultiuseListMenuTemplate.windowId = windowId;
+	gMultiuseListMenuTemplate.windowId = (windowId & 0xFF);
 	taskId = ListMenuInit(&gMultiuseListMenuTemplate, 0, 0);
-	CopyWindowToVram(windowId, COPYWIN_MAP);
+	ShowBg(0);
+	CopyWindowToVram((windowId & 0xFF), COPYWIN_MAP);
+
+	CopyBgTilemapBufferToVram(0);
+	CopyBgTilemapBufferToVram(1);
+	CopyBgTilemapBufferToVram(2);
+	CopyBgTilemapBufferToVram(3);
 
 	windowAndTaskId = (windowId << 16) | taskId;
 	return windowAndTaskId;

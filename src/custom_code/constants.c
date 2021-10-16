@@ -11,9 +11,10 @@ static const struct BgTemplate custom_sBgTemplate_Init[] = {
 //static const u16 custom_sBgPal00[] = INCBIN_U16("graphics/main_menu/unk_8234648.gbapal");
 static const u16 custom_sBgPal00[] = INCBIN_U16("graphics/main_menu/bgPal0.gbapal");
 static const u16 custom_sBgPal15[] = INCBIN_U16("graphics/main_menu/unk_8234668.gbapal");
+extern const u32 gUnkTextboxBorderGfx[];
 
 
-/*static const struct WindowTemplate custom_sWindowTemplate[] = {
+static const struct WindowTemplate custom_sWindowTemplate[] = {
     {
         .bg = 0,
         .tilemapLeft = 3,
@@ -60,7 +61,7 @@ static const u16 custom_sBgPal15[] = INCBIN_U16("graphics/main_menu/unk_8234668.
         .baseBlock = 0x001
     }, 
     DUMMY_WIN_TEMPLATE
-};*/
+};
 const struct BgTemplate custom_sBGTemplates_RootMenu[] = {
     {
         .bg = 0,
