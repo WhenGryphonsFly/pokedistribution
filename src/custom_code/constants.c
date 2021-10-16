@@ -36,9 +36,27 @@ const u8 custom_gText_BerryFixProgram[] = _("Berry Fix Program (R/S)");
 const u8 custom_gText_MysteryEvent[] = _("Mystery Event (R/S)");
 const u8 custom_gText_MysteryGift[] = _("Mystery Gift (FR/LG/E)");
 const struct ListMenuItem custom_sListMenuItems_RootMenu[] = {
-    { custom_gText_BerryFixProgram, 0 },
-    { custom_gText_MysteryEvent,    1 },
-    { custom_gText_MysteryGift,     2 }
+	{ custom_gText_BerryFixProgram, 0 },
+	{ custom_gText_MysteryEvent,    1 },
+	{ custom_gText_MysteryGift,     2 }
+};
+
+const u8 custom_gText_Test4[] = _("Testing 4");
+const u8 custom_gText_Test5[] = _("Testing 5");
+const u8 custom_gText_Test6[] = _("Testing 6");
+const u8 custom_gText_Test7[] = _("Testing 7");
+const u8 custom_gText_Test8[] = _("Testing 8");
+const u8 custom_gText_Test9[] = _("Testing 9");
+const struct ListMenuItem custom_sListMenuItems_HeightTest[] = {
+	{ custom_gText_BerryFixProgram, 0 },
+	{ custom_gText_MysteryEvent,    1 },
+	{ custom_gText_MysteryGift,     2 },
+	{ custom_gText_Test4,			3 },
+	{ custom_gText_Test5,			4 },
+	{ custom_gText_Test6,			5 },
+	{ custom_gText_Test7,			6 }, 
+	{ custom_gText_Test8,			7 },
+	{ custom_gText_Test9,			8 }
 };
 
 #endif
