@@ -1,4 +1,3 @@
-//[[!!!]]
 #define IS_POKEMON_C
 
 #include "global.h"

@@ -1,4 +1,3 @@
-//[[!!!]]
 
 // battle_records.h
 #include "global.h"

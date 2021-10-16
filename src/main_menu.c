@@ -1,4 +1,3 @@
-//[[!!!]]
 #include "global.h"
 #include "gflib.h"
 #include "scanline_effect.h"

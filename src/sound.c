@@ -1,4 +1,3 @@
-//[[!!!]]
 #include "global.h"
 #include "gba/m4a_internal.h"
 #include "gflib.h"
