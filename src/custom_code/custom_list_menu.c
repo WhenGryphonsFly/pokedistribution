@@ -17,4 +17,30 @@ void SetListMenuWidth(struct ListMenuTemplate* listMenuTemplate, struct WindowTe
 	return;
 }
 
+void SetListMenuHeight(struct ListMenuTemplate* listMenuTemplate, struct WindowTemplate* windowTemplate) {
+	u32 height;
+	u32 delta;
+
+	height = 0;
+	switch (listMenuTemplate->maxShowed) {
+		case 2:
+			height = 4;
+			break;
+		case 3:
+			height = 5;
+			break;
+		case 4:
+			height = 7;
+			break;
+		default:
+			height = 0;
+			break;
+	}
+	
+	windowTemplate->height = height;
+	delta = height / 2;
+	windowTemplate->tilemapTop = 0x09 - delta; // 0x13 / 2 = 0x09
+	return;
+}
+
 #endif

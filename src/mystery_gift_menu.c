@@ -628,6 +628,7 @@ u32 MysteryGift_HandleThreeOptionMenu(u8 * unused0, u16 * unused1, u8 whichMenu)
 
 
 	SetListMenuWidth(&listMenuTemplate, &windowTemplate);
+	SetListMenuHeight(&listMenuTemplate, &windowTemplate);
 
 
     response = DoMysteryGiftListMenu(&windowTemplate, &listMenuTemplate, 1, 0x00A, 0xE0);
