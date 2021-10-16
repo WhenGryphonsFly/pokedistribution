@@ -23,6 +23,10 @@
 
 #include "main_menu.h"
 
+/* [[!!!]] */
+#include "custom_code/custom_list_menu.h" 
+#include "custom_code/constants.h"
+
 EWRAM_DATA u8 sDownArrowCounterAndYCoordIdx[8] = {};
 EWRAM_DATA bool8 gGiftIsFromEReader = FALSE;
 
@@ -606,31 +610,6 @@ bool32 PrintStringAndWait2Seconds(u8 * counter, const u8 * str)
     }
 }
 
-#include "custom_code/custom_list_menu.h"
-
-u32 MysteryGift_HandleThreeOptionMenu(u8 * unused0, u16 * unused1, const struct ListMenuItem* items)
-{
-    struct ListMenuTemplate listMenuTemplate = sListMenuTemplate_ThreeOptions;
-    struct WindowTemplate windowTemplate = sWindowTemplate_ThreeOptions;
-    u32 width;
-    s32 finalWidth;
-    s32 response;
-    u32 i;
-
-	listMenuTemplate.items = items;
-	SetListMenuWidth(&listMenuTemplate, &windowTemplate);
-	SetListMenuHeight(&listMenuTemplate, &windowTemplate);
-
-
-    response = DoMysteryGiftListMenu(&windowTemplate, &listMenuTemplate, 1, 0x00A, 0xE0);
-    if (response != -1)
-    {
-        ClearWindowTilemap(2);
-        CopyWindowToVram(2, COPYWIN_MAP);
-    }
-    return response;
-}
-
 s8 mevent_message_print_and_prompt_yes_no(u8 * textState, u16 * windowId, bool8 yesNoBoxPlacement, const u8 * str)
 {
     struct WindowTemplate windowTemplate;
@@ -1082,7 +1061,7 @@ void task00_mystery_gift(u8 taskId)
         data->state = 1;
         break;
     case  1:
-        switch (MysteryGift_HandleThreeOptionMenu(&data->textState, &data->curPromptWindowId, sListMenuItems_CardsOrNews))
+        switch (CreateAndPollListMenu(custom_sListMenuItems_RootMenu, 3, 3))
         {
         case 0:
             data->IsCardOrNews = 0;
@@ -1143,7 +1122,7 @@ void task00_mystery_gift(u8 taskId)
         data->state = 4;
         break;
     case  4:
-        switch (MysteryGift_HandleThreeOptionMenu(&data->textState, &data->curPromptWindowId, sListMenuItems_WirelessOrFriend))
+        switch (CreateAndPollListMenu(sListMenuItems_WirelessOrFriend, 3, 3))
         {
         case 0:
             ClearTextWindow();

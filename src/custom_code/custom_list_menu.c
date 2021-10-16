@@ -47,7 +47,7 @@ void SetListMenuHeight(struct ListMenuTemplate* listMenuTemplate, struct WindowT
 			height = 4;
 			break;
 		case 3:
-			height = 5;
+			height = 6;
 			break;
 		case 4:
 			height = 7;
@@ -59,7 +59,7 @@ void SetListMenuHeight(struct ListMenuTemplate* listMenuTemplate, struct WindowT
 	
 	windowTemplate->height = height;
 	delta = height / 2;
-	windowTemplate->tilemapTop = 0x09 - delta; // 0x13 / 2 = 0x09
+	windowTemplate->tilemapTop = 0x0A - delta - (height % 2);
 	return;
 }
 

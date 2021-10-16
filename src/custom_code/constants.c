@@ -30,4 +30,15 @@ const struct WindowTemplate custom_sWindowTemplate_Base = {
     .baseBlock = 0x0155
 };
 
+
+
+const u8 custom_gText_BerryFixProgram[] = _("Berry Fix Program (R/S)");
+const u8 custom_gText_MysteryEvent[] = _("Mystery Event (R/S)");
+const u8 custom_gText_MysteryGift[] = _("Mystery Gift (FR/LG/E)");
+const struct ListMenuItem custom_sListMenuItems_RootMenu[] = {
+    { custom_gText_BerryFixProgram, 0 },
+    { custom_gText_MysteryEvent,    1 },
+    { custom_gText_MysteryGift,     2 }
+};
+
 #endif
