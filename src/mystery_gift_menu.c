@@ -1033,7 +1033,56 @@ void task_add_00_mystery_gift(void)
     data->buffer = AllocZeroed(0x40);
 }
 
-void task00_mystery_gift(u8 taskId)
+void task00_mystery_gift(u8 taskId) {
+	struct MysteryGiftTaskData* data = (void*)gTasks[taskId].data;
+	
+	switch (data->state) {
+		case 0: // Initial state
+			data->state = 1;
+			break;
+		case 1: // Root menu
+			switch (CreateAndPollListMenu(custom_sListMenuItems_RootMenu, 3, 3)) {
+				case 0: // Berry Fix
+					SetMainCallback2(mb_berry_fix_serve);
+					break;
+				case 1: // Mystery Event
+					data->state = 100;
+					break;
+				case 2: // Mystery Gift
+					data->state = 200;
+					break;
+			}
+			break;
+
+		case 200: // Mystery Gift
+			switch (CreateAndPollListMenu(custom_sListMenuItems_GiftCategoryMenu, 2, 2)) {
+				case 0: // Official Mystery Gifts
+					// [[TODO]]
+					break;
+				case 1: // Custom Mystery Gifts
+					// [[TODO]]
+					break;
+				case LIST_CANCEL:
+					data->state = 0;
+			}
+			break;
+
+		case 100: // Mystery Event
+			switch (CreateAndPollListMenu(custom_sListMenuItems_EventCategoryMenu, 2, 2)) {
+				case 0: // Official Mystery Events
+					// [[TODO]]
+					break;
+				case 1: // Custom Mystery Events
+					// [[TODO]]
+					break;
+				case LIST_CANCEL:
+					data->state = 0;
+			}
+			break;
+	}
+}
+
+/*void task00_mystery_gift(u8 taskId)
 {
     struct MysteryGiftTaskData * data = (void *)gTasks[taskId].data;
     u32 sp0, flag;
@@ -1057,7 +1106,7 @@ void task00_mystery_gift(u8 taskId)
             {
                 data->state = 2;
             }
-            break;*/
+            break;*//*
 			SetMainCallback2(mb_berry_fix_serve);
 			break;
         case 1:
@@ -1108,7 +1157,7 @@ void task00_mystery_gift(u8 taskId)
         data->state = 4;
         break;
     case  4:
-        switch (CreateAndPollListMenu(sListMenuItems_WirelessOrFriend, 3, 3))
+        switch (CreateAndPollListMenu(custom_sListMenuItems_CategoryMenu, 2, 2))
         {
         case 0:
             ClearTextWindow();
@@ -1587,7 +1636,7 @@ void task00_mystery_gift(u8 taskId)
         SetMainCallback2(MainCB_FreeAllBuffersAndReturnToInitTitleScreen);
         break;
     }
-}
+}*/
 
 u16 GetMysteryGiftBaseBlock(void)
 {

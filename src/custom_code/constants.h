@@ -6,6 +6,7 @@ extern const struct WindowTemplate custom_sWindowTemplate_Base;
 
 extern const struct ListMenuItem custom_sListMenuItems_RootMenu[3];
 extern const struct ListMenuItem custom_sListMenuItems_HeightTest[9];
-extern const struct ListMenuItem custom_sListMenuItems_CategoryMenu[2];
+extern const struct ListMenuItem custom_sListMenuItems_EventCategoryMenu[2];
+extern const struct ListMenuItem custom_sListMenuItems_GiftCategoryMenu[2];
 
 #endif
