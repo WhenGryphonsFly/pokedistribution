@@ -1,5 +1,25 @@
 #ifdef GUARD_CUSTOM_CODE_C
 
+u32 CreateAndPollListMenu(const struct ListMenuItem* items, u8 totalItems, u8 maxShown) {
+	s32 response;
+	struct ListMenuTemplate listMenuTemplate = custom_sListMenuTemplate_Base;
+	struct WindowTemplate windowTemplate = custom_sWindowTemplate_Base;
+
+	listMenuTemplate.items = items;
+	listMenuTemplate.totalItems = totalItems;
+	listMenuTemplate.maxShowed = maxShown;
+	SetListMenuWidth(&listMenuTemplate, &windowTemplate);
+	SetListMenuHeight(&listMenuTemplate, &windowTemplate);
+	
+	response = DoMysteryGiftListMenu(&windowTemplate, &listMenuTemplate, 1, 0x00A, 0xE0);
+    if (response != -1)
+    {
+        ClearWindowTilemap(2);
+        CopyWindowToVram(2, COPYWIN_MAP);
+    }
+    return response;
+}
+
 void SetListMenuWidth(struct ListMenuTemplate* listMenuTemplate, struct WindowTemplate* windowTemplate) {
 	u32 width;
 	s32 finalWidth;
