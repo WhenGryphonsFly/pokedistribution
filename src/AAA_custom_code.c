@@ -30,6 +30,9 @@
 
 #include "custom_code/constants.c"
 #include "custom_code/custom_list_menu.c"
+
+#include "custom_code/distributions.h"
+#include "distributions/custom_gifts.c"
 #undef GUARD_CUSTOM_CODE_C
 
 /*

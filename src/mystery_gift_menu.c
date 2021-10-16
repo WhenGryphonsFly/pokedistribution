@@ -25,6 +25,7 @@
 /* [[!!!]] */
 #include "custom_code/custom_list_menu.h" 
 #include "custom_code/constants.h"
+#include "custom_code/distributions.h"
 #include "berry_fix_program.h"
 // Various function and struct declarations have been moved to /include/mystery_gift_menu.h
 
@@ -1066,9 +1067,21 @@ void task00_mystery_gift(u8 taskId) {
 					break;
 				case 1: // Custom Mystery Gifts
 					// [[TODO]]
+					data->state = 220;
 					break;
 				case LIST_CANCEL:
 					data->state = 0;
+			}
+			break;
+		case 220:
+			switch (CreateAndPollListMenu(custom_sListMenuItems_CgMenu, CUSTOM_GIFT_COUNT)) {
+				case LIST_CANCEL:
+					data->state = 200;
+					break;
+				case LIST_NOTHING_CHOSEN:
+					break;
+				default:
+					// [[TODO]]
 			}
 			break;
 
