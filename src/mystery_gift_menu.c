@@ -737,7 +737,7 @@ bool32 ValidateCardOrNews(bool32 cardOrNews)
     }
 }
 
-bool32 HandleLoadWonderCardOrNews(u8 * state, bool32 cardOrNews, struct MEWonderCardData* wonderCard)
+bool32 HandleLoadWonderCardOrNews(u8 * state, bool32 cardOrNews, struct MEWonderCardData* wonderCard, struct MEWonderNewsData* wonderNews)
 {
     s32 v0;
 
@@ -752,7 +752,7 @@ bool32 HandleLoadWonderCardOrNews(u8 * state, bool32 cardOrNews, struct MEWonder
         }
         else
         {
-            InitWonderNewsResources(GetSavedWonderNews());
+            InitWonderNewsResources(wonderNews);
         }
         (*state)++;
         break;
@@ -1088,13 +1088,10 @@ void task00_mystery_gift(u8 taskId) {
 					break;
 			}
 			break;
-		case 221: // Prepare to display Wonder Card
-			// [[custom_mgdd_all]]
-			if (HandleLoadWonderCardOrNews(&data->textState, data->IsCardOrNews, &custom_mgdd_all[data->source].wc)) {
-			    data->state = 222;
-			}
+		case 221: // Display Wonder Card/News
+			if (HandleLoadWonderCardOrNews(&data->textState, custom_mgdd_all[data->source].showNews, &custom_mgdd_all[data->source].wc, &custom_mgdd_all[data->source].wn)) data->state = 222;
 			break;
-		case 222: // Display Wonder Card
+		case 222: // Display Wonder Card Menu
 			break; // see case 20
 
 		case 100: // Mystery Event

@@ -438,4 +438,12 @@
 #define WC_SHARE_ONCE 1
 #define WC_SHARE_YES 2
 
+// [[TODO]] More WC
+
+//=============//
+
+// Wonder News Share State
+#define WN_SHARE_NO 0
+#define WN_SHARE_YES 1
+
 #endif
