@@ -653,10 +653,10 @@ struct FameCheckerSaveData
 struct MEWonderNewsData
 {
     u16 newsId;
-    u8 shareState;
-    u8 unk_03;
-    u8 unk_04[40];
-    u8 unk_2C[10][40];
+    u8 shareState; // 0=off, 1=on
+    u8 color; // [[TODO]]
+    u8 title[40];
+    u8 contents[10][40];
 };
 
 struct MEWonderNewsStruct
@@ -668,17 +668,17 @@ struct MEWonderNewsStruct
 struct MEWonderCardData
 {
     u16 cardId;
-    u16 unk_02;
+    u16 icon; // [[TODO]]
     u32 unk_04;
-    u8 unk_08_0:2;
-    u8 unk_08_2:4;
+    u8 type:2;
+    u8 color:4; // [[TODO]]
     u8 shareState:2;
-    u8 recvMonCapacity;
-    u8 unk_0A[40];
-    u8 unk_32[40];
-    u8 unk_5A[4][40];
-    u8 unk_FA[40];
-    u8 unk_122[40];
+    u8 recvMonCapacity; // [[CHECK]]
+    u8 headerA[40];
+    u8 headerB[40];
+    u8 contents[4][40];
+    u8 footerA[40];
+    u8 footerB[40];
 };
 
 struct MEWonderCardStruct
@@ -692,7 +692,7 @@ struct MEventBuffer_3430_Sub
     u16 linkWins;
     u16 linkLosses;
     u16 linkTrades;
-    u16 unk_06;
+    u16 icon; // Same as MEWonderCardData icon
     u16 distributedMons[2][7]; // [0][x] = species
                                // [1][x] = ???
 };

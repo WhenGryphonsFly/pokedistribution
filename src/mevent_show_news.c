@@ -80,9 +80,9 @@ bool32 InitWonderNewsResources(const struct MEWonderNewsData * news)
     if (sWork == NULL)
         return FALSE;
     sWork->wonderNews = *news;
-    if (sWork->wonderNews.unk_03 >= NELEMS(sBgSpecs))
-        sWork->wonderNews.unk_03 = 0;
-    sWork->bgSpec = &sBgSpecs[sWork->wonderNews.unk_03];
+    if (sWork->wonderNews.color >= NELEMS(sBgSpecs))
+        sWork->wonderNews.color = 0;
+    sWork->bgSpec = &sBgSpecs[sWork->wonderNews.color];
     sWork->menuIndicatorsId = 0xFF;
     return TRUE;
 }
@@ -297,11 +297,11 @@ u32 MENews_GetInput(u16 input)
 static void sub_8146980(void)
 {
     u8 i = 0;
-    memcpy(sWork->title, sWork->wonderNews.unk_04, 40);
+    memcpy(sWork->title, sWork->wonderNews.title, 40);
     sWork->title[40] = EOS;
     for (; i < 10; ++i)
     {
-        memcpy(sWork->messages[i], sWork->wonderNews.unk_2C[i], 40);
+        memcpy(sWork->messages[i], sWork->wonderNews.contents[i], 40);
         sWork->messages[i][40] = EOS;
         if (i > 7 && sWork->messages[i][0] != EOS)
             ++sWork->numMails;

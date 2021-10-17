@@ -319,7 +319,7 @@ bool32 OverwriteSavedWonderCardWithReceivedCard(const struct MEWonderCardData * 
     // Annoying hack to match
     r2 = &gSaveBlock1Ptr->mysteryEventBuffers.buffer_310.data;
     r1 = &gSaveBlock1Ptr->mysteryEventBuffers.mecard.data;
-    r2->unk_06 = r1->unk_02;
+    r2->icon = r1->icon;
     return TRUE;
 }
 
@@ -338,11 +338,11 @@ static bool32 IsReceivedWonderCardHeaderValid(const struct MEWonderCardData * da
 {
     if (data->cardId == 0)
         return FALSE;
-    if (data->unk_08_0 > 2)
+    if (data->type > 2)
         return FALSE;
     if (!(data->shareState == 0 || data->shareState == 1 || data->shareState == 2))
         return FALSE;
-    if (data->unk_08_2 > 7)
+    if (data->color > 7)
         return FALSE;
     if (data->recvMonCapacity > 7)
         return FALSE;
@@ -441,7 +441,7 @@ static s32 ValidateCardAndCountMonsReceived(void)
     if (!ValidateReceivedWonderCard())
         return 0;
     data = &gSaveBlock1Ptr->mysteryEventBuffers.mecard.data;
-    if (data->unk_08_0 != 1)
+    if (data->type != 1)
         return 0;
     return CountReceivedDistributionMons(&gSaveBlock1Ptr->mysteryEventBuffers.buffer_310.data, data->recvMonCapacity);
 }
@@ -584,7 +584,7 @@ u16 sub_81444B0(const struct MEventClientHeaderStruct * a0, u32 command)
 static void IncrementBattleCardCount(u32 command)
 {
     struct MEWonderCardData * data = &gSaveBlock1Ptr->mysteryEventBuffers.mecard.data;
-    if (data->unk_08_0 == 2)
+    if (data->type == 2)
     {
         u16 * dest = NULL;
         switch (command)
@@ -621,7 +621,7 @@ u16 MEvent_GetBattleCardCount(u32 command)
         case 0:
         {
             struct MEWonderCardData * data = &gSaveBlock1Ptr->mysteryEventBuffers.mecard.data;
-            if (data->unk_08_0 == 2)
+            if (data->type == 2)
             {
                 struct MEventBuffer_3430_Sub * buffer = &gSaveBlock1Ptr->mysteryEventBuffers.buffer_310.data;
                 return buffer->linkWins;
@@ -631,7 +631,7 @@ u16 MEvent_GetBattleCardCount(u32 command)
         case 1:
         {
             struct MEWonderCardData * data = &gSaveBlock1Ptr->mysteryEventBuffers.mecard.data;
-            if (data->unk_08_0 == 2)
+            if (data->type == 2)
             {
                 struct MEventBuffer_3430_Sub * buffer = &gSaveBlock1Ptr->mysteryEventBuffers.buffer_310.data;
                 return buffer->linkLosses;
@@ -641,7 +641,7 @@ u16 MEvent_GetBattleCardCount(u32 command)
         case 2:
         {
             struct MEWonderCardData * data = &gSaveBlock1Ptr->mysteryEventBuffers.mecard.data;
-            if (data->unk_08_0 == 2)
+            if (data->type == 2)
             {
                 struct MEventBuffer_3430_Sub * buffer = &gSaveBlock1Ptr->mysteryEventBuffers.buffer_310.data;
                 return buffer->linkTrades;
@@ -651,14 +651,14 @@ u16 MEvent_GetBattleCardCount(u32 command)
         case 3:
         {
             struct MEWonderCardData * data = &gSaveBlock1Ptr->mysteryEventBuffers.mecard.data;
-            if (data->unk_08_0 == 1)
+            if (data->type == 1)
                 return ValidateCardAndCountMonsReceived();
             break;
         }
         case 4:
         {
             struct MEWonderCardData * data = &gSaveBlock1Ptr->mysteryEventBuffers.mecard.data;
-            if (data->unk_08_0 == 1)
+            if (data->type == 1)
                 return data->recvMonCapacity;
             break;
         }
