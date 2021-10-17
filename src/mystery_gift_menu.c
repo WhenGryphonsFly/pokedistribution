@@ -737,16 +737,18 @@ bool32 ValidateCardOrNews(bool32 cardOrNews)
     }
 }
 
-bool32 HandleLoadWonderCardOrNews(u8 * state, bool32 cardOrNews)
+bool32 HandleLoadWonderCardOrNews(u8 * state, bool32 cardOrNews, struct MEWonderCardData* wonderCard)
 {
     s32 v0;
+
+	struct MEventBuffer_3430_Sub empty3430 = {0, 0, 0, wonderCard->icon, {}};
 
     switch (*state)
     {
     case 0:
         if (cardOrNews == 0)
         {
-            InitWonderCardResources(GetSavedWonderCard(), sav1_get_mevent_buffer_2());
+            InitWonderCardResources(wonderCard, &empty3430);
         }
         else
         {
@@ -1045,10 +1047,10 @@ void task00_mystery_gift(u8 taskId) {
 				case 0: // Berry Fix
 					SetMainCallback2(mb_berry_fix_serve);
 					break;
-				case 1: // Mystery Event
+				case 1:
 					data->state = 100;
 					break;
-				case 2: // Mystery Gift
+				case 2:
 					data->state = 200;
 					break;
 			}
@@ -1061,29 +1063,39 @@ void task00_mystery_gift(u8 taskId) {
 
 		case 200: // Mystery Gift
 			switch (CreateAndPollListMenu(custom_sListMenuItems_GiftCategoryMenu, 2)) {
-				case 0: // Official Mystery Gifts
+				case 0:
 					// [[TODO]]
 					data->state = 2;
 					break;
-				case 1: // Custom Mystery Gifts
-					// [[TODO]]
+				case 1:
 					data->state = 220;
 					break;
 				case LIST_CANCEL:
 					data->state = 0;
 			}
 			break;
-		case 220:
-			switch (CreateAndPollListMenu(custom_sListMenuItems_CgMenu, CUSTOM_GIFT_COUNT)) {
+		case 220: // Custom Mystery Gift
+			u32 result = CreateAndPollListMenu(custom_sListMenuItems_CgMenu, CUSTOM_GIFT_COUNT);
+			switch (result) {
 				case LIST_CANCEL:
 					data->state = 200;
 					break;
 				case LIST_NOTHING_CHOSEN:
 					break;
 				default:
-					// [[TODO]]
+					data->source = result;
+					data->state = 221;
+					break;
 			}
 			break;
+		case 221: // Prepare to display Wonder Card
+			// [[custom_mgdd_all]]
+			if (HandleLoadWonderCardOrNews(&data->textState, data->IsCardOrNews, &custom_mgdd_all[data->source].wc)) {
+			    data->state = 222;
+			}
+			break;
+		case 222: // Display Wonder Card
+			break; // see case 20
 
 		case 100: // Mystery Event
 			switch (CreateAndPollListMenu(custom_sListMenuItems_EventCategoryMenu, 2)) {

@@ -653,8 +653,8 @@ struct FameCheckerSaveData
 struct MEWonderNewsData
 {
     u16 newsId;
-    u8 shareState; // 0=off, 1=on
-    u8 color; // [[TODO]]
+    u8 shareState; // 0 = no, 1 = yes
+    u8 color; // 0 = yellow, 1 = tritone, 2 = red, 3 = green, 4 = blue, 5 = olive, 6 = gold, 7 = silver[[TODO]]
     u8 title[40];
     u8 contents[10][40];
 };
@@ -668,11 +668,11 @@ struct MEWonderNewsStruct
 struct MEWonderCardData
 {
     u16 cardId;
-    u16 icon; // [[TODO]]
-    u32 unk_04;
-    u8 type:2;
-    u8 color:4; // [[TODO]]
-    u8 shareState:2;
+    u16 icon; // by internal index number, except Unown B starts at 30001 instead of 413
+    u32 unk_04a;
+    u8 type:2; // [[TODO]] 0 = standard, 1 = ???, 2 = ???
+    u8 color:4; // same as MEWonderNewsData color
+    u8 shareState:2; // 0 = no, 1 = yes but receiver cannot, 2 = yes and receiver can as well
     u8 recvMonCapacity; // [[CHECK]]
     u8 headerA[40];
     u8 headerB[40];

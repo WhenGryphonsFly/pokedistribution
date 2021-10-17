@@ -27,11 +27,11 @@
 #define GUARD_CUSTOM_CODE_C
 #include "custom_code/constants.h"
 #include "custom_code/custom_list_menu.h"
-
 #include "custom_code/constants.c"
 #include "custom_code/custom_list_menu.c"
 
 #include "custom_code/distributions.h"
+#include "distributions/wonder_card_news.h"
 #include "distributions/custom_gifts.c"
 #undef GUARD_CUSTOM_CODE_C
 

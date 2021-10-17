@@ -286,9 +286,9 @@ static void sub_8145A98(void)
     sMEventScreenData->title[40] = EOS;
     memcpy(sMEventScreenData->subtitle, sMEventScreenData->wonderCard.headerB, 40);
     sMEventScreenData->subtitle[40] = EOS;
-    if (sMEventScreenData->wonderCard.unk_04 > 999999)
-        sMEventScreenData->wonderCard.unk_04 = 999999;
-    ConvertIntToDecimalStringN(sMEventScreenData->unk_01DD, sMEventScreenData->wonderCard.unk_04, STR_CONV_MODE_LEFT_ALIGN, 6);
+    if (sMEventScreenData->wonderCard.unk_04a > 999999)
+        sMEventScreenData->wonderCard.unk_04a = 999999;
+    ConvertIntToDecimalStringN(sMEventScreenData->unk_01DD, sMEventScreenData->wonderCard.unk_04a, STR_CONV_MODE_LEFT_ALIGN, 6);
     for (i = 0; i < 4; i++)
     {
         memcpy(sMEventScreenData->mainMessageLines[i], sMEventScreenData->wonderCard.contents[i], 40);
@@ -360,7 +360,7 @@ static void sub_8145D18(u8 whichWindow)
             if (x < 0)
                 x = 0;
             AddTextPrinterParameterized3(windowId, 3, x, 17, gUnknown_8467068[sMEventScreenData->bgSpec->textPal1], 0, sMEventScreenData->subtitle);
-            if (sMEventScreenData->wonderCard.unk_04 != 0)
+            if (sMEventScreenData->wonderCard.unk_04a != 0)
             {
                 AddTextPrinterParameterized3(windowId, 2, 166, 17, gUnknown_8467068[sMEventScreenData->bgSpec->textPal1], 0, sMEventScreenData->unk_01DD);
             }
@@ -439,8 +439,8 @@ static void sub_81461D8(void)
             {
                 DestroySprite(&gSprites[sMEventScreenData->cardIconAndShadowSprites[r6][0]]);
                 // This might be a typo.  Uncomment the next line, and comment the one that follows, to get the presumed intended behavior.
-                // if (sMEventScreenData->cardIconAndShadowSprites[r6][1] != 0xFF)
-                if (sMEventScreenData->cardIconAndShadowSprites[r6][0] != 0xFF)
+                if (sMEventScreenData->cardIconAndShadowSprites[r6][1] != 0xFF)
+                //if (sMEventScreenData->cardIconAndShadowSprites[r6][0] != 0xFF)
                 {
                     DestroyMonIcon(&gSprites[sMEventScreenData->cardIconAndShadowSprites[r6][1]]);
                 }

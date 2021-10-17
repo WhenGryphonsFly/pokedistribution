@@ -18,5 +18,6 @@ extern const struct ListMenuItem custom_sListMenuItems_OE_Menu[OFFICIAL_MYSTERY_
 // [[TODO]] CE, OG*/
 #define CUSTOM_GIFT_COUNT 1
 extern const struct ListMenuItem custom_sListMenuItems_CgMenu[CUSTOM_GIFT_COUNT];
+extern const struct MysteryGiftDistributionData custom_mgdd_all[CUSTOM_GIFT_COUNT];
 
 #endif
