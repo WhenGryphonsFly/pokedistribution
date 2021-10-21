@@ -46,4 +46,10 @@
 	Step 4: If "Mystery Gift (FR/LG/E)"
 */
 
+/*
+	Regarding custom sripts:
+	macros are not visible, and cannot be #included
+	Variables (and presumably flags) are in scope. They are #included as a part of global.h
+*/
+
 
