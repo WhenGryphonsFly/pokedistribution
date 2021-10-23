@@ -124,136 +124,136 @@ static u32 common_mainseq_4(struct mevent_srv_common * svr)
 
     switch (cmd->instr)
     {
-        case 0:
+        case 0: // Return (flag)
             AGB_ASSERT_EX(cmd->parameter == NULL, ABSPATH("mevent_server.c"), 354);
             svr->mainseqno = 1;
             svr->param = cmd->flag;
             break;
-        case 1:
+        case 1: // Wait for send to finish
             svr->mainseqno = 3;
             break;
-        case 2:
+        case 2: // Wait for receive with expected magic number (flag)
             AGB_ASSERT_EX(cmd->parameter == NULL, ABSPATH("mevent_server.c"), 364);
             mevent_srv_sub_init_recv(&svr->manager, cmd->flag, svr->recvBuffer);
             svr->mainseqno = 2;
             break;
-        case 3:
+        case 3: // Branch to set of instructions specified by (parameter)
             AGB_ASSERT_EX(cmd->flag == FALSE, ABSPATH("mevent_server.c"), 370);
             svr->cmdidx = 0;
             svr->cmdBuffer = cmd->parameter;
             break;
-        case 5:
+        case 5: // Copy contents of recvBuffer to secondary buffer for validation of client's version/revision
             AGB_ASSERT_EX(cmd->flag == FALSE, ABSPATH("mevent_server.c"), 376);
             AGB_ASSERT_EX(cmd->parameter == NULL, ABSPATH("mevent_server.c"), 377);
             memcpy(svr->mevent_unk1442cc, svr->recvBuffer, sizeof(struct MEventClientHeaderStruct));
             break;
-        case 6:
+        case 6: // Validate client's version/revision, and set (result)
             AGB_ASSERT_EX(cmd->flag == FALSE, ABSPATH("mevent_server.c"), 382);
             AGB_ASSERT_EX(cmd->parameter == NULL, ABSPATH("mevent_server.c"), 383);
             svr->param = ValidateMEventClientHeader(svr->mevent_unk1442cc);
             break;
-        case 4:
+        case 4: // If previous (result) equals (flag), branch to (parameter)
             if (svr->param == cmd->flag)
             {
                 svr->cmdidx = 0;
                 svr->cmdBuffer = cmd->parameter;
             }
             break;
-        case 7:
+        case 7: // Check if client already has a Wonder Card with this ID, and set (result) (0 if no Card, 1 if this Card/ID, 2 if different Card)
             AGB_ASSERT_EX(cmd->flag == FALSE, ABSPATH("mevent_server.c"), 396);
             ptr = mevent_first_if_not_null_else_second(cmd->parameter, svr->card);
             svr->param = sub_8144418(ptr, svr->mevent_unk1442cc, ptr);
             break;
-        case 8:
+        case 8: // Set (result) to first 32 bits of recvBuffer
             AGB_ASSERT_EX(cmd->flag == FALSE, ABSPATH("mevent_server.c"), 402);
             AGB_ASSERT_EX(cmd->parameter == NULL, ABSPATH("mevent_server.c"), 403);
             svr->param = *(u32 *)svr->recvBuffer;
             break;
-        case 9:
+        case 9: // Set (result) depending on if client can receive another PKMN (odd if false, even if true)
             AGB_ASSERT_EX(cmd->flag == FALSE, ABSPATH("mevent_server.c"), 408);
             ptr = mevent_first_if_not_null_else_second(cmd->parameter, &svr->sendWord);
             svr->param = MEvent_CanPlayerReceiveDistributionMon(ptr, svr->mevent_unk1442cc, ptr);
             break;
-        case 10:
+        case 10: // Set (result) to client's link wins/losses/ties or distribution PKMN allowed/received dependent on (flag)
             AGB_ASSERT_EX(cmd->parameter == NULL, ABSPATH("mevent_server.c"), 415);
             svr->param = sub_81444B0(svr->mevent_unk1442cc, cmd->flag);
             break;
-        case 11:
+        case 11: // Check if client's Easy Chat Profile matches the profile at (parameter), and set (result)
             AGB_ASSERT_EX(cmd->flag == FALSE, ABSPATH("mevent_server.c"), 420);
             svr->param = sub_8144474(svr->mevent_unk1442cc, cmd->parameter);
             break;
-        case 12:
+        case 12: // Appears to compare the locations of the pointers, rather than the data at those pointers. Unused regardless.
             AGB_ASSERT_EX(cmd->flag == FALSE, ABSPATH("mevent_server.c"), 426);
             svr->param = mevent_compare_pointers(cmd->parameter, *(void **)svr->recvBuffer);
             break;
-        case 14:
+        case 14: // Begin sending Wonder News located at (parameter), or if null send buffered Wonder News; use magic number 0x17 (client expects Wonder News)
             AGB_ASSERT_EX(cmd->flag == FALSE, ABSPATH("mevent_server.c"), 432);
             mevent_srv_common_init_send(svr, 0x17, mevent_first_if_not_null_else_second(cmd->parameter, svr->news), sizeof(struct MEWonderNewsData));
             break;
-        case 13:
+        case 13: // Begin sending Wonder Card located at (parameter), or if null send buffered Wonder Card; use magic number 0x16 (client expects Wonder Card)
             AGB_ASSERT_EX(cmd->flag == FALSE, ABSPATH("mevent_server.c"), 438);
             mevent_srv_common_init_send(svr, 0x16, mevent_first_if_not_null_else_second(cmd->parameter, svr->card), sizeof(struct MEWonderCardData));
             break;
-        case 16:
+        case 16: // Begin sending 32 bits located at (parameter), or if null send buffered 32 bits; use magic number 0x18 (unused)
             AGB_ASSERT_EX(cmd->flag == FALSE, ABSPATH("mevent_server.c"), 444);
             mevent_srv_common_init_send(svr, 0x18, mevent_first_if_not_null_else_second(cmd->parameter, &svr->sendWord), 4);
             break;
-        case 15:
+        case 15: // Begin sending (flag) bytes located at (parameter), or if null send general-purpose buffer 1; use magic number 0x19 (client expects RAM Script)
             if (cmd->parameter == NULL)
                 mevent_srv_common_init_send(svr, 0x19, svr->sendBuffer1, svr->sendBuffer1Size);
             else
                 mevent_srv_common_init_send(svr, 0x19, cmd->parameter, cmd->flag);
             break;
-        case 18:
+        case 18: // Begin sending (flag) bytes located at (parameter), or if null send general-purpose buffer 2; use magic number 0x10 (client expects to jump buffer / write client.recvBuffer to client.cmdBuffer)
             if (cmd->parameter == NULL)
                 mevent_srv_common_init_send(svr, 0x10, svr->sendBuffer2, svr->sendBuffer2Size);
             else
                 mevent_srv_common_init_send(svr, 0x10, cmd->parameter, cmd->flag);
             break;
-        case 19:
+        case 19: // Begin sending 188 bytes located at (parameter); use magic number 0x1a (unused, but given it copies 188 bytes it is probably for custom trainers)
             AGB_ASSERT_EX(cmd->flag == FALSE, ABSPATH("mevent_server.c"), 466);
             mevent_srv_common_init_send(svr, 0x1a, cmd->parameter, 188);
             break;
-        case 20:
+        case 20: // Begin sending (flag) bytes located at (parameter); use magic number 0x15 (client expects size 0x40 buffer; said buffer is apparently never read from, and the script that uses this number is unused)
             mevent_srv_common_init_send(svr, 0x15, cmd->parameter, cmd->flag);
             break;
-        case 17:
+        case 17: // Begin sending (flag) bytes located at (parameter); use magic number 0x1c (unused)
             mevent_srv_common_init_send(svr, 0x1c, cmd->parameter, cmd->flag);
             break;
-        case 22:
+        case 22: // Copy Wonder Card at (parameter) to WC buffer
             AGB_ASSERT_EX(cmd->flag == FALSE, ABSPATH("mevent_server.c"), 481);
             memcpy(svr->card, cmd->parameter, 332);
             break;
-        case 23:
+        case 23: // Copy Wonder News at (parameter) to WN buffer
             AGB_ASSERT_EX(cmd->flag == FALSE, ABSPATH("mevent_server.c"), 486);
             memcpy(svr->news, cmd->parameter, 444);
             break;
-        case 21:
+        case 21: // Copy 32 bits at (parameter) to 32-bit buffer
             AGB_ASSERT_EX(cmd->flag == FALSE, ABSPATH("mevent_server.c"), 491);
             svr->sendWord = *(u32 *)cmd->parameter;
             break;
-        case 24:
+        case 24: // Set address of general-purpose buffer 1 to (parameter), and set buffer size to (flag)
             svr->sendBuffer1 = cmd->parameter;
             svr->sendBuffer1Size = cmd->flag;
             break;
-        case 25:
+        case 25: // Set address of general-purpose buffer 2 to (parameter), and set buffer size to (flag)
             svr->sendBuffer2 = cmd->parameter;
             svr->sendBuffer2Size = cmd->flag;
             break;
-        case 26:
+        case 26: // Copy Wonder Card in save file to WC buffer, changing WC_SHARE_ONCE to WC_SHARE_NO
             AGB_ASSERT_EX(cmd->flag == FALSE && cmd->parameter == NULL, ABSPATH("mevent_server.c"), 506);
             memcpy(svr->card, GetSavedWonderCard(), 332);
             MEvent_WonderCardResetUnk08_6(svr->card);
             break;
-        case 27:
+        case 27: // Copy Wonder News in save file to WN buffer
             AGB_ASSERT_EX(cmd->flag == FALSE && cmd->parameter == NULL, ABSPATH("mevent_server.c"), 512);
             memcpy(svr->news, GetSavedWonderNews(), 444);
             break;
-        case 28:
+        case 28: // Copy RAM Script in save file to general-purpose buffer 1 (but only if 2F attendant)
             AGB_ASSERT_EX(cmd->flag == FALSE && cmd->parameter == NULL, ABSPATH("mevent_server.c"), 517);
             svr->sendBuffer1 = sub_8069E48();
             break;
-        case 29:
+        case 29: // Begin sending (flag) bytes located at (parameter); use magic number 0x1b (unused)
             mevent_srv_common_init_send(svr, 0x1b, cmd->parameter, cmd->flag);
             break;
     }
