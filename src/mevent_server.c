@@ -243,7 +243,8 @@ static u32 common_mainseq_4(struct mevent_srv_common * svr)
         case 26: // Copy Wonder Card in save file to WC buffer, changing WC_SHARE_ONCE to WC_SHARE_NO
             AGB_ASSERT_EX(cmd->flag == FALSE && cmd->parameter == NULL, ABSPATH("mevent_server.c"), 506);
             memcpy(svr->card, GetSavedWonderCard(), 332);
-            MEvent_WonderCardResetUnk08_6(svr->card);
+			// Don't need this line as the original distributor
+            //MEvent_WonderCardResetUnk08_6(svr->card);
             break;
         case 27: // Copy Wonder News in save file to WN buffer
             AGB_ASSERT_EX(cmd->flag == FALSE && cmd->parameter == NULL, ABSPATH("mevent_server.c"), 512);
