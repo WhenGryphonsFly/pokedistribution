@@ -174,7 +174,7 @@ static u32 common_mainseq_4(struct mevent_srv_common * svr)
             ptr = mevent_first_if_not_null_else_second(cmd->parameter, &svr->sendWord);
             svr->param = MEvent_CanPlayerReceiveDistributionMon(ptr, svr->mevent_unk1442cc, ptr);
             break;
-        case 10: // Set (result) to client's link wins/losses/ties or distribution PKMN allowed/received dependent on (flag)
+        case 10: // Set (result) to client's link wins/losses/trades or distribution PKMN allowed/received dependent on (flag)
             AGB_ASSERT_EX(cmd->parameter == NULL, ABSPATH("mevent_server.c"), 415);
             svr->param = sub_81444B0(svr->mevent_unk1442cc, cmd->flag);
             break;
