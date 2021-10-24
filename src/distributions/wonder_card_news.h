@@ -422,6 +422,9 @@
 
 // Wonder Card types [[TODO]]
 #define WC_TYPE_STANDARD 0
+#define WC_TYPE_POKEMON 1
+#define WC_TYPE_BATTLE 2
+// for WC_TYPE_BATTLE, footerB should be _("Wins: {DYNAMIC}   / Losses: {DYNAMIC}À  / Trades: {DYNAMIC}Á  $")
 
 // Wonder Card/News Colors
 #define WC_COLOR_YELLOW 0

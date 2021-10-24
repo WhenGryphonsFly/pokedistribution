@@ -741,7 +741,7 @@ bool32 HandleLoadWonderCardOrNews(u8 * state, bool32 cardOrNews, struct MEWonder
 {
     s32 v0;
 
-	struct MEventBuffer_3430_Sub empty3430 = {0, 0, 0, wonderCard->icon, {}};
+	struct MEventBuffer_3430_Sub empty3430 = {105, 108, 112, wonderCard->icon, {{SPECIES_LATIAS, SPECIES_LATIOS, SPECIES_HO_OH, SPECIES_LUGIA, SPECIES_DEOXYS, SPECIES_MEW, SPECIES_RAYQUAZA}, {1,2,3,4,5,6,7}}};
 
     switch (*state)
     {

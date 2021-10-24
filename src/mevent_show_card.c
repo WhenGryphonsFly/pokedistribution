@@ -27,7 +27,7 @@ struct MEventScreenMgr
     u8 cardIconAndShadowSprites[7][2];
     u8 title[41];
     u8 subtitle[41];
-    u8 unk_01DD[7];
+    u8 subtitleNumber[7];
     u8 mainMessageLines[4][41];
     u8 instructionsLine1[41];
     u8 instructionsLine2[41];
@@ -286,9 +286,9 @@ static void sub_8145A98(void)
     sMEventScreenData->title[40] = EOS;
     memcpy(sMEventScreenData->subtitle, sMEventScreenData->wonderCard.headerB, 40);
     sMEventScreenData->subtitle[40] = EOS;
-    if (sMEventScreenData->wonderCard.unk_04a > 999999)
-        sMEventScreenData->wonderCard.unk_04a = 999999;
-    ConvertIntToDecimalStringN(sMEventScreenData->unk_01DD, sMEventScreenData->wonderCard.unk_04a, STR_CONV_MODE_LEFT_ALIGN, 6);
+    if (sMEventScreenData->wonderCard.headerNumber > 999999)
+        sMEventScreenData->wonderCard.headerNumber = 999999;
+    ConvertIntToDecimalStringN(sMEventScreenData->subtitleNumber, sMEventScreenData->wonderCard.headerNumber, STR_CONV_MODE_LEFT_ALIGN, 6);
     for (i = 0; i < 4; i++)
     {
         memcpy(sMEventScreenData->mainMessageLines[i], sMEventScreenData->wonderCard.contents[i], 40);
@@ -360,9 +360,9 @@ static void sub_8145D18(u8 whichWindow)
             if (x < 0)
                 x = 0;
             AddTextPrinterParameterized3(windowId, 3, x, 17, gUnknown_8467068[sMEventScreenData->bgSpec->textPal1], 0, sMEventScreenData->subtitle);
-            if (sMEventScreenData->wonderCard.unk_04a != 0)
+            if (sMEventScreenData->wonderCard.headerNumber != 0)
             {
-                AddTextPrinterParameterized3(windowId, 2, 166, 17, gUnknown_8467068[sMEventScreenData->bgSpec->textPal1], 0, sMEventScreenData->unk_01DD);
+                AddTextPrinterParameterized3(windowId, 2, 166, 17, gUnknown_8467068[sMEventScreenData->bgSpec->textPal1], 0, sMEventScreenData->subtitleNumber);
             }
             break;
         }

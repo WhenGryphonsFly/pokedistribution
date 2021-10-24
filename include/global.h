@@ -669,7 +669,7 @@ struct MEWonderCardData
 {
     u16 cardId;
     u16 icon; // by internal index number, except Unown B starts at 30001 instead of 413
-    u32 unk_04a;
+    u32 headerNumber; // Used in the headerB / subtitle row; should probably just be cardId
     u8 type:2; // [[TODO]] 0 = standard, 1 = ???, 2 = ???
     u8 color:4; // same as MEWonderNewsData color
     u8 shareState:2; // 0 = no, 1 = yes but receiver cannot, 2 = yes and receiver can as well
