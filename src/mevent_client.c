@@ -131,73 +131,73 @@ static u32 client_mainseq_4(struct mevent_client * svr)
     ++svr->cmdidx;
     switch (cmd->instr)
     {
-    case 0:
+    case 0: // nop
         break;
-    case 1:
+    case 1: // Return (parameter)
         svr->param = cmd->parameter;
         svr->mainseqno = 1;
         svr->flag = 0;
         break;
-    case 2:
+    case 2: // Wait for receive with expected maguc number (parameter)
         mevent_srv_sub_init_recv(&svr->manager, cmd->parameter, svr->recvBuffer);
         svr->mainseqno = 2;
         svr->flag = 0;
         break;
-    case 3:
+    case 3: // Wait for send to finish
         svr->mainseqno = 3;
         svr->flag = 0;
         break;
-    case 20:
+    case 20: // Send entire buffer; use magic number 0x14 (server doesn't use information, as it immediately returns)
         mevent_srv_sub_init_send(&svr->manager, 0x14, svr->sendBuffer, 0);
         svr->mainseqno = 3;
         svr->flag = 0;
         break;
-    case 19:
+    case 19: // Send game stat (parameter); use magic number 0x12 (unused)
         mevent_client_send_word(svr, 0x12, GetGameStat(cmd->parameter));
         svr->mainseqno = 3;
         svr->flag = 0;
         break;
-    case 6:
+    case 6: // If (result) is 0, write recvBuffer to cmdBuffer
         if (svr->param == 0)
             mevent_client_jmp_buffer(svr);
         break;
-    case 7:
+    case 7: // If (result) is 1, write recvBuffer to cmdBuffer
         if (svr->param == 1)
             mevent_client_jmp_buffer(svr);
         break;
-    case 4:
+    case 4: // Write recvBuffer to cmdBuffer
         mevent_client_jmp_buffer(svr);
         break;
-    case 5:
+    case 5: // Display message and yes/no prompt, and write to (result)
         memcpy(svr->buffer, svr->recvBuffer, 0x40);
         svr->mainseqno = 5;
         svr->flag = 0;
         return 2;
-    case 11:
+    case 11: // Display message
         memcpy(svr->buffer, svr->recvBuffer, 0x40);
         svr->mainseqno = 5;
         svr->flag = 0;
         return 3;
-    case 12:
+    case 12: // [[???]] Elevates recvBuffer higher
         memcpy(svr->buffer, svr->recvBuffer, 0x40);
         svr->mainseqno = 5;
         svr->flag = 0;
         return 5;
-    case 13:
+    case 13: // Prompt to replace Wonder Card, and write to (reult)
         svr->mainseqno = 5;
         svr->flag = 0;
         return 4;
-    case 8:
+    case 8: // Begin sending client's header information; use magic number 0x11 (server expects client header information)
         BuildMEventClientHeader(svr->sendBuffer);
         mevent_srv_sub_init_send(&svr->manager, 0x11, svr->sendBuffer, sizeof(struct MEventClientHeaderStruct));
         break;
-    case 14:
+    case 14: // Begin sending 32 bits located at (result); use magic number 0x13 (server expects 32 bits)
         mevent_client_send_word(svr, 0x13, svr->param);
         break;
-    case 10:
+    case 10: // Replace Wonder Card with the one from the server
         OverwriteSavedWonderCardWithReceivedCard(svr->recvBuffer);
         break;
-    case 9:
+    case 9: // Replace Wonder News with the one from the server if the ID is different, and begin sending whether the operation occurred or not; use magic number 0x13 (server expects 32 bits)
         if (!MEvent_HaveAlreadyReceivedWonderNews(svr->recvBuffer))
         {
             OverwriteSavedWonderNewsWithReceivedNews(svr->recvBuffer);
@@ -207,25 +207,25 @@ static u32 client_mainseq_4(struct mevent_client * svr)
             // Other trainer already has news
             mevent_client_send_word(svr, 0x13, 1);
         break;
-    case 15:
+    case 15: // Treat recvBuffer as Mystery Event rather than Mystery Gift, and set (result) to data[2] or last call to SetMysteryEventScriptStatus (Immediate Execution Script cmd 0x0E)
         svr->mainseqno = 6;
         svr->flag = 0;
         break;
-    case 16:
+    case 16: // Add PKMN icon in recvBuffer to bottom of Wonder Card if possible
         MEvent_ReceiveDistributionMon(svr->recvBuffer);
         break;
-    case 17:
+    case 17: // Copy recvBuffer to RAM Script
         MEventSetRamScript(svr->recvBuffer, 1000);
         break;
-    case 18:
+    case 18: // Copy recvBuffer to EReader trainer (use magic number 0x1a?)
         memcpy(&gSaveBlock2Ptr->battleTower.ereaderTrainer, svr->recvBuffer, sizeof(struct BattleTowerEReaderTrainer));
         ValidateEReaderTrainer();
         break;
-    case 21:
+    case 21: // Arbitrary code execution of recvBuffer
         memcpy(gDecompressionBuffer, svr->recvBuffer, ME_SEND_BUF_SIZE);
         svr->mainseqno = 7;
         svr->flag = 0;
-        break;
+        break; 
     }
 
     return 1;

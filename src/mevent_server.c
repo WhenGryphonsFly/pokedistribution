@@ -142,7 +142,7 @@ static u32 common_mainseq_4(struct mevent_srv_common * svr)
             svr->cmdidx = 0;
             svr->cmdBuffer = cmd->parameter;
             break;
-        case 5: // Copy contents of recvBuffer to secondary buffer for validation of client's version/revision
+        case 5: // Copy contents of recvBuffer to secondary buffer for validation of client's header information
             AGB_ASSERT_EX(cmd->flag == FALSE, ABSPATH("mevent_server.c"), 376);
             AGB_ASSERT_EX(cmd->parameter == NULL, ABSPATH("mevent_server.c"), 377);
             memcpy(svr->mevent_unk1442cc, svr->recvBuffer, sizeof(struct MEventClientHeaderStruct));
@@ -214,7 +214,7 @@ static u32 common_mainseq_4(struct mevent_srv_common * svr)
             AGB_ASSERT_EX(cmd->flag == FALSE, ABSPATH("mevent_server.c"), 466);
             mevent_srv_common_init_send(svr, 0x1a, cmd->parameter, 188);
             break;
-        case 20: // Begin sending (flag) bytes located at (parameter); use magic number 0x15 (client expects size 0x40 buffer; said buffer is apparently never read from, and the script that uses this number is unused)
+        case 20: // Begin sending (flag) bytes located at (parameter); use magic number 0x15 (client expects size 0x40 buffer; said buffer is apparently never read from, and the script that uses this number is unused; could also be used to display length 0x40 messages via client cases 5 and 11)
             mevent_srv_common_init_send(svr, 0x15, cmd->parameter, cmd->flag);
             break;
         case 17: // Begin sending (flag) bytes located at (parameter); use magic number 0x1c (unused)
