@@ -6,11 +6,14 @@ struct MysteryGift600Data {
 };
 
 struct MysteryGiftDistributionData {
-	u8 hasBothNewsAndCard;
-	u8 showNews;
-	struct MEWonderCardData wc;
-	struct MEWonderNewsData wn;
-	struct MysteryGift600Data me[3];
+	u8 name[40];
+	u8 hasBothCardAndNews:1;
+	u8 showNews:1;
+	u16 pkmn[7];
+	struct MEWonderCardData wonderCard;
+	struct MEWonderNewsData wonderNews;
+	
+	//struct MysteryGift600Data me[3];
 };
 
 

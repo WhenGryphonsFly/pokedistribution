@@ -737,11 +737,18 @@ bool32 ValidateCardOrNews(bool32 cardOrNews)
     }
 }
 
-bool32 HandleLoadWonderCardOrNews(u8 * state, bool32 cardOrNews, struct MEWonderCardData* wonderCard, struct MEWonderNewsData* wonderNews)
+bool32 HandleLoadWonderCardOrNews(u8 * state, struct MysteryGiftDistributionData* mgData)
 {
     s32 v0;
 
-	struct MEventBuffer_3430_Sub empty3430 = {105, 108, 112, wonderCard->icon, {{SPECIES_LATIAS, SPECIES_LATIOS, SPECIES_HO_OH, SPECIES_LUGIA, SPECIES_DEOXYS, SPECIES_MEW, SPECIES_RAYQUAZA}, {1,2,3,4,5,6,7}}};
+	bool32 cardOrNews = mgData->showNews;
+	struct MEWonderCardData* wonderCard = &mgData->wonderCard;
+	struct MEWonderNewsData* wonderNews = &mgData->wonderNews;
+	struct MEventBuffer_3430_Sub empty3430 = {0, 0, 0, wonderCard->icon, {
+		// Yes, it insists on this. No, I don't know why.
+		{mgData->pkmn[0], mgData->pkmn[1], mgData->pkmn[2], mgData->pkmn[3], mgData->pkmn[4], mgData->pkmn[5], mgData->pkmn[6]},
+		{1,2,3,4,5,6,7}
+	}};
 
     switch (*state)
     {
@@ -1089,7 +1096,8 @@ void task00_mystery_gift(u8 taskId) {
 			}
 			break;
 		case 221: // Display Wonder Card/News
-			if (HandleLoadWonderCardOrNews(&data->textState, custom_mgdd_all[data->source].showNews, &custom_mgdd_all[data->source].wc, &custom_mgdd_all[data->source].wn)) data->state = 222;
+			if (HandleLoadWonderCardOrNews(&data->textState, &custom_mgdd_all[data->source]))
+				data->state = 222;
 			break;
 		case 222: // Display Wonder Card Menu
 			break; // see case 20
