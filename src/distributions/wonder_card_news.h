@@ -418,32 +418,26 @@
 #define WC_ICON_UNOWN_EM 30026
 #define WC_ICON_UNOWN_QM 30027
 
-// Wonder Card [[unk_04a]] [[TODO]]
-
-// Wonder Card types [[TODO]]
+// Wonder Card types
 #define WC_TYPE_STANDARD 0
 #define WC_TYPE_POKEMON 1
 #define WC_TYPE_BATTLE 2
-// for WC_TYPE_BATTLE, footerB should be _("Wins: {DYNAMIC}   / Losses: {DYNAMIC}À  / Trades: {DYNAMIC}Á  $")
+#define WC_TYPE_BATTLE_FOOTER _("Wins: {DYNAMIC}   / Losses: {DYNAMIC}À  / Trades: {DYNAMIC}Á  $")
 
 // Wonder Card/News Colors
-#define WC_COLOR_YELLOW 0
-#define WC_COLOR_LAND_SEA_SKY 1
-#define WC_COLOR_RED 2
-#define WC_COLOR_GREEN 3
-#define WC_COLOR_BLUE 4
-#define WC_COLOR_OLIVE 5
-#define WC_COLOR_GOLD 6
-#define WC_COLOR_SILVER 7
+#define WX_COLOR_YELLOW 0
+#define WX_COLOR_LAND_SEA_SKY 1
+#define WX_COLOR_RED 2
+#define WX_COLOR_GREEN 3
+#define WX_COLOR_BLUE 4
+#define WX_COLOR_OLIVE 5
+#define WX_COLOR_GOLD 6
+#define WX_COLOR_SILVER 7
 
 // Wonder Card Share State
 #define WC_SHARE_NO 0
 #define WC_SHARE_ONCE 1
 #define WC_SHARE_YES 2
-
-// [[TODO]] More WC
-
-//=============//
 
 // Wonder News Share State
 #define WN_SHARE_NO 0
