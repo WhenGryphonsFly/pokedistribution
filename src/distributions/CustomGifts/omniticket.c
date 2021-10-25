@@ -1,5 +1,6 @@
 const struct MysteryGiftDistributionData custom_cGift_1 = {
-	.name=_("Omni-Ticket$"), .hasBothCardAndNews=TRUE, .showNews=TRUE, .pkmn={SPECIES_MEW, SPECIES_LUGIA, SPECIES_HO_OH, SPECIES_NONE, SPECIES_DEOXYS, SPECIES_LATIOS, SPECIES_LATIAS},
+	.name=_("Omni-Ticket$"), .hasBothCardAndNews=TRUE, .showNews=FALSE, .pkmn={SPECIES_MEW, SPECIES_LUGIA, SPECIES_HO_OH, 0, SPECIES_DEOXYS, SPECIES_LATIOS, SPECIES_LATIAS},
+
 	.wonderCard = {
 		.cardId=1, .icon=WC_ICON_QUESTION_MARK, .headerNumber=1, .type=WC_TYPE_POKEMON, .color=WX_COLOR_BLUE, .shareState=WC_SHARE_YES, .recvMonCapacity=7,
 		.headerA=_("OMNI-TICKET$"),
@@ -29,4 +30,6 @@ const struct MysteryGiftDistributionData custom_cGift_1 = {
 			_("P.S. Shoutouts to SimpleFlips$")
 		}
 	},
+
+	.serverCommands=NULL
 };
