@@ -1082,7 +1082,7 @@ void task00_mystery_gift(u8 taskId) {
 			}
 			break;
 		case 220: // Custom Mystery Gift
-			u32 result = CreateAndPollListMenu(custom_sListMenuItems_CgMenu, CUSTOM_GIFT_COUNT);
+			u32 result = CreateAndPollListMenu(custom_sListMenuItems_cGiftMenu, CUSTOM_GIFT_COUNT);
 			switch (result) {
 				case LIST_CANCEL:
 					data->state = 200;
@@ -1096,10 +1096,11 @@ void task00_mystery_gift(u8 taskId) {
 			}
 			break;
 		case 221: // Display Wonder Card/News
-			if (HandleLoadWonderCardOrNews(&data->textState, &custom_mgdd_all[data->source]))
+			if (HandleLoadWonderCardOrNews(&data->textState, &custom_cGiftData[data->source]))
 				data->state = 222;
 			break;
 		case 222: // Display Wonder Card Menu
+			if (custom_cGiftData[data->source].showNews) MENews_GetInput(gMain.newKeys);
 			break; // see case 20
 
 		case 100: // Mystery Event

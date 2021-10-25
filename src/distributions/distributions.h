@@ -22,7 +22,7 @@ extern const struct ListMenuItem custom_sListMenuItems_OE_Menu[OFFICIAL_MYSTERY_
 // [[TODO]] Mystery Event list
 // [[TODO]] CE, OG*/
 #define CUSTOM_GIFT_COUNT 1
-extern struct ListMenuItem custom_sListMenuItems_CgMenu[CUSTOM_GIFT_COUNT];
-extern struct MysteryGiftDistributionData custom_mgdd_all[CUSTOM_GIFT_COUNT];
+extern struct ListMenuItem custom_sListMenuItems_cGiftMenu[CUSTOM_GIFT_COUNT];
+extern struct MysteryGiftDistributionData custom_cGiftData[CUSTOM_GIFT_COUNT];
 
 #endif
