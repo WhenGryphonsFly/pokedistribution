@@ -79,6 +79,10 @@
     Magic numbers used by server and client commands
 	
 	0x10  Client Commands  SERVER_BEGIN_SENDING_BUFFERED_CLIENT_COMMANDS_WITH_SIZE(x)/CLIENT_COMMANDS_WITH_SIZE_AT(x, y)
+	0x11  Client Version   CLIENT_BEGIN_SENDING_CLIENT_VERSION
+	0x12  Game Stat        CLIENT_BEGIN_SENDING_GAME_STAT_AND_WAIT(x)
+	0x13  32-bit Word      CLIENT_ACCEPT_NEWS_IF_DIFFERENT_AND_BEGIN_SEND, CLIENT_BEGIN_SENDING_RESULT
+	0x14  [[???]]          CLIENT_BEGIN_SENDING_ENTIRE_BUFFER_AND_WAIT
 	0x15  [[???]]          SERVER_CASE_20
 	0x16  Wonder Card      SERVER_BEGIN_SENDING_BUFFERED_CARD/CARD_AT(y)
 	0x17  Wonder News      SERVER_BEGIN_SENDING_BUFFERED_NEWS/NEWS_AT(y)
@@ -98,7 +102,7 @@
 #define CLIENT_EXECUTE_COMMANDS_FROM_SERVER_IF_RESULT_WAS_0 {.instr =  6}
 #define CLIENT_EXECUTE_COMMANDS_FROM_SERVER_IF_RESULT_WAS_1 {.instr =  7}
 #define CLIENT_BEGIN_SENDING_CLIENT_VERSION                 {.instr =  8}
-#define CLIENT_ACCEPT_NEWS_IF_DIFFERENT                     {.instr =  9}
+#define CLIENT_ACCEPT_NEWS_IF_DIFFERENT_AND_BEGIN_SEND      {.instr =  9}
 #define CLIENT_ACCEPT_CARD                                  {.instr = 10}
 #define CLIENT_CASE_11 // [[!!!]]
 #define CLIENT_CASE_12 // [[!!!]]
