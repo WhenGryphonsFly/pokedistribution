@@ -32,6 +32,7 @@
 
 #include "distributions/distributions.h"
 #include "distributions/wonder_card_news.h"
+#include "distributions/server_cmds.h"
 #include "distributions/custom_gifts.c"
 #undef GUARD_CUSTOM_CODE_C
 
