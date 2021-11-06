@@ -421,7 +421,7 @@
 
 // Wonder Card types
 #define WC_TYPE_STANDARD 0
-#define WC_TYPE_POKEMON 1
+#define WC_TYPE_STICKER 1
 #define WC_TYPE_BATTLE 2
 #define WC_TYPE_BATTLE_FOOTER _("Wins: {DYNAMIC}   / Losses: {DYNAMIC}À  / Trades: {DYNAMIC}Á  $")
 
