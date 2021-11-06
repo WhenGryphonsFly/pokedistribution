@@ -138,7 +138,7 @@ static u32 client_mainseq_4(struct mevent_client * svr)
         svr->mainseqno = 1;
         svr->flag = 0;
         break;
-    case 2: // Wait for receive with expected maguc number (parameter)
+    case 2: // Wait for receive with expected magic number (parameter)
         mevent_srv_sub_init_recv(&svr->manager, cmd->parameter, svr->recvBuffer);
         svr->mainseqno = 2;
         svr->flag = 0;
@@ -183,7 +183,7 @@ static u32 client_mainseq_4(struct mevent_client * svr)
         svr->mainseqno = 5;
         svr->flag = 0;
         return 5;
-    case 13: // Prompt to replace Wonder Card, and write to (reult)
+    case 13: // Prompt to replace Wonder Card, and write to (result)
         svr->mainseqno = 5;
         svr->flag = 0;
         return 4;
@@ -191,7 +191,7 @@ static u32 client_mainseq_4(struct mevent_client * svr)
         BuildMEventClientHeader(svr->sendBuffer);
         mevent_srv_sub_init_send(&svr->manager, 0x11, svr->sendBuffer, sizeof(struct MEventClientHeaderStruct));
         break;
-    case 14: // Begin sending 32 bits located at (result); use magic number 0x13 (server expects 32 bits)
+    case 14: // Begin sending (result); use magic number 0x13 (server expects 32 bits)
         mevent_client_send_word(svr, 0x13, svr->param);
         break;
     case 10: // Replace Wonder Card with the one from the server
