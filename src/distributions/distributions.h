@@ -6,10 +6,10 @@ struct MysteryGiftDistributionData {
 	u8 hasBothCardAndNews:1;
 	u8 showNews:1;
 	u16 pkmn[7];
-
+	
 	struct MEWonderCardData wonderCard;
 	struct MEWonderNewsData wonderNews;
-
+	
 	struct mevent_server_cmd* serverCommands;
 };
 

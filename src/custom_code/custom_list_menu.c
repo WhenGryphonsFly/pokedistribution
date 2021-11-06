@@ -4,7 +4,7 @@ u32 CreateAndPollListMenu(const struct ListMenuItem* items, u8 totalItems) {
 	s32 response;
 	struct ListMenuTemplate listMenuTemplate = custom_sListMenuTemplate_Base;
 	struct WindowTemplate windowTemplate = custom_sWindowTemplate_Base;
-
+	
 	listMenuTemplate.items = items;
 	listMenuTemplate.totalItems = totalItems;
 	listMenuTemplate.maxShowed = totalItems;
@@ -12,12 +12,11 @@ u32 CreateAndPollListMenu(const struct ListMenuItem* items, u8 totalItems) {
 	SetListMenuHeight(&listMenuTemplate, &windowTemplate);
 	
 	response = DoMysteryGiftListMenu(&windowTemplate, &listMenuTemplate, 1, 0x00A, 0xE0);
-    if (response != -1)
-    {
-        ClearWindowTilemap(2);
-        CopyWindowToVram(2, COPYWIN_MAP);
-    }
-    return response;
+	if (response != -1) {
+		ClearWindowTilemap(2);
+		CopyWindowToVram(2, COPYWIN_MAP);
+	}
+	return response;
 }
 
 void SetListMenuWidth(struct ListMenuTemplate* listMenuTemplate, struct WindowTemplate* windowTemplate) {
@@ -28,8 +27,8 @@ void SetListMenuWidth(struct ListMenuTemplate* listMenuTemplate, struct WindowTe
 	width = 0;
 	for (i = 0; i < listMenuTemplate->totalItems; i++) {
 		u32 curWidth = GetStringWidth(2, listMenuTemplate->items[i].label, listMenuTemplate->lettersSpacing);
-        if (curWidth > width)
-            width = curWidth;
+		if (curWidth > width)
+			width = curWidth;
 	}
 	finalWidth = (((width + 9) / 8) + 2) & ~1;
 	windowTemplate->width = finalWidth;
@@ -41,7 +40,7 @@ void SetListMenuHeight(struct ListMenuTemplate* listMenuTemplate, struct WindowT
 	u32 height;
 	u32 delta;
 	u8 changeCenter;
-
+	
 	height = 0;
 	switch (listMenuTemplate->maxShowed) {
 		case 1:
