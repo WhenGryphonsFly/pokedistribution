@@ -23,6 +23,7 @@
 #include "list_menu.h"
 #include "mystery_gift_menu.h"
 #include "new_menu_helpers.h"
+#include "mevent_server.h"
 
 #define GUARD_CUSTOM_CODE_C
 #include "custom_code/constants.h"

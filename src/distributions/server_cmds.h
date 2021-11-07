@@ -1,10 +1,6 @@
 #ifndef GUARD_CUSTOM_SERVER_CMDS_H
 #define GUARD_CUSTOM_SERVER_CMDS_H
 
-#define SERVER_RETURN(x)                                           {.instr =  0, .flag = x}
-#define SERVER_WAIT_FOR_SEND_TO_FINISH                             {.instr =  1}
-#define SERVER_WAIT_FOR_RECEIVE_WITH_MAGIC_NUMBER(x)               {.instr =  2, .flag = x}
-#define SERVER_BRANCH_ALWAYS(y)                                    {.instr =  3, .parameter = y}
 /* 
 	Results of server commands (unlisted if result is unmodified)
 	
@@ -37,6 +33,10 @@
 		0, if the client's easy chat profile does not match the profile at y
 		1, if the client's easy chat profile does match the profile at y 
 */
+#define SERVER_RETURN(x)                                           {.instr =  0, .flag = x}
+#define SERVER_WAIT_FOR_SEND_TO_FINISH                             {.instr =  1}
+#define SERVER_WAIT_FOR_RECEIVE_WITH_MAGIC_NUMBER(x)               {.instr =  2, .flag = x}
+#define SERVER_BRANCH_ALWAYS(y)                                    {.instr =  3, .parameter = y}
 #define SERVER_BRANCH_IF_RESULT_WAS(x, y)                          {.instr =  4, .flag = x, .parameter = y}
 #define SERVER_PREPARE_TO_VALIDATE_CLIENT_VERSION                  {.instr =  5}
 #define SERVER_VALIDATE_CLIENT_VERSION                             {.instr =  6}
@@ -75,6 +75,54 @@
 #define SERVER_CASE_28 // [[!!!]]
 #define SERVER_CASE_29 // [[!!!]]
 
+
+
+/*
+	Results of client commands (unlisted if result is unmodified)
+	
+	CLIENT_RETURN(x)
+		x
+	CLIENT_DISPLAY_MESSAGE_FROM_SERVER_AND_GET_YES_NO
+		0, if ???
+		1, if ???
+		?, if the player selects "Yes"
+		?, if the player selects "No"
+	CLIENT_PROMPT_PLAYER_TO_ACCEPT_CARD
+		0, if ???
+		1, if ???
+		?, if the player selects "Yes"
+		?, if the player selects "No"
+	CLIENT_ACCEPT_MYSTERY_EVENT
+		The contents of data[2] of the Mystery Event upon completion
+		data[2] is set by SetMysteryEventScriptStatus in RAM Scripts, among other sources
+	CLIENT_ARBITRARY_CODE_EXECUTION
+		Arbitrary
+*/
+#define CLIENT_NOP                                          {.instr =  0}
+#define CLIENT_RETURN(x)                                    {.instr =  1, .parameter = x}
+#define CLIENT_WAIT_FOR_RECEIVE_WITH_MAGIC_NUMBER(x)        {.instr =  2, .parameter = x}
+#define CLIENT_WAIT_FOR_SEND_TO_FINISH                      {.instr =  3}
+#define CLIENT_EXECUTE_COMMANDS_FROM_SERVER                 {.instr =  4}
+#define CLIENT_DISPLAY_MESSAGE_FROM_SERVER_AND_GET_YES_NO   {.instr =  5}
+#define CLIENT_EXECUTE_COMMANDS_FROM_SERVER_IF_RESULT_WAS_0 {.instr =  6}
+#define CLIENT_EXECUTE_COMMANDS_FROM_SERVER_IF_RESULT_WAS_1 {.instr =  7}
+#define CLIENT_BEGIN_SENDING_CLIENT_VERSION                 {.instr =  8}
+#define CLIENT_ACCEPT_NEWS_IF_DIFFERENT_AND_BEGIN_SEND      {.instr =  9}
+#define CLIENT_ACCEPT_CARD                                  {.instr = 10}
+#define CLIENT_DISPLAY_MESSAGE_FROM_SERVER                  {.instr = 11}
+#define CLIENT_CASE_12 // [[!!!]]
+#define CLIENT_PROMPT_PLAYER_TO_ACCEPT_CARD                 {.instr = 13}
+#define CLIENT_BEGIN_SENDING_RESULT                         {.instr = 14}
+#define CLIENT_ACCEPT_MYSTERY_EVENT                         {.instr = 15}
+#define CLIENT_ACCEPT_STICKER_TO_CARD                       {.instr = 16}
+#define CLIENT_ACCEPT_RAM_SCRIPT                            {.instr = 17}
+#define CLIENT_ACCEPT_CUSTOM_TRAINER                        {.instr = 18}
+#define CLIENT_BEGIN_SENDING_GAME_STAT_AND_WAIT(x)          {.instr = 19, .parameter = x}
+#define CLIENT_BEGIN_SENDING_ENTIRE_BUFFER_AND_WAIT         {.instr = 20}
+#define CLIENT_ARBITRARY_CODE_EXECUTION                     {.instr = 21}
+
+
+
 /*
     Magic numbers used by server and client commands
 	
@@ -92,28 +140,19 @@
 	0x1b  [[???]]          SERVER_CASE_29
 	0x1c  [[???]]          SERVER_CASE_17
 */
+#define MAGIC_CLIENT_COMMANDS  0x10
+#define MAGIC_CLIENT_VERSION   0x11
+#define MAGIC_GAME_STAT        0x12
+#define MAGIC_CLIENT_SENT_WORD 0x13
+#define MAGIC_WONDER_CARD      0x16
+#define MAGIC_WONDER_NEWS      0x17
+#define MAGIC_SERVER_SENT_WORD 0x18
+#define MAGIC_RAM_SCRIPT       0x19
+#define MAGIC_CUSTOM_TRAINER   0x1a
 
-#define CLIENT_NOP                                          {.instr =  0}
-#define CLIENT_RETURN(x)                                    {.instr =  1, .parameter = x}
-#define CLIENT_WAIT_FOR_RECEIVE_WITH_MAGIC_NUMBER(x)        {.instr =  2, .parameter = x}
-#define CLIENT_WAIT_FOR_SEND_TO_FINISH                      {.instr =  3}
-#define CLIENT_EXECUTE_COMMANDS_FROM_SERVER                 {.instr =  4}
-#define CLIENT_CASE_5 // [[!!!]]
-#define CLIENT_EXECUTE_COMMANDS_FROM_SERVER_IF_RESULT_WAS_0 {.instr =  6}
-#define CLIENT_EXECUTE_COMMANDS_FROM_SERVER_IF_RESULT_WAS_1 {.instr =  7}
-#define CLIENT_BEGIN_SENDING_CLIENT_VERSION                 {.instr =  8}
-#define CLIENT_ACCEPT_NEWS_IF_DIFFERENT_AND_BEGIN_SEND      {.instr =  9}
-#define CLIENT_ACCEPT_CARD                                  {.instr = 10}
-#define CLIENT_CASE_11 // [[!!!]]
-#define CLIENT_CASE_12 // [[!!!]]
-#define CLIENT_CASE_13 // [[!!!]]
-#define CLIENT_BEGIN_SENDING_RESULT                         {.instr = 14}
-#define CLIENT_ACCEPT_MYSTERY_EVENT                         {.instr = 15}
-#define CLIENT_ACCEPT_STICKER_TO_CARD                       {.instr = 16}
-#define CLIENT_ACCEPT_RAM_SCRIPT                            {.instr = 17}
-#define CLIENT_ACCEPT_CUSTOM_TRAINER                        {.instr = 18}
-#define CLIENT_BEGIN_SENDING_GAME_STAT_AND_WAIT(x)          {.instr = 19, .parameter = x}
-#define CLIENT_BEGIN_SENDING_ENTIRE_BUFFER_AND_WAIT         {.instr = 20}
-#define CLIENT_ARBITRARY_CODE_EXECUTION                     {.instr = 21}
+
+
+#define CLIENT_COMMAND_SIZE 0x8
+#define MAXIMUM_CLIENT_COMMANDS 128 // ME_SEND_BUF_SIZE == 0x400; 0x400 / 0x8 == 0x80 == 128
 
 #endif//GUARD_CUSTOM_SERVER_CMDS_H

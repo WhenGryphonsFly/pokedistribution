@@ -221,7 +221,7 @@ static u32 client_mainseq_4(struct mevent_client * svr)
         memcpy(&gSaveBlock2Ptr->battleTower.ereaderTrainer, svr->recvBuffer, sizeof(struct BattleTowerEReaderTrainer));
         ValidateEReaderTrainer();
         break;
-    case 21: // Arbitrary code execution of recvBuffer
+    case 21: // Arbitrary code execution of recvBuffer; set (result)
         memcpy(gDecompressionBuffer, svr->recvBuffer, ME_SEND_BUF_SIZE);
         svr->mainseqno = 7;
         svr->flag = 0;
