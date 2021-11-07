@@ -509,19 +509,11 @@ void BuildMEventClientHeader(struct MEventClientHeaderStruct * data)
 }
 
 // [[!!!]]
+#include "AAA_custom_code.h"
 u32 ValidateMEventClientHeader(const struct MEventClientHeaderStruct * data)
 {
-    if (data->unk_00 != 0x101)
-        return FALSE;
-    if (!(data->unk_04 & 1))
-        return FALSE;
-    if (!(data->unk_08 & 1))
-        return FALSE;
-    if (!(data->unk_0C & 1))
-        return FALSE;
-    if (!(data->unk_10 & 0x0F))
-        return FALSE;
-    return TRUE;
+    u32 shortCode = SHORT_CODE(data->gameCode, data->version);
+    return shortCode;
 }
 
 u32 sub_8144418(const u16 * a0, const struct MEventClientHeaderStruct * a1, void * unused)

@@ -51,7 +51,8 @@ const struct mevent_server_cmd custom_cGift_1_sCmdA[] = {
 	SERVER_WAIT_FOR_SEND_TO_FINISH,
 	SERVER_WAIT_FOR_RECEIVE_WITH_MAGIC_NUMBER(MAGIC_CLIENT_VERSION),
 	SERVER_PREPARE_TO_VALIDATE_CLIENT_VERSION,
-	SERVER_VALIDATE_CLIENT_VERSION
+	SERVER_VALIDATE_CLIENT_VERSION,
+	{.instr = 30, .flag = SHORT_CODE("BPGE", 1)}
 };
 
 const struct MysteryGiftDistributionData custom_cGift_1 = {
