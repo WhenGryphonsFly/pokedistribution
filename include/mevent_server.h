@@ -69,7 +69,7 @@ struct mevent_client
 struct mevent_server_cmd
 {
     u32 instr;
-    bool32 flag;
+    u32 flag;
     void * parameter;
 };
 

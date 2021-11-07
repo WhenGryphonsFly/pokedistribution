@@ -508,7 +508,8 @@ void BuildMEventClientHeader(struct MEventClientHeaderStruct * data)
     data->version = RomHeaderSoftwareVersion;
 }
 
-bool32 ValidateMEventClientHeader(const struct MEventClientHeaderStruct * data)
+// [[!!!]]
+u32 ValidateMEventClientHeader(const struct MEventClientHeaderStruct * data)
 {
     if (data->unk_00 != 0x101)
         return FALSE;

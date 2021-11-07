@@ -62,7 +62,7 @@ bool32 OverwriteSavedWonderCardWithReceivedCard(const struct MEWonderCardData * 
 void MEvent_WonderCardResetUnk08_6(struct MEWonderCardData * buffer);
 bool32 MEvent_ReceiveDistributionMon(const u16 * data);
 void BuildMEventClientHeader(struct MEventClientHeaderStruct * data);
-bool32 ValidateMEventClientHeader(const struct MEventClientHeaderStruct * data);
+u32 ValidateMEventClientHeader(const struct MEventClientHeaderStruct * data);
 u32 sub_8144418(const u16 * a0, const struct MEventClientHeaderStruct * a1, void * unused);
 u32 MEvent_CanPlayerReceiveDistributionMon(const u16 * a0, const struct MEventClientHeaderStruct * a1, void * unused);
 bool32 sub_8144474(const struct MEventClientHeaderStruct * a0, const u16 * a1);
