@@ -381,7 +381,7 @@ bool32 HandleMysteryGiftOrEReaderSetup(s32 mg_or_ereader)
         LoadUserWindowBorderGfx(0, 10, 0xE0);
         DrawWindowBorderWithStdpal3(0,  1, 0xF0);
         DecompressAndLoadBgGfxUsingHeap(3, gUnkTextboxBorderGfx, 0x100, 0, 0);
-        InitWindows(sMainWindows); // [[!!!]] Responsible for window border
+        InitWindows(sMainWindows);
         DeactivateAllTextPrinters();
         ClearGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_WIN0_ON | DISPCNT_WIN1_ON);
         SetGpuReg(REG_OFFSET_BLDCNT, 0);

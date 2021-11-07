@@ -6,8 +6,11 @@
 	
 	SERVER_RETURN(x)
 		x
-	SERVER_VALIDATE_CLIENT_VERSION
-		[[???]]
+	SERVER_GET_CLIENT_VERSION
+		A condensed form of the client's game code and revision, as specified by SHORT_CODE
+		Specifically, bit packing is done by eliminating 8 bits from the game code.
+			For the first three characters, treat them as ASCII, which allows discarding of the MSB
+			For the fourth character, convert to a 3-bit language identifier, a contraction of 5 bits
 	SERVER_CHECK_IF_CLIENT_HAS_BUFFERED_CARD
 	SERVER_CHECK_IF_CLIENT_HAS_CARD_AT(y)
 		0, if the client has no card
@@ -38,8 +41,8 @@
 #define SERVER_WAIT_FOR_RECEIVE_WITH_MAGIC_NUMBER(x)               {.instr =  2, .flag = x}
 #define SERVER_BRANCH_ALWAYS(y)                                    {.instr =  3, .parameter = y}
 #define SERVER_BRANCH_IF_RESULT_WAS(x, y)                          {.instr =  4, .flag = x, .parameter = y}
-#define SERVER_PREPARE_TO_VALIDATE_CLIENT_VERSION                  {.instr =  5}
-#define SERVER_VALIDATE_CLIENT_VERSION                             {.instr =  6}
+#define SERVER_PREPARE_TO_GET_CLIENT_VERSION                       {.instr =  5}
+#define SERVER_GET_CLIENT_VERSION                                  {.instr =  6}
 #define SERVER_CHECK_IF_CLIENT_HAS_BUFFERED_CARD                   {.instr =  7, .parameter = 0}
 #define SERVER_CHECK_IF_CLIENT_HAS_CARD_AT(y)                      {.instr =  7, .parameter = y}
 #define SERVER_READ_WORD_FROM_CLIENT                               {.instr =  8}
@@ -51,7 +54,7 @@
 #define SERVER_GET_CLIENT_STICKERS_ACCEPTED                        {.instr = 10, .flag = 3}
 #define SERVER_GET_CLIENT_STICKERS_MAX                             {.instr = 10, .flag = 4}
 #define SERVER_CHECK_CLIENT_EASY_CHAT_PROFILE_AGAINST(y)           {.instr = 11, .parameter = y}
-#define SERVER_CASE_12 // [[!!!]]
+#define SERVER_CASE_12 /* Useless; compares locations of pointers rather than values */
 #define SERVER_BEGIN_SENDING_BUFFERED_CARD                         {.instr = 13, .parameter = 0}
 #define SERVER_BEGIN_SENDING_CARD_AT(y)                            {.instr = 13, .parameter = y}
 #define SERVER_BEGIN_SENDING_BUFFERED_NEWS                         {.instr = 14, .parameter = 0}
@@ -60,7 +63,7 @@
 #define SERVER_BEGIN_SENDING_RAM_SCRIPT_WITH_SIZE_AT(x, y)         {.instr = 15, .flag = x, .parameter = y}
 #define SERVER_BEGIN_SENDING_BUFFERED_WORD                         {.instr = 16, .parameter = 0}
 #define SERVER_BEGIN_SENDING_WORD_AT(y)                            {.instr = 16, .parameter = y}
-#define SERVER_CASE_17 // [[!!!]]
+#define SERVER_BEGIN_SENDING_DATA_WITH_MAGIC_1C_WITH_SIZE_AT(x, y) {.instr = 17, .flag = x, .parameter = y}
 #define SERVER_BEGIN_SENDING_BUFFERED_CLIENT_COMMANDS_WITH_SIZE(x) {.instr = 18, .flag = x, .parameter = 0}
 #define SERVER_BEGIN_SENDING_CLIENT_COMMANDS_WITH_SIZE_AT(x, y)    {.instr = 18, .flag = x, .parameter = y}
 #define SERVER_BEGIN_SENDING_CUSTOM_TRAINER_AT(y)                  {.instr = 19, .parameter = y}
@@ -70,10 +73,10 @@
 #define SERVER_COPY_TO_BUFFER_NEWS_AT(y)                           {.instr = 23, .parameter = y}
 #define SERVER_COPY_TO_BUFFER_RAM_SCRIPT_WITH_SIZE_AT(x, y)        {.instr = 24, .flag = x, .parameter = y}
 #define SERVER_COPY_TO_BUFFER_CLIENT_COMMANDS_WITH_SIZE_AT(x, y)   {.instr = 25, .flag = x, .parameter = y}
-#define SERVER_CASE_26 // [[!!!]]
-#define SERVER_CASE_27 // [[!!!]]
-#define SERVER_CASE_28 // [[!!!]]
-#define SERVER_CASE_29 // [[!!!]]
+#define SERVER_CASE_26 /* Removed; copies the Wonder Card from the save file to the buffer, but save/load functionality has been removed */
+#define SERVER_CASE_27 /* Removed; copies the Wonder News from the save file to the buffer, but save/load functionality has been removed */
+#define SERVER_CASE_28 /* Removed; copies the RAM Script from the save file to the buffer, but save/load functionality has been removed */
+#define SERVER_BEGIN_SENDING_DATA_WITH_MAGIC_1B_WITH_SIZE_AT(x, y) {.instr = 29, .flag = x, .parameter = y}
 
 
 
@@ -83,7 +86,7 @@
 	CLIENT_RETURN(x)
 		x
 	CLIENT_DISPLAY_MESSAGE_FROM_SERVER_AND_GET_YES_NO
-		0, if ???
+		0, if [[???]]
 		1, if ???
 		?, if the player selects "Yes"
 		?, if the player selects "No"
@@ -137,8 +140,8 @@
 	0x18  32-bit Word      SERVER_BEGIN_SENDING_BUFFERED_WORD/WORD_AT(y)
 	0x19  RAM Script       SERVER_BEGIN_SENDING_BUFFERED_RAM_SCRIPT_WITH_SIZE(x)/RAM_SCRIPT_WITH_SIZE_AT(x, y)
 	0x1a  Custom Trainer   SERVER_BEGIN_SENDING_CUSTOM_TRAINER_AT(y)
-	0x1b  [[???]]          SERVER_CASE_29
-	0x1c  [[???]]          SERVER_CASE_17
+	0x1b  [[???]]          SERVER_BEGIN_SENDING_DATA_WITH_MAGIC_1B_WITH_SIZE_AT(x, y)
+	0x1c  [[???]]          SERVER_BEGIN_SENDING_DATA_WITH_MAGIC_1C_WITH_SIZE_AT(x, y)
 */
 #define MAGIC_CLIENT_COMMANDS  0x10
 #define MAGIC_CLIENT_VERSION   0x11

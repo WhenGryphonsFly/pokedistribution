@@ -361,7 +361,7 @@ u8 AddScrollIndicatorArrowPair(const struct ScrollArrowsTemplate *arrowInfo, u16
     return taskId;
 }
 
-u8 AddScrollIndicatorArrowPairParameterized(u32 arrowType, s32 commonPos, s32 firstPos, s32 secondPos, s32 fullyDownThreshold, s32 tileTag, s32 palTag, u16 *scrollOffset) /* [[!!!]] Do not delete; may add to oversized menus at a later date */
+u8 AddScrollIndicatorArrowPairParameterized(u32 arrowType, s32 commonPos, s32 firstPos, s32 secondPos, s32 fullyDownThreshold, s32 tileTag, s32 palTag, u16 *scrollOffset)
 {
     if (arrowType == SCROLL_ARROW_UP || arrowType == SCROLL_ARROW_DOWN)
     {

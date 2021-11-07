@@ -16,9 +16,6 @@ inline u8 inline_getRevision(u32 shortCode) {
 	return shortCode & REVISION_BITS;
 }
 
-//=============================================================//
-
-
 bool32 CompareShortCodes(u32 clientShortCode, u32 queryShortCode) {
 	u8 queryAscii0 = inline_getAscii0(queryShortCode);
 	u8 clientAscii0 = inline_getAscii0(clientShortCode);
@@ -42,5 +39,9 @@ bool32 CompareShortCodes(u32 clientShortCode, u32 queryShortCode) {
 	
 	return TRUE;
 }
+
+//=============================================================//
+
+
 
 #endif
