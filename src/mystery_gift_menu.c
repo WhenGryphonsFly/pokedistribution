@@ -23,9 +23,7 @@
 #include "main_menu.h"
 
 /* [[!!!]] */
-#include "custom_code/custom_list_menu.h" 
-#include "custom_code/constants.h"
-#include "distributions/distributions.h"
+#include "AAA_custom_code.h"
 #include "berry_fix_program.h"
 // Various function and struct declarations have been moved to /include/mystery_gift_menu.h
 
