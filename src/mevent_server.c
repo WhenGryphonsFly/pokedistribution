@@ -267,6 +267,14 @@ static u32 common_mainseq_4(struct mevent_srv_common * svr)
                 svr->cmdBuffer = cmd->parameter;
             }
             break;
+        case 31:
+        	svr->callbackBuffer = cmd->parameter;
+        	break;
+        case 32:
+        	svr->cmdidx = 0;
+        	svr->cmdBuffer = svr->callbackBuffer;
+        	svr->callbackBuffer = 0;
+        	break;
     }
 
     return 1;

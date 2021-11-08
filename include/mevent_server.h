@@ -109,6 +109,8 @@ struct mevent_srv_common
     u32 sendBuffer2Size;
     u32 sendWord;
     struct mevent_srv_sub manager;
+    
+    void* callbackBuffer;
 };
 
 u32 mevent_srv_sub_recv(struct mevent_srv_sub * svr);

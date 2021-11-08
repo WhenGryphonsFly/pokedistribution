@@ -5,7 +5,7 @@
 #include "custom_code/custom_list_menu.c"
 #include "custom_code/custom_mystery_gift.c"
 
-
+#include "distributions/shared_cmds.c"
 #include "distributions/custom_gifts.c"
 #undef GUARD_CUSTOM_CODE_C
 
