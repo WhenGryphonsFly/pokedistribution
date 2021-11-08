@@ -46,7 +46,17 @@ const struct mevent_client_cmd custom_cGift_1_cCmdInit[] = {
 	CLIENT_EXECUTE_COMMANDS_FROM_SERVER
 };
 
-const struct mevent_server_cmd custom_cGift_1_sCmdNotCompatible[] = {};
+const struct mevent_client_cmd custom_cGift_1_cCmdNotCompatible[] = {
+	CLIENT_BEGIN_SENDING_ENTIRE_BUFFER_AND_WAIT, // [[!!!]]
+	CLIENT_RETURN(0x0a) // [[!!!]]
+};
+
+const struct mevent_server_cmd custom_cGift_1_sCmdNotCompatible[] = {
+	SERVER_BEGIN_SENDING_CLIENT_COMMANDS_WITH_SIZE_AT(2*CLIENT_COMMAND_SIZE, custom_cGift_1_cCmdNotCompatible),
+	SERVER_WAIT_FOR_SEND_TO_FINISH,
+	SERVER_WAIT_FOR_RECEIVE_WITH_MAGIC_NUMBER(0x14), // [[!!!]]
+	SERVER_RETURN(0x0a) // [[!!!]]
+};
 
 const struct mevent_server_cmd custom_cGift_1_sCmdX[] = {};
 
