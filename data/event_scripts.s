@@ -1,4 +1,3 @@
-//[[!!!]]
 #include "constants/global.h"
 #include "constants/flags.h"
 #include "constants/event_objects.h"

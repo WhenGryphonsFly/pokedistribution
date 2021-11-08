@@ -54,7 +54,7 @@
 #define SERVER_GET_CLIENT_STICKERS_ACCEPTED                        {.instr = 10, .flag = 3}
 #define SERVER_GET_CLIENT_STICKERS_MAX                             {.instr = 10, .flag = 4}
 #define SERVER_CHECK_CLIENT_EASY_CHAT_PROFILE_AGAINST(y)           {.instr = 11, .parameter = y}
-#define SERVER_CASE_12 /* Useless; compares locations of pointers rather than values */
+//#define SERVER_CASE_12 // Useless; compares locations of pointers rather than values
 #define SERVER_BEGIN_SENDING_BUFFERED_CARD                         {.instr = 13, .parameter = 0}
 #define SERVER_BEGIN_SENDING_CARD_AT(y)                            {.instr = 13, .parameter = y}
 #define SERVER_BEGIN_SENDING_BUFFERED_NEWS                         {.instr = 14, .parameter = 0}
@@ -73,9 +73,9 @@
 #define SERVER_COPY_TO_BUFFER_NEWS_AT(y)                           {.instr = 23, .parameter = y}
 #define SERVER_COPY_TO_BUFFER_RAM_SCRIPT_WITH_SIZE_AT(x, y)        {.instr = 24, .flag = x, .parameter = y}
 #define SERVER_COPY_TO_BUFFER_CLIENT_COMMANDS_WITH_SIZE_AT(x, y)   {.instr = 25, .flag = x, .parameter = y}
-#define SERVER_CASE_26 /* Removed; copies the Wonder Card from the save file to the buffer, but save/load functionality has been removed */
-#define SERVER_CASE_27 /* Removed; copies the Wonder News from the save file to the buffer, but save/load functionality has been removed */
-#define SERVER_CASE_28 /* Removed; copies the RAM Script from the save file to the buffer, but save/load functionality has been removed */
+//#define SERVER_CASE_26 // Removed; copies the Wonder Card from the save file to the buffer, but save/load functionality has been removed
+//#define SERVER_CASE_27 // Removed; copies the Wonder News from the save file to the buffer, but save/load functionality has been removed
+//#define SERVER_CASE_28 // Removed; copies the RAM Script from the save file to the buffer, but save/load functionality has been removed
 #define SERVER_BEGIN_SENDING_DATA_WITH_MAGIC_1B_WITH_SIZE_AT(x, y) {.instr = 29, .flag = x, .parameter = y}
 
 
