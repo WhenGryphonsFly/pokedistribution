@@ -106,23 +106,23 @@
 #define CLIENT_WAIT_FOR_RECEIVE_WITH_MAGIC_NUMBER(x)        {.instr =  2, .parameter = x}
 #define CLIENT_WAIT_FOR_SEND_TO_FINISH                      {.instr =  3}
 #define CLIENT_EXECUTE_COMMANDS_FROM_SERVER                 {.instr =  4}
-#define CLIENT_DISPLAY_MESSAGE_FROM_SERVER_AND_GET_YES_NO   {.instr =  5}
+#define CLIENT_DISPLAY_MESSAGE_FROM_SERVER_AND_GET_YES_NO   {.instr =  5} // [[SERVER_CASE_20?]]
 #define CLIENT_EXECUTE_COMMANDS_FROM_SERVER_IF_RESULT_WAS_0 {.instr =  6}
 #define CLIENT_EXECUTE_COMMANDS_FROM_SERVER_IF_RESULT_WAS_1 {.instr =  7}
 #define CLIENT_BEGIN_SENDING_CLIENT_VERSION                 {.instr =  8}
 #define CLIENT_ACCEPT_NEWS_IF_DIFFERENT_AND_BEGIN_SEND      {.instr =  9}
 #define CLIENT_ACCEPT_CARD                                  {.instr = 10}
-#define CLIENT_DISPLAY_MESSAGE_FROM_SERVER                  {.instr = 11}
+#define CLIENT_DISPLAY_MESSAGE_FROM_SERVER                  {.instr = 11} // [[SERVER_CASE_20?]]
 #define CLIENT_CASE_12 // [[!!!]]
 #define CLIENT_PROMPT_PLAYER_TO_ACCEPT_CARD                 {.instr = 13}
 #define CLIENT_BEGIN_SENDING_RESULT                         {.instr = 14}
-#define CLIENT_ACCEPT_MYSTERY_EVENT                         {.instr = 15}
+#define CLIENT_ACCEPT_MYSTERY_EVENT                         {.instr = 15} // [[MAGIC_1C?]]
 #define CLIENT_ACCEPT_STICKER_TO_CARD                       {.instr = 16}
 #define CLIENT_ACCEPT_RAM_SCRIPT                            {.instr = 17}
 #define CLIENT_ACCEPT_CUSTOM_TRAINER                        {.instr = 18}
 #define CLIENT_BEGIN_SENDING_GAME_STAT_AND_WAIT(x)          {.instr = 19, .parameter = x}
 #define CLIENT_BEGIN_SENDING_ENTIRE_BUFFER_AND_WAIT         {.instr = 20}
-#define CLIENT_ARBITRARY_CODE_EXECUTION                     {.instr = 21}
+#define CLIENT_ARBITRARY_CODE_EXECUTION                     {.instr = 21} // [[MAGIC_1B?]]
 
 
 
