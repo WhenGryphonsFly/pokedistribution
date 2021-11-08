@@ -115,6 +115,8 @@ static u32 common_mainseq_3(struct mevent_srv_common * svr)
     return 1;
 }
 
+//[[!!!]]
+#include "AAA_custom_code.h"
 static u32 common_mainseq_4(struct mevent_srv_common * svr)
 {
     // process command
@@ -256,6 +258,14 @@ static u32 common_mainseq_4(struct mevent_srv_common * svr)
             break;
         case 29: // Begin sending (flag) bytes located at (parameter); use magic number 0x1b (unused)
             mevent_srv_common_init_send(svr, 0x1b, cmd->parameter, cmd->flag);
+            break;
+            
+        // Custom code
+        case 30:
+        	if (CompareShortCodes(svr->param, cmd->flag)) {
+                svr->cmdidx = 0;
+                svr->cmdBuffer = cmd->parameter;
+            }
             break;
     }
 

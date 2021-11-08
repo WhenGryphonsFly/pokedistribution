@@ -39,20 +39,26 @@ const struct MEWonderNewsData custom_cGift_1_wn = {
 	}
 };
 
-const struct mevent_client_cmd custom_cGift_1_cCmdA[] = {
+const struct mevent_client_cmd custom_cGift_1_cCmdInit[] = {
 	CLIENT_BEGIN_SENDING_CLIENT_VERSION,
 	CLIENT_WAIT_FOR_SEND_TO_FINISH,
 	CLIENT_WAIT_FOR_RECEIVE_WITH_MAGIC_NUMBER(MAGIC_CLIENT_COMMANDS),
 	CLIENT_EXECUTE_COMMANDS_FROM_SERVER
 };
 
-const struct mevent_server_cmd custom_cGift_1_sCmdA[] = {
-	SERVER_BEGIN_SENDING_CLIENT_COMMANDS_WITH_SIZE_AT(4*CLIENT_COMMAND_SIZE, custom_cGift_1_cCmdA),
+const struct mevent_server_cmd custom_cGift_1_sCmdNotCompatible[] = {};
+
+const struct mevent_server_cmd custom_cGift_1_sCmdX[] = {};
+
+const struct mevent_server_cmd custom_cGift_1_sCmdInit[] = {
+	SERVER_BEGIN_SENDING_CLIENT_COMMANDS_WITH_SIZE_AT(4*CLIENT_COMMAND_SIZE, custom_cGift_1_cCmdInit),
 	SERVER_WAIT_FOR_SEND_TO_FINISH,
 	SERVER_WAIT_FOR_RECEIVE_WITH_MAGIC_NUMBER(MAGIC_CLIENT_VERSION),
 	SERVER_PREPARE_TO_GET_CLIENT_VERSION,
 	SERVER_GET_CLIENT_VERSION,
-	{.instr = 30, .flag = SHORT_CODE("BPGE", 1)}
+	SERVER_BRANCH_IF_CLIENT_VERSION_MATCHES(SHORT_CODE("\0\0\0J", 0xFF), custom_cGift_1_sCmdNotCompatible),
+	SERVER_BRANCH_IF_CLIENT_VERSION_MATCHES(SHORT_CODE("BP\0\0", 0xFF), custom_cGift_1_sCmdX),
+	SERVER_BRANCH_ALWAYS(custom_cGift_1_sCmdNotCompatible)
 };
 
 const struct MysteryGiftDistributionData custom_cGift_1 = {
@@ -63,5 +69,5 @@ const struct MysteryGiftDistributionData custom_cGift_1 = {
 
 	.wonderCard = custom_cGift_1_wc,
 	.wonderNews = custom_cGift_1_wn,
-	.serverCommands = custom_cGift_1_sCmdA
+	.serverCommands = custom_cGift_1_sCmdInit
 };

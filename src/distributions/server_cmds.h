@@ -39,44 +39,45 @@
 #define SERVER_RETURN(x)                                           {.instr =  0, .flag = x}
 #define SERVER_WAIT_FOR_SEND_TO_FINISH                             {.instr =  1}
 #define SERVER_WAIT_FOR_RECEIVE_WITH_MAGIC_NUMBER(x)               {.instr =  2, .flag = x}
-#define SERVER_BRANCH_ALWAYS(y)                                    {.instr =  3, .parameter = y}
-#define SERVER_BRANCH_IF_RESULT_WAS(x, y)                          {.instr =  4, .flag = x, .parameter = y}
+#define SERVER_BRANCH_ALWAYS(y)                                    {.instr =  3, .parameter = (void*)y}
+#define SERVER_BRANCH_IF_RESULT_WAS(x, y)                          {.instr =  4, .flag = x, .parameter = (void*)y}
 #define SERVER_PREPARE_TO_GET_CLIENT_VERSION                       {.instr =  5}
 #define SERVER_GET_CLIENT_VERSION                                  {.instr =  6}
 #define SERVER_CHECK_IF_CLIENT_HAS_BUFFERED_CARD                   {.instr =  7, .parameter = 0}
-#define SERVER_CHECK_IF_CLIENT_HAS_CARD_AT(y)                      {.instr =  7, .parameter = y}
+#define SERVER_CHECK_IF_CLIENT_HAS_CARD_AT(y)                      {.instr =  7, .parameter = (void*)y}
 #define SERVER_READ_WORD_FROM_CLIENT                               {.instr =  8}
 #define SERVER_CAN_CLIENT_ACCEPT_STICKER_FROM_BUFFERED_WORD        {.instr =  9, .parameter = 0}
-#define SERVER_CAN_CLIENT_ACCEPT_STICKER_AT(y)                     {.instr =  9, .parameter = y}
+#define SERVER_CAN_CLIENT_ACCEPT_STICKER_AT(y)                     {.instr =  9, .parameter = (void*)y}
 #define SERVER_GET_CLIENT_LINK_WINS                                {.instr = 10, .flag = 0}
 #define SERVER_GET_CLIENT_LINK_LOSSES                              {.instr = 10, .flag = 1}
 #define SERVER_GET_CLIENT_LINK_TRADES                              {.instr = 10, .flag = 2}
 #define SERVER_GET_CLIENT_STICKERS_ACCEPTED                        {.instr = 10, .flag = 3}
 #define SERVER_GET_CLIENT_STICKERS_MAX                             {.instr = 10, .flag = 4}
-#define SERVER_CHECK_CLIENT_EASY_CHAT_PROFILE_AGAINST(y)           {.instr = 11, .parameter = y}
-//#define SERVER_CASE_12 // Useless; compares locations of pointers rather than values
+#define SERVER_CHECK_CLIENT_EASY_CHAT_PROFILE_AGAINST(y)           {.instr = 11, .parameter = (void*)y}
 #define SERVER_BEGIN_SENDING_BUFFERED_CARD                         {.instr = 13, .parameter = 0}
-#define SERVER_BEGIN_SENDING_CARD_AT(y)                            {.instr = 13, .parameter = y}
+#define SERVER_BEGIN_SENDING_CARD_AT(y)                            {.instr = 13, .parameter = (void*)y}
 #define SERVER_BEGIN_SENDING_BUFFERED_NEWS                         {.instr = 14, .parameter = 0}
-#define SERVER_BEGIN_SENDING_NEWS_AT(y)                            {.instr = 14, .parameter = y}
+#define SERVER_BEGIN_SENDING_NEWS_AT(y)                            {.instr = 14, .parameter = (void*)y}
 #define SERVER_BEGIN_SENDING_BUFFERED_RAM_SCRIPT_WITH_SIZE(x)      {.instr = 15, .flag = x, .parameter = 0}
-#define SERVER_BEGIN_SENDING_RAM_SCRIPT_WITH_SIZE_AT(x, y)         {.instr = 15, .flag = x, .parameter = y}
+#define SERVER_BEGIN_SENDING_RAM_SCRIPT_WITH_SIZE_AT(x, y)         {.instr = 15, .flag = x, .parameter = (void*)y}
 #define SERVER_BEGIN_SENDING_BUFFERED_WORD                         {.instr = 16, .parameter = 0}
-#define SERVER_BEGIN_SENDING_WORD_AT(y)                            {.instr = 16, .parameter = y}
-#define SERVER_BEGIN_SENDING_DATA_WITH_MAGIC_1C_WITH_SIZE_AT(x, y) {.instr = 17, .flag = x, .parameter = y}
+#define SERVER_BEGIN_SENDING_WORD_AT(y)                            {.instr = 16, .parameter = (void*)y}
+#define SERVER_BEGIN_SENDING_DATA_WITH_MAGIC_1C_WITH_SIZE_AT(x, y) {.instr = 17, .flag = x, .parameter = (void*)y}
 #define SERVER_BEGIN_SENDING_BUFFERED_CLIENT_COMMANDS_WITH_SIZE(x) {.instr = 18, .flag = x, .parameter = 0}
-#define SERVER_BEGIN_SENDING_CLIENT_COMMANDS_WITH_SIZE_AT(x, y)    {.instr = 18, .flag = x, .parameter = y}
-#define SERVER_BEGIN_SENDING_CUSTOM_TRAINER_AT(y)                  {.instr = 19, .parameter = y}
+#define SERVER_BEGIN_SENDING_CLIENT_COMMANDS_WITH_SIZE_AT(x, y)    {.instr = 18, .flag = x, .parameter = (void*)y}
+#define SERVER_BEGIN_SENDING_CUSTOM_TRAINER_AT(y)                  {.instr = 19, .parameter = (void*)y}
 #define SERVER_CASE_20 // [[!!!]]
-#define SERVER_COPY_TO_BUFFER_WORD_AT(y)                           {.instr = 21, .parameter = y}
-#define SERVER_COPY_TO_BUFFER_CARD_AT(y)                           {.instr = 22, .parameter = y}
-#define SERVER_COPY_TO_BUFFER_NEWS_AT(y)                           {.instr = 23, .parameter = y}
-#define SERVER_COPY_TO_BUFFER_RAM_SCRIPT_WITH_SIZE_AT(x, y)        {.instr = 24, .flag = x, .parameter = y}
-#define SERVER_COPY_TO_BUFFER_CLIENT_COMMANDS_WITH_SIZE_AT(x, y)   {.instr = 25, .flag = x, .parameter = y}
+#define SERVER_COPY_TO_BUFFER_WORD_AT(y)                           {.instr = 21, .parameter = (void*)y}
+#define SERVER_COPY_TO_BUFFER_CARD_AT(y)                           {.instr = 22, .parameter = (void*)y}
+#define SERVER_COPY_TO_BUFFER_NEWS_AT(y)                           {.instr = 23, .parameter = (void*)y}
+#define SERVER_COPY_TO_BUFFER_RAM_SCRIPT_WITH_SIZE_AT(x, y)        {.instr = 24, .flag = x, .parameter = (void*)y}
+#define SERVER_COPY_TO_BUFFER_CLIENT_COMMANDS_WITH_SIZE_AT(x, y)   {.instr = 25, .flag = x, .parameter = (void*)y}
+#define SERVER_BEGIN_SENDING_DATA_WITH_MAGIC_1B_WITH_SIZE_AT(x, y) {.instr = 29, .flag = x, .parameter = (void*)y}
+//#define SERVER_CASE_12 // Useless; compares locations of pointers rather than values
 //#define SERVER_CASE_26 // Removed; copies the Wonder Card from the save file to the buffer, but save/load functionality has been removed
 //#define SERVER_CASE_27 // Removed; copies the Wonder News from the save file to the buffer, but save/load functionality has been removed
 //#define SERVER_CASE_28 // Removed; copies the RAM Script from the save file to the buffer, but save/load functionality has been removed
-#define SERVER_BEGIN_SENDING_DATA_WITH_MAGIC_1B_WITH_SIZE_AT(x, y) {.instr = 29, .flag = x, .parameter = y}
+#define SERVER_BRANCH_IF_CLIENT_VERSION_MATCHES(x, y)              {.instr = 30, .flag = x, .parameter = (void*)y}
 
 
 
