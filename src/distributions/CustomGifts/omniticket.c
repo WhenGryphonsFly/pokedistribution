@@ -39,29 +39,14 @@ const struct MEWonderNewsData custom_cGift_1_wn = {
 	}
 };
 
-const struct mevent_client_cmd custom_cGift_1_cCmdInit[] = {
-	
-};
-
-const struct mevent_client_cmd custom_cGift_1_cCmdNotCompatible[] = {
-	
-};
-
-const struct mevent_server_cmd custom_cGift_1_sCmdNotCompatible[] = {
-	SERVER_BEGIN_SENDING_CLIENT_COMMANDS_WITH_SIZE_AT(2*CLIENT_COMMAND_SIZE, custom_cGift_1_cCmdNotCompatible),
-	SERVER_WAIT_FOR_SEND_TO_FINISH,
-	SERVER_WAIT_FOR_RECEIVE_WITH_MAGIC_NUMBER(0x14), // [[!!!]]
-	SERVER_RETURN(RETURN_INCOMPATIBLE)
-};
-
 const struct mevent_server_cmd custom_cGift_1_sCmdX[] = {
 	SERVER_CHECK_IF_CLIENT_HAS_CARD_AT(&custom_cGift_1_wc),
 };
 
 const struct mevent_server_cmd custom_cGift_1_CompatibilityCheck[] = {
-	SERVER_BRANCH_IF_CLIENT_VERSION_MATCHES(SHORT_CODE("\0\0\0J", 0xFF), custom_cGift_1_sCmdNotCompatible),
+	SERVER_BRANCH_IF_CLIENT_VERSION_MATCHES(SHORT_CODE("\0\0\0J", 0xFF), custom_sharedClientScript_Incompatible),
 	SERVER_BRANCH_IF_CLIENT_VERSION_MATCHES(SHORT_CODE("BP\0\0", 0xFF), custom_cGift_1_sCmdX),
-	SERVER_BRANCH_ALWAYS(custom_cGift_1_sCmdNotCompatible)
+	SERVER_BRANCH_ALWAYS(custom_sharedClientScript_Incompatible)
 };
 
 const struct mevent_server_cmd custom_cGift_1_sCmdInit[] = {

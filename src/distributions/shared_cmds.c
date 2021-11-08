@@ -20,3 +20,10 @@ const struct mevent_server_cmd custom_sharedServerScript_GetVersion[] = {
 	SERVER_GET_CLIENT_VERSION,
 	SERVER_BRANCH_TO_CALLBACK
 };
+
+const struct mevent_server_cmd custom_sharedServerScript_Incompatible[] = {
+	SERVER_BEGIN_SENDING_CLIENT_COMMANDS_WITH_SIZE_AT(2*CLIENT_COMMAND_SIZE, custom_sharedClientScript_Incompatible),
+	SERVER_WAIT_FOR_SEND_TO_FINISH,
+	SERVER_WAIT_FOR_RECEIVE_WITH_MAGIC_NUMBER(MAGIC_CLIENT_SENT_BUFFER),
+	SERVER_RETURN(RETURN_INCOMPATIBLE)
+};
