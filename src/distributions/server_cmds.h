@@ -51,8 +51,8 @@
 #define SERVER_GET_CLIENT_LINK_WINS                                {.instr = 10, .flag = 0}
 #define SERVER_GET_CLIENT_LINK_LOSSES                              {.instr = 10, .flag = 1}
 #define SERVER_GET_CLIENT_LINK_TRADES                              {.instr = 10, .flag = 2}
-#define SERVER_GET_CLIENT_STAMPS_ACCEPTED                        {.instr = 10, .flag = 3}
-#define SERVER_GET_CLIENT_STAMPS_MAX                             {.instr = 10, .flag = 4}
+#define SERVER_GET_CLIENT_STAMPS_ACCEPTED                          {.instr = 10, .flag = 3}
+#define SERVER_GET_CLIENT_STAMPS_MAX                               {.instr = 10, .flag = 4}
 #define SERVER_CHECK_CLIENT_EASY_CHAT_PROFILE_AGAINST(y)           {.instr = 11, .parameter = (void*)y}
 #define SERVER_BEGIN_SENDING_BUFFERED_CARD                         {.instr = 13, .parameter = 0}
 #define SERVER_BEGIN_SENDING_CARD_AT(y)                            {.instr = 13, .parameter = (void*)y}
@@ -154,6 +154,14 @@
 #define MAGIC_RAM_SCRIPT       0x19
 #define MAGIC_CUSTOM_TRAINER   0x1a
 
+
+/*
+	Results expected by mevent_message, apparently from CLIENT_RETURN, matched server side by SERVER_RETURN
+	 0  Nothing sent over
+	[[...]]
+	10  Incompatible Card/News
+*/
+#define RETURN_INCOMPATIBLE 10
 
 
 #define CLIENT_COMMAND_SIZE 0x8

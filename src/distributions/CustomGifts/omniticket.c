@@ -48,17 +48,19 @@ const struct mevent_client_cmd custom_cGift_1_cCmdInit[] = {
 
 const struct mevent_client_cmd custom_cGift_1_cCmdNotCompatible[] = {
 	CLIENT_BEGIN_SENDING_ENTIRE_BUFFER_AND_WAIT, // [[!!!]]
-	CLIENT_RETURN(0x0a) // [[!!!]]
+	CLIENT_RETURN(RETURN_INCOMPATIBLE)
 };
 
 const struct mevent_server_cmd custom_cGift_1_sCmdNotCompatible[] = {
 	SERVER_BEGIN_SENDING_CLIENT_COMMANDS_WITH_SIZE_AT(2*CLIENT_COMMAND_SIZE, custom_cGift_1_cCmdNotCompatible),
 	SERVER_WAIT_FOR_SEND_TO_FINISH,
 	SERVER_WAIT_FOR_RECEIVE_WITH_MAGIC_NUMBER(0x14), // [[!!!]]
-	SERVER_RETURN(0x0a) // [[!!!]]
+	SERVER_RETURN(RETURN_INCOMPATIBLE)
 };
 
-const struct mevent_server_cmd custom_cGift_1_sCmdX[] = {};
+const struct mevent_server_cmd custom_cGift_1_sCmdX[] = {
+	SERVER_CHECK_IF_CLIENT_HAS_CARD_AT(custom_cGift_1_wc),
+};
 
 const struct mevent_server_cmd custom_cGift_1_sCmdInit[] = {
 	SERVER_BEGIN_SENDING_CLIENT_COMMANDS_WITH_SIZE_AT(4*CLIENT_COMMAND_SIZE, custom_cGift_1_cCmdInit),
