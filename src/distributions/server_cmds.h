@@ -18,20 +18,20 @@
 		2, if the client has a card with a different ID as the server's card
 	SERVER_READ_WORD_FROM_CLIENT
 		The first 32 bits from the receive buffer
-	SERVER_CAN_CLIENT_ACCEPT_STICKER_FROM_BUFFERED_WORD
-	SERVER_CAN_CLIENT_ACCEPT_STICKER_AT(y)
-		1, if the client has no spaces left on their Wonder Card for stickers
-		2, if the client has one space left and can receive the sticker
-		3, if the client has at least one space left but already has a sticker with the same icon and ID
-		4, if the client has more than one space left and can receive the sticker
+	SERVER_CAN_CLIENT_ACCEPT_STAMP_FROM_BUFFERED_WORD
+	SERVER_CAN_CLIENT_ACCEPT_STAMP_AT(y)
+		1, if the client has no spaces left on their Wonder Card for stamps
+		2, if the client has one space left and can receive the stamp
+		3, if the client has at least one space left but already has a stamp with the same icon and ID
+		4, if the client has more than one space left and can receive the stamp
 	SERVER_GET_CLIENT_LINK_WINS
 	SERVER_GET_CLIENT_LINK_LOSSES
 	SERVER_GET_CLIENT_LINK_TRADES
 		The number of link wins/losses/trades the client has
-	SERVER_GET_CLIENT_STICKERS_ACCEPTED
-		The number of stickers currently on the client's Wonder Card
-	SERVER_GET_CLIENT_STICKERS_MAX
-		The maximum number of stickers the client's Wonder Card supports
+	SERVER_GET_CLIENT_STAMPS_ACCEPTED
+		The number of stamps currently on the client's Wonder Card
+	SERVER_GET_CLIENT_STAMPS_MAX
+		The maximum number of stamps the client's Wonder Card supports
 	SERVER_CHECK_CLIENT_EASY_CHAT_PROFILE_AGAINST(y)
 		0, if the client's easy chat profile does not match the profile at y
 		1, if the client's easy chat profile does match the profile at y 
@@ -46,13 +46,13 @@
 #define SERVER_CHECK_IF_CLIENT_HAS_BUFFERED_CARD                   {.instr =  7, .parameter = 0}
 #define SERVER_CHECK_IF_CLIENT_HAS_CARD_AT(y)                      {.instr =  7, .parameter = (void*)y}
 #define SERVER_READ_WORD_FROM_CLIENT                               {.instr =  8}
-#define SERVER_CAN_CLIENT_ACCEPT_STICKER_FROM_BUFFERED_WORD        {.instr =  9, .parameter = 0}
-#define SERVER_CAN_CLIENT_ACCEPT_STICKER_AT(y)                     {.instr =  9, .parameter = (void*)y}
+#define SERVER_CAN_CLIENT_ACCEPT_STAMP_FROM_BUFFERED_WORD          {.instr =  9, .parameter = 0}
+#define SERVER_CAN_CLIENT_ACCEPT_STAMP_AT(y)                       {.instr =  9, .parameter = (void*)y}
 #define SERVER_GET_CLIENT_LINK_WINS                                {.instr = 10, .flag = 0}
 #define SERVER_GET_CLIENT_LINK_LOSSES                              {.instr = 10, .flag = 1}
 #define SERVER_GET_CLIENT_LINK_TRADES                              {.instr = 10, .flag = 2}
-#define SERVER_GET_CLIENT_STICKERS_ACCEPTED                        {.instr = 10, .flag = 3}
-#define SERVER_GET_CLIENT_STICKERS_MAX                             {.instr = 10, .flag = 4}
+#define SERVER_GET_CLIENT_STAMPS_ACCEPTED                        {.instr = 10, .flag = 3}
+#define SERVER_GET_CLIENT_STAMPS_MAX                             {.instr = 10, .flag = 4}
 #define SERVER_CHECK_CLIENT_EASY_CHAT_PROFILE_AGAINST(y)           {.instr = 11, .parameter = (void*)y}
 #define SERVER_BEGIN_SENDING_BUFFERED_CARD                         {.instr = 13, .parameter = 0}
 #define SERVER_BEGIN_SENDING_CARD_AT(y)                            {.instr = 13, .parameter = (void*)y}
@@ -118,7 +118,7 @@
 #define CLIENT_PROMPT_PLAYER_TO_ACCEPT_CARD                 {.instr = 13}
 #define CLIENT_BEGIN_SENDING_RESULT                         {.instr = 14}
 #define CLIENT_ACCEPT_MYSTERY_EVENT                         {.instr = 15} // [[MAGIC_1C?]]
-#define CLIENT_ACCEPT_STICKER_TO_CARD                       {.instr = 16}
+#define CLIENT_ACCEPT_STAMP_TO_CARD                         {.instr = 16}
 #define CLIENT_ACCEPT_RAM_SCRIPT                            {.instr = 17}
 #define CLIENT_ACCEPT_CUSTOM_TRAINER                        {.instr = 18}
 #define CLIENT_BEGIN_SENDING_GAME_STAT_AND_WAIT(x)          {.instr = 19, .parameter = x}

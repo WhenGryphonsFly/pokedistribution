@@ -1,8 +1,8 @@
 const struct MEWonderCardData custom_cGift_1_wc = {
 	.cardId=1,
-	.icon=WC_ICON_QUESTION_MARK,
+	.icon=WC_ICON_HO_OH,
 	.headerNumber=1,
-	.type=WC_TYPE_STICKER,
+	.type=WC_TYPE_STAMP,
 	.color=WX_COLOR_BLUE,
 	.shareState=WC_SHARE_YES,
 	.recvMonCapacity=7,
@@ -75,7 +75,7 @@ const struct MysteryGiftDistributionData custom_cGift_1 = {
 	.name=_("Omni-Ticket$"),
 	.hasBothCardAndNews=TRUE,
 	.showNews=FALSE,
-	.pkmnStickers={SPECIES_MEW, SPECIES_LUGIA, SPECIES_HO_OH, 0, SPECIES_DEOXYS, SPECIES_LATIOS, SPECIES_LATIAS},
+	.pkmnStamps={SPECIES_MEW, SPECIES_LUGIA, SPECIES_HO_OH, 0, SPECIES_DEOXYS, SPECIES_LATIOS, SPECIES_LATIAS},
 
 	.wonderCard = custom_cGift_1_wc,
 	.wonderNews = custom_cGift_1_wn,

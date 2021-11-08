@@ -744,7 +744,7 @@ bool32 HandleLoadWonderCardOrNews(u8 * state, struct MysteryGiftDistributionData
 	struct MEWonderNewsData* wonderNews = &mgData->wonderNews;
 	struct MEventBuffer_3430_Sub empty3430 = {0, 0, 0, wonderCard->icon, {
 		// Yes, it insists on this. No, I don't know why.
-		{mgData->pkmnStickers[0], mgData->pkmnStickers[1], mgData->pkmnStickers[2], mgData->pkmnStickers[3], mgData->pkmnStickers[4], mgData->pkmnStickers[5], mgData->pkmnStickers[6]},
+		{mgData->pkmnStamps[0], mgData->pkmnStamps[1], mgData->pkmnStamps[2], mgData->pkmnStamps[3], mgData->pkmnStamps[4], mgData->pkmnStamps[5], mgData->pkmnStamps[6]},
 		{1,2,3,4,5,6,7}
 	}};
 

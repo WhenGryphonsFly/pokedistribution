@@ -5,7 +5,7 @@ struct MysteryGiftDistributionData {
 	u8 name[40];
 	u8 hasBothCardAndNews:1;
 	u8 showNews:1;
-	u16 pkmnStickers[7];
+	u16 pkmnStamps[7];
 	
 	struct MEWonderCardData wonderCard;
 	struct MEWonderNewsData wonderNews;
