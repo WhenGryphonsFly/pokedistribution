@@ -16,7 +16,7 @@ const struct MEWonderCardData custom_cGift_1_wc = {
 		_("Look out for additional surprises…$")
 	},
 	.footerA=_("Do not toss before receiving gift!!$"),
-	.footerB=_("Press {KEYGFX}  for a cookie.$")
+	.footerB=_("Press {A_BUTTON} for a cookie.$")
 };
 
 const struct MEWonderNewsData custom_cGift_1_wn = {
@@ -34,7 +34,7 @@ const struct MEWonderNewsData custom_cGift_1_wn = {
 		_("of pret. I look forward to working on$"),
 		_("this project for years to come.$"),
 		_("$"),
-		_("- WhenGryphonsFly$"),
+		_("- WhenGryphonsFly{PLAY_BGM}{MUS_SLOW_PALLET}$"),
 		_("P.S. Shoutouts to SimpleFlips$")
 	}
 };
@@ -57,7 +57,7 @@ const struct mevent_server_cmd custom_cGift_1_sCmdInit[] = {
 const struct MysteryGiftDistributionData custom_cGift_1 = {
 	.name=_("Omni-Ticket$"),
 	.hasBothCardAndNews=TRUE,
-	.showNews=FALSE,
+	.showNews=TRUE,
 	.pkmnStamps={SPECIES_MEW, SPECIES_LUGIA, SPECIES_HO_OH, 0, SPECIES_DEOXYS, SPECIES_LATIOS, SPECIES_LATIAS},
 
 	.wonderCard = custom_cGift_1_wc,
