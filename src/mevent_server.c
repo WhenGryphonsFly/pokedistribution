@@ -216,7 +216,7 @@ static u32 common_mainseq_4(struct mevent_srv_common * svr)
             AGB_ASSERT_EX(cmd->flag == FALSE, ABSPATH("mevent_server.c"), 466);
             mevent_srv_common_init_send(svr, 0x1a, cmd->parameter, 188);
             break;
-        case 20: // Begin sending (flag) bytes located at (parameter); use magic number 0x15 (client expects size 0x40 buffer; said buffer is apparently never read from, and the script that uses this number is unused; could also be used to display length 0x40 messages via client cases 5 and 11)
+        case 20: // Begin sending (flag) bytes located at (parameter); use magic number 0x15 (client expects size 0x40 buffer; used for strings)
             mevent_srv_common_init_send(svr, 0x15, cmd->parameter, cmd->flag);
             break;
         case 17: // Begin sending (flag) bytes located at (parameter); use magic number 0x1c (unused)

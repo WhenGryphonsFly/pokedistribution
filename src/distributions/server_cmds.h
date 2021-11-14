@@ -66,7 +66,7 @@
 #define SERVER_BEGIN_SENDING_BUFFERED_CLIENT_COMMANDS_WITH_SIZE(x) {.instr = 18, .flag = x, .parameter = 0}
 #define SERVER_BEGIN_SENDING_CLIENT_COMMANDS_WITH_SIZE_AT(x, y)    {.instr = 18, .flag = x, .parameter = (void*) y}
 #define SERVER_BEGIN_SENDING_CUSTOM_TRAINER_AT(y)                  {.instr = 19, .parameter = (void*) y}
-#define SERVER_CASE_20 // [[!!!]]
+#define SERVER_BEGIN_SENDING_MESSAGE_WITH_SIZE_AT(x, y)            {.instr = 20, .flag = x, .parameter = (void*) y}
 #define SERVER_COPY_TO_BUFFER_WORD_AT(y)                           {.instr = 21, .parameter = (void*) y}
 #define SERVER_COPY_TO_BUFFER_CARD_AT(y)                           {.instr = 22, .parameter = (void*) y}
 #define SERVER_COPY_TO_BUFFER_NEWS_AT(y)                           {.instr = 23, .parameter = (void*) y}
@@ -89,15 +89,11 @@
 	CLIENT_RETURN(x)
 		x
 	CLIENT_DISPLAY_MESSAGE_FROM_SERVER_AND_GET_YES_NO
-		0, if [[???]]
-		1, if ???
-		?, if the player selects "Yes"
-		?, if the player selects "No"
+		0, if the player selects "Yes"
+		1, if the player selects "No"
 	CLIENT_PROMPT_PLAYER_TO_ACCEPT_CARD
-		0, if ???
-		1, if ???
-		?, if the player selects "Yes"
-		?, if the player selects "No"
+		0, if the player selects "Yes"
+		1, if the player selects "No"
 	CLIENT_ACCEPT_MYSTERY_EVENT
 		The contents of data[2] of the Mystery Event upon completion
 		data[2] is set by SetMysteryEventScriptStatus in RAM Scripts, among other sources
@@ -132,12 +128,12 @@
 /*
     Magic numbers used by server and client commands
 	
-	0x10  Client Commands  SERVER_BEGIN_SENDING_BUFFERED_CLIENT_COMMANDS_WITH_SIZE(x)/CLIENT_COMMANDS_WITH_SIZE_AT(x, y)
+	0x10  Client Commands    SERVER_BEGIN_SENDING_BUFFERED_CLIENT_COMMANDS_WITH_SIZE(x)/CLIENT_COMMANDS_WITH_SIZE_AT(x, y)
 	0x11  Client Version     CLIENT_BEGIN_SENDING_CLIENT_VERSION
 	0x12  Game Stat          CLIENT_BEGIN_SENDING_GAME_STAT_AND_WAIT(x)
 	0x13  32-bit Word        CLIENT_ACCEPT_NEWS_IF_DIFFERENT_AND_BEGIN_SEND, CLIENT_BEGIN_SENDING_RESULT
 	0x14  Buffer / Final Tx  CLIENT_BEGIN_SENDING_ENTIRE_BUFFER_AND_WAIT
-	0x15  [[???]]            SERVER_CASE_20
+	0x15  Buffer / String    SERVER_BEGIN_SENDING_MESSAGE_WITH_SIZE_AT(x, y)
 	0x16  Wonder Card        SERVER_BEGIN_SENDING_BUFFERED_CARD/CARD_AT(y)
 	0x17  Wonder News        SERVER_BEGIN_SENDING_BUFFERED_NEWS/NEWS_AT(y)
 	0x18  32-bit Word        SERVER_BEGIN_SENDING_BUFFERED_WORD/WORD_AT(y)
@@ -151,6 +147,7 @@
 #define MAGIC_GAME_STAT          0x12
 #define MAGIC_CLIENT_SENT_WORD   0x13
 #define MAGIC_CLIENT_SENT_BUFFER 0x14
+#define MAGIC_SERVER_SENT_STRING 0x15
 #define MAGIC_WONDER_CARD        0x16
 #define MAGIC_WONDER_NEWS        0x17
 #define MAGIC_SERVER_SENT_WORD   0x18
@@ -164,7 +161,9 @@
 	[[...]]
 	10  Incompatible Card/News
 */
-#define RETURN_INCOMPATIBLE 10
+#define RETURN_SAME_CARD               5
+#define RETURN_COMMUNICATION_CANCELED  9
+#define RETURN_INCOMPATIBLE           10
 
 
 #define CLIENT_COMMAND_SIZE 0x8

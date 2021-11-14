@@ -39,14 +39,16 @@ const struct MEWonderNewsData custom_cGift_1_wn = {
 	}
 };
 
-const struct mevent_server_cmd custom_cGift_1_sCmdX[] = {
-	SERVER_CHECK_IF_CLIENT_HAS_CARD_AT(&custom_cGift_1_wc),
+const struct mevent_server_cmd custom_cGift_1_EmeraldCheck[] = {
+
 };
 
 const struct mevent_server_cmd custom_cGift_1_CompatibilityCheck[] = {
-	SERVER_BRANCH_IF_CLIENT_VERSION_MATCHES(SHORT_CODE("\0\0\0J", 0xFF), custom_sharedClientScript_Incompatible),
-	SERVER_BRANCH_IF_CLIENT_VERSION_MATCHES(SHORT_CODE("BP\0\0", 0xFF), custom_cGift_1_sCmdX),
-	SERVER_BRANCH_ALWAYS(custom_sharedClientScript_Incompatible)
+	SERVER_BRANCH_IF_CLIENT_VERSION_MATCHES(SHORT_CODE("\0\0\0J", 0xFF), custom_sharedServerScript_Incompatible),
+	SERVER_COPY_TO_BUFFER_CALLBACK(custom_cGift_1_EmeraldCheck),
+	SERVER_COPY_TO_BUFFER_CARD_AT(&custom_cGift_1_wc),
+	SERVER_BRANCH_IF_CLIENT_VERSION_MATCHES(SHORT_CODE("BP\0\0", 0xFF), custom_sharedServerScript_ReplaceCardPrompt),
+	SERVER_BRANCH_ALWAYS(custom_sharedServerScript_Incompatible)
 };
 
 const struct mevent_server_cmd custom_cGift_1_sCmdInit[] = {
